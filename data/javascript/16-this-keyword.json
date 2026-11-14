@@ -1,0 +1,638 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "this Keyword",
+    "order": 16,
+    "sourceSections": [
+      "Method Calls",
+      "Regular Function Calls",
+      "Arrow Functions",
+      "call/apply/bind",
+      "Constructor Calls"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-this-keyword-t001",
+      "term": "this",
+      "level": "beginner",
+      "definitionEn": "A keyword whose value depends on how a regular function is invoked.",
+      "example": "const obj = { read() { return this.value; } };",
+      "caseSensitive": true,
+      "aliases": [
+        "this value"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t002",
+      "term": "method call",
+      "level": "beginner",
+      "definitionEn": "An invocation through a property's function value, using the base as its receiver.",
+      "example": "object.read();",
+      "caseSensitive": false,
+      "aliases": [
+        "receiver call"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t003",
+      "term": "receiver",
+      "level": "intermediate",
+      "definitionEn": "The value on which a method is invoked and which supplies its this value.",
+      "example": "account.deposit();",
+      "caseSensitive": false,
+      "aliases": [
+        "calling object"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t004",
+      "term": "call",
+      "display": "call()",
+      "level": "intermediate",
+      "definitionEn": "A function method that invokes the function with a chosen this value and separate arguments.",
+      "example": "show.call(user, 'hi');",
+      "caseSensitive": true,
+      "aliases": [
+        "Function.prototype.call"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t005",
+      "term": "apply",
+      "display": "apply()",
+      "level": "intermediate",
+      "definitionEn": "A function method that invokes the function with a chosen this value and an argument array.",
+      "example": "sum.apply(null, [2, 3]);",
+      "caseSensitive": true,
+      "aliases": [
+        "Function.prototype.apply"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t006",
+      "term": "bind",
+      "display": "bind()",
+      "level": "intermediate",
+      "definitionEn": "A function method that creates a new function with a fixed this value and optional leading arguments.",
+      "example": "const read = method.bind(object);",
+      "caseSensitive": true,
+      "aliases": [
+        "Function.prototype.bind"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t007",
+      "term": "arrow function",
+      "level": "beginner",
+      "definitionEn": "A function form that uses this from the surrounding lexical scope.",
+      "example": "const read = () => this.value;",
+      "caseSensitive": false,
+      "aliases": [
+        "arrow"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t008",
+      "term": "constructor call",
+      "level": "intermediate",
+      "definitionEn": "An invocation using new that creates an instance and binds this to it during construction.",
+      "example": "new Point(2, 3);",
+      "caseSensitive": false,
+      "aliases": [
+        "new call"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t009",
+      "term": "strict mode",
+      "level": "advanced",
+      "definitionEn": "A JavaScript mode with stricter rules, including a different this value for plain function calls.",
+      "example": "'use strict';",
+      "caseSensitive": false,
+      "aliases": [
+        "strict"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t010",
+      "term": "method shorthand",
+      "level": "beginner",
+      "definitionEn": "An object-literal syntax for defining a function property without the function keyword.",
+      "example": "const obj = { read() { return 1; } };",
+      "caseSensitive": false,
+      "aliases": [
+        "concise method"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t011",
+      "term": "dynamic binding",
+      "level": "advanced",
+      "definitionEn": "A rule where a function's this value is determined by its invocation form.",
+      "example": "first.read();\nsecond.read();",
+      "caseSensitive": false,
+      "aliases": [
+        "call-site binding"
+      ]
+    },
+    {
+      "id": "js-this-keyword-t012",
+      "term": "lexical binding",
+      "level": "advanced",
+      "definitionEn": "A value relationship determined by the surrounding source-code location.",
+      "example": "const callback = () => this.value;",
+      "caseSensitive": false,
+      "aliases": [
+        "lexical capture"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-this-keyword-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Method Calls",
+      "code": "const lamp = { on: true, read() { return this.on; } };",
+      "question": "In lamp.read(), what does this refer to?",
+      "options": [
+        "lamp, the method-call receiver",
+        "The read function itself",
+        "The global object in every mode",
+        "The boolean true"
+      ],
+      "correctOption": 0,
+      "explanation": "A regular function called as a method receives the base object as this."
+    },
+    {
+      "id": "js-this-keyword-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Method Calls",
+      "code": "const user = { name: 'Ivy', say() { return this.name; } };\nconsole.log(user.say());",
+      "options": [
+        "Ivy",
+        "say",
+        "undefined",
+        "user"
+      ],
+      "correctOption": 0,
+      "explanation": "The method call binds this to user.",
+      "expectedOutput": "Ivy"
+    },
+    {
+      "id": "js-this-keyword-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Constructor Calls",
+      "code": "function Point(x) { this.x = x; }\nconst point = new Point(5);\nconsole.log(point.x);",
+      "explanation": "new creates an instance and binds this to that new value.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-this-keyword-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Method Calls",
+      "prompt": "Fill the keyword used to read the current receiver's name property.",
+      "code": "const person = { name: 'Lee', getName() { return ____.name; } };\nconsole.log(person.getName());",
+      "blanks": [
+        [
+          "this"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Inside a method call, this refers to the receiver object.",
+      "expectedOutput": "Lee"
+    },
+    {
+      "id": "js-this-keyword-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Method Calls",
+      "code": "const box = { value: 3, read() { return this.value; } };\nconsole.log(box.read());",
+      "options": [
+        "3",
+        "undefined",
+        "read",
+        "box"
+      ],
+      "correctOption": 0,
+      "explanation": "The method reads value from the receiver object.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-this-keyword-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "code": "const read = () => this.value;",
+      "question": "How does an arrow function determine this?",
+      "options": [
+        "It uses the surrounding lexical this value",
+        "It always uses the object to its left",
+        "It creates a new this for every call",
+        "It always uses undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Arrow functions do not have their own this binding."
+    },
+    {
+      "id": "js-this-keyword-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Method Calls",
+      "prompt": "Write recordWithValue(value), returning an object with that value property.",
+      "functionName": "recordWithValue",
+      "starter": "function recordWithValue(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4
+          ],
+          "expect": {
+            "value": 4
+          }
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": {
+            "value": 0
+          }
+        },
+        {
+          "args": [
+            -2
+          ],
+          "expect": {
+            "value": -2
+          }
+        }
+      ],
+      "solution": "function recordWithValue(value) {\n  return { value };\n}",
+      "explanation": "Return a record that stores the supplied value."
+    },
+    {
+      "id": "js-this-keyword-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Constructor Calls",
+      "prompt": "Fill the keyword that constructs a new instance.",
+      "code": "function Tag(name) { this.name = name; }\nconst tag = ____ Tag('new');\nconsole.log(tag.name);",
+      "blanks": [
+        [
+          "new"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "new creates the instance and supplies it as this during the constructor call.",
+      "expectedOutput": "new"
+    },
+    {
+      "id": "js-this-keyword-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "call/apply/bind",
+      "prompt": "Write readProperty(context, key), returning context[key] without changing context.",
+      "functionName": "readProperty",
+      "starter": "function readProperty(context, key) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "name": "Ada"
+            },
+            "name"
+          ],
+          "expect": "Ada"
+        },
+        {
+          "args": [
+            {
+              "n": 0
+            },
+            "n"
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            {},
+            "missing"
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function readProperty(context, key) {\n  return Object.hasOwn(context, key) ? context[key] : null;\n}",
+      "explanation": "Use the supplied context and key to retrieve an own property."
+    },
+    {
+      "id": "js-this-keyword-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "call/apply/bind",
+      "code": "function label(prefix) { return prefix + this.name; }\nconsole.log(label.call({ name: 'Jo' }, 'Hi '));",
+      "options": [
+        "Hi Jo",
+        "Jo",
+        "Hi undefined",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "call supplies both the this value and the function argument.",
+      "expectedOutput": "Hi Jo"
+    },
+    {
+      "id": "js-this-keyword-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "call/apply/bind",
+      "code": "function total(a, b) { return this.base + a + b; }\nconsole.log(total.apply({ base: 1 }, [2, 3]));",
+      "explanation": "apply passes its argument list as an array and uses the supplied receiver.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-this-keyword-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "call/apply/bind",
+      "prompt": "Fill the method that creates a function with a fixed receiver.",
+      "code": "function read() { return this.value; }\nconst fixed = read.____({ value: 8 });\nconsole.log(fixed());",
+      "blanks": [
+        [
+          "bind"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "bind returns a new function with its this value fixed.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-this-keyword-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Method Calls",
+      "prompt": "Write addToBalance(account, amount), adding amount to account.balance and returning the updated balance.",
+      "functionName": "addToBalance",
+      "starter": "function addToBalance(account, amount) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "balance": 5
+            },
+            2
+          ],
+          "expect": 7
+        },
+        {
+          "args": [
+            {
+              "balance": 0
+            },
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            {
+              "balance": -2
+            },
+            3
+          ],
+          "expect": 1
+        }
+      ],
+      "solution": "function addToBalance(account, amount) {\n  account.balance += amount;\n  return account.balance;\n}",
+      "explanation": "Update and return the receiver's current balance value."
+    },
+    {
+      "id": "js-this-keyword-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "call/apply/bind",
+      "prompt": "Fill the method that calls a function with separate positional arguments and a chosen receiver.",
+      "code": "function combine(a, b) { return this.base + a + b; }\nconsole.log(combine.____({ base: 1 }, 2, 3));",
+      "blanks": [
+        [
+          "call"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "call accepts the this value followed by individual arguments.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-this-keyword-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Regular Function Calls",
+      "code": "'use strict';\nfunction read() { return this; }",
+      "question": "What is this in a plain call to read() in strict mode?",
+      "options": [
+        "undefined",
+        "The function object",
+        "The global object",
+        "The most recent object"
+      ],
+      "correctOption": 0,
+      "explanation": "A strict-mode regular function called without a receiver has undefined as this."
+    },
+    {
+      "id": "js-this-keyword-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "call/apply/bind",
+      "prompt": "Write addToBase(context, amount), returning the base value plus amount.",
+      "functionName": "addToBase",
+      "starter": "function addToBase(context, amount) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "base": 3
+            },
+            2
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            {
+              "base": 0
+            },
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            {
+              "base": -2
+            },
+            1
+          ],
+          "expect": -1
+        }
+      ],
+      "solution": "function addToBase(context, amount) {\n  return context.base + amount;\n}",
+      "explanation": "Read the supplied object's base property and add the amount."
+    },
+    {
+      "id": "js-this-keyword-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Arrow Functions",
+      "code": "const obj = { value: 2, read: () => this.value };",
+      "question": "Why might obj.read() not return 2?",
+      "options": [
+        "The arrow's this comes from outside obj, not the method receiver",
+        "Arrow functions always return undefined",
+        "value cannot be read from an object",
+        "Object properties cannot hold functions"
+      ],
+      "correctOption": 0,
+      "explanation": "Calling an arrow through an object does not give it that object as this."
+    },
+    {
+      "id": "js-this-keyword-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Method Calls",
+      "code": "const first = { value: 1, read() { return this.value; } };\nconst second = { value: 8, read: first.read };\nconsole.log(first.read(), second.read());",
+      "explanation": "The same regular function receives a different this value at each method call.",
+      "expectedOutput": "1 8"
+    },
+    {
+      "id": "js-this-keyword-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "call/apply/bind",
+      "prompt": "Fill the function method that permanently fixes this for the new function.",
+      "code": "function get() { return this.id; }\nconst getId = get.____({ id: 7 });\nconsole.log(getId());",
+      "blanks": [
+        [
+          "bind"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "bind creates a function whose this remains the selected object.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-this-keyword-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Method Calls",
+      "prompt": "Write totalFor(account), returning the account's balance plus all entries in its changes array.",
+      "functionName": "totalFor",
+      "starter": "function totalFor(account) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "balance": 4,
+              "changes": [
+                1,
+                2
+              ]
+            }
+          ],
+          "expect": 7
+        },
+        {
+          "args": [
+            {
+              "balance": 0,
+              "changes": []
+            }
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            {
+              "balance": -2,
+              "changes": [
+                1
+              ]
+            }
+          ],
+          "expect": -1
+        }
+      ],
+      "solution": "function totalFor(account) {\n  return account.changes.reduce((total, change) => total + change, account.balance);\n}",
+      "explanation": "Start with the object's balance and accumulate each change."
+    },
+    {
+      "id": "js-this-keyword-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Constructor Calls",
+      "code": "function Item(value) { this.value = value; }\nconst item = new Item(4);\nconsole.log(item instanceof Item, item.value);",
+      "options": [
+        "true 4",
+        "false 4",
+        "true undefined",
+        "Item 4"
+      ],
+      "correctOption": 0,
+      "explanation": "The constructed value has Item in its prototype chain and stores value 4.",
+      "expectedOutput": "true 4"
+    },
+    {
+      "id": "js-this-keyword-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Method Calls",
+      "question": "How is this determined in a regular function used as an object method?",
+      "keyPoints": [
+        "The call expression supplies the receiver",
+        "obj.method() binds this to obj",
+        "Extracting the function can lose that receiver",
+        "call, apply, or bind can select a receiver"
+      ],
+      "modelAnswer": "For a regular function, this is determined by how it is called. In obj.method(), the receiver is obj, but extracting the function and calling it separately does not preserve that method receiver."
+    },
+    {
+      "id": "js-this-keyword-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Arrow Functions",
+      "question": "Why do arrow functions behave differently from regular functions with respect to this?",
+      "keyPoints": [
+        "They do not create their own this binding",
+        "They capture this lexically",
+        "A method-style call does not change it",
+        "Regular functions may receive a call-site receiver"
+      ],
+      "modelAnswer": "An arrow function captures this from the surrounding lexical scope instead of creating its own binding. Therefore, calling it as a property does not make the containing object its this value."
+    },
+    {
+      "id": "js-this-keyword-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "call/apply/bind",
+      "question": "How do call, apply, and bind differ?",
+      "keyPoints": [
+        "call invokes immediately with individual arguments",
+        "apply invokes immediately with an argument array",
+        "bind returns a new function",
+        "All can specify this for a regular function"
+      ],
+      "modelAnswer": "call and apply invoke the function immediately with a chosen this value; call takes individual arguments, while apply takes an array-like argument list. bind instead returns a new function with this fixed for later invocation."
+    }
+  ]
+}

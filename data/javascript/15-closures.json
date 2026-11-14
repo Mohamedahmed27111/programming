@@ -1,0 +1,626 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Closures",
+    "order": 15,
+    "sourceSections": [
+      "Lexical Scope",
+      "Closures",
+      "Factory Functions",
+      "Private State"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-closures-t001",
+      "term": "closure",
+      "level": "intermediate",
+      "definitionEn": "A function together with access to bindings from its surrounding lexical environment.",
+      "example": "function outer() { const n = 2; return () => n; }",
+      "caseSensitive": false,
+      "aliases": [
+        "closed-over function"
+      ]
+    },
+    {
+      "id": "js-closures-t002",
+      "term": "lexical environment",
+      "level": "advanced",
+      "definitionEn": "The mapping between identifiers and their values available in a particular source-code region.",
+      "example": "const color = 'blue';",
+      "caseSensitive": false,
+      "aliases": [
+        "environment record"
+      ]
+    },
+    {
+      "id": "js-closures-t003",
+      "term": "outer function",
+      "level": "beginner",
+      "definitionEn": "A function whose body contains another function or nested scope.",
+      "example": "function outer() { function inner() {} }",
+      "caseSensitive": false,
+      "aliases": [
+        "enclosing function"
+      ]
+    },
+    {
+      "id": "js-closures-t004",
+      "term": "inner function",
+      "level": "beginner",
+      "definitionEn": "A function declared or created inside another function's body.",
+      "example": "function outer() { const inner = () => 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "nested function"
+      ]
+    },
+    {
+      "id": "js-closures-t005",
+      "term": "lexical scope",
+      "level": "intermediate",
+      "definitionEn": "The visibility of names determined by where source code is written.",
+      "example": "const outer = 1;\nfunction read() { return outer; }",
+      "caseSensitive": false,
+      "aliases": [
+        "static scope"
+      ]
+    },
+    {
+      "id": "js-closures-t006",
+      "term": "factory function",
+      "level": "intermediate",
+      "definitionEn": "A function that creates and returns another value, often a configured object or function.",
+      "example": "function makePoint(x) { return { x }; }",
+      "caseSensitive": false,
+      "aliases": [
+        "creator function"
+      ]
+    },
+    {
+      "id": "js-closures-t007",
+      "term": "private state",
+      "level": "advanced",
+      "definitionEn": "Data kept inside a scope so outside code cannot access its binding directly.",
+      "example": "function make() { let secret = 3; return () => secret; }",
+      "caseSensitive": false,
+      "aliases": [
+        "hidden state"
+      ]
+    },
+    {
+      "id": "js-closures-t008",
+      "term": "free variable",
+      "level": "advanced",
+      "definitionEn": "A name used by a function but declared outside that function's own local scope.",
+      "example": "const rate = 2;\nconst scale = n => n * rate;",
+      "caseSensitive": false,
+      "aliases": [
+        "captured variable"
+      ]
+    },
+    {
+      "id": "js-closures-t009",
+      "term": "lexical binding",
+      "level": "intermediate",
+      "definitionEn": "A name whose visibility follows its location in nested source-code scopes.",
+      "example": "let message = 'hello';",
+      "caseSensitive": false,
+      "aliases": [
+        "scoped binding"
+      ]
+    },
+    {
+      "id": "js-closures-t010",
+      "term": "callback",
+      "level": "beginner",
+      "definitionEn": "A function supplied to another operation so it can be called later or during processing.",
+      "example": "[1, 2].map(n => n * 2);",
+      "caseSensitive": false,
+      "aliases": [
+        "callback function"
+      ]
+    },
+    {
+      "id": "js-closures-t011",
+      "term": "persistent state",
+      "level": "intermediate",
+      "definitionEn": "Data that remains available across multiple operations instead of being recreated each time.",
+      "example": "let count = 0;",
+      "caseSensitive": false,
+      "aliases": [
+        "retained state"
+      ]
+    },
+    {
+      "id": "js-closures-t012",
+      "term": "scope chain",
+      "level": "advanced",
+      "definitionEn": "The sequence of enclosing lexical regions searched when resolving a name.",
+      "example": "function inner() { return outerValue; }",
+      "caseSensitive": false,
+      "aliases": [
+        "lexical chain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-closures-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Closures",
+      "code": "function outer() {\n  const color = 'blue';\n  return function inner() { return color; };\n}",
+      "question": "Why can inner read color after outer has returned?",
+      "options": [
+        "The returned function retains access to its lexical environment",
+        "The value was copied to the global object",
+        "All local variables become global after return",
+        "Functions automatically rerun their parent"
+      ],
+      "correctOption": 0,
+      "explanation": "A closure retains access to bindings from the surrounding lexical scope."
+    },
+    {
+      "id": "js-closures-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Lexical Scope",
+      "code": "const factor = 3;\nfunction scale(value) { return value * factor; }\nconsole.log(scale(4));",
+      "options": [
+        "12",
+        "7",
+        "4",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The function resolves factor from its outer lexical scope.",
+      "expectedOutput": "12"
+    },
+    {
+      "id": "js-closures-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Closures",
+      "code": "function makeValue() {\n  const value = 8;\n  return () => value;\n}\nconst read = makeValue();\nconsole.log(read());",
+      "explanation": "The inner function keeps access to value after makeValue finishes.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-closures-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Lexical Scope",
+      "prompt": "Fill the keyword that creates a local binding captured by read.",
+      "code": "function outer() {\n  ____ label = 'ok';\n  return () => label;\n}\nconsole.log(outer()());",
+      "blanks": [
+        [
+          "const"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The arrow function can access the binding declared in its enclosing function.",
+      "expectedOutput": "ok"
+    },
+    {
+      "id": "js-closures-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Factory Functions",
+      "code": "function withTax(rate) { return price => price + rate; }\nconst total = withTax(2);\nconsole.log(total(5));",
+      "options": [
+        "7",
+        "10",
+        "5",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The returned function retains the rate value from the factory call.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-closures-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Lexical Scope",
+      "code": "const message = 'outside';\nfunction show() { return message; }",
+      "question": "Where does show find message?",
+      "options": [
+        "In the enclosing lexical scope",
+        "Only on its arguments object",
+        "By making a new local copy",
+        "In the return value of console.log"
+      ],
+      "correctOption": 0,
+      "explanation": "Name lookup follows lexical nesting from the function outward."
+    },
+    {
+      "id": "js-closures-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Factory Functions",
+      "prompt": "Write addOffset(value, offset), returning value plus offset.",
+      "functionName": "addOffset",
+      "starter": "function addOffset(value, offset) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            3,
+            4
+          ],
+          "expect": 7
+        },
+        {
+          "args": [
+            0,
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -2,
+            1
+          ],
+          "expect": -1
+        }
+      ],
+      "solution": "function addOffset(value, offset) {\n  return value + offset;\n}",
+      "explanation": "Combine the input with the supplied offset."
+    },
+    {
+      "id": "js-closures-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Closures",
+      "prompt": "Fill the keyword that returns the nested function from the outer function.",
+      "code": "function makeReader() {\n  const answer = 42;\n  ____ () => answer;\n}\nconsole.log(makeReader()());",
+      "blanks": [
+        [
+          "return"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Returning the inner function lets its caller invoke the closure.",
+      "expectedOutput": "42"
+    },
+    {
+      "id": "js-closures-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Lexical Scope",
+      "prompt": "Write sumWithBase(base, values), summing every value together with base.",
+      "functionName": "sumWithBase",
+      "starter": "function sumWithBase(base, values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            [
+              3,
+              4
+            ]
+          ],
+          "expect": 9
+        },
+        {
+          "args": [
+            5,
+            []
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            -1,
+            [
+              1
+            ]
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function sumWithBase(base, values) {\n  let total = base;\n  for (const value of values) total += value;\n  return total;\n}",
+      "explanation": "The initial base is the starting value for the running total."
+    },
+    {
+      "id": "js-closures-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Closures",
+      "code": "function makeReader() {\n  let value = 1;\n  return () => value;\n}\nconst read = makeReader();\nconsole.log(read());",
+      "options": [
+        "1",
+        "undefined",
+        "null",
+        "A ReferenceError"
+      ],
+      "correctOption": 0,
+      "explanation": "The closure retains access to the initialized binding.",
+      "expectedOutput": "1"
+    },
+    {
+      "id": "js-closures-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Lexical Scope",
+      "code": "const value = 'outer';\nfunction make() {\n  const value = 'inner';\n  return () => value;\n}\nconsole.log(make()());",
+      "explanation": "The function refers to the nearest lexical declaration named value.",
+      "expectedOutput": "inner"
+    },
+    {
+      "id": "js-closures-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Private State",
+      "prompt": "Fill the return statement to expose the stored value without exposing the binding itself.",
+      "code": "function secretReader() {\n  const secret = 'hidden';\n  ____ () => secret;\n}\nconsole.log(secretReader()());",
+      "blanks": [
+        [
+          "return"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The returned closure provides controlled access to the local binding.",
+      "expectedOutput": "hidden"
+    },
+    {
+      "id": "js-closures-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Factory Functions",
+      "prompt": "Write makeMultiplierResult(value, factor), returning the product of value and factor.",
+      "functionName": "makeMultiplierResult",
+      "starter": "function makeMultiplierResult(value, factor) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4,
+            3
+          ],
+          "expect": 12
+        },
+        {
+          "args": [
+            0,
+            10
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -2,
+            2
+          ],
+          "expect": -4
+        }
+      ],
+      "solution": "function makeMultiplierResult(value, factor) {\n  return value * factor;\n}",
+      "explanation": "Multiply the two inputs and return the result."
+    },
+    {
+      "id": "js-closures-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Lexical Scope",
+      "prompt": "Fill the identifier so the nested function reads the binding declared by its outer function.",
+      "code": "function outer() {\n  const message = 'ready';\n  return () => ____;\n}\nconsole.log(outer()());",
+      "blanks": [
+        [
+          "message"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The nested function resolves message from its enclosing scope.",
+      "expectedOutput": "ready"
+    },
+    {
+      "id": "js-closures-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Private State",
+      "code": "function makeSecret() {\n  const code = 123;\n  return () => code;\n}",
+      "question": "What makes code private from callers?",
+      "options": [
+        "The binding is local to makeSecret and is not directly returned",
+        "const encrypts every local value",
+        "The function creates a private class field",
+        "The function automatically deletes the binding"
+      ],
+      "correctOption": 0,
+      "explanation": "Callers cannot name a function-local binding directly, though the returned closure can access it."
+    },
+    {
+      "id": "js-closures-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Private State",
+      "prompt": "Write sumSelected(values, minimum), summing only entries at least minimum.",
+      "functionName": "sumSelected",
+      "starter": "function sumSelected(values, minimum) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              5,
+              7
+            ],
+            5
+          ],
+          "expect": 12
+        },
+        {
+          "args": [
+            [],
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              -2,
+              0
+            ],
+            0
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function sumSelected(values, minimum) {\n  let total = 0;\n  for (const value of values) if (value >= minimum) total += value;\n  return total;\n}",
+      "explanation": "Include values at the threshold and above in the accumulator."
+    },
+    {
+      "id": "js-closures-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Closures",
+      "code": "function makeReader() {\n  let value = 1;\n  return () => ++value;\n}\nconst read = makeReader();",
+      "question": "What happens to value after read is called twice?",
+      "options": [
+        "It persists between calls and increases to 3",
+        "It resets to 1 on each call",
+        "It becomes undefined after the first call",
+        "It is copied into the global scope"
+      ],
+      "correctOption": 0,
+      "explanation": "Both invocations access the same retained binding."
+    },
+    {
+      "id": "js-closures-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Lexical Scope",
+      "code": "let value = 1;\nfunction make() {\n  let value = 4;\n  return () => value;\n}\nconst read = make();\nvalue = 9;\nconsole.log(read());",
+      "explanation": "The closure captures the inner binding, not the outer binding with the same name.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-closures-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Private State",
+      "prompt": "Fill the operator that increments the retained value and returns the new value.",
+      "code": "function makeStep() {\n  let value = 0;\n  return () => ____value;\n}\nconst step = makeStep();\nconsole.log(step());",
+      "blanks": [
+        [
+          "++"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Prefix increment updates the captured binding and evaluates to its updated value.",
+      "expectedOutput": "1"
+    },
+    {
+      "id": "js-closures-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Lexical Scope",
+      "prompt": "Write sumRows(grid), returning the sum of all numbers in a nested array.",
+      "functionName": "sumRows",
+      "starter": "function sumRows(grid) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3
+              ]
+            ]
+          ],
+          "expect": 6
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              [],
+              [
+                4
+              ]
+            ]
+          ],
+          "expect": 4
+        }
+      ],
+      "solution": "function sumRows(grid) {\n  let total = 0;\n  for (const row of grid) for (const value of row) total += value;\n  return total;\n}",
+      "explanation": "Nested loops visit each value and update the enclosing accumulator."
+    },
+    {
+      "id": "js-closures-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Closures",
+      "code": "function create() {\n  let n = 0;\n  return () => ++n;\n}\nconst next = create();\nconsole.log(next(), next());",
+      "options": [
+        "1 2",
+        "0 1",
+        "1 1",
+        "undefined undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Each call increments the same closed-over binding.",
+      "expectedOutput": "1 2"
+    },
+    {
+      "id": "js-closures-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Closures",
+      "question": "What is a closure, and what information does it retain?",
+      "keyPoints": [
+        "It combines a function with lexical access",
+        "It can use bindings from enclosing scopes",
+        "The outer function may have already returned",
+        "The captured binding remains available while referenced"
+      ],
+      "modelAnswer": "A closure is a function together with access to the lexical environment where it was created. It can continue reading or updating enclosing bindings even after the outer function has returned."
+    },
+    {
+      "id": "js-closures-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Private State",
+      "question": "How can closures be used to keep state private?",
+      "keyPoints": [
+        "Declare state in an outer function",
+        "Return functions that operate on it",
+        "Callers cannot access the local binding directly",
+        "Expose only the operations the API needs"
+      ],
+      "modelAnswer": "A factory can declare state in its local scope and return functions that read or update it. Callers receive those operations but cannot directly access the local binding by name."
+    },
+    {
+      "id": "js-closures-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Lexical Scope",
+      "question": "How does lexical scope determine which binding a nested function reads?",
+      "keyPoints": [
+        "Resolution follows source-code nesting",
+        "The nearest matching declaration wins",
+        "The call site's location does not change lexical lookup",
+        "An inner declaration can shadow an outer one"
+      ],
+      "modelAnswer": "A nested function resolves names by searching its own scope and then enclosing scopes based on where the function was written. The nearest matching declaration wins, regardless of where the function is later called."
+    }
+  ]
+}

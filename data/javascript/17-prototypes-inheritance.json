@@ -1,0 +1,630 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Prototypes and Inheritance",
+    "order": 17,
+    "sourceSections": [
+      "Prototype Chain",
+      "Object.create",
+      "Constructor Functions",
+      "class extends",
+      "super",
+      "instanceof"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-prototypes-inheritance-t001",
+      "term": "prototype",
+      "level": "intermediate",
+      "definitionEn": "An object used as a fallback source during another object's property lookup.",
+      "example": "Object.getPrototypeOf(item);",
+      "caseSensitive": false,
+      "aliases": [
+        "prototype object"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t002",
+      "term": "prototype chain",
+      "level": "advanced",
+      "definitionEn": "The sequence of linked prototype objects searched for a missing property.",
+      "example": "Object.getPrototypeOf(child);",
+      "caseSensitive": false,
+      "aliases": [
+        "inheritance chain"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t003",
+      "term": "inheritance",
+      "level": "intermediate",
+      "definitionEn": "A relationship that lets one kind of value reuse behavior from another.",
+      "example": "class Dog extends Animal {}",
+      "caseSensitive": false,
+      "aliases": [
+        "subtyping"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t004",
+      "term": "Object.create",
+      "display": "Object.create()",
+      "level": "intermediate",
+      "definitionEn": "A built-in function that creates an object with a selected prototype.",
+      "example": "const child = Object.create(parent);",
+      "caseSensitive": true,
+      "aliases": [
+        "prototype-based creation"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t005",
+      "term": "constructor function",
+      "level": "beginner",
+      "definitionEn": "A function intended to create initialized instances when invoked with new.",
+      "example": "function User(name) { this.name = name; }",
+      "caseSensitive": false,
+      "aliases": [
+        "constructor"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t006",
+      "term": "instanceof",
+      "display": "instanceof",
+      "level": "beginner",
+      "definitionEn": "An operator that checks whether a constructor's prototype occurs in a value's prototype chain.",
+      "example": "item instanceof Item;",
+      "caseSensitive": true,
+      "aliases": [
+        "instance test"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t007",
+      "term": "extends",
+      "display": "extends",
+      "level": "beginner",
+      "definitionEn": "A class declaration keyword that establishes a subclass relationship.",
+      "example": "class Cat extends Animal {}",
+      "caseSensitive": true,
+      "aliases": [
+        "subclass syntax"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t008",
+      "term": "super",
+      "display": "super",
+      "level": "intermediate",
+      "definitionEn": "A keyword used by a subclass to call or access its parent class behavior.",
+      "example": "super(name);",
+      "caseSensitive": true,
+      "aliases": [
+        "parent access"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t009",
+      "term": "own property",
+      "level": "intermediate",
+      "definitionEn": "A property defined directly on a value rather than found through its prototype.",
+      "example": "Object.hasOwn(item, 'id');",
+      "caseSensitive": false,
+      "aliases": [
+        "direct property"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t010",
+      "term": "method overriding",
+      "level": "intermediate",
+      "definitionEn": "Providing a subclass method with the same name to replace inherited behavior.",
+      "example": "class Dog extends Animal { speak() {} }",
+      "caseSensitive": false,
+      "aliases": [
+        "override"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t011",
+      "term": "delegation",
+      "level": "advanced",
+      "definitionEn": "Reusing behavior by forwarding property lookup to another linked value.",
+      "example": "const child = Object.create(parent);",
+      "caseSensitive": false,
+      "aliases": [
+        "prototype delegation"
+      ]
+    },
+    {
+      "id": "js-prototypes-inheritance-t012",
+      "term": "static method",
+      "level": "intermediate",
+      "definitionEn": "A class operation invoked on the constructor itself instead of an instance.",
+      "example": "class User { static kind() { return 'user'; } }",
+      "caseSensitive": false,
+      "aliases": [
+        "class method"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-prototypes-inheritance-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Constructor Functions",
+      "code": "function Item(name) { this.name = name; }\nconst item = new Item('pen');",
+      "question": "What does new do in this constructor call?",
+      "options": [
+        "Creates an instance and binds it as this during construction",
+        "Calls Item without creating a value",
+        "Copies Item's source text",
+        "Turns name into a global variable"
+      ],
+      "correctOption": 0,
+      "explanation": "new creates a fresh instance, invokes the constructor with it as this, and returns it."
+    },
+    {
+      "id": "js-prototypes-inheritance-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "instanceof",
+      "code": "function Tool() {}\nconst tool = new Tool();\nconsole.log(tool instanceof Tool);",
+      "options": [
+        "true",
+        "false",
+        "Tool",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The Tool prototype is in the new instance's prototype chain.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-prototypes-inheritance-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Object.create",
+      "code": "const parent = { kind: 'base' };\nconst child = Object.create(parent);\nconsole.log(child.kind);",
+      "explanation": "Property lookup follows the prototype when the child lacks its own kind.",
+      "expectedOutput": "base"
+    },
+    {
+      "id": "js-prototypes-inheritance-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "class extends",
+      "prompt": "Fill the keyword that declares Cat as a subclass of Animal.",
+      "code": "class Animal {}\nclass Cat ____ Animal {}\nconsole.log(new Cat() instanceof Animal);",
+      "blanks": [
+        [
+          "extends"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "extends establishes the class inheritance relationship.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-prototypes-inheritance-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Prototype Chain",
+      "code": "const base = { ready: true };\nconst derived = Object.create(base);\nconsole.log(derived.ready);",
+      "options": [
+        "true",
+        "false",
+        "undefined",
+        "base"
+      ],
+      "correctOption": 0,
+      "explanation": "The property is found on the derived value's prototype.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-prototypes-inheritance-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Prototype Chain",
+      "code": "Object.getPrototypeOf(child);",
+      "question": "What does the prototype chain allow during property access?",
+      "options": [
+        "Lookup can continue on linked prototype objects",
+        "Every property is copied into the child",
+        "The child becomes a primitive",
+        "Methods are executed automatically"
+      ],
+      "correctOption": 0,
+      "explanation": "A missing own property can be found by following the prototype links."
+    },
+    {
+      "id": "js-prototypes-inheritance-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Constructor Functions",
+      "prompt": "Write makePoint(x, y), returning an object with x and y properties.",
+      "functionName": "makePoint",
+      "starter": "function makePoint(x, y) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            4
+          ],
+          "expect": {
+            "x": 2,
+            "y": 4
+          }
+        },
+        {
+          "args": [
+            0,
+            0
+          ],
+          "expect": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "args": [
+            -1,
+            3
+          ],
+          "expect": {
+            "x": -1,
+            "y": 3
+          }
+        }
+      ],
+      "solution": "function makePoint(x, y) {\n  return { x, y };\n}",
+      "explanation": "Store the constructor inputs as properties on the returned value."
+    },
+    {
+      "id": "js-prototypes-inheritance-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "instanceof",
+      "prompt": "Fill the operator that checks the instance's constructor relationship.",
+      "code": "function Box() {}\nconst box = new Box();\nconsole.log(box ____ Box);",
+      "blanks": [
+        [
+          "instanceof"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "instanceof checks a constructor's prototype against an object's chain.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-prototypes-inheritance-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "class extends",
+      "prompt": "Write makeLabeled(label), returning an object with a label property.",
+      "functionName": "makeLabeled",
+      "starter": "function makeLabeled(label) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "box"
+          ],
+          "expect": {
+            "label": "box"
+          }
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": {
+            "label": ""
+          }
+        },
+        {
+          "args": [
+            "item"
+          ],
+          "expect": {
+            "label": "item"
+          }
+        }
+      ],
+      "solution": "function makeLabeled(label) {\n  return { label };\n}",
+      "explanation": "Return an object with the supplied label value."
+    },
+    {
+      "id": "js-prototypes-inheritance-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "super",
+      "code": "class Base { value() { return 2; } }\nclass More extends Base { value() { return super.value() + 1; } }\nconsole.log(new More().value());",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "super.value invokes the parent implementation and the override adds one.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-prototypes-inheritance-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "method overriding",
+      "code": "class Parent { speak() { return 'base'; } }\nclass Child extends Parent { speak() { return 'child'; } }\nconsole.log(new Child().speak());",
+      "explanation": "The subclass method overrides the inherited method with the same name.",
+      "expectedOutput": "child"
+    },
+    {
+      "id": "js-prototypes-inheritance-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "super",
+      "prompt": "Fill the keyword that calls the parent constructor from a subclass constructor.",
+      "code": "class Base { constructor(value) { this.value = value; } }\nclass Child extends Base {\n  constructor(value) { ____ (value); }\n}\nconsole.log(new Child(5).value);",
+      "blanks": [
+        [
+          "super"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A derived constructor calls super before it can use this.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-prototypes-inheritance-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Prototype Chain",
+      "prompt": "Write readOrDefault(object, key), returning an inherited or own value when present, otherwise null.",
+      "functionName": "readOrDefault",
+      "starter": "function readOrDefault(object, key) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "x": 4
+            },
+            "x"
+          ],
+          "expect": 4
+        },
+        {
+          "args": [
+            {},
+            "missing"
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            {
+              "x": 0
+            },
+            "x"
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function readOrDefault(object, key) {\n  return key in object ? object[key] : null;\n}",
+      "explanation": "The in operator checks both the value itself and its prototype chain."
+    },
+    {
+      "id": "js-prototypes-inheritance-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Object.create",
+      "prompt": "Fill the argument that makes parent the prototype of child.",
+      "code": "const parent = { kind: 'base' };\nconst child = Object.create(____);\nconsole.log(child.kind);",
+      "blanks": [
+        [
+          "parent"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Object.create receives the prototype for the newly created value.",
+      "expectedOutput": "base"
+    },
+    {
+      "id": "js-prototypes-inheritance-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Prototype Chain",
+      "code": "Object.hasOwn(child, 'kind');",
+      "question": "What does this check distinguish?",
+      "options": [
+        "A direct property from one found through the prototype",
+        "A string from a number",
+        "An instance from a constructor call",
+        "A frozen value from a mutable one"
+      ],
+      "correctOption": 0,
+      "explanation": "Object.hasOwn reports only properties defined directly on the value."
+    },
+    {
+      "id": "js-prototypes-inheritance-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "class extends",
+      "prompt": "Write describeChild(value), returning 'child:' followed by the value.",
+      "functionName": "describeChild",
+      "starter": "function describeChild(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "x"
+          ],
+          "expect": "child:x"
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": "child:0"
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": "child:"
+        }
+      ],
+      "solution": "function describeChild(value) {\n  return 'child:' + value;\n}",
+      "explanation": "Concatenate the label and supplied value."
+    },
+    {
+      "id": "js-prototypes-inheritance-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Prototype Chain",
+      "code": "const parent = { score: 2 };\nconst child = Object.create(parent);\nchild.score = 7;",
+      "question": "What happens to parent.score after the assignment?",
+      "options": [
+        "It remains 2 because an own child property is created",
+        "It changes to 7 because assignment updates every prototype",
+        "It becomes undefined",
+        "The assignment is ignored"
+      ],
+      "correctOption": 0,
+      "explanation": "Assigning a property on child creates or updates an own property rather than changing the prototype's value."
+    },
+    {
+      "id": "js-prototypes-inheritance-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "method overriding",
+      "code": "class Base { value() { return 'base'; } }\nclass Child extends Base { value() { return super.value() + '-child'; } }\nconsole.log(new Child().value());",
+      "explanation": "The override calls the base implementation and appends its own suffix.",
+      "expectedOutput": "base-child"
+    },
+    {
+      "id": "js-prototypes-inheritance-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "super",
+      "prompt": "Fill the keyword that accesses the inherited implementation inside an override.",
+      "code": "class Base { read() { return 2; } }\nclass Child extends Base { read() { return ____.read() + 1; } }\nconsole.log(new Child().read());",
+      "blanks": [
+        [
+          "super"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "super accesses the base class implementation from a subclass method.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-prototypes-inheritance-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Object.create",
+      "prompt": "Write ownKeys(value), returning an array of the value's own enumerable string keys.",
+      "functionName": "ownKeys",
+      "starter": "function ownKeys(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "a": 1,
+              "b": 2
+            }
+          ],
+          "expect": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "args": [
+            {}
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            {
+              "x": 0
+            }
+          ],
+          "expect": [
+            "x"
+          ]
+        }
+      ],
+      "solution": "function ownKeys(value) {\n  return Object.keys(value);\n}",
+      "explanation": "Object.keys lists direct enumerable string-keyed properties."
+    },
+    {
+      "id": "js-prototypes-inheritance-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "instanceof",
+      "code": "class Animal {}\nclass Cat extends Animal {}\nconsole.log(new Cat() instanceof Animal);",
+      "options": [
+        "true",
+        "false",
+        "Animal",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The parent prototype appears in a Cat instance's prototype chain.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-prototypes-inheritance-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Prototype Chain",
+      "question": "How does JavaScript property lookup use the prototype chain?",
+      "keyPoints": [
+        "Check the value's own properties first",
+        "Follow its prototype if a key is missing",
+        "Continue until a property is found or the chain ends",
+        "Reading inherited data does not copy it onto the value"
+      ],
+      "modelAnswer": "JavaScript first checks an object's own properties. If the requested key is absent, lookup follows its prototype and continues until it finds the property or reaches the end of the chain."
+    },
+    {
+      "id": "js-prototypes-inheritance-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "class extends",
+      "question": "What do extends and super provide in class inheritance?",
+      "keyPoints": [
+        "extends establishes the subclass relationship",
+        "super can invoke parent behavior",
+        "A derived constructor must call super before using this",
+        "Subclasses can override inherited methods"
+      ],
+      "modelAnswer": "extends declares a subclass relationship, allowing instances to inherit behavior through the prototype chain. super lets subclass code call parent constructors or methods, and a derived constructor must call super before using this."
+    },
+    {
+      "id": "js-prototypes-inheritance-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "instanceof",
+      "question": "What does instanceof check, and what should callers keep in mind?",
+      "keyPoints": [
+        "It checks the constructor prototype in the chain",
+        "It is not a structural shape check",
+        "Different realms can have different built-in constructors",
+        "Custom prototype changes can affect the result"
+      ],
+      "modelAnswer": "instanceof checks whether a constructor's prototype occurs in a value's prototype chain; it does not verify the value's shape. Values created in another realm or with a modified prototype chain can behave differently from simple expectations."
+    }
+  ]
+}
