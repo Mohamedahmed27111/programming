@@ -1,0 +1,553 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "Accessibility",
+    "order": 6,
+    "sourceSections": [
+      "Text alternatives",
+      "Form labels",
+      "ARIA basics",
+      "Landmarks",
+      "Keyboard access and semantics"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-accessibility-t001",
+      "term": "alt text",
+      "display": "alt=\"...\"",
+      "level": "beginner",
+      "definitionEn": "Words in an image attribute that provide its useful meaning when it cannot be seen.",
+      "definitionAr": "كلمات في خاصية الصورة بتوضح معناها المفيد لما ما تكونش ظاهرة.",
+      "example": "<img src=\"map.png\" alt=\"Map of the north trail\">",
+      "caseSensitive": false,
+      "aliases": [
+        "image alternative"
+      ]
+    },
+    {
+      "id": "html-accessibility-t002",
+      "term": "label",
+      "display": "<label>",
+      "level": "beginner",
+      "definitionEn": "A programmatic name and visible description associated with a form control.",
+      "definitionAr": "اسم ووصف ظاهر مرتبطين بأداة إدخال في النموذج.",
+      "example": "<label for=\"name\">Name</label><input id=\"name\">",
+      "caseSensitive": false,
+      "aliases": [
+        "control label"
+      ]
+    },
+    {
+      "id": "html-accessibility-t003",
+      "term": "accessible name",
+      "level": "beginner",
+      "definitionEn": "The text assistive technology uses to identify an interactive element.",
+      "definitionAr": "النص اللي التقنية المساعدة بتستخدمه عشان تعرف اسم العنصر التفاعلي.",
+      "example": "<button aria-label=\"Close panel\">×</button>",
+      "caseSensitive": false,
+      "aliases": [
+        "programmatic name"
+      ]
+    },
+    {
+      "id": "html-accessibility-t004",
+      "term": "landmark",
+      "display": "<main>",
+      "level": "beginner",
+      "definitionEn": "A semantic page region that helps assistive-technology users navigate major content areas.",
+      "definitionAr": "منطقة معنوية في الصفحة بتساعد مستخدمي التقنية المساعدة يتنقلوا بين الأقسام الرئيسية.",
+      "example": "<main><h1>Schedule</h1></main>",
+      "caseSensitive": false,
+      "aliases": [
+        "landmark region"
+      ]
+    },
+    {
+      "id": "html-accessibility-t005",
+      "term": "keyboard access",
+      "level": "beginner",
+      "definitionEn": "The ability to operate interactive content using keys without requiring a pointer.",
+      "definitionAr": "إمكانية استخدام العناصر التفاعلية بالمفاتيح من غير الاعتماد على الماوس.",
+      "example": "<button>Open menu</button>",
+      "caseSensitive": false,
+      "aliases": [
+        "keyboard operability"
+      ]
+    },
+    {
+      "id": "html-accessibility-t006",
+      "term": "aria-label",
+      "display": "aria-label=\"...\"",
+      "level": "intermediate",
+      "definitionEn": "An ARIA attribute that supplies a text name when visible text does not provide one.",
+      "definitionAr": "خاصية ARIA بتضيف اسمًا نصيًا لما مافيش نص ظاهر بيوفره.",
+      "example": "<button aria-label=\"Close\">×</button>",
+      "caseSensitive": false,
+      "aliases": [
+        "ARIA label"
+      ]
+    },
+    {
+      "id": "html-accessibility-t007",
+      "term": "role",
+      "display": "role=\"...\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute that communicates an element's meaning to accessibility APIs.",
+      "definitionAr": "خاصية بتوضح دور العنصر للواجهات اللي بتستخدمها أدوات الإتاحة.",
+      "example": "<div role=\"status\">Saved</div>",
+      "caseSensitive": false,
+      "aliases": [
+        "ARIA role"
+      ]
+    },
+    {
+      "id": "html-accessibility-t008",
+      "term": "tab order",
+      "level": "intermediate",
+      "definitionEn": "The sequence in which keyboard focus moves among focusable elements.",
+      "definitionAr": "الترتيب اللي التركيز بيتحرك بيه بين العناصر القابلة للتركيز بالمفاتيح.",
+      "example": "<a href=\"/next\">Next page</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "focus order"
+      ]
+    },
+    {
+      "id": "html-accessibility-t009",
+      "term": "semantic HTML",
+      "level": "intermediate",
+      "definitionEn": "Markup that uses elements according to the purpose they communicate.",
+      "definitionAr": "كتابة بتستخدم العناصر حسب المعنى والدور اللي بتوضحه.",
+      "example": "<nav><a href=\"/home\">Home</a></nav>",
+      "caseSensitive": false,
+      "aliases": [
+        "semantic markup"
+      ]
+    },
+    {
+      "id": "html-accessibility-t010",
+      "term": "decorative image",
+      "level": "intermediate",
+      "definitionEn": "A visual resource adding no information beyond nearby content and sometimes using alt=\"\".",
+      "definitionAr": "صورة مش بتضيف معلومة جديدة وممكن تستخدم alt فاضي.",
+      "example": "<img src=\"ornament.svg\" alt=\"\">",
+      "caseSensitive": false,
+      "aliases": [
+        "non-informative image"
+      ]
+    },
+    {
+      "id": "html-accessibility-t011",
+      "term": "focus indicator",
+      "level": "advanced",
+      "definitionEn": "A visible cue showing which interactive element currently receives keyboard input.",
+      "definitionAr": "علامة ظاهرة بتبين أنهي عنصر تفاعلي واخد تركيز لوحة المفاتيح حاليًا.",
+      "example": "<button>Continue</button>",
+      "caseSensitive": false,
+      "aliases": [
+        "focus outline"
+      ]
+    },
+    {
+      "id": "html-accessibility-t012",
+      "term": "ARIA",
+      "display": "aria-*",
+      "level": "advanced",
+      "definitionEn": "A set of attributes that can add accessibility semantics when native HTML is insufficient.",
+      "definitionAr": "مجموعة خصائص ممكن تضيف معاني للإتاحة لما HTML الأصلي ما يكفيش.",
+      "example": "<div role=\"status\" aria-live=\"polite\">Updated</div>",
+      "caseSensitive": true,
+      "aliases": [
+        "Accessible Rich Internet Applications"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-accessibility-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Text alternatives",
+      "code": "<img src=\"station.jpg\" alt=\"Blue train at platform two\">",
+      "question": "What does the alt value provide for this image?",
+      "options": [
+        "Text that conveys useful image information",
+        "A visible caption automatically placed below the image",
+        "A second high-resolution image file",
+        "A link destination for the image"
+      ],
+      "correctOption": 0,
+      "explanation": "Alternative text conveys useful image information when a user cannot perceive the image.",
+      "explanationAr": "النص البديل بيوصل معلومة الصورة المفيدة لما المستخدم ما يقدرش يشوفها."
+    },
+    {
+      "id": "html-accessibility-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Form labels",
+      "code": "<label for=\"town\">Town</label><input id=\"town\" name=\"town\">",
+      "question": "What accessibility benefit does this label provide?",
+      "options": [
+        "It forces the control to accept only alphabetic letters",
+        "It names the control and can be clicked to focus it",
+        "It submits the form as soon as the label is activated",
+        "It makes the input invisible to screen readers"
+      ],
+      "correctOption": 1,
+      "explanation": "A correctly associated label names its control and can be activated to focus it.",
+      "explanationAr": "الـ label المرتبط بيدي الأداة اسمًا وممكن الضغط عليه للتركيز عليها."
+    },
+    {
+      "id": "html-accessibility-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "ARIA basics",
+      "code": "<button aria-label=\"Close dialog\">Close dialog</button>",
+      "options": [
+        "? Close dialog",
+        "No visible text",
+        "Close dialog",
+        "aria-label"
+      ],
+      "correctOption": 2,
+      "explanation": "The visible words remain unchanged, while aria-label supplies an accessible name.",
+      "explanationAr": "aria-label بيدي الزر اسمه للإتاحة، والرمز بيفضل النص الظاهر.",
+      "expectedOutput": "Close dialog"
+    },
+    {
+      "id": "html-accessibility-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Form labels",
+      "prompt": "Associate the visible label with the input whose id is email.",
+      "code": "<label ____=\"email\">Email</label><input id=\"email\">",
+      "blanks": [
+        [
+          "for"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Email",
+      "explanation": "A label's for value should match its control's id."
+    },
+    {
+      "id": "html-accessibility-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Landmarks",
+      "code": "<main><h1>Trip planner</h1><p>Choose a route.</p></main>",
+      "question": "How can main help people navigate the page?",
+      "options": [
+        "It marks the page's main content region",
+        "It automatically makes every link open in a new tab",
+        "It replaces the need for page headings",
+        "It hides repeated navigation from every user"
+      ],
+      "correctOption": 0,
+      "explanation": "main identifies the page's dominant content and exposes a useful landmark.",
+      "explanationAr": "main بيحدد المحتوى الأساسي وبيوفر landmark مفيد للتنقل."
+    },
+    {
+      "id": "html-accessibility-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Text alternatives",
+      "prompt": "Mark the ornament as decorative because it adds no information.",
+      "code": "<img src=\"sparkle.svg\" alt=\"____\">",
+      "blanks": [
+        [
+          ""
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "An empty alt value can keep a decorative image from adding redundant content."
+    },
+    {
+      "id": "html-accessibility-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Keyboard access and semantics",
+      "code": "<button type=\"button\">Expand details</button>",
+      "question": "What native interaction does a button provide?",
+      "options": [
+        "It can only be activated with a mouse click",
+        "It receives focus only after a script adds tabindex",
+        "It is announced as a text input by assistive technology",
+        "Keyboard-operable with button semantics"
+      ],
+      "correctOption": 3,
+      "explanation": "A native button is keyboard-operable and exposes its interactive role without recreating that behavior manually.",
+      "explanationAr": "الزر الأصلي بيتستخدم بالمفاتيح وبيعلن دوره من غير إعادة بناء السلوك."
+    },
+    {
+      "id": "html-accessibility-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Landmarks",
+      "code": "<header>City guide</header><main><p>Old town</p></main><footer>Visitor desk</footer>",
+      "expectedOutput": "City guide\nOld town\nVisitor desk",
+      "explanation": "The text appears in header, main, and footer order.",
+      "explanationAr": "النص بيظهر بترتيب header وبعده main وبعده footer."
+    },
+    {
+      "id": "html-accessibility-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "ARIA basics",
+      "prompt": "Provide a clear accessible name for this symbol-only button.",
+      "code": "<button ____=\"Close search\">×</button>",
+      "blanks": [
+        [
+          "aria-label"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "×",
+      "explanation": "aria-label supplies an accessible name without changing the visible symbol."
+    },
+    {
+      "id": "html-accessibility-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Landmarks",
+      "code": "<nav aria-label=\"Account\"><a href=\"/profile\">Profile</a></nav>",
+      "question": "What does the aria-label distinguish on this navigation region?",
+      "options": [
+        "It changes the destination of every link inside the region",
+        "It names the landmark for assistive technology",
+        "It forces the region to appear before the main content",
+        "It prevents keyboard focus from reaching its links"
+      ],
+      "correctOption": 1,
+      "explanation": "A name can distinguish a navigation landmark from other navigation regions.",
+      "explanationAr": "الاسم بيساعد يميز منطقة التنقل دي عن مناطق تنقل تانية."
+    },
+    {
+      "id": "html-accessibility-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Keyboard access and semantics",
+      "prompt": "Use the native interactive element for an action that opens a menu.",
+      "code": "<____ type=\"button\">Open menu</____>",
+      "blanks": [
+        [
+          "button"
+        ],
+        [
+          "button"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Open menu",
+      "explanation": "A native button already supports keyboard interaction and button semantics."
+    },
+    {
+      "id": "html-accessibility-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Text alternatives",
+      "code": "<p>Route map</p><img src=\"route.svg\" alt=\"\">",
+      "options": [
+        "Route map\nseparator.svg",
+        "separator.svg",
+        "Route map",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The decorative image has an empty alternative and adds no image text.",
+      "explanationAr": "الصورة الزخرفية لها نص بديل فاضي ومش بتضيف نص للصورة.",
+      "expectedOutput": "Route map"
+    },
+    {
+      "id": "html-accessibility-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "ARIA basics",
+      "code": "<div role=\"status\" aria-live=\"polite\">Saved</div>",
+      "question": "What does the status role communicate about this region?",
+      "options": [
+        "It turns the region into a required form field",
+        "It makes the region a top-level page heading",
+        "It automatically moves keyboard focus to the region",
+        "It announces a changing status"
+      ],
+      "correctOption": 3,
+      "explanation": "A status role is a live region for advisory information and should not unexpectedly move focus.",
+      "explanationAr": "role=status بيعلن رسائل الحالة كمنطقة حية من غير نقل التركيز فجأة."
+    },
+    {
+      "id": "html-accessibility-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Landmarks",
+      "prompt": "Mark the complementary note related to the main article.",
+      "code": "<____><p>Related route guide</p></____>",
+      "blanks": [
+        [
+          "aside"
+        ],
+        [
+          "aside"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Related route guide",
+      "explanation": "aside can identify complementary content related to its surrounding region."
+    },
+    {
+      "id": "html-accessibility-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Form labels",
+      "code": "<label for=\"city\">City</label> <input id=\"city\" value=\"Cairo\">",
+      "expectedOutput": "City Cairo",
+      "explanation": "The label and the input's displayed initial value contribute readable text.",
+      "explanationAr": "الـ label والقيمة المبدئية الظاهرة في أداة الإدخال بيكونوا نصًا مقروءًا."
+    },
+    {
+      "id": "html-accessibility-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Keyboard access and semantics",
+      "prompt": "Add an accessible name to this icon-only button without changing its symbol.",
+      "code": "<button aria-label=\"____\">⌕</button>",
+      "blanks": [
+        [
+          "Search"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "⌕",
+      "explanation": "aria-label names an interactive element while leaving its visible content unchanged."
+    },
+    {
+      "id": "html-accessibility-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Keyboard access and semantics",
+      "code": "<a href=\"/next\">Next step</a><button type=\"button\">Save</button>",
+      "question": "What should happen when a keyboard user moves through these controls?",
+      "options": [
+        "A logical, visible focus order",
+        "The link should be skipped because it is not a button",
+        "The browser should focus only the last control",
+        "Tab order should match the order of CSS colors"
+      ],
+      "correctOption": 0,
+      "explanation": "A logical focus order and visible focus indicator help keyboard users track and operate controls.",
+      "explanationAr": "ترتيب تركيز منطقي وعلامة تركيز ظاهرة بيساعدوا مستخدم لوحة المفاتيح."
+    },
+    {
+      "id": "html-accessibility-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "ARIA basics",
+      "prompt": "Identify this element as a polite live status message.",
+      "code": "<div role=\"____\" aria-live=\"polite\">Draft saved</div>",
+      "blanks": [
+        [
+          "status"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Draft saved",
+      "explanation": "The status role conveys a non-interruptive status update."
+    },
+    {
+      "id": "html-accessibility-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Text alternatives",
+      "code": "<img src=\"separator.svg\" alt=\"\">",
+      "question": "What should an empty alternative mean for a decorative image?",
+      "options": [
+        "The image is unavailable and should display its file path",
+        "When it adds no unique information",
+        "The browser should repeat the adjacent paragraph aloud",
+        "The image must be hidden using CSS from every user"
+      ],
+      "correctOption": 1,
+      "explanation": "An empty alternative is appropriate when the image is decorative and contributes no distinct information.",
+      "explanationAr": "النص البديل الفاضي مناسب لما الصورة زخرفية ومش بتضيف معلومة مستقلة."
+    },
+    {
+      "id": "html-accessibility-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Landmarks",
+      "prompt": "Give this navigation landmark a distinguishing name.",
+      "code": "<nav aria-label=\"____\"><a href=\"/billing\">Billing</a></nav>",
+      "blanks": [
+        [
+          "Billing navigation"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Billing",
+      "explanation": "A concise name distinguishes this landmark from other navigation regions."
+    },
+    {
+      "id": "html-accessibility-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Text alternatives",
+      "question": "How should you decide what text to put in an image's alt attribute?",
+      "keyPoints": [
+        "Describe the image's relevant information in context",
+        "Avoid repeating nearby text unnecessarily",
+        "Use an empty value for purely decorative images",
+        "Do not use the filename as a substitute for a useful description"
+      ],
+      "modelAnswer": "Write alternative text that conveys the image's relevant information in its context, without repeating nearby content. If the image is purely decorative, an empty value can keep it from adding noise."
+    },
+    {
+      "id": "html-accessibility-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "ARIA basics",
+      "question": "When is ARIA useful, and why should native HTML semantics come first?",
+      "keyPoints": [
+        "ARIA can add names, states, or roles when needed",
+        "Native elements already provide built-in behavior",
+        "ARIA does not automatically implement keyboard interaction",
+        "Prefer native HTML when it expresses the required meaning"
+      ],
+      "modelAnswer": "ARIA can communicate names, roles, and states when native HTML does not express a needed meaning. Native controls should come first because they already include expected semantics and interaction behavior that ARIA alone does not create."
+    },
+    {
+      "id": "html-accessibility-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Keyboard access and semantics",
+      "question": "What makes a page usable with a keyboard alone?",
+      "keyPoints": [
+        "Interactive controls can receive focus",
+        "Focus order follows a sensible sequence",
+        "Focus remains visibly indicated",
+        "Controls can be operated without a pointer"
+      ],
+      "modelAnswer": "Every interactive control should be reachable and operable without a pointer, with focus moving in a sensible order. A visible focus indicator lets users see where their next action will apply."
+    },
+    {
+      "id": "html-accessibility-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Landmarks",
+      "question": "How do semantic landmarks improve navigation for assistive-technology users?",
+      "keyPoints": [
+        "Landmarks identify major page regions",
+        "Users can jump between named regions",
+        "Semantic elements expose familiar roles",
+        "Landmarks complement a useful heading structure"
+      ],
+      "modelAnswer": "Landmarks identify regions such as main content and navigation so assistive-technology users can move between them directly. They complement headings by providing both broad page structure and a hierarchy within each region."
+    }
+  ]
+}

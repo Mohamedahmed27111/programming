@@ -1,0 +1,564 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "Tables",
+    "order": 5,
+    "sourceSections": [
+      "Table structure",
+      "Headers and data cells",
+      "Captions",
+      "Spanning rows and columns",
+      "Header scope"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-tables-t001",
+      "term": "table",
+      "display": "<table>",
+      "level": "beginner",
+      "definitionEn": "A structure for presenting data arranged in rows and columns.",
+      "definitionAr": "تركيب لعرض بيانات منظمة في صفوف وأعمدة.",
+      "example": "<table><tr><td>Tea</td></tr></table>",
+      "caseSensitive": false,
+      "aliases": [
+        "data table"
+      ]
+    },
+    {
+      "id": "html-tables-t002",
+      "term": "tr",
+      "display": "<tr>",
+      "level": "beginner",
+      "definitionEn": "An element representing one row within a table.",
+      "definitionAr": "عنصر بيمثل صف واحد داخل الجدول.",
+      "example": "<tr><td>Tea</td></tr>",
+      "caseSensitive": false,
+      "aliases": [
+        "table row"
+      ]
+    },
+    {
+      "id": "html-tables-t003",
+      "term": "td",
+      "display": "<td>",
+      "level": "beginner",
+      "definitionEn": "A data cell containing one value in a table row.",
+      "definitionAr": "خلية بيانات فيها قيمة واحدة داخل صف الجدول.",
+      "example": "<td>Tuesday</td>",
+      "caseSensitive": false,
+      "aliases": [
+        "table data cell"
+      ]
+    },
+    {
+      "id": "html-tables-t004",
+      "term": "th",
+      "display": "<th>",
+      "level": "beginner",
+      "definitionEn": "Cell used to name a row or column of related table values.",
+      "definitionAr": "خلية بتسمي صف أو عمود من القيم المرتبطة في الجدول.",
+      "example": "<th scope=\"col\">Day</th>",
+      "caseSensitive": false,
+      "aliases": [
+        "table header cell"
+      ]
+    },
+    {
+      "id": "html-tables-t005",
+      "term": "caption",
+      "display": "<caption>",
+      "level": "beginner",
+      "definitionEn": "An element providing a title or brief description for a table.",
+      "definitionAr": "عنصر بيضيف عنوان أو وصف قصير للجدول.",
+      "example": "<caption>Weekly totals</caption>",
+      "caseSensitive": false,
+      "aliases": [
+        "table caption"
+      ]
+    },
+    {
+      "id": "html-tables-t006",
+      "term": "thead",
+      "display": "<thead>",
+      "level": "intermediate",
+      "definitionEn": "A section grouping the header rows of a table.",
+      "definitionAr": "قسم بيجمع صفوف العناوين في الجدول.",
+      "example": "<thead><tr><th>Item</th></tr></thead>",
+      "caseSensitive": false,
+      "aliases": [
+        "table head section"
+      ]
+    },
+    {
+      "id": "html-tables-t007",
+      "term": "tbody",
+      "display": "<tbody>",
+      "level": "intermediate",
+      "definitionEn": "A section grouping the primary data rows of a table.",
+      "definitionAr": "قسم بيجمع صفوف البيانات الأساسية في الجدول.",
+      "example": "<tbody><tr><td>Tea</td></tr></tbody>",
+      "caseSensitive": false,
+      "aliases": [
+        "table body section"
+      ]
+    },
+    {
+      "id": "html-tables-t008",
+      "term": "tfoot",
+      "display": "<tfoot>",
+      "level": "intermediate",
+      "definitionEn": "A section grouping summary rows at the end of a table.",
+      "definitionAr": "قسم بيجمع صفوف الملخص في نهاية الجدول.",
+      "example": "<tfoot><tr><td>Total</td></tr></tfoot>",
+      "caseSensitive": false,
+      "aliases": [
+        "table footer section"
+      ]
+    },
+    {
+      "id": "html-tables-t009",
+      "term": "scope",
+      "display": "scope=\"col\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute identifying the row or column direction covered by a header cell.",
+      "definitionAr": "خاصية بتحدد إذا كان العنوان بيوصف صف أو عمود.",
+      "example": "<th scope=\"row\">Apples</th>",
+      "caseSensitive": false,
+      "aliases": [
+        "header direction"
+      ]
+    },
+    {
+      "id": "html-tables-t010",
+      "term": "colspan",
+      "display": "colspan=\"2\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute making one table cell span multiple columns.",
+      "definitionAr": "خاصية بتخلي خلية واحدة تمتد على أكتر من عمود.",
+      "example": "<td colspan=\"2\">Combined</td>",
+      "caseSensitive": false,
+      "aliases": [
+        "column span"
+      ]
+    },
+    {
+      "id": "html-tables-t011",
+      "term": "rowspan",
+      "display": "rowspan=\"2\"",
+      "level": "advanced",
+      "definitionEn": "An attribute making one table cell span multiple rows.",
+      "definitionAr": "خاصية بتخلي خلية واحدة تمتد على أكتر من صف.",
+      "example": "<td rowspan=\"2\">Shared</td>",
+      "caseSensitive": false,
+      "aliases": [
+        "row span"
+      ]
+    },
+    {
+      "id": "html-tables-t012",
+      "term": "table header",
+      "level": "advanced",
+      "definitionEn": "A cell that identifies the meaning of related data in a row or column.",
+      "definitionAr": "خلية بتوضح معنى البيانات المرتبطة في صف أو عمود.",
+      "example": "<th scope=\"row\">Subtotal</th>",
+      "caseSensitive": false,
+      "aliases": [
+        "header cell"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-tables-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Table structure",
+      "code": "<table><tr><td>North</td><td>12</td></tr></table>",
+      "question": "What kind of information is this structure intended to present?",
+      "options": [
+        "Data arranged in related rows and columns",
+        "A sequence of unrelated page headings",
+        "A form whose controls submit automatically",
+        "A group of images with captions"
+      ],
+      "correctOption": 0,
+      "explanation": "A table is intended for data with meaningful row and column relationships.",
+      "explanationAr": "الجدول مناسب لبيانات بينها علاقة واضحة بين الصفوف والأعمدة."
+    },
+    {
+      "id": "html-tables-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Headers and data cells",
+      "code": "<tr><th>Month</th><td>April</td></tr>",
+      "question": "What role does td have in this row?",
+      "options": [
+        "A title above the table",
+        "A regular data cell",
+        "A page-level heading",
+        "A group of footer rows"
+      ],
+      "correctOption": 1,
+      "explanation": "td represents a regular data cell; th represents a header cell.",
+      "explanationAr": "td بيمثل خلية بيانات عادية، أما th فبيمثل خلية عنوان."
+    },
+    {
+      "id": "html-tables-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Captions",
+      "code": "<table><caption>Inventory</caption><tr><th>Item</th><td>Flour</td></tr></table>",
+      "options": [
+        "Item\nFlour\nInventory",
+        "InventoryFlour",
+        "Inventory\nItem\nFlour",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The caption and cell contents are visible; the caption precedes the row content.",
+      "explanationAr": "التعليق ومحتوى الخلايا ظاهرين، والتعليق بييجي قبل بيانات الصف.",
+      "expectedOutput": "Inventory\nItem\nFlour"
+    },
+    {
+      "id": "html-tables-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Table structure",
+      "prompt": "Create one table row containing a data cell.",
+      "code": "<table><____><td>March</td></____></table>",
+      "blanks": [
+        [
+          "tr"
+        ],
+        [
+          "tr"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "March",
+      "explanation": "tr groups the cells that belong to one table row."
+    },
+    {
+      "id": "html-tables-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Headers and data cells",
+      "code": "<tr><th scope=\"col\">Price</th><td>$8</td></tr>",
+      "question": "Why use th for the Price cell?",
+      "options": [
+        "It marks a data header",
+        "It adds a second column without another cell",
+        "It moves the value into the table caption",
+        "It makes the cell editable by the visitor"
+      ],
+      "correctOption": 0,
+      "explanation": "th marks a header cell that gives meaning to related data cells.",
+      "explanationAr": "th بيحدد خلية عنوان بتوضح معنى خلايا البيانات المرتبطة."
+    },
+    {
+      "id": "html-tables-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Headers and data cells",
+      "prompt": "Mark April as a regular table data value.",
+      "code": "<table><tr><____>April</____></tr></table>",
+      "blanks": [
+        [
+          "td"
+        ],
+        [
+          "td"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "April",
+      "explanation": "td is the element for a data cell."
+    },
+    {
+      "id": "html-tables-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Captions",
+      "code": "<table><caption>Bus arrivals</caption><tr><td>09:10</td></tr></table>",
+      "question": "What information does caption add to this table?",
+      "options": [
+        "A hidden value submitted with a form",
+        "A row header for every data cell",
+        "A replacement for the table element",
+        "A table's short title"
+      ],
+      "correctOption": 3,
+      "explanation": "caption gives a table a concise title or description.",
+      "explanationAr": "caption بيدي الجدول عنوانًا أو وصفًا مختصرًا."
+    },
+    {
+      "id": "html-tables-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Headers and data cells",
+      "code": "<table><tr><td>Oak</td></tr><tr><td>Pine</td></tr></table>",
+      "expectedOutput": "Oak\nPine",
+      "explanation": "Each cell's text appears in its corresponding table row.",
+      "explanationAr": "نص كل خلية بيظهر في الصف الخاص بيها."
+    },
+    {
+      "id": "html-tables-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Table structure",
+      "prompt": "Group the main data rows separately from a table's heading and summary rows.",
+      "code": "<table><____><tr><td>Tea</td></tr></____></table>",
+      "blanks": [
+        [
+          "tbody"
+        ],
+        [
+          "tbody"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Tea",
+      "explanation": "tbody groups the primary data rows in a table."
+    },
+    {
+      "id": "html-tables-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Table structure",
+      "code": "<table><thead><tr><th>Task</th></tr></thead><tbody><tr><td>Pack</td></tr></tbody><tfoot><tr><td>1 item</td></tr></tfoot></table>",
+      "question": "Which section is intended to group the table's summary row?",
+      "options": [
+        "thead, which only holds the column titles",
+        "tfoot, which can contain summary rows",
+        "tbody, which groups all document metadata",
+        "caption, which replaces every row"
+      ],
+      "correctOption": 1,
+      "explanation": "tfoot groups summary or footer rows; thead and tbody have different structural roles.",
+      "explanationAr": "tfoot بيجمع صفوف الملخص، ولكل من thead وtbody دور مختلف."
+    },
+    {
+      "id": "html-tables-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Table structure",
+      "prompt": "Group the column-heading row in the table header section.",
+      "code": "<table><____><tr><th>Place</th></tr></____></table>",
+      "blanks": [
+        [
+          "thead"
+        ],
+        [
+          "thead"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Place",
+      "explanation": "thead groups rows that form the table's header."
+    },
+    {
+      "id": "html-tables-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Captions",
+      "code": "<table><caption>Queue</caption><tr><th scope=\"col\">Name</th><td>Rami</td></tr></table>",
+      "options": [
+        "Queue\nRami",
+        "Name\nRami",
+        "Queue\nName\nRami",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The table caption and both cell values appear as readable text.",
+      "explanationAr": "تعليق الجدول وقيمتا الخليتين بيظهروا كنص مقروء.",
+      "expectedOutput": "Queue\nName\nRami"
+    },
+    {
+      "id": "html-tables-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Header scope",
+      "code": "<th scope=\"row\">Subtotal</th>",
+      "question": "What does scope=\"row\" communicate about this header?",
+      "options": [
+        "It makes the header cover every column in the table",
+        "It merges the cell with the next row",
+        "It hides the header from assistive technology",
+        "It labels the row associated with the header cell"
+      ],
+      "correctOption": 3,
+      "explanation": "scope=\"row\" identifies a header as applying across its row.",
+      "explanationAr": "scope=\"row\" بيوضح إن العنوان مرتبط بالصف."
+    },
+    {
+      "id": "html-tables-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Header scope",
+      "prompt": "Indicate that the heading names the values beneath its column.",
+      "code": "<th ____=\"col\">City</th>",
+      "blanks": [
+        [
+          "scope"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "City",
+      "explanation": "scope=\"col\" associates a header with the column's data cells."
+    },
+    {
+      "id": "html-tables-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Table structure",
+      "code": "<table><thead><tr><th>Item</th></tr></thead><tbody><tr><td>Rice</td></tr><tr><td>Beans</td></tr></tbody></table>",
+      "expectedOutput": "Item\nRice\nBeans",
+      "explanation": "The header and two body rows contribute text in their document order.",
+      "explanationAr": "العنوان وصفا البيانات بيظهروا بترتيب المستند."
+    },
+    {
+      "id": "html-tables-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Spanning rows and columns",
+      "prompt": "Make the total cell cover two adjacent columns.",
+      "code": "<td ____=\"2\">Grand total</td>",
+      "blanks": [
+        [
+          "colspan"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Grand total",
+      "explanation": "colspan makes a cell occupy multiple columns."
+    },
+    {
+      "id": "html-tables-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Spanning rows and columns",
+      "code": "<table><tr><th scope=\"row\">Room</th><td rowspan=\"2\">Studio</td></tr><tr><th scope=\"row\">Wing</th></tr></table>",
+      "question": "What does rowspan=\"2\" specify for the Studio cell?",
+      "options": [
+        "The cell occupies two table rows",
+        "The cell contains exactly two lines of text",
+        "The table has two header rows",
+        "The cell spans two columns"
+      ],
+      "correctOption": 0,
+      "explanation": "rowspan makes a cell extend across the specified number of rows.",
+      "explanationAr": "rowspan بيخلي الخلية تمتد عبر عدد الصفوف المحدد."
+    },
+    {
+      "id": "html-tables-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Spanning rows and columns",
+      "prompt": "Make this label cell cover two table rows.",
+      "code": "<th ____=\"2\">Shared label</th>",
+      "blanks": [
+        [
+          "rowspan"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Shared label",
+      "explanation": "rowspan controls how many rows a cell occupies."
+    },
+    {
+      "id": "html-tables-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Header scope",
+      "code": "<table><tr><th scope=\"row\">Mira</th><td>8 books</td></tr></table>",
+      "question": "What relationship does the row header express here?",
+      "options": [
+        "header, since it is first in document order",
+        "The value 8 books describes Mira's row",
+        "The cell is only a visual caption",
+        "The row cannot contain a data cell"
+      ],
+      "correctOption": 1,
+      "explanation": "A row-scoped header identifies the subject of data cells in that row.",
+      "explanationAr": "عنوان الصف بيوضح موضوع خلايا البيانات الموجودة في نفس الصف."
+    },
+    {
+      "id": "html-tables-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Spanning rows and columns",
+      "prompt": "Use a cell spanning two columns while keeping the summary readable.",
+      "code": "<tr><td colspan=\"____\">Weekly total</td></tr>",
+      "blanks": [
+        [
+          "2"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Weekly total",
+      "explanation": "The span value determines how many columns the cell occupies."
+    },
+    {
+      "id": "html-tables-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Table structure",
+      "question": "How do thead, tbody, and tfoot help organize a data table?",
+      "keyPoints": [
+        "thead groups header rows",
+        "tbody groups the main data rows",
+        "tfoot can group summary rows",
+        "These sections do not replace tr or cell elements"
+      ],
+      "modelAnswer": "thead, tbody, and tfoot group different kinds of table rows. Rows and cells still use tr with th or td, while the sections make the table structure clearer."
+    },
+    {
+      "id": "html-tables-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Header scope",
+      "question": "How do th and scope help people understand relationships in a table?",
+      "keyPoints": [
+        "th marks a header cell",
+        "scope can identify a row or column header",
+        "Header relationships support assistive technologies",
+        "td represents ordinary data cells"
+      ],
+      "modelAnswer": "th identifies a cell as a header rather than ordinary data. A suitable scope value clarifies whether it labels a row or column, helping users and assistive technologies connect the heading to its data."
+    },
+    {
+      "id": "html-tables-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Spanning rows and columns",
+      "question": "What is the difference between colspan and rowspan?",
+      "keyPoints": [
+        "colspan spans multiple columns",
+        "rowspan spans multiple rows",
+        "Both affect a cell's position in the table grid",
+        "Keep the resulting table structure coherent"
+      ],
+      "modelAnswer": "colspan makes a cell cover more than one column, while rowspan makes it cover more than one row. The surrounding rows must still form a coherent table grid."
+    },
+    {
+      "id": "html-tables-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Captions",
+      "question": "When is a caption useful, and where does it belong?",
+      "keyPoints": [
+        "It gives the table a concise title or description",
+        "It belongs inside the table element",
+        "It helps users identify the table's subject",
+        "It is distinct from a row or column header"
+      ],
+      "modelAnswer": "A caption provides a short title or description that helps users identify a table's subject. It belongs inside the table and serves a different purpose from headers for individual rows or columns."
+    }
+  ]
+}
