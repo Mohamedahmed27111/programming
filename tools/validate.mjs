@@ -178,7 +178,7 @@ function renderHtmlText(markup) {
 
 async function validateQuestion(question, file, updateExpected, subject) {
   const label = question.id ?? '(question without id)';
-  const allowedTypes = ['css', 'typescript'].includes(subject) ? TYPES.filter(type => type !== 'writeCode') : TYPES;
+  const allowedTypes = ['css', 'typescript', 'react'].includes(subject) ? TYPES.filter(type => type !== 'writeCode') : TYPES;
   if (!allowedTypes.includes(question.type)) report(file, `${label} has unsupported type "${question.type}" for subject "${subject}"`);
   if (!LEVELS.includes(question.level)) report(file, `${label} has unsupported level "${question.level}"`);
 
@@ -211,10 +211,10 @@ async function validateQuestion(question, file, updateExpected, subject) {
     } else {
       const actual = subject === 'html'
         ? renderHtmlText(question.code)
-        : ['css', 'typescript'].includes(subject)
+        : ['css', 'typescript', 'react'].includes(subject)
           ? null
           : await executeOutput(question.code, file, label);
-      if (['css', 'typescript'].includes(subject) && typeof question.expectedOutput !== 'string') {
+      if (['css', 'typescript', 'react'].includes(subject) && typeof question.expectedOutput !== 'string') {
         report(file, `${label} is missing expectedOutput`);
       }
       if (actual !== null) {
@@ -247,7 +247,7 @@ async function validateQuestion(question, file, updateExpected, subject) {
       }
       const actual = subject === 'html'
         ? renderHtmlText(code)
-        : ['css', 'typescript'].includes(subject)
+        : ['css', 'typescript', 'react'].includes(subject)
           ? null
           : await executeOutput(code, file, label);
       if (['css', 'typescript'].includes(subject) && typeof question.expectedOutput !== 'string') {
