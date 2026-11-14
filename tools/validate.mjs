@@ -79,6 +79,22 @@ function canonical(value) {
   return JSON.stringify(value);
 }
 
+async function awaitThenable(value) {
+  if (value === null || (typeof value !== 'object' && typeof value !== 'function') ||
+      typeof value.then !== 'function') return value;
+  let timeout;
+  try {
+    return await Promise.race([
+      value,
+      new Promise((_, reject) => {
+        timeout = globalThis.setTimeout(() => reject(new Error('execution exceeded 2s timeout')), 2000);
+      })
+    ]);
+  } finally {
+    globalThis.clearTimeout(timeout);
+  }
+}
+
 async function executeOutput(code, file, questionId) {
   const output = [];
   const timers = new Set();
@@ -218,10 +234,14 @@ async function validateQuestion(question, file, updateExpected) {
         continue;
       }
       try {
-        let actual = fn(...JSON.parse(JSON.stringify(test.args)));
+        let actual = await awaitThenable(fn(...JSON.parse(JSON.stringify(test.args))));
         if (hasInvoke) {
           if (typeof actual !== 'function') throw new TypeError('invoke tests require the solution to return a function');
-          actual = test.invoke.map(args => actual(...JSON.parse(JSON.stringify(args))));
+          const invokeResults = [];
+          for (const args of test.invoke) {
+            invokeResults.push(await awaitThenable(actual(...JSON.parse(JSON.stringify(args)))));
+          }
+          actual = invokeResults;
         }
         let normalizedActual;
         if (actual === undefined) {
