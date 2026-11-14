@@ -466,6 +466,187 @@
           }
         }
       ]
+    },
+    {
+      "id": "html",
+      "topics": [
+        {
+          "order": 1,
+          "topic": "Document Structure",
+          "file": "data/html/01-document-structure.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 2,
+          "topic": "Text and Semantics",
+          "file": "data/html/02-text-and-semantic.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 3,
+          "topic": "Links and Images",
+          "file": "data/html/03-links-and-images.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 4,
+          "topic": "Forms and Inputs",
+          "file": "data/html/04-forms-and-inputs.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 5,
+          "topic": "Tables",
+          "file": "data/html/05-tables.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 6,
+          "topic": "Accessibility",
+          "file": "data/html/06-accessibility.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 7,
+          "topic": "Media and Embeds",
+          "file": "data/html/07-media-and-embeds.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 8,
+          "topic": "SEO and Metadata",
+          "file": "data/html/08-seo-and-meta.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 8,
+              "predictOutput": 4,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        }
+      ]
     }
   ]
 }
