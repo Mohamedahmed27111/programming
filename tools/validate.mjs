@@ -223,7 +223,19 @@ async function validateQuestion(question, file, updateExpected) {
           if (typeof actual !== 'function') throw new TypeError('invoke tests require the solution to return a function');
           actual = test.invoke.map(args => actual(...JSON.parse(JSON.stringify(args))));
         }
-        if (!isJsonValue(actual) || !isDeepStrictEqual(JSON.parse(canonical(actual)), JSON.parse(canonical(test.expect)))) {
+        let normalizedActual;
+        if (actual === undefined) {
+          if (test.expect !== null) {
+            report(file, `${label} test ${index + 1} mismatch: expected ${JSON.stringify(test.expect)}, actual undefined`);
+            continue;
+          }
+          normalizedActual = null;
+        } else {
+          const serializedActual = JSON.stringify(actual);
+          if (serializedActual === undefined) throw new TypeError('actual result is not JSON-serialisable');
+          normalizedActual = JSON.parse(serializedActual);
+        }
+        if (!isDeepStrictEqual(normalizedActual, JSON.parse(canonical(test.expect)))) {
           report(file, `${label} test ${index + 1} mismatch: expected ${JSON.stringify(test.expect)}, actual ${JSON.stringify(actual)}`);
         }
       } catch (error) {
