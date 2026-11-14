@@ -144,11 +144,20 @@ async function executeOutput(code, file, questionId) {
 }
 
 function renderHtmlText(markup) {
-  const blockTags = /<\/(?:address|article|aside|blockquote|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h[1-6]|header|hr|li|main|nav|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul)\s*>/gi;
+  const blockTags = /<\/(?:address|article|aside|blockquote|caption|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h[1-6]|header|hr|li|main|nav|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul)\s*>/gi;
   const entities = { amp: '&', apos: "'", gt: '>', lt: '<', nbsp: ' ', quot: '"' };
   return markup
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<(?:head|script|style|template|title|noscript)\b[^>]*>[\s\S]*?<\/(?:head|script|style|template|title|noscript)\s*>/gi, '')
+    .replace(/<input\b([^>]*)>/gi, (_, attributes) => {
+      const value = attributes.match(/\bvalue\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+      return value ? value[1] ?? value[2] ?? value[3] : '';
+    })
+    .replace(/<select\b[^>]*>([\s\S]*?)<\/select\s*>/gi, (_, content) => {
+      const options = [...content.matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option\s*>/gi)];
+      const selected = options.find(([, attributes]) => /\bselected\b/i.test(attributes)) ?? options[0];
+      return selected ? selected[2].replace(/<[^>]*>/g, '') : '';
+    })
     .replace(/<br\b[^>]*\/?>/gi, '\n')
     .replace(blockTags, '\n')
     .replace(/<[^>]*>/g, '')
