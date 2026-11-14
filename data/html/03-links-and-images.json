@@ -1,0 +1,555 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "Links and Images",
+    "order": 3,
+    "sourceSections": [
+      "Anchor links",
+      "href and target",
+      "rel security",
+      "Images and alt text",
+      "srcset",
+      "Figures and paths"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-links-and-images-t001",
+      "term": "anchor",
+      "display": "<a>",
+      "level": "beginner",
+      "definitionEn": "An element that creates a hyperlink to another location or resource.",
+      "definitionAr": "عنصر بيعمل رابط لمكان تاني أو لمورد خارجي.",
+      "example": "<a href=\"/events\">Events</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "link element"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t002",
+      "term": "href",
+      "display": "href=\"...\"",
+      "level": "beginner",
+      "definitionEn": "An attribute that supplies the destination URL for a hyperlink.",
+      "definitionAr": "خاصية بتحدد عنوان الوجهة اللي الرابط هيفتحها.",
+      "example": "<a href=\"/about\">About</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "hypertext reference"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t003",
+      "term": "img",
+      "display": "<img>",
+      "level": "beginner",
+      "definitionEn": "A void element that embeds an image resource in the page.",
+      "definitionAr": "عنصر من غير وسم إغلاق بيعرض صورة جوه الصفحة.",
+      "example": "<img src=\"map.png\" alt=\"Trail map\">",
+      "caseSensitive": false,
+      "aliases": [
+        "image element"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t004",
+      "term": "src",
+      "display": "src=\"...\"",
+      "level": "beginner",
+      "definitionEn": "An attribute that gives the URL of an embedded resource such as an image.",
+      "definitionAr": "خاصية بتحدد عنوان المورد اللي بيتعرض جوه الصفحة زي الصورة.",
+      "example": "<img src=\"leaf.png\" alt=\"Green leaf\">",
+      "caseSensitive": false,
+      "aliases": [
+        "source URL"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t005",
+      "term": "image alternative",
+      "display": "alt=\"\"",
+      "level": "beginner",
+      "definitionEn": "Words that convey relevant information when an image cannot be seen.",
+      "definitionAr": "خاصية بتوفر وصف نصي بديل للصورة حسب دورها في الصفحة.",
+      "example": "<img src=\"owl.jpg\" alt=\"Owl on a branch\">",
+      "caseSensitive": false,
+      "aliases": [
+        "alternative text"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t006",
+      "term": "target",
+      "display": "target=\"_blank\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute selecting the browsing context where a hyperlink opens.",
+      "definitionAr": "خاصية بتحدد نافذة أو لسان المتصفح اللي الرابط هيفتح فيه.",
+      "example": "<a href=\"/guide\" target=\"_blank\">Guide</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "browsing context target"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t007",
+      "term": "link relation",
+      "display": "rel=\"noopener\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute describing how a hyperlink is connected to its destination.",
+      "definitionAr": "خاصية بتوضح العلاقة بين الرابط والصفحة اللي بيروح لها.",
+      "example": "<a href=\"/more\" rel=\"noopener\">More</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "link relationship"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t008",
+      "term": "srcset",
+      "display": "srcset=\"...\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute listing image candidates that a browser can select for different conditions.",
+      "definitionAr": "خاصية بتعرض اختيارات صور يقدر المتصفح ينتقي منها حسب ظروف العرض.",
+      "example": "<img src=\"small.jpg\" srcset=\"large.jpg 2x\" alt=\"Mountain\">",
+      "caseSensitive": false,
+      "aliases": [
+        "source set"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t009",
+      "term": "figure",
+      "display": "<figure>",
+      "level": "intermediate",
+      "definitionEn": "A self-contained visual unit such as an image, often paired with a caption.",
+      "definitionAr": "عنصر لمحتوى بصري مستقل زي صورة وممكن يكون معاه تعليق.",
+      "example": "<figure><img src=\"hill.jpg\" alt=\"Hill\"><figcaption>North ridge</figcaption></figure>",
+      "caseSensitive": false,
+      "aliases": [
+        "figure element"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t010",
+      "term": "figcaption",
+      "display": "<figcaption>",
+      "level": "intermediate",
+      "definitionEn": "An element that provides a caption for its parent figure.",
+      "definitionAr": "عنصر بيضيف تعليق أو وصف للشكل الموجود في figure.",
+      "example": "<figcaption>North ridge at dawn</figcaption>",
+      "caseSensitive": false,
+      "aliases": [
+        "figure caption"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t011",
+      "term": "relative URL",
+      "level": "advanced",
+      "definitionEn": "An address resolved from the current document's location rather than from a full origin.",
+      "definitionAr": "عنوان بيتحدد بالنسبة لمكان المستند الحالي بدل ما يكتب عنوان الموقع كامل.",
+      "example": "<a href=\"../guide.html\">Guide</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "relative path"
+      ]
+    },
+    {
+      "id": "html-links-and-images-t012",
+      "term": "absolute URL",
+      "level": "advanced",
+      "definitionEn": "A complete URL that includes a scheme and host for identifying a resource.",
+      "definitionAr": "عنوان كامل فيه البروتوكول واسم الموقع عشان يحدد المورد بوضوح.",
+      "example": "<a href=\"https://example.org/guide\">Guide</a>",
+      "caseSensitive": false,
+      "aliases": [
+        "full URL"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-links-and-images-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Anchor links",
+      "code": "<a href=\"/workshops\">Workshops</a>",
+      "question": "What happens when a visitor activates this element?",
+      "options": [
+        "The browser follows a hyperlink to /workshops",
+        "The browser downloads an image named workshops",
+        "The page submits an empty form",
+        "The text is announced as a heading only"
+      ],
+      "correctOption": 0,
+      "explanation": "An anchor with href creates a hyperlink to its destination.",
+      "explanationAr": "عنصر a مع href بيعمل رابط للوجهة المحددة."
+    },
+    {
+      "id": "html-links-and-images-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "href and target",
+      "code": "<a href=\"https://example.org/help\">Help</a>",
+      "question": "Which attribute gives the destination of this hyperlink?",
+      "options": [
+        "The alt attribute",
+        "The href attribute",
+        "The target attribute",
+        "The rel attribute"
+      ],
+      "correctOption": 1,
+      "explanation": "href contains the URL the hyperlink points to.",
+      "explanationAr": "خاصية href فيها عنوان الوجهة اللي الرابط بيشير لها."
+    },
+    {
+      "id": "html-links-and-images-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Anchor links",
+      "code": "<p>Read the <a href=\"/guide\">field guide</a>.</p>",
+      "options": [
+        "Read the field guide /guide.",
+        "Read the /guide field guide.",
+        "Read the field guide.",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The link text is visible; the href value is not displayed as page text.",
+      "explanationAr": "نص الرابط ظاهر، لكن قيمة href مش بتتعرض كنص.",
+      "expectedOutput": "Read the field guide."
+    },
+    {
+      "id": "html-links-and-images-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "href and target",
+      "prompt": "Make the word Help link to the help page.",
+      "code": "<a ____=\"/help\">Help</a>",
+      "blanks": [
+        [
+          "href"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Help",
+      "explanation": "href supplies a hyperlink's destination."
+    },
+    {
+      "id": "html-links-and-images-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Images and alt text",
+      "code": "<img src=\"pond.jpg\" alt=\"Frogs beside a pond\">",
+      "question": "What does the alt value provide?",
+      "options": [
+        "A text alternative describing the image",
+        "A second image file to load at high density",
+        "The URL opened when the image is clicked",
+        "A caption printed below the image"
+      ],
+      "correctOption": 0,
+      "explanation": "alt supplies alternative text for the image; it is not automatically a visible caption.",
+      "explanationAr": "خاصية alt بتوفر نص بديل للصورة ومش تعليق ظاهر تحتها."
+    },
+    {
+      "id": "html-links-and-images-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Images and alt text",
+      "prompt": "Provide a short text alternative for the picture.",
+      "code": "<img src=\"kite.jpg\" ____=\"A red kite in the sky\">",
+      "blanks": [
+        [
+          "alt"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The alt attribute gives an image a text alternative."
+    },
+    {
+      "id": "html-links-and-images-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Images and alt text",
+      "code": "<img src=\"badge.svg\" alt=\"Club badge\">",
+      "question": "Why does img not have a closing tag here?",
+      "options": [
+        "Every image is closed by the browser's next paragraph",
+        "The alt attribute closes the element automatically",
+        "HTML permits closing tags only inside links",
+        "img is a void element and has no end tag"
+      ],
+      "correctOption": 3,
+      "explanation": "img is a void element, so it must not have a closing tag.",
+      "explanationAr": "img عنصر void ومش بيستخدم وسم إغلاق."
+    },
+    {
+      "id": "html-links-and-images-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Images and alt text",
+      "code": "<p>The North club logo is shown.</p>",
+      "expectedOutput": "The North club logo is shown.",
+      "explanation": "The paragraph's text is visible independently of an image alternative.",
+      "explanationAr": "?? ?????? ????? ???? ???? ?????? ???? alt ?? ??."
+    },
+    {
+      "id": "html-links-and-images-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "href and target",
+      "prompt": "Open the destination in a new browsing context.",
+      "code": "<a href=\"/catalog\" ____=\"_blank\">Catalog</a>",
+      "blanks": [
+        [
+          "target"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Catalog",
+      "explanation": "target=\"_blank\" requests a new browsing context for the linked destination."
+    },
+    {
+      "id": "html-links-and-images-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "rel security",
+      "code": "<a href=\"https://example.org\" target=\"_blank\" rel=\"noopener\">Reference</a>",
+      "question": "What relationship hint does rel=\"noopener\" provide for this new tab?",
+      "options": [
+        "It guarantees that the remote page cannot load images or change the page visual styles",
+        "It blocks opener access in the newly opened context",
+        "It changes the link into a same-origin URL",
+        "It makes the browser reuse the current tab"
+      ],
+      "correctOption": 1,
+      "explanation": "noopener prevents the opened browsing context from gaining access through window.opener.",
+      "explanationAr": "noopener بيمنع الصفحة المفتوحة من الوصول للصفحة الأصلية عن طريق window.opener."
+    },
+    {
+      "id": "html-links-and-images-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "rel security",
+      "prompt": "Add the relationship token that isolates a newly opened page from window.opener.",
+      "code": "<a href=\"https://example.org\" target=\"_blank\" ____=\"noopener\">Reference</a>",
+      "blanks": [
+        [
+          "rel"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Reference",
+      "explanation": "The rel attribute records the relationship token noopener."
+    },
+    {
+      "id": "html-links-and-images-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Figures and paths",
+      "code": "<figure><img src=\"fern.jpg\" alt=\"Fern frond\"><figcaption>Found near the creek</figcaption></figure>",
+      "options": [
+        "Fern frond\\nFound near the creek",
+        "fern.jpg\\nFound near the creek",
+        "Found near the creek",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The caption is visible text; alternative text is not normally shown when the image loads.",
+      "explanationAr": "??????? ?? ????? ??? ???? ?????? ????? ?? ????? ??? ?????? ?????.",
+      "expectedOutput": "Found near the creek"
+    },
+    {
+      "id": "html-links-and-images-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "srcset",
+      "code": "<img src=\"plant-400.jpg\" srcset=\"plant-800.jpg 2x\" alt=\"Plant close-up\">",
+      "question": "How can the browser use this srcset value?",
+      "options": [
+        "Use both candidates at once to combine their pixels into one larger image",
+        "Treat 2x as the image's alternative text",
+        "Replace the image with a hyperlink",
+        "Choose an image candidate based on display conditions"
+      ],
+      "correctOption": 3,
+      "explanation": "srcset lists image candidates and descriptors that help the browser choose an appropriate resource.",
+      "explanationAr": "srcset بيعرض صور بديلة ووصفها عشان المتصفح يختار المورد المناسب."
+    },
+    {
+      "id": "html-links-and-images-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "srcset",
+      "prompt": "Offer a higher-density image candidate in addition to the fallback src.",
+      "code": "<img src=\"map.png\" ____=\"map-large.png 2x\" alt=\"Map\">",
+      "blanks": [
+        [
+          "srcset"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "srcset provides image candidates with descriptors for browser selection."
+    },
+    {
+      "id": "html-links-and-images-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Figures and paths",
+      "code": "<figure><img src=\"/images/bridge.jpg\" alt=\"Stone bridge\"><figcaption>East trail</figcaption></figure>",
+      "expectedOutput": "East trail",
+      "explanation": "The caption is visible text associated with the figure; alt is not normally displayed when the image loads.",
+      "explanationAr": "??????? ?? ???? ????? ??????? ??? alt ????? ?? ????? ??? ?????? ?????."
+    },
+    {
+      "id": "html-links-and-images-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Figures and paths",
+      "prompt": "Add a caption to the figure containing the image.",
+      "code": "<figure><img src=\"lake.jpg\" alt=\"Still water\"><____>Morning light</____></figure>",
+      "blanks": [
+        [
+          "figcaption"
+        ],
+        [
+          "figcaption"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Morning light",
+      "explanation": "figcaption labels or describes the contents of its parent figure."
+    },
+    {
+      "id": "html-links-and-images-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "rel security",
+      "code": "<a href=\"https://example.org\" target=\"_blank\" rel=\"noopener noreferrer\">Source</a>",
+      "question": "Why include both relationship tokens on a link opened in a new tab?",
+      "options": [
+        "noopener blocks opener access; noreferrer also omits referrer data",
+        "They keep the browser from sending cookies or any credentials to the destination",
+        "They force the destination into a secure browsing mode",
+        "They prevent every script from running on the destination"
+      ],
+      "correctOption": 0,
+      "explanation": "noopener prevents access through window.opener; noreferrer also omits the referrer header.",
+      "explanationAr": "noopener بيعزل window.opener، وnoreferrer كمان بيمنع إرسال معلومات الصفحة المحيلة."
+    },
+    {
+      "id": "html-links-and-images-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Figures and paths",
+      "prompt": "Use a parent-directory relative path to link to the shared guide.",
+      "code": "<a href=\"____/guide.html\">Shared guide</a>",
+      "blanks": [
+        [
+          "../shared"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Shared guide",
+      "explanation": "A relative URL is resolved from the current document's location."
+    },
+    {
+      "id": "html-links-and-images-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Images and alt text",
+      "code": "<img src=\"chart.png\" alt=\"\">",
+      "question": "When is an empty alt value appropriate?",
+      "options": [
+        "Whenever the image file is larger than 100 kilobytes",
+        "When the image adds no unique information beyond nearby content",
+        "When the image is a link whose destination has no URL",
+        "For any image needing a screen-reader description, since empty alt requests automatic text"
+      ],
+      "correctOption": 1,
+      "explanation": "An empty alt value can mark a decorative image so it does not add redundant information to the accessibility tree.",
+      "explanationAr": "alt الفاضي مناسب للصورة الزخرفية عشان ما يكررش معلومة موجودة."
+    },
+    {
+      "id": "html-links-and-images-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "srcset",
+      "prompt": "Supply an image candidate for a device pixel density of two.",
+      "code": "<img src=\"icon.png\" srcset=\"icon-large.png ____\" alt=\"Compass\">",
+      "blanks": [
+        [
+          "2x"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "A 2x density descriptor identifies a candidate for a higher pixel density."
+    },
+    {
+      "id": "html-links-and-images-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Images and alt text",
+      "question": "How do src and alt serve different purposes on an image?",
+      "keyPoints": [
+        "src identifies the image resource URL",
+        "alt provides a textual alternative",
+        "Alternative text should convey relevant image information",
+        "Decorative images may use an empty alt value"
+      ],
+      "modelAnswer": "src identifies the resource the browser should load. alt provides a textual alternative for users who cannot see the image, or can be empty when a decorative image adds no information."
+    },
+    {
+      "id": "html-links-and-images-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "href and target",
+      "question": "What is the difference between an absolute URL and a relative URL in a link?",
+      "keyPoints": [
+        "An absolute URL includes its scheme and host",
+        "A relative URL is resolved from the current document location",
+        "Relative paths can use directory segments",
+        "Choose based on whether the destination is local or external"
+      ],
+      "modelAnswer": "An absolute URL identifies a resource with a complete address, including its scheme and host. A relative URL is resolved from the current document's location and is often useful for resources within the same site."
+    },
+    {
+      "id": "html-links-and-images-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "rel security",
+      "question": "What security and privacy considerations apply when a link opens a new tab?",
+      "keyPoints": [
+        "target=\"_blank\" requests another browsing context",
+        "noopener blocks access through window.opener",
+        "noreferrer suppresses referrer information",
+        "Use the relationship tokens for the intended protection"
+      ],
+      "modelAnswer": "A new browsing context should not be able to control its opener, so noopener is useful protection. noreferrer additionally omits referrer information, which can be appropriate for privacy."
+    },
+    {
+      "id": "html-links-and-images-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "srcset",
+      "question": "How can srcset help browsers select images for different screens?",
+      "keyPoints": [
+        "It lists alternative image candidates",
+        "Descriptors communicate density or width",
+        "The browser chooses a candidate for the display conditions",
+        "A suitable src fallback remains useful"
+      ],
+      "modelAnswer": "srcset lets a page list image candidates with descriptors such as pixel density or width. The browser can choose a suitable resource for the display conditions, with src providing a useful fallback."
+    }
+  ]
+}

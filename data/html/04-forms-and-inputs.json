@@ -1,0 +1,557 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "Forms and Inputs",
+    "order": 4,
+    "sourceSections": [
+      "form and submission",
+      "input types",
+      "labels",
+      "select and textarea",
+      "buttons",
+      "constraint validation"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-forms-and-inputs-t001",
+      "term": "form",
+      "display": "<form>",
+      "level": "beginner",
+      "definitionEn": "A container for controls that collect values for submission or processing.",
+      "definitionAr": "عنصر بيجمع أدوات إدخال القيم عشان تتبعت أو تتعالج.",
+      "example": "<form action=\"/signup\"><input name=\"email\"></form>",
+      "caseSensitive": false,
+      "aliases": [
+        "form element"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t002",
+      "term": "input",
+      "display": "<input>",
+      "level": "beginner",
+      "definitionEn": "A void form control whose behavior depends on its type attribute.",
+      "definitionAr": "أداة إدخال من غير وسم إغلاق وسلوكها بيتحدد حسب خاصية type.",
+      "example": "<input type=\"email\" name=\"email\">",
+      "caseSensitive": false,
+      "aliases": [
+        "input control"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t003",
+      "term": "email input",
+      "display": "type=\"email\"",
+      "level": "beginner",
+      "definitionEn": "A control configured to accept an email address and provide browser validation.",
+      "definitionAr": "أداة مهيأة لاستقبال بريد إلكتروني وبتوفر تحقق مبدئي من المتصفح.",
+      "example": "<input type=\"email\" name=\"contact\">",
+      "caseSensitive": false,
+      "aliases": [
+        "email field"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t004",
+      "term": "label",
+      "display": "<label>",
+      "level": "beginner",
+      "definitionEn": "An element that gives a form control an accessible name and clickable caption.",
+      "definitionAr": "عنصر بيدي أداة الإدخال اسمًا مفهومًا وبيخلي الوصف قابل للضغط.",
+      "example": "<label for=\"city\">City</label><input id=\"city\">",
+      "caseSensitive": false,
+      "aliases": [
+        "control label"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t005",
+      "term": "select",
+      "display": "<select>",
+      "level": "beginner",
+      "definitionEn": "A form control that lets a user choose from a set of option elements.",
+      "definitionAr": "أداة إدخال بتخلي المستخدم يختار قيمة من مجموعة اختيارات.",
+      "example": "<select name=\"size\"><option>Small</option></select>",
+      "caseSensitive": false,
+      "aliases": [
+        "selection control"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t006",
+      "term": "textarea",
+      "display": "<textarea>",
+      "level": "intermediate",
+      "definitionEn": "A control for entering multiple lines of text.",
+      "definitionAr": "أداة إدخال بتسمح بكتابة نص على أكتر من سطر.",
+      "example": "<textarea name=\"message\"></textarea>",
+      "caseSensitive": false,
+      "aliases": [
+        "multi-line text control"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t007",
+      "term": "button",
+      "display": "<button>",
+      "level": "intermediate",
+      "definitionEn": "An interactive control that can submit, reset, or trigger an action.",
+      "definitionAr": "عنصر تفاعلي ممكن يبعت النموذج أو يمسحه أو ينفذ إجراء.",
+      "example": "<button type=\"submit\">Send</button>",
+      "caseSensitive": false,
+      "aliases": [
+        "button control"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t008",
+      "term": "label association",
+      "display": "for=\"...\"",
+      "level": "intermediate",
+      "definitionEn": "A connection made when an element's for value matches a control's id.",
+      "definitionAr": "ربط بيحصل لما قيمة for في label تطابق id بتاع أداة الإدخال.",
+      "example": "<label for=\"zip\">Postal code</label><input id=\"zip\">",
+      "caseSensitive": false,
+      "aliases": [
+        "explicit label"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t009",
+      "term": "required",
+      "display": "required",
+      "level": "intermediate",
+      "definitionEn": "A Boolean attribute that makes a control need a value before normal submission.",
+      "definitionAr": "خاصية منطقية بتخلي وجود قيمة شرطًا قبل الإرسال العادي.",
+      "example": "<input name=\"name\" required>",
+      "caseSensitive": false,
+      "aliases": [
+        "required attribute"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t010",
+      "term": "pattern",
+      "display": "pattern=\"...\"",
+      "level": "intermediate",
+      "definitionEn": "A constraint attribute that checks a text value against a regular expression.",
+      "definitionAr": "خاصية بتفحص قيمة نصية بمقارنتها بتعبير نمطي.",
+      "example": "<input pattern=\"[A-Z]{2}\">",
+      "caseSensitive": false,
+      "aliases": [
+        "pattern constraint"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t011",
+      "term": "minlength",
+      "display": "minlength=\"...\"",
+      "level": "advanced",
+      "definitionEn": "A constraint attribute specifying the minimum number of characters in a text value.",
+      "definitionAr": "خاصية بتحدد أقل عدد حروف مسموح في القيمة النصية.",
+      "example": "<input minlength=\"6\">",
+      "caseSensitive": false,
+      "aliases": [
+        "minimum length constraint"
+      ]
+    },
+    {
+      "id": "html-forms-and-inputs-t012",
+      "term": "autocomplete",
+      "display": "autocomplete=\"...\"",
+      "level": "advanced",
+      "definitionEn": "An attribute describing whether a browser may help fill a control using stored data.",
+      "definitionAr": "خاصية بتوضح إذا كان المتصفح يقدر يساعد في ملء الأداة ببيانات محفوظة.",
+      "example": "<input name=\"email\" autocomplete=\"email\">",
+      "caseSensitive": false,
+      "aliases": [
+        "autofill hint"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-forms-and-inputs-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "form and submission",
+      "code": "<form action=\"/subscribe\"><input name=\"email\"><button type=\"submit\">Join</button></form>",
+      "question": "What is the form element organizing?",
+      "options": [
+        "It groups controls for collecting user values",
+        "A page outline organizing headings and section titles",
+        "A table that sorts values in the browser",
+        "A container displaying an external image resource"
+      ],
+      "correctOption": 0,
+      "explanation": "form groups controls used to collect and submit or process user-provided values.",
+      "explanationAr": "form بيجمع أدوات لإدخال قيم المستخدم وإرسالها أو معالجتها."
+    },
+    {
+      "id": "html-forms-and-inputs-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "input types",
+      "code": "<input type=\"email\" name=\"contact\">",
+      "question": "What does type=\"email\" tell the browser about this control?",
+      "options": [
+        "It sends a message without form submission",
+        "It uses email-oriented input behavior",
+        "It is a multi-line text area",
+        "It selects an option from a drop-down list"
+      ],
+      "correctOption": 1,
+      "explanation": "The email input type is intended for email addresses and enables relevant browser behavior and validation.",
+      "explanationAr": "نوع email مخصص لعناوين البريد وبيوفر سلوك وتحقق مناسبين من المتصفح."
+    },
+    {
+      "id": "html-forms-and-inputs-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "select and textarea",
+      "code": "<p><label for=\"color\">Color</label></p><p><select id=\"color\"><option>Blue</option></select></p>",
+      "options": [
+        "Color",
+        "Blue",
+        "Color\nBlue",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The label and selected option are rendered in separate paragraph blocks.",
+      "explanationAr": "????? ????????? ?????? ??????? ?? ?????? ????????.",
+      "expectedOutput": "Color\nBlue"
+    },
+    {
+      "id": "html-forms-and-inputs-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "form and submission",
+      "prompt": "Wrap these controls in a form element.",
+      "code": "<____><input name=\"nickname\"><button>Save</button></____>",
+      "blanks": [
+        [
+          "form"
+        ],
+        [
+          "form"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Save",
+      "explanation": "The form element groups controls that participate in submission or processing."
+    },
+    {
+      "id": "html-forms-and-inputs-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "labels",
+      "code": "<label for=\"phone\">Phone</label><input id=\"phone\" name=\"phone\">",
+      "question": "Why do the for and id values match?",
+      "options": [
+        "They connect the label and its control",
+        "They send the entered value to the label as a web address",
+        "They set the input's default value to Phone",
+        "They make the control accept only numbers"
+      ],
+      "correctOption": 0,
+      "explanation": "A label's for value explicitly associates it with the control whose id matches.",
+      "explanationAr": "قيمة for في label بتربطها بأداة الإدخال اللي id بتاعها مطابق."
+    },
+    {
+      "id": "html-forms-and-inputs-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "labels",
+      "prompt": "Connect the label to the input by matching its id.",
+      "code": "<label ____=\"user\">User name</label><input id=\"user\">",
+      "blanks": [
+        [
+          "for"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "User name",
+      "explanation": "The for attribute associates a label with the element having the same id."
+    },
+    {
+      "id": "html-forms-and-inputs-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "select and textarea",
+      "code": "<textarea name=\"notes\">Bring water</textarea>",
+      "question": "What kind of value is textarea designed to collect?",
+      "options": [
+        "Exactly one choice from a list of options",
+        "A file path that must point to an image",
+        "A hidden value unavailable for editing",
+        "A text value that may span multiple lines"
+      ],
+      "correctOption": 3,
+      "explanation": "textarea provides an editable multi-line text control.",
+      "explanationAr": "textarea بتوفر أداة قابلة للتحرير لنص متعدد السطور."
+    },
+    {
+      "id": "html-forms-and-inputs-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "buttons",
+      "code": "<form><button type=\"button\">Preview</button> <button type=\"submit\">Send</button></form>",
+      "expectedOutput": "Preview Send",
+      "explanation": "Both buttons display their text; type controls their default action, not their visible label.",
+      "explanationAr": "الزرارين بيعرضوا النص، وtype بيحدد الإجراء الافتراضي مش الاسم الظاهر."
+    },
+    {
+      "id": "html-forms-and-inputs-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "input types",
+      "prompt": "Use a control intended for collecting an email address.",
+      "code": "<input type=\"____\" name=\"reply\">",
+      "blanks": [
+        [
+          "email"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The email input type signals that the field is intended to contain an email address."
+    },
+    {
+      "id": "html-forms-and-inputs-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "buttons",
+      "code": "<button type=\"button\">Show details</button>",
+      "question": "How does this button's declared type differ from submit?",
+      "options": [
+        "It clears every control in the document",
+        "It does not submit its associated form by default",
+        "It can only be used outside a form",
+        "It automatically opens the current page in a new tab"
+      ],
+      "correctOption": 1,
+      "explanation": "type=\"button\" has no form-submission behavior by default; scripts may attach another action.",
+      "explanationAr": "type=\"button\" مش بيبعت النموذج تلقائيًا، وممكن نربطه بإجراء تاني."
+    },
+    {
+      "id": "html-forms-and-inputs-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "constraint validation",
+      "prompt": "Make the email control require a non-empty value before ordinary form submission.",
+      "code": "<input type=\"email\" name=\"contact\" ____>",
+      "blanks": [
+        [
+          "required"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "required participates in the browser's built-in constraint validation."
+    },
+    {
+      "id": "html-forms-and-inputs-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "select and textarea",
+      "code": "<p><label for=\"message\">Message</label></p><p><textarea id=\"message\">See you soon</textarea></p>",
+      "options": [
+        "See you soon only",
+        "Message only",
+        "Message\nSee you soon",
+        "The browser shows the label above the editable text area"
+      ],
+      "correctOption": 2,
+      "explanation": "The label and the initial textarea value are both visible in their separate blocks.",
+      "explanationAr": "??? ?????? ????? ??????? ??????? ?? textarea ??????? ??????.",
+      "expectedOutput": "Message\nSee you soon"
+    },
+    {
+      "id": "html-forms-and-inputs-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "constraint validation",
+      "code": "<input name=\"handle\" pattern=\"[A-Za-z]{3,}\">",
+      "question": "What does pattern specify for this text control?",
+      "options": [
+        "A placeholder shown until the user types",
+        "A fixed value submitted regardless of user input",
+        "A list of choices displayed in a menu",
+        "A regex-based validity check"
+      ],
+      "correctOption": 3,
+      "explanation": "pattern checks a value against a regular expression during constraint validation.",
+      "explanationAr": "pattern بتفحص القيمة بتعبير نمطي أثناء التحقق من النموذج."
+    },
+    {
+      "id": "html-forms-and-inputs-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "constraint validation",
+      "prompt": "Require at least eight characters in this text entry.",
+      "code": "<input name=\"passphrase\" ____=\"8\">",
+      "blanks": [
+        [
+          "minlength"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "minlength declares a minimum text length for constraint validation."
+    },
+    {
+      "id": "html-forms-and-inputs-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "labels",
+      "code": "<p><label for=\"region\">Region</label></p><p><select id=\"region\"><option>Coast</option></select></p>",
+      "expectedOutput": "Region\nCoast",
+      "explanation": "The label and selected option's text appear in the rendered page.",
+      "explanationAr": "الـ label ونص الاختيار المحدد بيظهروا في الصفحة."
+    },
+    {
+      "id": "html-forms-and-inputs-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "buttons",
+      "prompt": "Set this button to submit its associated form.",
+      "code": "<button type=\"____\">Send request</button>",
+      "blanks": [
+        [
+          "submit"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Send request",
+      "explanation": "A submit button requests submission of its associated form."
+    },
+    {
+      "id": "html-forms-and-inputs-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "constraint validation",
+      "code": "<form><input type=\"text\" name=\"code\" required pattern=\"[A-Z]{3}\"><button>Check</button></form>",
+      "question": "What is required for ordinary browser validation to allow this control?",
+      "options": [
+        "A non-empty value matching three uppercase letters",
+        "Any value including an empty string",
+        "A value containing exactly three lowercase letters",
+        "A number between zero and three"
+      ],
+      "correctOption": 0,
+      "explanation": "required rejects an empty value, and pattern requires the supplied text to match the expression.",
+      "explanationAr": "required بيرفض القيمة الفاضية، وpattern بيشترط مطابقة التعبير."
+    },
+    {
+      "id": "html-forms-and-inputs-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "constraint validation",
+      "prompt": "Require a value containing exactly two uppercase letters.",
+      "code": "<input name=\"region\" pattern=\"____\">",
+      "blanks": [
+        [
+          "[A-Z]{2}"
+        ]
+      ],
+      "caseSensitive": true,
+      "expectedOutput": "",
+      "explanation": "The pattern matches two uppercase ASCII letters when the entire value is checked."
+    },
+    {
+      "id": "html-forms-and-inputs-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "constraint validation",
+      "code": "<input name=\"pin\" minlength=\"4\" maxlength=\"6\" required>",
+      "question": "Which statement correctly describes these constraints?",
+      "options": [
+        "The field accepts only four-digit numbers",
+        "A non-empty text value from four to six characters",
+        "The field automatically pads text to six characters and may use digits only",
+        "The field requires exactly six characters"
+      ],
+      "correctOption": 1,
+      "explanation": "minlength and maxlength set lower and upper text-length limits; required disallows an empty value.",
+      "explanationAr": "minlength وmaxlength بيحددوا أقل وأعلى طول للنص، وrequired بيرفض القيمة الفاضية."
+    },
+    {
+      "id": "html-forms-and-inputs-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "autocomplete",
+      "prompt": "Give the browser the standard autofill hint for an email address.",
+      "code": "<input name=\"email\" autocomplete=\"____\">",
+      "blanks": [
+        [
+          "email"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The autocomplete token identifies the kind of stored information that may fill the control."
+    },
+    {
+      "id": "html-forms-and-inputs-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "labels",
+      "question": "How should a label be associated with an input, and why is that useful?",
+      "keyPoints": [
+        "A wrapping label can contain its control",
+        "An explicit label for value matches the control id",
+        "The label supplies an accessible name",
+        "Activating a label can focus its control"
+      ],
+      "modelAnswer": "A label can wrap its control or use for to match the control's id. This gives the control a programmatic name and lets users activate the label to focus it."
+    },
+    {
+      "id": "html-forms-and-inputs-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "input types",
+      "question": "How do input types such as email, checkbox, and text improve a form?",
+      "keyPoints": [
+        "Types communicate the expected kind of value",
+        "Browsers can provide appropriate controls",
+        "Some types add built-in validation",
+        "Server-side validation is still necessary"
+      ],
+      "modelAnswer": "Choosing an appropriate input type communicates the expected value and can provide a useful browser control or validation behavior. Client-side checks improve usability but should not replace validation on the server."
+    },
+    {
+      "id": "html-forms-and-inputs-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "constraint validation",
+      "question": "What does native HTML constraint validation do, and what are its limits?",
+      "keyPoints": [
+        "Attributes express constraints such as required or pattern",
+        "The browser can block ordinary form submission on invalid values",
+        "Client-side validation can be bypassed",
+        "The server must validate untrusted data too"
+      ],
+      "modelAnswer": "Attributes such as required and pattern let the browser report common input problems before ordinary submission. Because users or clients can bypass browser checks, a server must validate submitted data independently."
+    },
+    {
+      "id": "html-forms-and-inputs-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "buttons",
+      "question": "Why should a form's buttons declare their type explicitly?",
+      "keyPoints": [
+        "A button inside a form may default to submission",
+        "submit requests form submission",
+        "button has no submission action by default",
+        "Explicit types prevent unintended submissions"
+      ],
+      "modelAnswer": "A button associated with a form can submit it by default if its type is omitted. Declaring submit or button makes the intended action clear and avoids accidental submission."
+    }
+  ]
+}

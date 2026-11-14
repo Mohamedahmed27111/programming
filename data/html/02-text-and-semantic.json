@@ -368,10 +368,10 @@
       "sourceSection": "Semantic page regions",
       "code": "<article><h2>Notice</h2><p>Room 4 is open.</p></article><aside>Map available</aside>",
       "options": [
+        "Notice\nRoom 4 is open.\nMap available",
         "Room 4 is open.",
         "NoticeMap available",
-        "Notice\nRoom 4 is open.\nMap available",
-        "No visible text"
+        "Notice\nMap available\nRoom 4 is open today"
       ],
       "correctOption": 2,
       "explanation": "Both the article and complementary aside contain visible text, in document order.",
@@ -488,7 +488,7 @@
       "code": "<header><h1>Open studio</h1></header><main><article><h2>Clay class</h2></article></main><footer>Contact desk</footer>",
       "question": "Which element is intended for the page's dominant content?",
       "options": [
-        "header, since it is first in document order",
+        "header, since it introduces the page and appears before main in document order",
         "main, which identifies the dominant page content",
         "article, which must contain every other region",
         "footer, since it follows the main region"
