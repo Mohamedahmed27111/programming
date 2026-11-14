@@ -1,0 +1,559 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "react",
+    "topic": "useRef and useContext",
+    "order": 7,
+    "sourceSections": [
+      "useRef and ref objects",
+      "DOM refs",
+      "Mutable values",
+      "Creating context",
+      "Providers and useContext",
+      "Prop drilling"
+    ]
+  },
+  "terms": [
+    {
+      "id": "react-useref-and-usecontext-t001",
+      "term": "useRef",
+      "level": "beginner",
+      "definitionEn": "A React Hook that returns a stable ref object whose current property can hold a DOM node or a mutable value.",
+      "definitionAr": "Hook بترجع ref object ثابتة، وخاصية current فيها ممكن تمسك DOM node أو قيمة قابلة للتغيير.",
+      "example": "const inputRef = useRef(null);",
+      "caseSensitive": true,
+      "aliases": [
+        "useRef Hook"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t002",
+      "term": "ref object",
+      "level": "beginner",
+      "definitionEn": "An object with a current property that React keeps the same between renders when created with useRef.",
+      "definitionAr": "object فيها خاصية current وReact بتحافظ على نفس الـ object بين الـ renders لما تتعمل بـ useRef.",
+      "example": "const timerRef = useRef(null);",
+      "caseSensitive": false,
+      "aliases": [
+        "ref"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t003",
+      "term": "current",
+      "level": "beginner",
+      "definitionEn": "A property on a ref object that stores its value, including a DOM node after React attaches a ref.",
+      "definitionAr": "خاصية في ref object بتخزن قيمتها الحالية، ومنها DOM node بعد ما React تربط الـ ref.",
+      "example": "inputRef.current?.focus();",
+      "caseSensitive": true,
+      "aliases": [
+        "ref.current"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t004",
+      "term": "createContext",
+      "level": "beginner",
+      "definitionEn": "A React API that creates a context object for providing a value to descendant components.",
+      "definitionAr": "API من React بتنشئ context object عشان توصل قيمة للـ components اللي تحتها.",
+      "example": "const ThemeContext = createContext('light');",
+      "caseSensitive": true,
+      "aliases": [
+        "React.createContext"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t005",
+      "term": "useContext",
+      "level": "beginner",
+      "definitionEn": "A Hook that reads the value from the nearest matching context provider above the calling component.",
+      "definitionAr": "Hook بتقرأ القيمة من أقرب Provider مطابق فوق الـ component اللي بتناديها.",
+      "example": "const theme = useContext(ThemeContext);",
+      "caseSensitive": true,
+      "aliases": [
+        "context consumer Hook"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t006",
+      "term": "DOM ref",
+      "level": "intermediate",
+      "definitionEn": "A ref attached to a DOM element that receives that element's node after React commits it to the page.",
+      "definitionAr": "ref متوصلة بعنصر DOM وبتستقبل الـ node بعد ما React تثبّته في الصفحة.",
+      "example": "<input ref={inputRef} />",
+      "caseSensitive": false,
+      "aliases": [
+        "element ref"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t007",
+      "term": "mutable value",
+      "level": "intermediate",
+      "definitionEn": "A value that can be changed through ref.current without asking React to render the component again.",
+      "definitionAr": "قيمة ينفع تتغير من خلال ref.current من غير ما نطلب من React تعمل render تاني للـ component.",
+      "example": "renderCount.current += 1;",
+      "caseSensitive": false,
+      "aliases": [
+        "ref-held value"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t008",
+      "term": "context Provider",
+      "level": "intermediate",
+      "definitionEn": "A component that supplies a context value to matching consumers rendered beneath it.",
+      "definitionAr": "component بتوفر قيمة context للـ consumers المطابقين اللي بيتعرضوا تحتها.",
+      "example": "<ThemeContext.Provider value=\"dark\">{children}</ThemeContext.Provider>",
+      "caseSensitive": false,
+      "aliases": [
+        "Context.Provider"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t009",
+      "term": "context default value",
+      "level": "intermediate",
+      "definitionEn": "The fallback passed to createContext, used when a consumer has no matching provider above it.",
+      "definitionAr": "قيمة بديلة بتتبعت لـ createContext وبتستخدم لما مافيش Provider مطابق فوق الـ consumer.",
+      "example": "createContext('light')",
+      "caseSensitive": false,
+      "aliases": [
+        "default context value"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t010",
+      "term": "prop drilling",
+      "level": "intermediate",
+      "definitionEn": "Passing data through several intermediate components as props even when only a deeper component needs it.",
+      "definitionAr": "تمرير بيانات كـ props عبر كذا component وسيطة مع إن component أعمق هي اللي محتاجاها.",
+      "example": "<Page user={user}><Layout user={user} /></Page>",
+      "caseSensitive": false,
+      "aliases": [
+        "prop threading"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t011",
+      "term": "nearest provider",
+      "level": "advanced",
+      "definitionEn": "The closest ancestor provider for the same context object, whose value useContext returns to a consumer.",
+      "definitionAr": "أقرب Provider أب لنفس context object، ودي قيمته اللي useContext بترجعها للـ consumer.",
+      "example": "useContext(ThemeContext)",
+      "caseSensitive": false,
+      "aliases": [
+        "closest matching Provider"
+      ]
+    },
+    {
+      "id": "react-useref-and-usecontext-t012",
+      "term": "ref mutation",
+      "level": "advanced",
+      "definitionEn": "An assignment to ref.current that persists on the ref object but does not itself trigger a render.",
+      "definitionAr": "تغيير لقيمة ref.current بيفضل محفوظ في ref object، لكنه لوحده مش بيشغّل render.",
+      "example": "latestValue.current = nextValue;",
+      "caseSensitive": false,
+      "aliases": [
+        "ref.current assignment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "react-useref-and-usecontext-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "useRef and ref objects",
+      "code": "const statusRef = useRef('ready');",
+      "question": "What does useRef return here?",
+      "options": [
+        "An object whose current value starts as 'ready'",
+        "A state pair that updates whenever current is assigned",
+        "A DOM element that React creates before rendering",
+        "A callback that runs whenever the component rerenders"
+      ],
+      "correctOption": 0,
+      "explanation": "useRef returns a stable object and initializes its current property with the supplied value.",
+      "explanationAr": "useRef بترجع object ثابتة وبتحط القيمة اللي بعتها في خاصية current."
+    },
+    {
+      "id": "react-useref-and-usecontext-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "useRef and ref objects",
+      "code": "const countRef = useRef(2);\ncountRef.current += 1;",
+      "question": "What value does countRef.current hold after these statements?",
+      "options": [
+        "The value 2 because refs cannot be reassigned",
+        "A state update waiting for the next click",
+        "The value 3 after the assignment",
+        "A new ref object containing the number 1"
+      ],
+      "correctOption": 2,
+      "explanation": "The assignment mutates the current property from 2 to 3.",
+      "explanationAr": "الإسناد بيغيّر قيمة current من 2 لـ 3."
+    },
+    {
+      "id": "react-useref-and-usecontext-q003",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Mutable values",
+      "code": "const savedRef = useRef(0);\nsavedRef.current += 1;",
+      "question": "Does changing current by itself make React render again?",
+      "options": [
+        "Yes, every ref assignment queues a render after the event",
+        "No, updating current does not request a render",
+        "Yes, but only when current contains a number",
+        "No, because ref objects are recreated on every render"
+      ],
+      "correctOption": 1,
+      "explanation": "Unlike a state setter, assigning ref.current does not schedule a render.",
+      "explanationAr": "بعكس setter بتاع state، تغيير ref.current مش بيطلب render."
+    },
+    {
+      "id": "react-useref-and-usecontext-q004",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "DOM refs",
+      "code": "const fieldRef = useRef(null);\nreturn <input ref={fieldRef} />;",
+      "question": "When does fieldRef.current receive the input DOM node?",
+      "options": [
+        "While React evaluates the initial useRef call",
+        "Before the component's first render begins",
+        "Only after an event handler reads the ref",
+        "After React commits the input to the DOM"
+      ],
+      "correctOption": 3,
+      "explanation": "React attaches a DOM ref during commit; before attachment its current value is null.",
+      "explanationAr": "React بتربط DOM ref وقت الـ commit؛ قبلها قيمة current بتكون null."
+    },
+    {
+      "id": "react-useref-and-usecontext-q005",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Creating context",
+      "code": "const LocaleContext = createContext('en');",
+      "question": "What is 'en' used for in this declaration?",
+      "options": [
+        "A fallback when no matching Provider exists",
+        "The required value for every Provider in the app",
+        "A label that React adds to each consumer in the DOM",
+        "A request to render consumers once before their parent"
+      ],
+      "correctOption": 0,
+      "explanation": "The createContext argument is returned when there is no matching provider above the consumer.",
+      "explanationAr": "القيمة اللي بتتبعت لـ createContext بترجع لما مافيش Provider مطابق فوق الـ consumer."
+    },
+    {
+      "id": "react-useref-and-usecontext-q006",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Providers and useContext",
+      "code": "<ThemeContext.Provider value=\"dark\">\n  <Toolbar />\n</ThemeContext.Provider>",
+      "question": "What does this Provider do for Toolbar and its descendants?",
+      "options": [
+        "It changes the default passed to createContext for the whole program",
+        "It supplies 'dark' to matching context consumers beneath it",
+        "It copies the value into props of every component automatically",
+        "It makes all components read the same context without a Hook"
+      ],
+      "correctOption": 1,
+      "explanation": "Consumers below this Provider can read its value with useContext(ThemeContext).",
+      "explanationAr": "الـ consumers اللي تحت الـ Provider يقدروا يقروا قيمته بـ useContext(ThemeContext)."
+    },
+    {
+      "id": "react-useref-and-usecontext-q007",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Providers and useContext",
+      "code": "const theme = useContext(ThemeContext);",
+      "question": "Which context value does this call read?",
+      "options": [
+        "The value from a Provider rendered inside this component",
+        "The default even if an ancestor provides a value",
+        "The closest matching Provider above this component",
+        "The value from whichever Provider rendered most recently"
+      ],
+      "correctOption": 2,
+      "explanation": "useContext reads the nearest matching Provider above the component that calls it.",
+      "explanationAr": "useContext بتقرأ قيمة أقرب Provider مطابق فوق الـ component اللي بتناديها."
+    },
+    {
+      "id": "react-useref-and-usecontext-q008",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Prop drilling",
+      "code": "<App user={user}><Shell user={user}><Profile user={user} /></Shell></App>",
+      "question": "What is this repeated passing of user through Shell called?",
+      "options": [
+        "Context fallback, since user is a missing Provider value",
+        "Ref forwarding, because the value reaches a child element",
+        "State lifting, because every ancestor owns a copy of user",
+        "Prop drilling through an intermediate component"
+      ],
+      "correctOption": 3,
+      "explanation": "Shell receives and forwards a prop it may not need so Profile can use it.",
+      "explanationAr": "Shell بتستقبل prop وتمررها وهي ممكن ماتكونش محتاجاها عشان Profile تستخدمها."
+    },
+    {
+      "id": "react-useref-and-usecontext-q009",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Providers and useContext",
+      "code": "<ThemeContext.Provider value={{ mode }}><Panel /></ThemeContext.Provider>",
+      "question": "What can make a context consumer render again after a Provider update?",
+      "options": [
+        "A changed context value, compared with its previous value",
+        "Any parent render, even when the context value is unchanged",
+        "A ref.current assignment in an unrelated component",
+        "The Provider's JSX text being different from its children"
+      ],
+      "correctOption": 0,
+      "explanation": "React compares provider values with Object.is and updates consumers when the value changes; creating a new object each render can therefore cause updates.",
+      "explanationAr": "React بتقارن قيم الـ Provider بـ Object.is، ولو القيمة اتغيرت بتحدّث الـ consumers؛ عشان كده object جديدة كل render ممكن تعمل تحديثات."
+    },
+    {
+      "id": "react-useref-and-usecontext-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Mutable values",
+      "code": "const totalRef = useRef(4);\ntotalRef.current += 3;\nconsole.log(totalRef.current);",
+      "question": "What value is logged?",
+      "options": [
+        "4",
+        "7",
+        "3",
+        "undefined"
+      ],
+      "correctOption": 1,
+      "expectedOutput": "7",
+      "explanation": "The ref starts at 4 and the assignment adds 3 before logging.",
+      "explanationAr": "الـ ref بتبدأ بـ 4 والإسناد بيزوّد عليها 3 قبل الطباعة."
+    },
+    {
+      "id": "react-useref-and-usecontext-q011",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Providers and useContext",
+      "code": "<LocaleContext.Provider value=\"ar\">\n  <Greeting />\n</LocaleContext.Provider>\n\nfunction Greeting() {\n  const locale = useContext(LocaleContext);\n  return <p>{locale}</p>;\n}",
+      "question": "What text does Greeting render?",
+      "options": [
+        "en",
+        "LocaleContext",
+        "ar",
+        "undefined"
+      ],
+      "correctOption": 2,
+      "expectedOutput": "ar",
+      "explanation": "The consumer reads the value from its nearest matching Provider, not the default.",
+      "explanationAr": "الـ consumer بتقرأ قيمة أقرب Provider مطابق، مش القيمة الافتراضية."
+    },
+    {
+      "id": "react-useref-and-usecontext-q012",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "DOM refs",
+      "code": "const fieldRef = useRef(null);\nreturn <input ref={fieldRef} />;",
+      "question": "What is fieldRef.current before React commits the input?",
+      "expectedOutput": "null",
+      "explanation": "A DOM ref begins with its initial value and receives the node during the commit phase.",
+      "explanationAr": "DOM ref بتبدأ بقيمتها الأولية وبتستقبل الـ node وقت مرحلة الـ commit."
+    },
+    {
+      "id": "react-useref-and-usecontext-q013",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "useRef and ref objects",
+      "prompt": "Create a ref whose current value initially holds null.",
+      "code": "const inputRef = ____;",
+      "blanks": [
+        [
+          "useRef(null)"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "useRef(null) creates a ref object initialized with null.",
+      "explanationAr": "useRef(null) بتنشئ ref object وقيمتها الأولية null."
+    },
+    {
+      "id": "react-useref-and-usecontext-q014",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Mutable values",
+      "prompt": "Read the value stored in this ref.",
+      "code": "const previous = valueRef.____;",
+      "blanks": [
+        [
+          "current"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A ref's stored value is read from its current property.",
+      "explanationAr": "بنقرأ القيمة المخزنة في ref من خاصية current."
+    },
+    {
+      "id": "react-useref-and-usecontext-q015",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "DOM refs",
+      "prompt": "Attach inputRef to this input element.",
+      "code": "<input ____={inputRef} />",
+      "blanks": [
+        [
+          "ref"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The ref prop lets React attach the input DOM node to inputRef.current.",
+      "explanationAr": "خاصية ref بتخلي React تربط input DOM node بـ inputRef.current."
+    },
+    {
+      "id": "react-useref-and-usecontext-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Creating context",
+      "prompt": "Create a context whose fallback value is 'light'.",
+      "code": "const ThemeContext = ____;",
+      "blanks": [
+        [
+          "createContext('light')"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "createContext creates the context and receives its fallback value.",
+      "explanationAr": "createContext بتنشئ الـ context وبتاخد القيمة البديلة."
+    },
+    {
+      "id": "react-useref-and-usecontext-q017",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Providers and useContext",
+      "prompt": "Provide the current theme to the wrapped children.",
+      "code": "<ThemeContext.Provider ____={theme}>{children}</ThemeContext.Provider>",
+      "blanks": [
+        [
+          "value"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A Provider supplies its context value through the value prop.",
+      "explanationAr": "الـ Provider بتوصل قيمة الـ context من خلال prop اسمها value."
+    },
+    {
+      "id": "react-useref-and-usecontext-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Providers and useContext",
+      "prompt": "Read the nearest LocaleContext value in this component.",
+      "code": "const locale = ____;",
+      "blanks": [
+        [
+          "useContext(LocaleContext)"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "useContext reads the nearest matching provider's value above this component.",
+      "explanationAr": "useContext بتقرأ قيمة أقرب Provider مطابق فوق الـ component دي."
+    },
+    {
+      "id": "react-useref-and-usecontext-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "DOM refs",
+      "prompt": "Focus the input through its attached ref when this handler runs.",
+      "code": "function focusInput() { inputRef.current.____(); }",
+      "blanks": [
+        [
+          "focus"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "After the input is mounted, its DOM node exposes the focus method.",
+      "explanationAr": "بعد ما الـ input تتركب، الـ DOM node بتاعتها فيها method اسمها focus."
+    },
+    {
+      "id": "react-useref-and-usecontext-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Mutable values",
+      "prompt": "Store the latest value without requesting a render.",
+      "code": "latestRef.____ = nextValue;",
+      "blanks": [
+        [
+          "current"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Assigning current changes the ref value but does not schedule a render.",
+      "explanationAr": "تغيير current بيحدّث قيمة الـ ref من غير ما يطلب render."
+    },
+    {
+      "id": "react-useref-and-usecontext-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "useRef and ref objects",
+      "question": "How would you explain the difference between useRef and useState?",
+      "keyPoints": [
+        "Both retain values across renders",
+        "A state setter requests a render when state changes",
+        "Changing ref.current does not itself request a render",
+        "Use refs for DOM access or values not needed to render UI"
+      ],
+      "modelAnswer": "Both Hooks preserve values across renders, but state is for data that affects the rendered UI. A state setter asks React to render again when its value changes, while changing ref.current does not. Refs suit DOM access and mutable bookkeeping that should not drive visible output.",
+      "explanation": "The key distinction is whether an update should affect the rendered interface.",
+      "explanationAr": "الفرق الأساسي هو إذا كان التغيير المفروض يحدّث الواجهة المعروضة ولا لأ."
+    },
+    {
+      "id": "react-useref-and-usecontext-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "DOM refs",
+      "question": "When is a DOM ref available, and what is an appropriate use for it?",
+      "keyPoints": [
+        "It is null before React attaches the node",
+        "React assigns the node during commit",
+        "Use it for imperative DOM tasks such as focusing",
+        "Avoid using it as a replacement for declarative UI state"
+      ],
+      "modelAnswer": "A DOM ref initialized with null is not populated during the component's initial render. React assigns the node when it commits the element, so event handlers or an Effect can use it afterward for an imperative task such as focusing. If a value should change what the UI displays, use state instead.",
+      "explanation": "A DOM ref is an escape hatch for imperative access after the node is committed.",
+      "explanationAr": "DOM ref وسيلة للوصول المباشر للعنصر بعد ما React تثبّته."
+    },
+    {
+      "id": "react-useref-and-usecontext-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Providers and useContext",
+      "question": "How does useContext choose a value, and when is its default used?",
+      "keyPoints": [
+        "The consumer reads the same context object passed to useContext",
+        "The nearest matching ancestor Provider supplies the value",
+        "The default is used only when there is no matching Provider above",
+        "A Provider rendered inside the consumer does not affect that call"
+      ],
+      "modelAnswer": "useContext reads the value from the nearest matching Provider above the component that calls it. The createContext default is used only when no matching Provider exists above that consumer. A Provider returned by the same component is below its own useContext call, so it cannot change the value that call reads.",
+      "explanation": "Context follows the rendered ancestor tree, and only providers above a consumer count.",
+      "explanationAr": "الـ context بتمشي حسب شجرة الآباء، والـ Providers اللي فوق الـ consumer بس هي اللي بتأثر عليها."
+    },
+    {
+      "id": "react-useref-and-usecontext-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Prop drilling",
+      "question": "When might context help with prop drilling, and what tradeoff should you consider?",
+      "keyPoints": [
+        "It can make broadly needed values available to descendants",
+        "It avoids forwarding a prop through unrelated intermediate components",
+        "Consumers update when the provided value changes",
+        "Props can remain simpler for local or explicitly owned data"
+      ],
+      "modelAnswer": "Context can help when many distant descendants need the same value, such as a theme or locale, because intermediate components no longer have to forward it. It is not automatically better for local data or a small explicit component tree. Consumers are updated when the provided value changes, so keep the context value and its scope intentional.",
+      "explanation": "Context reduces repetitive forwarding, but it does not replace every prop relationship.",
+      "explanationAr": "الـ context بتقلل تمرير props المتكرر، بس مش بديل لكل علاقة بين components."
+    }
+  ]
+}

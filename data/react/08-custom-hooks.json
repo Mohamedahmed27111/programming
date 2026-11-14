@@ -1,0 +1,559 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "react",
+    "topic": "Custom Hooks",
+    "order": 8,
+    "sourceSections": [
+      "Hook basics",
+      "Rules of Hooks",
+      "Custom Hook naming",
+      "Extracting reusable logic",
+      "Returned values",
+      "Hook state and composition"
+    ]
+  },
+  "terms": [
+    {
+      "id": "react-custom-hooks-t001",
+      "term": "Hook",
+      "level": "beginner",
+      "definitionEn": "A React function API, such as useState, that lets a function component use React features.",
+      "definitionAr": "API على شكل function من React، زي useState، بتخلي function component أو custom Hook تستخدم مميزات React.",
+      "example": "const [open, setOpen] = useState(false);",
+      "caseSensitive": true,
+      "aliases": [
+        "React Hook"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t002",
+      "term": "Rules of Hooks",
+      "level": "beginner",
+      "definitionEn": "Rules requiring Hooks to be called at the top level of function components or custom Hooks, not conditionally or inside loops.",
+      "definitionAr": "قواعد بتطلب إن Hooks تتنادى في أعلى مستوى من function components أو custom Hooks، مش جوه شرط أو loop.",
+      "example": "const [name, setName] = useState('');",
+      "caseSensitive": true,
+      "aliases": [
+        "Hook call rules"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t003",
+      "term": "custom Hook",
+      "level": "beginner",
+      "definitionEn": "A JavaScript function that uses React Hooks to package reusable stateful or effectful logic for components or other such functions.",
+      "definitionAr": "function JavaScript بتستخدم Hooks عشان تجمع منطق قابل لإعادة الاستخدام فيه state أو Effects للـ components أو custom Hooks تانية.",
+      "example": "function useOnlineStatus() { return useState(true); }",
+      "caseSensitive": false,
+      "aliases": [
+        "user-defined Hook"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t004",
+      "term": "useSomething naming",
+      "level": "beginner",
+      "definitionEn": "The convention of starting a custom Hook's name with use followed by an uppercase letter, such as useOnlineStatus.",
+      "definitionAr": "اتفاقية إن اسم custom Hook يبدأ بـ use وبعدها حرف كبير، زي useOnlineStatus.",
+      "example": "function useWindowWidth() { /* ... */ }",
+      "caseSensitive": true,
+      "aliases": [
+        "use prefix convention"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t005",
+      "term": "reusable logic",
+      "level": "beginner",
+      "definitionEn": "Behavior that can be shared by extracting related Hook calls and calculations into a custom Hook.",
+      "definitionAr": "سلوك ينفع يتشارك لما نطلع استدعاءات Hooks والحسابات المرتبطة بيها في custom Hook.",
+      "example": "const online = useOnlineStatus();",
+      "caseSensitive": false,
+      "aliases": [
+        "shared Hook logic"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t006",
+      "term": "top-level Hook call",
+      "level": "intermediate",
+      "definitionEn": "A Hook call placed directly in a component or custom Hook body so its order stays consistent across renders.",
+      "definitionAr": "استدعاء Hook بيتحط مباشرة في جسم component أو custom Hook عشان ترتيبه يفضل ثابت بين الـ renders.",
+      "example": "const [value, setValue] = useState(0);",
+      "caseSensitive": false,
+      "aliases": [
+        "unconditional Hook call"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t007",
+      "term": "Hook call order",
+      "level": "intermediate",
+      "definitionEn": "The stable sequence in which a component calls Hooks on every render, allowing React to associate Hook state correctly.",
+      "definitionAr": "ترتيب ثابت لاستدعاءات Hooks في كل render، وده بيساعد React تربط state بالـ Hook الصح.",
+      "example": "const name = useName();\nconst age = useAge();",
+      "caseSensitive": false,
+      "aliases": [
+        "Hook ordering"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t008",
+      "term": "custom Hook return value",
+      "level": "intermediate",
+      "definitionEn": "The value or values a custom Hook returns for its caller to use, such as state, setters, derived values, or an object.",
+      "definitionAr": "القيمة أو القيم اللي custom Hook بترجعها عشان اللي ناداها يستخدمها، زي state أو setter أو قيمة محسوبة أو object.",
+      "example": "return { value, setValue };",
+      "caseSensitive": false,
+      "aliases": [
+        "Hook result"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t009",
+      "term": "Hook composition",
+      "level": "intermediate",
+      "definitionEn": "Combining existing built-in or custom Hooks inside a custom Hook to build reusable behavior from smaller pieces.",
+      "definitionAr": "دمج Hooks جاهزة أو custom Hooks جوه custom Hook عشان نبني سلوك قابل لإعادة الاستخدام من أجزاء أصغر.",
+      "example": "function useProfile() { const id = useUserId(); }",
+      "caseSensitive": false,
+      "aliases": [
+        "composing Hooks"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t010",
+      "term": "independent Hook state",
+      "level": "intermediate",
+      "definitionEn": "State belonging to one component's Hook call; calling the same custom Hook in another component creates separate state for that call.",
+      "definitionAr": "state خاصة باستدعاء Hook في component واحدة؛ استدعاء نفس custom Hook في component تانية بيعمل state منفصلة للاستدعاء ده.",
+      "example": "const first = useCounter();\nconst second = useCounter();",
+      "caseSensitive": false,
+      "aliases": [
+        "per-call Hook state"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t011",
+      "term": "Hook lint rule",
+      "level": "advanced",
+      "definitionEn": "A static analysis rule that helps detect Hook calls outside supported locations or in conditional control flow.",
+      "definitionAr": "قاعدة تحليل للكود بتساعد تكتشف استدعاء Hooks في أماكن مش مسموح بيها أو جوه مسارات شرطية.",
+      "example": "if (enabled) useEffect(run, []);",
+      "caseSensitive": false,
+      "aliases": [
+        "Rules of Hooks lint"
+      ]
+    },
+    {
+      "id": "react-custom-hooks-t012",
+      "term": "custom Hook contract",
+      "level": "advanced",
+      "definitionEn": "The expected behavior of a reusable Hook, including its inputs, returned values, effects, and assumptions about its callers.",
+      "definitionAr": "السلوك المتوقع من Hook قابلة لإعادة الاستخدام، بما فيه المدخلات والقيم الراجعة والـ Effects وافتراضاتها عن اللي بيناديها.",
+      "example": "const { value, reset } = useCounter(5);",
+      "caseSensitive": false,
+      "aliases": [
+        "Hook API contract"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "react-custom-hooks-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Hook basics",
+      "code": "const [active, setActive] = useState(false);",
+      "question": "What does useState provide to this component?",
+      "options": [
+        "A ref object that can change without scheduling a render",
+        "A shared context value for all descendant components",
+        "A callback that runs automatically after each component update",
+        "A state value and its update setter"
+      ],
+      "correctOption": 3,
+      "explanation": "useState returns the current state value and a setter for updating it.",
+      "explanationAr": "useState بترجع قيمة الـ state الحالية وsetter عشان نحدّثها."
+    },
+    {
+      "id": "react-custom-hooks-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Custom Hook naming",
+      "code": "function usePageTitle(title) {\n  useEffect(() => { document.title = title; }, [title]);\n}",
+      "question": "Why does this function follow the custom Hook naming convention?",
+      "options": [
+        "It can be called from any regular JavaScript function",
+        "Its name starts with use and contains Hook calls",
+        "It returns a state setter from every Effect",
+        "Its body contains JSX and must therefore start with use"
+      ],
+      "correctOption": 1,
+      "explanation": "A custom Hook name starts with use, making its Hook calls recognizable to React tooling.",
+      "explanationAr": "اسم الـ custom Hook بيبدأ بـ use، وده بيساعد أدوات React تميّز استدعاءاتها."
+    },
+    {
+      "id": "react-custom-hooks-q003",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Rules of Hooks",
+      "code": "function Panel({ enabled }) {\n  if (enabled) {\n    const [open, setOpen] = useState(false);\n  }\n  return null;\n}",
+      "question": "What is wrong with calling useState inside this condition?",
+      "options": [
+        "The setter must be returned from every component",
+        "A Hook cannot initialize boolean state in any function",
+        "A Hook cannot appear in a component body with a prop",
+        "A render can skip the Hook and change its call order"
+      ],
+      "correctOption": 3,
+      "explanation": "Conditional calls can change the Hook order between renders, so Hooks must be called at the top level.",
+      "explanationAr": "الاستدعاء الشرطي ممكن يغيّر ترتيب Hooks بين الـ renders، فلازم تتنادى في أعلى المستوى."
+    },
+    {
+      "id": "react-custom-hooks-q004",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Rules of Hooks",
+      "code": "function saveLater() {\n  const [saved, setSaved] = useState(false);\n}",
+      "question": "Why is this Hook call unsupported in saveLater?",
+      "options": [
+        "Hooks are allowed only when state starts with true",
+        "Only in components or custom Hooks",
+        "Hooks run only after a click or an Effect",
+        "Hooks are restricted to functions that return JSX and nothing else"
+      ],
+      "correctOption": 1,
+      "explanation": "A regular helper function is not a supported place to call a Hook.",
+      "explanationAr": "function مساعدة عادية مش مكان مسموح لاستدعاء Hook."
+    },
+    {
+      "id": "react-custom-hooks-q005",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Extracting reusable logic",
+      "code": "function useOnlineStatus() {\n  const [online, setOnline] = useState(true);\n  useEffect(() => subscribe(setOnline), []);\n  return online;\n}",
+      "question": "What is the main benefit of extracting this logic into a custom Hook?",
+      "options": [
+        "It avoids duplicating reusable status logic",
+        "It creates one global state value for the whole application",
+        "It prevents every caller from using its own Effects",
+        "It makes each component render only once after mounting"
+      ],
+      "correctOption": 0,
+      "explanation": "A custom Hook lets components reuse the same stateful behavior without duplicating its implementation.",
+      "explanationAr": "الـ custom Hook بتخلي components تعيد استخدام نفس السلوك اللي فيه state من غير تكرار الكود."
+    },
+    {
+      "id": "react-custom-hooks-q006",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Hook state and composition",
+      "code": "function useCounter() { return useState(0); }\nfunction First() { const [count] = useCounter(); }\nfunction Second() { const [count] = useCounter(); }",
+      "question": "How are the two useCounter calls related?",
+      "options": [
+        "They share one state because the Hook name matches",
+        "They share state only when rendered from the same file",
+        "First always receives the value stored by Second",
+        "Each component call has its own independent state"
+      ],
+      "correctOption": 3,
+      "explanation": "Custom Hooks share logic, but each call participates in the calling component's own Hook state.",
+      "explanationAr": "الـ custom Hooks بتشارك المنطق، لكن كل استدعاء بيكون له state خاصة بالـ component اللي ناداها."
+    },
+    {
+      "id": "react-custom-hooks-q007",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Returned values",
+      "code": "function usePair() {\n  const [value, setValue] = useState(0);\n  return { value, setValue };\n}",
+      "question": "What can a component using usePair receive?",
+      "options": [
+        "Only the effect cleanup function from useState",
+        "An object containing value and setValue",
+        "The component's props and children in one object",
+        "A shared context value created by the Hook"
+      ],
+      "correctOption": 1,
+      "explanation": "A custom Hook can return any useful shape, including an object with state and its setter.",
+      "explanationAr": "الـ custom Hook ينفع ترجع أي شكل مفيد، زي object فيها state والـ setter."
+    },
+    {
+      "id": "react-custom-hooks-q008",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Hook state and composition",
+      "code": "function useUserLabel(user) {\n  const online = useOnlineStatus();\n  return online ? user.name : 'Offline';\n}",
+      "question": "What does this custom Hook demonstrate?",
+      "options": [
+        "Combines other Hooks and returns a derived value",
+        "A custom Hook must return JSX whenever it calls useState",
+        "A custom Hook makes its argument into shared global state",
+        "A custom Hook can call useOnlineStatus only from an Effect"
+      ],
+      "correctOption": 0,
+      "explanation": "Custom Hooks can compose other Hooks and return values derived from their results and inputs.",
+      "explanationAr": "الـ custom Hook تقدر تنادي Hooks تانية وترجع قيمة محسوبة من نتايجها ومدخلاتها."
+    },
+    {
+      "id": "react-custom-hooks-q009",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Rules of Hooks",
+      "code": "function useSelection(items) {\n  const [selected, setSelected] = useState(null);\n  if (items.length) useEffect(() => {}, [items]);\n  return [selected, setSelected];\n}",
+      "question": "What change would make the Effect call follow the Rules of Hooks?",
+      "options": [
+        "Move useEffect into the condition after the state calls",
+        "Rename the function so it no longer looks like a Hook",
+        "Call useEffect only after items have loaded",
+        "Call useEffect at top level; check items inside"
+      ],
+      "correctOption": 3,
+      "explanation": "The Hook call itself must remain unconditional; conditional behavior can be handled inside the Effect callback.",
+      "explanationAr": "استدعاء الـ Hook نفسه لازم يفضل من غير شرط؛ السلوك الشرطي ينفع يتحط جوه callback بتاع الـ Effect."
+    },
+    {
+      "id": "react-custom-hooks-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Returned values",
+      "code": "function useDouble(start) {\n  const [value] = useState(start);\n  return value * 2;\n}\n\nfunction View() {\n  const doubled = useDouble(3);\n  return <span>{doubled}</span>;\n}",
+      "question": "What text does View render on its initial render?",
+      "options": [
+        "3",
+        "useDouble",
+        "6",
+        "undefined"
+      ],
+      "correctOption": 2,
+      "expectedOutput": "6",
+      "explanation": "useDouble starts with 3 and returns twice that value.",
+      "explanationAr": "useDouble بتبدأ بـ 3 وبترجع ضعف القيمة."
+    },
+    {
+      "id": "react-custom-hooks-q011",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Hook state and composition",
+      "code": "function useLabel(value) {\n  return `Item: ${value}`;\n}\n\nfunction View() {\n  return <p>{useLabel('book')}</p>;\n}",
+      "question": "What text does View render?",
+      "options": [
+        "book",
+        "value",
+        "Item: book",
+        "Item: value"
+      ],
+      "correctOption": 2,
+      "expectedOutput": "Item: book",
+      "explanation": "The custom Hook returns a template string using the supplied value.",
+      "explanationAr": "الـ custom Hook بترجع template string فيها القيمة اللي اتبعتت."
+    },
+    {
+      "id": "react-custom-hooks-q012",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Hook basics",
+      "code": "function useNext(value) {\n  return value + 1;\n}\n\nfunction View() {\n  return <p>{useNext(4)}</p>;\n}",
+      "question": "What text does View render?",
+      "expectedOutput": "5",
+      "explanation": "useNext returns 4 plus 1, and JSX renders the resulting number as text.",
+      "explanationAr": "useNext بترجع 4 زائد 1، وJSX بتعرض الناتج كنص."
+    },
+    {
+      "id": "react-custom-hooks-q013",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Hook basics",
+      "prompt": "Read component state for a query string.",
+      "code": "const [query, setQuery] = ____('');",
+      "blanks": [
+        [
+          "useState"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "useState declares a state value and its setter inside the component or custom Hook.",
+      "explanationAr": "useState بتعرّف قيمة state والـ setter بتاعتها جوه component أو custom Hook."
+    },
+    {
+      "id": "react-custom-hooks-q014",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Custom Hook naming",
+      "prompt": "Give this reusable Hook a conventional name.",
+      "code": "function ____() { return useState(false); }",
+      "blanks": [
+        [
+          "useDisclosure"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Custom Hook names begin with use followed by an uppercase letter.",
+      "explanationAr": "أسماء الـ custom Hooks بتبدأ بـ use وبعدها حرف كبير."
+    },
+    {
+      "id": "react-custom-hooks-q015",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Rules of Hooks",
+      "prompt": "Call the Hook without making its invocation conditional.",
+      "code": "function useEnabled(enabled) {\n  const [value, setValue] = useState(false);\n  ____;\n  return value;\n}",
+      "blanks": [
+        [
+          "useEffect(() => { if (enabled) setValue(true); }, [enabled])"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The Effect Hook is called at the top level, and the condition is checked inside its callback.",
+      "explanationAr": "الـ Effect بتتنادى في أعلى المستوى، والشرط بيتفحص جوه callback بتاعتها."
+    },
+    {
+      "id": "react-custom-hooks-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Returned values",
+      "prompt": "Return both the value and setter from this custom Hook.",
+      "code": "function useFlag() {\n  const [flag, setFlag] = useState(false);\n  ____;\n}",
+      "blanks": [
+        [
+          "return [flag, setFlag]"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The caller can use the state value and setter returned by the custom Hook.",
+      "explanationAr": "اللي بينادي الـ custom Hook يقدر يستخدم قيمة state والـ setter اللي رجعتهم."
+    },
+    {
+      "id": "react-custom-hooks-q017",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Extracting reusable logic",
+      "prompt": "Use the existing custom Hook to get the current online status.",
+      "code": "const online = ____;",
+      "blanks": [
+        [
+          "useOnlineStatus()"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Calling the custom Hook gives this component access to the reusable online-status logic.",
+      "explanationAr": "استدعاء الـ custom Hook بيدي الـ component منطق حالة الاتصال القابل لإعادة الاستخدام."
+    },
+    {
+      "id": "react-custom-hooks-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Rules of Hooks",
+      "prompt": "Move the condition inside the callback so the Hook call stays unconditional.",
+      "code": "____(() => { if (enabled) connect(); }, [enabled]);",
+      "blanks": [
+        [
+          "useEffect"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The Hook remains at the top level while its callback performs conditional work.",
+      "explanationAr": "الـ Hook بتفضل في أعلى المستوى، والـ callback هي اللي بتنفذ شغل حسب الشرط."
+    },
+    {
+      "id": "react-custom-hooks-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Hook state and composition",
+      "prompt": "Compose the existing custom Hook to obtain the current user.",
+      "code": "const user = ____;",
+      "blanks": [
+        [
+          "useCurrentUser()"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A component can call a custom Hook to reuse its encapsulated state and behavior.",
+      "explanationAr": "الـ component تقدر تنادي custom Hook عشان تعيد استخدام الـ state والسلوك اللي جواها."
+    },
+    {
+      "id": "react-custom-hooks-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Returned values",
+      "prompt": "Return a derived display label from the custom Hook.",
+      "code": "function useDisplayName(name) {\n  ____;\n}",
+      "blanks": [
+        [
+          "return name.trim() || 'Guest'"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A custom Hook may return a derived value rather than exposing state directly.",
+      "explanationAr": "الـ custom Hook ينفع ترجع قيمة محسوبة بدل ما تعرض الـ state مباشرة."
+    },
+    {
+      "id": "react-custom-hooks-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Rules of Hooks",
+      "question": "What are the Rules of Hooks, and why should Hook calls remain at the top level?",
+      "keyPoints": [
+        "Call Hooks only in function components or custom Hooks",
+        "Call them unconditionally at the top level",
+        "Stable order lets React associate Hook state between renders",
+        "Do not call Hooks in loops, conditions, or nested callbacks"
+      ],
+      "modelAnswer": "Call Hooks at the top level of a function component or another custom Hook, not inside conditions, loops, event handlers, or nested callbacks. Keeping the same call order on every render lets React associate each Hook's state with the correct call. A condition can often move inside the Hook's callback instead.",
+      "explanation": "Consistent Hook call order is essential for React to match state to Hook calls.",
+      "explanationAr": "ثبات ترتيب استدعاءات Hooks مهم عشان React تربط كل state بالـ Hook الصح."
+    },
+    {
+      "id": "react-custom-hooks-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Custom Hook naming",
+      "question": "Why should a custom Hook name begin with use, and where can it be called?",
+      "keyPoints": [
+        "The use prefix identifies Hook-like functions",
+        "Call it from a function component or another custom Hook",
+        "Do not call it from an ordinary helper or event handler",
+        "The convention lets lint tooling analyze its Hook calls"
+      ],
+      "modelAnswer": "A custom Hook name starts with use followed by an uppercase letter, such as useOnlineStatus. Call it from a function component or another custom Hook, not from an ordinary helper or an event handler. The naming convention also helps Hooks lint rules inspect its calls.",
+      "explanation": "The naming convention clarifies which functions follow Hook call rules.",
+      "explanationAr": "التسمية بتوضح أن الدالة دي بتتبع قواعد استدعاء Hooks."
+    },
+    {
+      "id": "react-custom-hooks-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Extracting reusable logic",
+      "question": "What should you extract into a custom Hook, and what does the extraction not share automatically?",
+      "keyPoints": [
+        "Extract cohesive stateful or effectful behavior used in multiple places",
+        "Keep the Hook focused on one reusable concern",
+        "Each call has independent state associated with its component",
+        "The Hook shares logic, not one global state instance"
+      ],
+      "modelAnswer": "Extract a cohesive piece of stateful or effectful behavior when multiple components need the same logic. A custom Hook can combine built-in Hooks and return the values callers need. Each call has state tied to its calling component, so extracting a Hook does not make that state global or automatically shared.",
+      "explanation": "Custom Hooks reuse behavior while leaving state ownership with each call site.",
+      "explanationAr": "الـ custom Hooks بتعيد استخدام السلوك، لكن كل استدعاء بيفضل مالك الـ state بتاعته."
+    },
+    {
+      "id": "react-custom-hooks-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Returned values",
+      "question": "What can a custom Hook return, and how should its return shape be chosen?",
+      "keyPoints": [
+        "It can return state, setters, derived values, or functions",
+        "An array or object can expose multiple related values",
+        "Choose a shape that is clear for intended callers",
+        "Return only what supports the Hook's reusable purpose"
+      ],
+      "modelAnswer": "A custom Hook can return any JavaScript value, including state, setters, derived values, callbacks, or an object containing several related values. Use an array when positional destructuring is clear, or an object when named fields make the API easier to understand. Keep the return shape focused on what its callers need.",
+      "explanation": "A useful return shape makes a custom Hook's caller-facing API clear.",
+      "explanationAr": "شكل القيمة الراجعة المفيد بيخلي الـ API اللي بيستخدمها المستدعي واضحة."
+    }
+  ]
+}
