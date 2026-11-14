@@ -872,6 +872,209 @@
           }
         }
       ]
+    },
+    {
+      "id": "typescript",
+      "topics": [
+        {
+          "order": 1,
+          "topic": "Basic Types",
+          "file": "data/typescript/01-basic-types.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 2,
+          "topic": "Interfaces and Type Aliases",
+          "file": "data/typescript/02-interfaces-and-type-aliases.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 3,
+          "topic": "Unions and Narrowing",
+          "file": "data/typescript/03-unions-and-narrowing.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 4,
+          "topic": "Functions",
+          "file": "data/typescript/04-functions.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 5,
+          "topic": "Generics",
+          "file": "data/typescript/05-generics.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 6,
+          "topic": "Utility Types",
+          "file": "data/typescript/06-utility-types.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 7,
+          "topic": "Classes",
+          "file": "data/typescript/07-classes.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 8,
+          "topic": "Modules and Config",
+          "file": "data/typescript/08-modules-and-config.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 9,
+          "topic": "Typing API Data",
+          "file": "data/typescript/09-typing-api-data.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        }
+      ]
     }
   ]
 }
