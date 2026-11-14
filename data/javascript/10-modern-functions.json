@@ -17,6 +17,7 @@
       "term": "arrow function",
       "level": "beginner",
       "definitionEn": "A function expression written with an arrow token and lexical this behavior.",
+      "definitionAr": "دالة مكتوبة بسهم وبتاخد قيمة this من النطاق المحيط بيها.",
       "example": "const twice = n => n * 2;",
       "caseSensitive": false,
       "aliases": [
@@ -28,6 +29,7 @@
       "term": "default parameter",
       "level": "beginner",
       "definitionEn": "A parameter initializer used when the corresponding argument is omitted or undefined.",
+      "definitionAr": "قيمة بديلة للمدخل بتتستخدم لو المتصل ما بعتش قيمة أو بعت undefined.",
       "example": "function greet(name = 'friend') {}",
       "caseSensitive": false,
       "aliases": [
@@ -39,6 +41,7 @@
       "term": "rest parameter",
       "level": "intermediate",
       "definitionEn": "A final parameter that gathers remaining arguments into an array.",
+      "definitionAr": "آخر مدخل في تعريف الدالة، وبيجمع باقي القيم في مجموعة واحدة.",
       "example": "function collect(...items) {}",
       "caseSensitive": false,
       "aliases": [
@@ -50,6 +53,7 @@
       "term": "spread syntax",
       "level": "intermediate",
       "definitionEn": "A syntax that expands iterable values or object properties into another context.",
+      "definitionAr": "صيغة بتفرد عناصر مجموعة أو خصائص سجل جوه سياق تاني.",
       "example": "const copy = [...values];",
       "caseSensitive": false,
       "aliases": [
@@ -61,6 +65,7 @@
       "term": "lexical this",
       "level": "advanced",
       "definitionEn": "The behavior where an arrow function uses the this value from its surrounding scope.",
+      "definitionAr": "سلوك بيخلّي الدالة السهمية تستخدم قيمة this اللي جاية من النطاق المحيط.",
       "example": "const obj = { run: () => this };",
       "caseSensitive": false,
       "aliases": [
@@ -72,6 +77,7 @@
       "term": "implicit return",
       "level": "beginner",
       "definitionEn": "A returned expression supplied automatically by a concise function body.",
+      "definitionAr": "قيمة التعبير اللي بترجع تلقائي لما جسم الدالة المختصر يحتوي على تعبير واحد.",
       "example": "const square = n => n * n;",
       "caseSensitive": false,
       "aliases": [
@@ -83,6 +89,7 @@
       "term": "function body",
       "level": "beginner",
       "definitionEn": "The statements or expression executed when a function is called.",
+      "definitionAr": "التعليمات أو التعبير اللي بيتنفذوا لما الدالة تتنادى.",
       "example": "function run() { return 1; }",
       "caseSensitive": false,
       "aliases": [
@@ -94,6 +101,7 @@
       "term": "iterable",
       "level": "intermediate",
       "definitionEn": "A value whose elements can be visited in sequence by iteration syntax.",
+      "definitionAr": "قيمة عناصرها ممكن تتقرا واحدة ورا التانية باستخدام صيغة التكرار.",
       "example": "const copy = [...'cat'];",
       "caseSensitive": false,
       "aliases": [
@@ -105,6 +113,7 @@
       "term": "shallow copy",
       "level": "advanced",
       "definitionEn": "A new outer collection whose nested object references remain shared with the source.",
+      "definitionAr": "مجموعة جديدة من بره، لكن السجلات المتداخلة جواها لسه مشتركة مع الأصل.",
       "example": "const copy = [...items];",
       "caseSensitive": false,
       "aliases": [
@@ -116,6 +125,7 @@
       "term": "rest argument",
       "level": "intermediate",
       "definitionEn": "An individual value collected by the final rest parameter.",
+      "definitionAr": "قيمة واحدة من القيم اللي اتجمعت في آخر مدخل للدالة.",
       "example": "sum(2, 3, 4);",
       "caseSensitive": false,
       "aliases": [
@@ -127,6 +137,7 @@
       "term": "callable",
       "level": "beginner",
       "definitionEn": "A value that can be invoked with function-call syntax.",
+      "definitionAr": "قيمة ينفع نشغّلها بصيغة استدعاء الدوال.",
       "example": "const run = () => 'ok';",
       "caseSensitive": false,
       "aliases": [
@@ -138,6 +149,7 @@
       "term": "parameter list",
       "level": "beginner",
       "definitionEn": "The named input positions declared for a function.",
+      "definitionAr": "أماكن المدخلات المسماة اللي الدالة بتعلن عنها في تعريفها.",
       "example": "const add = (a, b) => a + b;",
       "caseSensitive": false,
       "aliases": [

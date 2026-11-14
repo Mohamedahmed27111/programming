@@ -22,6 +22,7 @@
       "term": "property",
       "level": "beginner",
       "definitionEn": "A named association between a key and a value in a record-like value.",
+      "definitionAr": "جزء مسمّى بيربط مفتاح بقيمة جوه سجل بيانات.",
       "example": "const user = { name: 'Ira' };",
       "caseSensitive": false,
       "aliases": [
@@ -33,6 +34,7 @@
       "term": "key",
       "level": "beginner",
       "definitionEn": "A name used to identify a stored value in a record-like value.",
+      "definitionAr": "اسم بنستخدمه عشان نوصل لقيمة متخزنة جوه سجل بيانات.",
       "example": "const color = item['shade'];",
       "caseSensitive": false,
       "aliases": [
@@ -44,6 +46,7 @@
       "term": "dot notation",
       "level": "beginner",
       "definitionEn": "A syntax for reading or changing a named property with a dot.",
+      "definitionAr": "صيغة بنستخدم فيها نقطة عشان نقرا أو نغيّر خاصية باسم معروف.",
       "example": "user.name;",
       "caseSensitive": false,
       "aliases": [
@@ -55,6 +58,7 @@
       "term": "bracket notation",
       "level": "beginner",
       "definitionEn": "A syntax for accessing a property using a quoted or computed key.",
+      "definitionAr": "صيغة بتوصل لخاصية باستخدام مفتاح مكتوب كنص أو محسوب وقت التنفيذ.",
       "example": "user['name'];",
       "caseSensitive": false,
       "aliases": [
@@ -66,6 +70,7 @@
       "term": "nested object",
       "level": "intermediate",
       "definitionEn": "A record-like value stored as a property value inside another one.",
+      "definitionAr": "سجل بيانات متخزن كقيمة لخاصية جوه سجل تاني.",
       "example": "const user = { address: { city: 'Lima' } };",
       "caseSensitive": false,
       "aliases": [
@@ -77,6 +82,7 @@
       "term": "method",
       "level": "intermediate",
       "definitionEn": "A function stored as a property and invoked through its containing value.",
+      "definitionAr": "دالة متخزنة كخاصية وبتتنادى من خلال القيمة اللي شايلها.",
       "example": "const box = { open() { return true; } };",
       "caseSensitive": false,
       "aliases": [
@@ -88,6 +94,7 @@
       "term": "computed property",
       "level": "intermediate",
       "definitionEn": "A property whose key is determined by evaluating an expression.",
+      "definitionAr": "خاصية اسم المفتاح بتاعها بيتحدد من نتيجة تعبير وقت التشغيل.",
       "example": "const key = 'id';\nconst item = { [key]: 3 };",
       "caseSensitive": false,
       "aliases": [
@@ -100,6 +107,7 @@
       "display": "hasOwnProperty()",
       "level": "intermediate",
       "definitionEn": "A method that reports whether a value has a directly defined property with a given name.",
+      "definitionAr": "ميثود بتقول إذا كان السجل نفسه فيه الخاصية بالاسم ده، مش وارثها من غيره.",
       "example": "record.hasOwnProperty('id');",
       "caseSensitive": true,
       "aliases": [
@@ -111,6 +119,7 @@
       "term": "lookup table",
       "level": "intermediate",
       "definitionEn": "A keyed collection used to retrieve a value associated with an input.",
+      "definitionAr": "مجموعة مفاتيح بنستخدمها عشان نلاقي قيمة مرتبطة بمدخل معين.",
       "example": "const codes = { ok: 200, missing: 404 };",
       "caseSensitive": false,
       "aliases": [
@@ -123,6 +132,7 @@
       "display": "delete",
       "level": "intermediate",
       "definitionEn": "An operator that removes a configurable property from its containing value.",
+      "definitionAr": "عامل بيشيل خاصية قابلة للحذف من السجل اللي شايلها.",
       "example": "delete profile.nickname;",
       "caseSensitive": true,
       "aliases": [
@@ -134,6 +144,7 @@
       "term": "reference",
       "level": "advanced",
       "definitionEn": "A value that identifies a stored object so it can be accessed through a binding.",
+      "definitionAr": "قيمة بتشير لمكان تخزين سجل، فممكن الوصول له من خلال اسم تاني.",
       "example": "const other = profile;",
       "caseSensitive": false,
       "aliases": [
@@ -145,6 +156,7 @@
       "term": "prototype",
       "level": "advanced",
       "definitionEn": "An object from which another object's property lookup can continue.",
+      "definitionAr": "سجل بيرجع له البحث لما الخاصية المطلوبة مش موجودة في السجل الحالي.",
       "example": "Object.getPrototypeOf({});",
       "caseSensitive": false,
       "aliases": [

@@ -17,6 +17,7 @@
       "term": "var",
       "level": "beginner",
       "definitionEn": "A declaration form whose bindings are scoped to a function or the surrounding global context.",
+      "definitionAr": "طريقة قديمة لإنشاء اسم بيبقى نطاقه الدالة أو البيئة العامة المحيطة.",
       "example": "var count = 1;",
       "caseSensitive": true,
       "aliases": []
@@ -26,6 +27,7 @@
       "term": "let",
       "level": "beginner",
       "definitionEn": "A declaration form that creates a block-scoped writable binding.",
+      "definitionAr": "طريقة لإنشاء اسم نطاقه جوه البلوك ومسموح بتغيير قيمته.",
       "example": "let count = 1;",
       "caseSensitive": true,
       "aliases": []
@@ -35,6 +37,7 @@
       "term": "const",
       "level": "beginner",
       "definitionEn": "A declaration form that creates a block-scoped binding that cannot be reassigned.",
+      "definitionAr": "طريقة لإنشاء اسم جوه البلوك ماينفعش نربطه بقيمة تانية.",
       "example": "const limit = 5;",
       "caseSensitive": true,
       "aliases": []
@@ -44,6 +47,7 @@
       "term": "block scope",
       "level": "intermediate",
       "definitionEn": "The visibility region enclosed by a block where certain declarations are available.",
+      "definitionAr": "الجزء المحاط بأقواس معقوفة اللي بتكون فيه أسماء معينة متاحة.",
       "example": "if (true) { let inside = 1; }",
       "caseSensitive": false,
       "aliases": [
@@ -55,6 +59,7 @@
       "term": "function scope",
       "level": "intermediate",
       "definitionEn": "The visibility region created by a function for declarations such as var.",
+      "definitionAr": "المنطقة اللي الدالة بتحددها وبتخلي بعض الأسماء متاحة جواها.",
       "example": "function run() { var local = 1; }",
       "caseSensitive": false,
       "aliases": []
@@ -64,6 +69,7 @@
       "term": "reassignment",
       "level": "beginner",
       "definitionEn": "Giving an existing writable binding a different value.",
+      "definitionAr": "تغيير القيمة المرتبطة باسم موجود ومسموح بتعديله.",
       "example": "let n = 1;\nn = 2;",
       "caseSensitive": false,
       "aliases": [
@@ -75,6 +81,7 @@
       "term": "mutation",
       "level": "intermediate",
       "definitionEn": "Changing the contents of an existing object or collection without replacing its binding.",
+      "definitionAr": "تغيير المحتوى اللي جوه سجل أو مجموعة من غير ما نبدّل الاسم المرتبط بيه.",
       "example": "const list = [1];\nlist.push(2);",
       "caseSensitive": false,
       "aliases": [
@@ -87,6 +94,7 @@
       "display": "Object.freeze()",
       "level": "intermediate",
       "definitionEn": "A built-in operation that prevents direct changes to an object's own properties.",
+      "definitionAr": "عملية جاهزة بتمنع التغييرات المباشرة على خصائص السجل نفسه.",
       "example": "Object.freeze(config);",
       "caseSensitive": true,
       "aliases": [
@@ -98,6 +106,7 @@
       "term": "hoisting",
       "level": "advanced",
       "definitionEn": "A description of how declarations are processed before their surrounding code executes.",
+      "definitionAr": "وصف لطريقة تجهيز بعض التعريفات قبل تنفيذ الكود اللي حواليها.",
       "example": "function greet() { return 'hi'; }",
       "caseSensitive": false,
       "aliases": [
@@ -109,6 +118,7 @@
       "term": "temporal dead zone",
       "level": "advanced",
       "definitionEn": "The interval before a lexical binding is initialized in which accessing it throws an error.",
+      "definitionAr": "فترة قبل تهيئة اسم محلي، ومحاولة استخدامه خلالها بتسبب خطأ.",
       "example": "{ console.log(value); let value = 2; }",
       "caseSensitive": false,
       "aliases": [
@@ -120,6 +130,7 @@
       "term": "shallow freeze",
       "level": "advanced",
       "definitionEn": "A restriction applied to an outer value while nested referenced values can still change.",
+      "definitionAr": "تجميد بيأثر على السجل الخارجي، لكن القيم المتداخلة ممكن تفضل قابلة للتغيير.",
       "example": "Object.freeze({ nested: { n: 1 } });",
       "caseSensitive": false,
       "aliases": [
@@ -131,6 +142,7 @@
       "term": "global object",
       "level": "intermediate",
       "definitionEn": "The object associated with the top-level environment of a JavaScript runtime.",
+      "definitionAr": "سجل مرتبط بأعلى مستوى في بيئة تشغيل JavaScript وبيمثل النطاق العام.",
       "example": "globalThis.console.log('ok');",
       "caseSensitive": false,
       "aliases": [

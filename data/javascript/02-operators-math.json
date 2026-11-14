@@ -21,6 +21,7 @@
       "term": "addition",
       "level": "beginner",
       "definitionEn": "An arithmetic operation that combines numeric values.",
+      "definitionAr": "عملية حسابية بتجمع قيم رقمية مع بعض.",
       "example": "const total = 3 + 4;",
       "caseSensitive": false,
       "aliases": [
@@ -32,6 +33,7 @@
       "term": "subtraction",
       "level": "beginner",
       "definitionEn": "An arithmetic operation that finds the difference between values.",
+      "definitionAr": "عملية حسابية بتطرح قيمة من التانية عشان نعرف الفرق بينهم.",
       "example": "const left = 9 - 2;",
       "caseSensitive": false,
       "aliases": [
@@ -43,6 +45,7 @@
       "term": "multiplication",
       "level": "beginner",
       "definitionEn": "An arithmetic operation that scales a value by another value.",
+      "definitionAr": "عملية حسابية بتضرب قيمة في قيمة تانية.",
       "example": "const area = 3 * 5;",
       "caseSensitive": false,
       "aliases": [
@@ -54,6 +57,7 @@
       "term": "division",
       "level": "beginner",
       "definitionEn": "An arithmetic operation that splits a value into equal parts.",
+      "definitionAr": "عملية حسابية بتقسم قيمة على قيمة تانية.",
       "example": "const half = 8 / 2;",
       "caseSensitive": false,
       "aliases": [
@@ -65,6 +69,7 @@
       "term": "remainder",
       "level": "beginner",
       "definitionEn": "The leftover amount after one number is divided by another.",
+      "definitionAr": "القيمة اللي بتفضل بعد قسمة رقم على رقم تاني.",
       "example": "const left = 11 % 4;",
       "caseSensitive": false,
       "aliases": [
@@ -76,6 +81,7 @@
       "term": "increment",
       "level": "beginner",
       "definitionEn": "An operation that increases a numeric value by one.",
+      "definitionAr": "عملية بتزوّد القيمة الرقمية بمقدار واحد.",
       "example": "count++;",
       "caseSensitive": false,
       "aliases": [
@@ -87,6 +93,7 @@
       "term": "decrement",
       "level": "beginner",
       "definitionEn": "An operation that decreases a numeric value by one.",
+      "definitionAr": "عملية بتقلل القيمة الرقمية بمقدار واحد.",
       "example": "count--;",
       "caseSensitive": false,
       "aliases": [
@@ -98,6 +105,7 @@
       "term": "floating-point number",
       "level": "intermediate",
       "definitionEn": "A number representation used for values that can include a fractional part.",
+      "definitionAr": "طريقة لتمثيل أرقام ممكن يكون فيها جزء عشري زي 2.5.",
       "example": "const ratio = 0.25;",
       "caseSensitive": false,
       "aliases": [
@@ -109,6 +117,7 @@
       "term": "operator precedence",
       "level": "intermediate",
       "definitionEn": "The rules that determine which operations are evaluated first.",
+      "definitionAr": "قواعد بتحدد أنهي عملية تتحسب الأول لما يكون في أكتر من عملية.",
       "example": "const value = 2 + 3 * 4;",
       "caseSensitive": false,
       "aliases": [
@@ -120,6 +129,7 @@
       "term": "augmented assignment",
       "level": "intermediate",
       "definitionEn": "A shorthand operation that calculates with and reassigns to the same binding.",
+      "definitionAr": "صيغة مختصرة بتحسب على القيمة الحالية وبتخزن النتيجة في نفس الاسم.",
       "example": "score += 2;",
       "caseSensitive": false,
       "aliases": [
@@ -132,6 +142,7 @@
       "display": "parseInt()",
       "level": "intermediate",
       "definitionEn": "A built-in function that parses an integer from the start of a string.",
+      "definitionAr": "دالة جاهزة بتحاول تقرأ رقم صحيح من بداية النص.",
       "example": "const value = parseInt('24px', 10);",
       "caseSensitive": true,
       "aliases": [
@@ -143,6 +154,7 @@
       "term": "radix",
       "level": "advanced",
       "definitionEn": "The base that specifies how digits in a numeral are interpreted.",
+      "definitionAr": "الأساس اللي بيحدد نظام قراءة الرقم، زي أساس 10 أو أساس 2.",
       "example": "parseInt('11', 2);",
       "caseSensitive": false,
       "aliases": [

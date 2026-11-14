@@ -19,6 +19,7 @@
       "term": "statement",
       "level": "beginner",
       "definitionEn": "A complete instruction that an engine can evaluate.",
+      "definitionAr": "تعليمة كاملة في الكود يقدر محرك JavaScript ينفذها أو يقيّم نتيجتها.",
       "example": "console.log('hello');",
       "caseSensitive": false,
       "aliases": [
@@ -30,6 +31,7 @@
       "term": "comment",
       "level": "beginner",
       "definitionEn": "Text in source code that the JavaScript engine ignores as an instruction.",
+      "definitionAr": "ملاحظة جوه الكود بتساعد القارئ، والمحرك بيتجاهلها وقت التنفيذ.",
       "example": "// explain this line",
       "caseSensitive": false,
       "aliases": []
@@ -39,6 +41,7 @@
       "term": "variable",
       "level": "beginner",
       "definitionEn": "A named binding that can refer to a value.",
+      "definitionAr": "اسم بنربطه بقيمة عشان نقدر نستخدمها أو نغيّرها بعدين.",
       "example": "let score = 7;",
       "caseSensitive": false,
       "aliases": [
@@ -50,6 +53,7 @@
       "term": "declaration",
       "level": "beginner",
       "definitionEn": "The creation of a named binding in a program.",
+      "definitionAr": "خطوة بننشئ فيها اسم جديد ونخليه متاح للاستخدام في البرنامج.",
       "example": "const color = 'blue';",
       "caseSensitive": false,
       "aliases": [
@@ -61,6 +65,7 @@
       "term": "initialization",
       "level": "beginner",
       "definitionEn": "Giving a binding its first value as it is created.",
+      "definitionAr": "أول قيمة بنحطها للاسم وقت إنشائه.",
       "example": "let count = 0;",
       "caseSensitive": false,
       "aliases": [
@@ -72,6 +77,7 @@
       "term": "assignment",
       "level": "beginner",
       "definitionEn": "Storing a value in an existing writable binding.",
+      "definitionAr": "تخزين قيمة جديدة في اسم موجود ومسموح بتغييره.",
       "example": "let count = 0;\ncount = 1;",
       "caseSensitive": false,
       "aliases": [
@@ -83,6 +89,7 @@
       "term": "identifier",
       "level": "beginner",
       "definitionEn": "A name used to refer to a binding or other program entity.",
+      "definitionAr": "اسم رمزي بنستخدمه عشان نشاور على متغير أو دالة أو عنصر في الكود.",
       "example": "const playerName = 'Rae';",
       "caseSensitive": false,
       "aliases": [
@@ -94,6 +101,7 @@
       "term": "case sensitivity",
       "level": "intermediate",
       "definitionEn": "The rule that treats uppercase and lowercase letters as different characters.",
+      "definitionAr": "قاعدة بتخلي الحروف الكبيرة والصغيرة مختلفة، فـ name وName مش نفس الاسم.",
       "example": "let item = 1;\nlet Item = 2;",
       "caseSensitive": false,
       "aliases": [
@@ -105,6 +113,7 @@
       "term": "uninitialized variable",
       "level": "beginner",
       "definitionEn": "A declared binding that has not yet been given an explicit value.",
+      "definitionAr": "اسم اتعمل في الكود ولسه ماخدش قيمة صريحة.",
       "example": "let pending;",
       "caseSensitive": false,
       "aliases": [
@@ -116,6 +125,7 @@
       "term": "runtime",
       "level": "intermediate",
       "definitionEn": "The environment that executes a program and provides its built-in capabilities.",
+      "definitionAr": "البيئة اللي بتشغّل البرنامج وبتوفر له إمكانيات جاهزة زي console.",
       "example": "node app.js",
       "caseSensitive": false,
       "aliases": [
@@ -127,6 +137,7 @@
       "term": "syntax error",
       "level": "intermediate",
       "definitionEn": "An error raised when source text does not follow the language grammar.",
+      "definitionAr": "خطأ بيظهر لما كتابة الكود ماتتبعش قواعد اللغة.",
       "example": "const = 3;",
       "caseSensitive": false,
       "aliases": [
@@ -138,6 +149,7 @@
       "term": "constant binding",
       "level": "beginner",
       "definitionEn": "A named binding that cannot be assigned a different value after creation.",
+      "definitionAr": "اسم مينفعش نربطه بقيمة تانية بعد إنشائه، حتى لو محتوى object قابل للتغيير.",
       "example": "const limit = 10;",
       "caseSensitive": false,
       "aliases": [

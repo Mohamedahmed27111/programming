@@ -19,6 +19,7 @@
       "term": "exception",
       "level": "beginner",
       "definitionEn": "A runtime failure signal that interrupts normal control flow unless handled.",
+      "definitionAr": "إشارة فشل وقت التشغيل بتوقف المسار الطبيعي لو ما اتعالجتش.",
       "example": "throw new Error('failed');",
       "caseSensitive": false,
       "aliases": [
@@ -30,6 +31,7 @@
       "term": "try",
       "level": "beginner",
       "definitionEn": "A clause that marks statements whose thrown failures may be handled by a matching handler.",
+      "definitionAr": "جزء بيحدد تعليمات ممكن يحصل فيها خطأ ويتعالج في جزء مخصص.",
       "example": "try { risky(); } catch (error) {}",
       "caseSensitive": true,
       "aliases": [
@@ -41,6 +43,7 @@
       "term": "catch",
       "level": "beginner",
       "definitionEn": "A clause that receives a failure thrown while its associated protected statements execute.",
+      "definitionAr": "جزء بيستقبل الخطأ اللي حصل أثناء تنفيذ التعليمات المحمية.",
       "example": "try {} catch (error) { console.log(error.message); }",
       "caseSensitive": true,
       "aliases": [
@@ -52,6 +55,7 @@
       "term": "finally",
       "level": "intermediate",
       "definitionEn": "A clause that runs after a protected operation whether it completes normally or abruptly.",
+      "definitionAr": "جزء بيتنفذ بعد العملية سواء خلصت طبيعي أو حصل فيها خطأ.",
       "example": "try { work(); } finally { close(); }",
       "caseSensitive": true,
       "aliases": [
@@ -63,6 +67,7 @@
       "term": "throw",
       "level": "beginner",
       "definitionEn": "A statement that raises a value and transfers control to a handler or caller.",
+      "definitionAr": "تعليمة بتطلع قيمة كخطأ وتنقل التحكم لمعالج أو للكود اللي نادى.",
       "example": "throw new Error('invalid');",
       "caseSensitive": true,
       "aliases": [
@@ -74,6 +79,7 @@
       "term": "Error",
       "level": "beginner",
       "definitionEn": "A built-in constructor for values that carry a failure message and stack information.",
+      "definitionAr": "منشئ جاهز لقيم بتحتوي رسالة الخطأ ومعلومات عن مكان حدوثه.",
       "example": "new Error('not found');",
       "caseSensitive": true,
       "aliases": [
@@ -85,6 +91,7 @@
       "term": "SyntaxError",
       "level": "intermediate",
       "definitionEn": "A built-in failure type used when source text or parsed data has invalid syntax.",
+      "definitionAr": "نوع خطأ جاهز بيظهر لما كتابة الكود أو البيانات المقروءة تكون بصيغة غير صحيحة.",
       "example": "JSON.parse('{');",
       "caseSensitive": true,
       "aliases": [
@@ -96,6 +103,7 @@
       "term": "TypeError",
       "level": "intermediate",
       "definitionEn": "A built-in failure type used when an operation is not valid for a value's kind.",
+      "definitionAr": "نوع خطأ جاهز بيظهر لما نعمل عملية مش مناسبة لنوع القيمة.",
       "example": "null.value;",
       "caseSensitive": true,
       "aliases": [
@@ -108,6 +116,7 @@
       "display": "JSON.parse()",
       "level": "beginner",
       "definitionEn": "A built-in function that converts JSON text into a JavaScript value.",
+      "definitionAr": "دالة جاهزة بتحوّل نص JSON لقيمة يقدر JavaScript يتعامل معاها.",
       "example": "JSON.parse('{\"n\":2}');",
       "caseSensitive": true,
       "aliases": [
@@ -120,6 +129,7 @@
       "display": "JSON.stringify()",
       "level": "beginner",
       "definitionEn": "A built-in function that converts supported JavaScript data into JSON text.",
+      "definitionAr": "دالة جاهزة بتحوّل بيانات JavaScript المدعومة لنص JSON.",
       "example": "JSON.stringify({ n: 2 });",
       "caseSensitive": true,
       "aliases": [
@@ -131,6 +141,7 @@
       "term": "serialization",
       "level": "intermediate",
       "definitionEn": "The conversion of structured data into a text form suitable for storage or transfer.",
+      "definitionAr": "تحويل بيانات منظمة لصيغة نصية مناسبة للتخزين أو الإرسال.",
       "example": "JSON.stringify({ ready: true });",
       "caseSensitive": false,
       "aliases": [
@@ -142,6 +153,7 @@
       "term": "replacer",
       "level": "advanced",
       "definitionEn": "A function or list of keys used to control which values JSON text conversion includes.",
+      "definitionAr": "دالة أو قائمة مفاتيح بتحدد أنهي قيم تدخل في نص JSON الناتج.",
       "example": "JSON.stringify(data, ['id']);",
       "caseSensitive": false,
       "aliases": [

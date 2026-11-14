@@ -21,6 +21,7 @@
       "term": "loop",
       "level": "beginner",
       "definitionEn": "A control structure that repeats statements while a rule allows it.",
+      "definitionAr": "تركيب تحكم بيكرر شوية تعليمات طول ما شرط معين سامح بكده.",
       "example": "for (let i = 0; i < 3; i++) {}",
       "caseSensitive": false,
       "aliases": [
@@ -32,6 +33,7 @@
       "term": "iteration",
       "level": "beginner",
       "definitionEn": "One pass through the repeated body of a loop.",
+      "definitionAr": "مرة واحدة من تنفيذ الجزء اللي بيتكرر جوه التركيب.",
       "example": "while (count < 2) count++;",
       "caseSensitive": false,
       "aliases": [
@@ -43,6 +45,7 @@
       "term": "loop condition",
       "level": "beginner",
       "definitionEn": "An expression checked to determine whether another pass should run.",
+      "definitionAr": "تعبير بيتفحص عشان نعرف هل نكرر التنفيذ مرة كمان ولا لأ.",
       "example": "while (index < list.length) {}",
       "caseSensitive": false,
       "aliases": [
@@ -54,6 +57,7 @@
       "term": "counter",
       "level": "beginner",
       "definitionEn": "A variable that tracks a changing number of repeated steps.",
+      "definitionAr": "قيمة بتتغير عشان تتابع رقم الخطوات اللي اتكررت.",
       "example": "let count = 0;",
       "caseSensitive": false,
       "aliases": [
@@ -65,6 +69,7 @@
       "term": "for loop",
       "level": "beginner",
       "definitionEn": "A loop form that places initialization, continuation test, and update in its header.",
+      "definitionAr": "شكل من التكرار بيحط البداية والشرط والتحديث في سطر واحد.",
       "example": "for (let i = 0; i < 4; i++) {}",
       "caseSensitive": false,
       "aliases": [
@@ -76,6 +81,7 @@
       "term": "while loop",
       "level": "beginner",
       "definitionEn": "A loop form that checks its condition before each body execution.",
+      "definitionAr": "شكل من التكرار بيفحص الشرط قبل تنفيذ الجزء اللي جواه كل مرة.",
       "example": "while (n > 0) n--;",
       "caseSensitive": false,
       "aliases": [
@@ -87,6 +93,7 @@
       "term": "do...while loop",
       "level": "intermediate",
       "definitionEn": "A loop form that checks its condition after executing the body.",
+      "definitionAr": "شكل من التكرار بينفذ الجزء اللي جواه مرة وبعدين يفحص الشرط.",
       "example": "do { count++; } while (count < 1);",
       "caseSensitive": false,
       "aliases": [
@@ -98,6 +105,7 @@
       "term": "nested loop",
       "level": "intermediate",
       "definitionEn": "A repeated structure whose body contains another repeated structure.",
+      "definitionAr": "تكرار بيكون جواه تكرار تاني بيتنفذ مع كل خطوة من الأول.",
       "example": "for (const row of grid) { for (const cell of row) {} }",
       "caseSensitive": false,
       "aliases": [
@@ -109,6 +117,7 @@
       "term": "accumulator",
       "level": "intermediate",
       "definitionEn": "A variable that collects a running result across repeated steps.",
+      "definitionAr": "قيمة بنجمع فيها النتيجة تدريجيًا مع كل خطوة.",
       "example": "let total = 0;\ntotal += value;",
       "caseSensitive": false,
       "aliases": [
@@ -120,6 +129,7 @@
       "term": "off-by-one error",
       "level": "advanced",
       "definitionEn": "A boundary mistake that repeats one time too many or one time too few.",
+      "definitionAr": "غلطة في حدّ التكرار بتخليه يشتغل مرة زيادة أو مرة أقل.",
       "example": "i <= values.length",
       "caseSensitive": false,
       "aliases": [
@@ -131,6 +141,7 @@
       "term": "infinite loop",
       "level": "advanced",
       "definitionEn": "A repetition that does not reach a stopping condition.",
+      "definitionAr": "تكرار مش بيوصل أبدًا لشرط يوقفه.",
       "example": "while (true) {}",
       "caseSensitive": false,
       "aliases": [
@@ -143,6 +154,7 @@
       "display": "break",
       "level": "intermediate",
       "definitionEn": "A statement that immediately exits the nearest enclosing loop or switch.",
+      "definitionAr": "تعليمة بتخرج فورًا من أقرب تكرار أو اختيار محيط بيها.",
       "example": "if (found) break;",
       "caseSensitive": true,
       "aliases": [

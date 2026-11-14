@@ -24,6 +24,7 @@
       "term": "string",
       "level": "beginner",
       "definitionEn": "A sequence of text characters represented as a primitive value.",
+      "definitionAr": "قيمة نصية بتتكوّن من حروف أو رموز وبتتعامل كنوع بدائي.",
       "example": "const name = 'Nora';",
       "caseSensitive": false,
       "aliases": [
@@ -35,6 +36,7 @@
       "term": "quote",
       "level": "beginner",
       "definitionEn": "A delimiter that marks the beginning and end of a string literal.",
+      "definitionAr": "علامة بنحطها في أول النص وآخره عشان نحدد حدوده.",
       "example": "const word = 'hello';",
       "caseSensitive": false,
       "aliases": [
@@ -46,6 +48,7 @@
       "term": "escape sequence",
       "level": "intermediate",
       "definitionEn": "A backslash-based notation for a character with special meaning in text.",
+      "definitionAr": "ترميز بيبدأ بشرطة مائلة عكسية عشان يكتب حرف له معنى خاص زي السطر الجديد.",
       "example": "const line = 'a\\nb';",
       "caseSensitive": false,
       "aliases": [
@@ -57,6 +60,7 @@
       "term": "concatenation",
       "level": "beginner",
       "definitionEn": "The operation of joining text values into a longer sequence.",
+      "definitionAr": "عملية بتوصل نصين أو أكتر عشان تكوّن نص أطول.",
       "example": "const full = 'red' + 'wood';",
       "caseSensitive": false,
       "aliases": [
@@ -68,6 +72,7 @@
       "term": "length",
       "level": "beginner",
       "definitionEn": "The number of UTF-16 code units in a string.",
+      "definitionAr": "عدد وحدات UTF-16 اللي النص متكوّن منها.",
       "example": "const count = 'abc'.length;",
       "caseSensitive": false,
       "aliases": [
@@ -79,6 +84,7 @@
       "term": "bracket notation",
       "level": "beginner",
       "definitionEn": "A way to access a character-like code unit using a numeric position.",
+      "definitionAr": "طريقة للوصول لحرف في النص باستخدام رقم مكانه بين أقواس مربعة.",
       "example": "const letter = 'cat'[1];",
       "caseSensitive": false,
       "aliases": [
@@ -90,6 +96,7 @@
       "term": "index",
       "level": "beginner",
       "definitionEn": "A zero-based position used to access a character in text.",
+      "definitionAr": "رقم مكان العنصر، وبيبدأ العد من صفر.",
       "example": "const first = 'sun'[0];",
       "caseSensitive": false,
       "aliases": [
@@ -101,6 +108,7 @@
       "term": "immutability",
       "level": "intermediate",
       "definitionEn": "The property that an existing value cannot be altered in place.",
+      "definitionAr": "خاصية بتخلي القيمة الموجودة ماتتغيرش من مكانها؛ العمليات بترجع قيمة جديدة.",
       "example": "const text = 'cat';\nconst next = 'b' + text.slice(1);",
       "caseSensitive": false,
       "aliases": [
@@ -112,6 +120,7 @@
       "term": "template literal",
       "level": "intermediate",
       "definitionEn": "A string form delimited by backticks that supports interpolation.",
+      "definitionAr": "صيغة نص بتتحط بين backticks وبتسمح بإدخال قيم جوه النص.",
       "example": "const message = `Hi, ${name}`;",
       "caseSensitive": false,
       "aliases": [
@@ -123,6 +132,7 @@
       "term": "interpolation",
       "level": "intermediate",
       "definitionEn": "The insertion of an expression's value into a text template.",
+      "definitionAr": "إدخال نتيجة تعبير أو قيمة جوه نص باستخدام الصيغة المناسبة.",
       "example": "const line = `Count: ${count}`;",
       "caseSensitive": false,
       "aliases": [
@@ -134,6 +144,7 @@
       "term": "string coercion",
       "level": "advanced",
       "definitionEn": "The conversion of a value to text during an operation that needs a string.",
+      "definitionAr": "تحويل قيمة لنص تلقائيًا لما العملية تحتاج قيمة نصية.",
       "example": "const label = 'id-' + 4;",
       "caseSensitive": false,
       "aliases": [
@@ -145,6 +156,7 @@
       "term": "code unit",
       "level": "advanced",
       "definitionEn": "A 16-bit value used as a basic component of JavaScript string indexing.",
+      "definitionAr": "وحدة من 16 بت بيستخدمها JavaScript كجزء أساسي في تمثيل النصوص.",
       "example": "const units = 'A'.length;",
       "caseSensitive": false,
       "aliases": [

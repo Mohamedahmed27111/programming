@@ -15,6 +15,7 @@
       "term": "destructuring",
       "level": "beginner",
       "definitionEn": "A syntax that extracts values from arrays or properties from objects into bindings.",
+      "definitionAr": "صيغة بتسحب قيم من مجموعة أو خصائص من سجل وتحطها في أسماء جديدة.",
       "example": "const [first] = values;",
       "caseSensitive": false,
       "aliases": [
@@ -26,6 +27,7 @@
       "term": "array pattern",
       "level": "beginner",
       "definitionEn": "A bracket pattern that assigns values by their sequence positions.",
+      "definitionAr": "نمط بين أقواس مربعة بيوزع القيم حسب ترتيبها.",
       "example": "const [a, b] = [1, 2];",
       "caseSensitive": false,
       "aliases": [
@@ -37,6 +39,7 @@
       "term": "object pattern",
       "level": "beginner",
       "definitionEn": "A brace pattern that assigns values based on matching property names.",
+      "definitionAr": "نمط بين أقواس معقوفة بياخد القيم حسب أسماء الخصائص.",
       "example": "const { name } = user;",
       "caseSensitive": false,
       "aliases": [
@@ -48,6 +51,7 @@
       "term": "renaming",
       "level": "intermediate",
       "definitionEn": "Choosing a different local binding name while extracting a property.",
+      "definitionAr": "اختيار اسم محلي مختلف وإحنا بنسحب قيمة خاصية من سجل.",
       "example": "const { id: userId } = user;",
       "caseSensitive": false,
       "aliases": [
@@ -59,6 +63,7 @@
       "term": "default value",
       "level": "intermediate",
       "definitionEn": "A fallback used by a pattern when an extracted value is undefined.",
+      "definitionAr": "قيمة بديلة بيستخدمها النمط لما القيمة المسحوبة تكون undefined.",
       "example": "const { size = 1 } = options;",
       "caseSensitive": false,
       "aliases": [
@@ -70,6 +75,7 @@
       "term": "nested destructuring",
       "level": "advanced",
       "definitionEn": "A pattern that extracts a value from a structure inside another structure.",
+      "definitionAr": "نمط بيوصل لقيمة جوه تركيب متداخل داخل تركيب أكبر.",
       "example": "const { address: { city } } = user;",
       "caseSensitive": false,
       "aliases": [
@@ -81,6 +87,7 @@
       "term": "template literal",
       "level": "beginner",
       "definitionEn": "A backtick-delimited string form that can contain embedded expressions.",
+      "definitionAr": "صيغة نص بين backticks وممكن تحتوي تعبيرات جوهها.",
       "example": "const text = `Hello ${name}`;",
       "caseSensitive": false,
       "aliases": [
@@ -92,6 +99,7 @@
       "term": "interpolation",
       "level": "beginner",
       "definitionEn": "An embedded expression whose value is inserted into a text template.",
+      "definitionAr": "تعبير بيتحط جوه النص وبتظهر قيمته وقت التنفيذ.",
       "example": "const text = `Total: ${sum}`;",
       "caseSensitive": false,
       "aliases": [
@@ -103,6 +111,7 @@
       "term": "rest property",
       "level": "intermediate",
       "definitionEn": "A pattern entry that gathers properties not already selected.",
+      "definitionAr": "جزء في النمط بيجمع الخصائص اللي ما اتاخدتش قبل كده.",
       "example": "const { id, ...rest } = item;",
       "caseSensitive": false,
       "aliases": [
@@ -114,6 +123,7 @@
       "term": "parameter destructuring",
       "level": "intermediate",
       "definitionEn": "Extracting values from an argument directly in a function's parameter list.",
+      "definitionAr": "سحب قيم من مدخل الدالة مباشرة جوه قائمة مداخلها.",
       "example": "function show({ name }) {}",
       "caseSensitive": false,
       "aliases": [
@@ -125,6 +135,7 @@
       "term": "multiline string",
       "level": "beginner",
       "definitionEn": "Text that contains line breaks as part of its value.",
+      "definitionAr": "نص بيحتفظ بفواصل الأسطر كجزء من قيمته.",
       "example": "const poem = `one\ntwo`;",
       "caseSensitive": false,
       "aliases": [
@@ -136,6 +147,7 @@
       "term": "binding pattern",
       "level": "intermediate",
       "definitionEn": "A structured declaration form that assigns multiple extracted values to names.",
+      "definitionAr": "نمط تعريف منظم بيوزع كذا قيمة مستخرجة على أسماء مختلفة.",
       "example": "const [head, ...tail] = list;",
       "caseSensitive": false,
       "aliases": [

@@ -17,6 +17,7 @@
       "term": "closure",
       "level": "intermediate",
       "definitionEn": "A function together with access to bindings from its surrounding lexical environment.",
+      "definitionAr": "دالة ومعاها إمكانية الوصول للأسماء والقيم الموجودة في النطاق اللي اتعملت فيه.",
       "example": "function outer() { const n = 2; return () => n; }",
       "caseSensitive": false,
       "aliases": [
@@ -28,6 +29,7 @@
       "term": "lexical environment",
       "level": "advanced",
       "definitionEn": "The mapping between identifiers and their values available in a particular source-code region.",
+      "definitionAr": "ارتباط الأسماء بالقيم المتاحة في جزء معين من الكود.",
       "example": "const color = 'blue';",
       "caseSensitive": false,
       "aliases": [
@@ -39,6 +41,7 @@
       "term": "outer function",
       "level": "beginner",
       "definitionEn": "A function whose body contains another function or nested scope.",
+      "definitionAr": "دالة جواها تعريف دالة تانية أو نطاق داخلي.",
       "example": "function outer() { function inner() {} }",
       "caseSensitive": false,
       "aliases": [
@@ -50,6 +53,7 @@
       "term": "inner function",
       "level": "beginner",
       "definitionEn": "A function declared or created inside another function's body.",
+      "definitionAr": "دالة اتعرفت أو اتعملت جوه جسم دالة تانية.",
       "example": "function outer() { const inner = () => 1; }",
       "caseSensitive": false,
       "aliases": [
@@ -61,6 +65,7 @@
       "term": "lexical scope",
       "level": "intermediate",
       "definitionEn": "The visibility of names determined by where source code is written.",
+      "definitionAr": "نطاق ظهور الأسماء اللي بيتحدد حسب مكان كتابة الكود.",
       "example": "const outer = 1;\nfunction read() { return outer; }",
       "caseSensitive": false,
       "aliases": [
@@ -72,6 +77,7 @@
       "term": "factory function",
       "level": "intermediate",
       "definitionEn": "A function that creates and returns another value, often a configured object or function.",
+      "definitionAr": "دالة بتنشئ وترجع قيمة تانية، وغالبًا دالة أو سجل مجهز للاستخدام.",
       "example": "function makePoint(x) { return { x }; }",
       "caseSensitive": false,
       "aliases": [
@@ -83,6 +89,7 @@
       "term": "private state",
       "level": "advanced",
       "definitionEn": "Data kept inside a scope so outside code cannot access its binding directly.",
+      "definitionAr": "بيانات محفوظة جوه نطاق ومش متاحة للكود الخارجي بشكل مباشر.",
       "example": "function make() { let secret = 3; return () => secret; }",
       "caseSensitive": false,
       "aliases": [
@@ -94,6 +101,7 @@
       "term": "free variable",
       "level": "advanced",
       "definitionEn": "A name used by a function but declared outside that function's own local scope.",
+      "definitionAr": "اسم بتستخدمه الدالة لكنه متعرّف بره نطاقها المحلي.",
       "example": "const rate = 2;\nconst scale = n => n * rate;",
       "caseSensitive": false,
       "aliases": [
@@ -105,6 +113,7 @@
       "term": "lexical binding",
       "level": "intermediate",
       "definitionEn": "A name whose visibility follows its location in nested source-code scopes.",
+      "definitionAr": "اسم نطاق ظهوره بيتحدد بمكانه جوه النطاقات المتداخلة.",
       "example": "let message = 'hello';",
       "caseSensitive": false,
       "aliases": [
@@ -116,6 +125,7 @@
       "term": "callback",
       "level": "beginner",
       "definitionEn": "A function supplied to another operation so it can be called later or during processing.",
+      "definitionAr": "دالة بتتبعت لعملية تانية عشان تناديها وقت المعالجة أو بعدين.",
       "example": "[1, 2].map(n => n * 2);",
       "caseSensitive": false,
       "aliases": [
@@ -127,6 +137,7 @@
       "term": "persistent state",
       "level": "intermediate",
       "definitionEn": "Data that remains available across multiple operations instead of being recreated each time.",
+      "definitionAr": "بيانات بتفضل موجودة بين كذا عملية بدل ما تتعمل من جديد كل مرة.",
       "example": "let count = 0;",
       "caseSensitive": false,
       "aliases": [
@@ -138,6 +149,7 @@
       "term": "scope chain",
       "level": "advanced",
       "definitionEn": "The sequence of enclosing lexical regions searched when resolving a name.",
+      "definitionAr": "ترتيب النطاقات المحيطة اللي بيتفتش فيها عشان نلاقي قيمة اسم معين.",
       "example": "function inner() { return outerValue; }",
       "caseSensitive": false,
       "aliases": [

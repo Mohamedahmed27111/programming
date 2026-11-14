@@ -25,6 +25,7 @@
       "term": "boolean",
       "level": "beginner",
       "definitionEn": "A primitive value with exactly two possibilities: true or false.",
+      "definitionAr": "قيمة بدائية ليها احتمالين بس: صح أو غلط.",
       "example": "const ready = true;",
       "caseSensitive": false,
       "aliases": [
@@ -36,6 +37,7 @@
       "term": "condition",
       "level": "beginner",
       "definitionEn": "An expression whose truthiness determines which branch can run.",
+      "definitionAr": "تعبير نتيجته بتحدد أنهي مسار من الكود هيتنفذ.",
       "example": "if (count > 0) { console.log('more'); }",
       "caseSensitive": false,
       "aliases": [
@@ -47,6 +49,7 @@
       "term": "branch",
       "level": "beginner",
       "definitionEn": "A possible path through a program selected by a control statement.",
+      "definitionAr": "مسار محتمل في البرنامج بيختاره شرط أو تعليمة تحكم.",
       "example": "if (ok) { run(); } else { wait(); }",
       "caseSensitive": false,
       "aliases": [
@@ -58,6 +61,7 @@
       "term": "strict equality",
       "level": "intermediate",
       "definitionEn": "A comparison that checks value equality without converting operand types.",
+      "definitionAr": "مقارنة بتتأكد إن القيمتين والنوع بتاعهم متساويين من غير تحويل.",
       "example": "5 === '5';",
       "caseSensitive": false,
       "aliases": [
@@ -69,6 +73,7 @@
       "term": "loose equality",
       "level": "intermediate",
       "definitionEn": "A comparison that may convert operand types before checking equality.",
+      "definitionAr": "مقارنة ممكن تحوّل نوع القيم قبل ما تقرر إذا كانوا متساويين.",
       "example": "5 == '5';",
       "caseSensitive": false,
       "aliases": [
@@ -80,6 +85,7 @@
       "term": "logical AND",
       "level": "beginner",
       "definitionEn": "An operator that produces a truthy result only when both sides meet the test.",
+      "definitionAr": "عامل منطقي نتيجته بتكون ناجحة لما الشرطين على الناحيتين يتحققوا.",
       "example": "age >= 18 && hasTicket;",
       "caseSensitive": false,
       "aliases": [
@@ -91,6 +97,7 @@
       "term": "logical OR",
       "level": "beginner",
       "definitionEn": "An operator that can produce a truthy result when either side meets the test.",
+      "definitionAr": "عامل منطقي نتيجته بتكون ناجحة لو أي شرط من الناحيتين اتحقق.",
       "example": "isAdmin || isOwner;",
       "caseSensitive": false,
       "aliases": [
@@ -102,6 +109,7 @@
       "term": "truthiness",
       "level": "intermediate",
       "definitionEn": "The way a value behaves when a condition converts it to a boolean.",
+      "definitionAr": "طريقة تعامل قيمة مع الشرط لما تتحول ضمنيًا لقيمة صح أو غلط.",
       "example": "if ('hello') { console.log('yes'); }",
       "caseSensitive": false,
       "aliases": [
@@ -113,6 +121,7 @@
       "term": "else if",
       "level": "beginner",
       "definitionEn": "A conditional branch checked only when earlier conditions were false.",
+      "definitionAr": "فرع شرطي بيتفحص بس لو الشروط اللي قبله طلعت غلط.",
       "example": "if (n < 0) {} else if (n === 0) {}",
       "caseSensitive": true,
       "aliases": [
@@ -125,6 +134,7 @@
       "display": "switch",
       "level": "intermediate",
       "definitionEn": "A statement that selects a matching case among several alternatives.",
+      "definitionAr": "تعليمة بتختار حالة مناسبة من كذا اختيار محتمل.",
       "example": "switch (code) { case 1: break; }",
       "caseSensitive": true,
       "aliases": [
@@ -136,6 +146,7 @@
       "term": "ternary operator",
       "level": "intermediate",
       "definitionEn": "An expression that chooses between two values using a condition.",
+      "definitionAr": "تعبير بيختار قيمة من اتنين حسب نتيجة شرط.",
       "example": "const label = ok ? 'yes' : 'no';",
       "caseSensitive": false,
       "aliases": [
@@ -147,6 +158,7 @@
       "term": "short-circuit evaluation",
       "level": "advanced",
       "definitionEn": "The behavior where an operator skips evaluating its right operand once the result is determined.",
+      "definitionAr": "سلوك بيخلّي العامل يوقف تقييم الجزء التاني لما النتيجة تبقى معروفة.",
       "example": "false && performWork();",
       "caseSensitive": false,
       "aliases": [

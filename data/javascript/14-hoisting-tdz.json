@@ -17,6 +17,7 @@
       "term": "hoisting",
       "level": "intermediate",
       "definitionEn": "The processing of declarations before statements in their containing scope run.",
+      "definitionAr": "تجهيز بعض التعريفات قبل ما التعليمات اللي في نفس النطاق تبدأ تنفيذ.",
       "example": "function read() { return value; }",
       "caseSensitive": false,
       "aliases": [
@@ -28,6 +29,7 @@
       "term": "temporal dead zone",
       "level": "advanced",
       "definitionEn": "The period before a lexical binding is initialized when access to it is forbidden.",
+      "definitionAr": "الفترة قبل تهيئة اسم محلي اللي خلالها ممنوع الوصول له.",
       "example": "{ use(); let item = 1; }",
       "caseSensitive": false,
       "aliases": [
@@ -39,6 +41,7 @@
       "term": "function declaration",
       "level": "beginner",
       "definitionEn": "A named function definition that can be called by its identifier.",
+      "definitionAr": "تعريف دالة باسم واضح ينفع نناديها بالاسم ده.",
       "example": "function greet() { return 'hi'; }",
       "caseSensitive": false,
       "aliases": [
@@ -50,6 +53,7 @@
       "term": "function expression",
       "level": "intermediate",
       "definitionEn": "A function value created as part of an expression and assigned or passed elsewhere.",
+      "definitionAr": "قيمة دالة بتتعمل جوه تعبير وممكن تتخزن أو تتبعت لمكان تاني.",
       "example": "const greet = function () { return 'hi'; };",
       "caseSensitive": false,
       "aliases": [
@@ -61,6 +65,7 @@
       "term": "initialization",
       "level": "beginner",
       "definitionEn": "The step that gives a declared binding its first value.",
+      "definitionAr": "الخطوة اللي بنحط فيها أول قيمة لاسم اتعمل قبل كده.",
       "example": "let count = 0;",
       "caseSensitive": false,
       "aliases": [
@@ -72,6 +77,7 @@
       "term": "var binding",
       "level": "intermediate",
       "definitionEn": "A function-scoped binding initialized to undefined before its assignment statement executes.",
+      "definitionAr": "اسم نطاقه الدالة وبيبقى undefined قبل ما سطر الإسناد يتنفذ.",
       "example": "console.log(value);\nvar value = 3;",
       "caseSensitive": false,
       "aliases": [
@@ -83,6 +89,7 @@
       "term": "lexical declaration",
       "level": "intermediate",
       "definitionEn": "A let or const declaration whose binding is limited to a lexical block.",
+      "definitionAr": "تعريف محلي بيكون اسمه متاح جوه البلوك اللي اتكتب فيه بس.",
       "example": "let total = 1;",
       "caseSensitive": false,
       "aliases": [
@@ -94,6 +101,7 @@
       "term": "block scope",
       "level": "beginner",
       "definitionEn": "A region enclosed by braces where a lexical binding can be accessed.",
+      "definitionAr": "منطقة بين أقواس معقوفة ينفع الوصول فيها للأسماء المحلية.",
       "example": "{ const hidden = 1; }",
       "caseSensitive": false,
       "aliases": [
@@ -105,6 +113,7 @@
       "term": "scope",
       "level": "beginner",
       "definitionEn": "The region of source code where a binding can be referenced.",
+      "definitionAr": "الجزء من الكود اللي ينفع نستخدم فيه اسم معين.",
       "example": "function f() { const local = 1; }",
       "caseSensitive": false,
       "aliases": [
@@ -116,6 +125,7 @@
       "term": "ReferenceError",
       "level": "intermediate",
       "definitionEn": "An error raised when code tries to access a binding that is not available at that point.",
+      "definitionAr": "خطأ بيظهر لما الكود يحاول يستخدم اسم مش متاح في المكان ده.",
       "example": "missingName;",
       "caseSensitive": true,
       "aliases": [
@@ -127,6 +137,7 @@
       "term": "declaration",
       "level": "beginner",
       "definitionEn": "A statement that introduces a name into a scope.",
+      "definitionAr": "تعليمة بتضيف اسم جديد للنطاق عشان نقدر نستخدمه.",
       "example": "let message;",
       "caseSensitive": false,
       "aliases": [
@@ -138,6 +149,7 @@
       "term": "execution context",
       "level": "advanced",
       "definitionEn": "The runtime structure that tracks a function's execution, scope, and bindings.",
+      "definitionAr": "تركيب وقت التشغيل بيتابع تنفيذ الدالة ونطاقها والأسماء اللي فيها.",
       "example": "function run() { return 1; }",
       "caseSensitive": false,
       "aliases": [

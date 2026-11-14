@@ -21,6 +21,7 @@
       "display": "map()",
       "level": "beginner",
       "definitionEn": "A method that calls a callback for each item and returns a new array of results.",
+      "definitionAr": "ميثود بتشغّل دالة على كل عنصر وبتطلع مجموعة جديدة بالنتايج.",
       "example": "[1, 2].map(n => n * 2);",
       "caseSensitive": true,
       "aliases": [
@@ -33,6 +34,7 @@
       "display": "filter()",
       "level": "beginner",
       "definitionEn": "A method that returns a new array containing items whose callback result is truthy.",
+      "definitionAr": "ميثود بترجع مجموعة جديدة فيها العناصر اللي نتيجة فحصها ناجحة.",
       "example": "[1, 2, 3].filter(n => n > 1);",
       "caseSensitive": true,
       "aliases": [
@@ -45,6 +47,7 @@
       "display": "reduce()",
       "level": "intermediate",
       "definitionEn": "A method that combines array items into one accumulated result.",
+      "definitionAr": "ميثود بتجمع عناصر المجموعة تدريجيًا في نتيجة واحدة.",
       "example": "[1, 2, 3].reduce((sum, n) => sum + n, 0);",
       "caseSensitive": true,
       "aliases": [
@@ -57,6 +60,7 @@
       "display": "find()",
       "level": "beginner",
       "definitionEn": "A method that returns the first item satisfying a callback condition.",
+      "definitionAr": "ميثود بترجع أول عنصر يحقق الشرط اللي بتفحصه الدالة.",
       "example": "[3, 8].find(n => n > 5);",
       "caseSensitive": true,
       "aliases": [
@@ -69,6 +73,7 @@
       "display": "some()",
       "level": "intermediate",
       "definitionEn": "A method that checks whether at least one item satisfies a callback condition.",
+      "definitionAr": "ميثود بتفحص إذا كان عنصر واحد على الأقل بيحقق الشرط.",
       "example": "[1, 4].some(n => n > 3);",
       "caseSensitive": true,
       "aliases": [
@@ -81,6 +86,7 @@
       "display": "every()",
       "level": "intermediate",
       "definitionEn": "A method that checks whether each item satisfies a callback condition.",
+      "definitionAr": "ميثود بتتأكد إن كل العناصر بتحقق الشرط المطلوب.",
       "example": "[2, 4].every(n => n % 2 === 0);",
       "caseSensitive": true,
       "aliases": [
@@ -92,6 +98,7 @@
       "term": "callback",
       "level": "beginner",
       "definitionEn": "A function passed to an operation for it to invoke while processing values.",
+      "definitionAr": "دالة بتتبعت لعملية تانية عشان تناديها وهي بتعالج القيم.",
       "example": "values.map(value => value + 1);",
       "caseSensitive": false,
       "aliases": [
@@ -103,6 +110,7 @@
       "term": "comparator",
       "level": "advanced",
       "definitionEn": "A function that tells a sorting operation the relative order of two values.",
+      "definitionAr": "دالة بتحدد ترتيب قيمتين بالنسبة لبعض أثناء الفرز.",
       "example": "values.sort((a, b) => a - b);",
       "caseSensitive": false,
       "aliases": [
@@ -114,6 +122,7 @@
       "term": "lexicographic order",
       "level": "intermediate",
       "definitionEn": "An ordering based on comparing text-like representations from left to right.",
+      "definitionAr": "ترتيب بيعتمد على مقارنة تمثيل القيم كنص من الشمال لليمين.",
       "example": "['20', '3'].sort();",
       "caseSensitive": false,
       "aliases": [
@@ -125,6 +134,7 @@
       "term": "accumulator",
       "level": "intermediate",
       "definitionEn": "The running value passed from one reduction step to the next.",
+      "definitionAr": "النتيجة الحالية اللي بتتنقل من خطوة جمع للخطوة اللي بعدها.",
       "example": "values.reduce((total, n) => total + n, 0);",
       "caseSensitive": false,
       "aliases": [
@@ -136,6 +146,7 @@
       "term": "predicate",
       "level": "intermediate",
       "definitionEn": "A callback that determines whether a value meets a condition.",
+      "definitionAr": "دالة بتحدد إذا كانت قيمة معينة بتحقق شرط ولا لأ.",
       "example": "n => n > 0",
       "caseSensitive": false,
       "aliases": [
@@ -147,6 +158,7 @@
       "term": "non-mutating method",
       "level": "advanced",
       "definitionEn": "An operation that returns a result without changing the original collection.",
+      "definitionAr": "عملية بترجع نتيجة جديدة من غير ما تغيّر المجموعة الأصلية.",
       "example": "const doubled = values.map(n => n * 2);",
       "caseSensitive": false,
       "aliases": [

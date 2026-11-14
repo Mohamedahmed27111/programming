@@ -19,6 +19,7 @@
       "term": "prototype",
       "level": "intermediate",
       "definitionEn": "An object used as a fallback source during another object's property lookup.",
+      "definitionAr": "سجل بيرجع له البحث لما الخاصية المطلوبة مش موجودة في السجل الحالي.",
       "example": "Object.getPrototypeOf(item);",
       "caseSensitive": false,
       "aliases": [
@@ -30,6 +31,7 @@
       "term": "prototype chain",
       "level": "advanced",
       "definitionEn": "The sequence of linked prototype objects searched for a missing property.",
+      "definitionAr": "سلسلة سجلات مرتبطة بيتفتش فيها عن الخاصية لو مش موجودة مباشرة.",
       "example": "Object.getPrototypeOf(child);",
       "caseSensitive": false,
       "aliases": [
@@ -41,6 +43,7 @@
       "term": "inheritance",
       "level": "intermediate",
       "definitionEn": "A relationship that lets one kind of value reuse behavior from another.",
+      "definitionAr": "علاقة بتسمح لنوع من القيم إنه يعيد استخدام سلوك نوع تاني.",
       "example": "class Dog extends Animal {}",
       "caseSensitive": false,
       "aliases": [
@@ -53,6 +56,7 @@
       "display": "Object.create()",
       "level": "intermediate",
       "definitionEn": "A built-in function that creates an object with a selected prototype.",
+      "definitionAr": "دالة جاهزة بتنشئ سجل جديد وبتحدد سجل البحث المرتبط بيه.",
       "example": "const child = Object.create(parent);",
       "caseSensitive": true,
       "aliases": [
@@ -64,6 +68,7 @@
       "term": "constructor function",
       "level": "beginner",
       "definitionEn": "A function intended to create initialized instances when invoked with new.",
+      "definitionAr": "دالة هدفها إنشاء نسخ مجهزة لما تتنادى باستخدام new.",
       "example": "function User(name) { this.name = name; }",
       "caseSensitive": false,
       "aliases": [
@@ -76,6 +81,7 @@
       "display": "instanceof",
       "level": "beginner",
       "definitionEn": "An operator that checks whether a constructor's prototype occurs in a value's prototype chain.",
+      "definitionAr": "عامل بيفحص إذا كان سجل البحث الخاص بالمنشئ موجود في سلسلة سجل معين.",
       "example": "item instanceof Item;",
       "caseSensitive": true,
       "aliases": [
@@ -88,6 +94,7 @@
       "display": "extends",
       "level": "beginner",
       "definitionEn": "A class declaration keyword that establishes a subclass relationship.",
+      "definitionAr": "كلمة في تعريف الصنف بتنشئ علاقة بين صنف فرعي وصنف أساسي.",
       "example": "class Cat extends Animal {}",
       "caseSensitive": true,
       "aliases": [
@@ -100,6 +107,7 @@
       "display": "super",
       "level": "intermediate",
       "definitionEn": "A keyword used by a subclass to call or access its parent class behavior.",
+      "definitionAr": "كلمة بيستخدمها الصنف الفرعي عشان يوصل لسلوك الصنف الأساسي.",
       "example": "super(name);",
       "caseSensitive": true,
       "aliases": [
@@ -111,6 +119,7 @@
       "term": "own property",
       "level": "intermediate",
       "definitionEn": "A property defined directly on a value rather than found through its prototype.",
+      "definitionAr": "خاصية موجودة مباشرة على السجل نفسه مش جاية من سلسلة البحث.",
       "example": "Object.hasOwn(item, 'id');",
       "caseSensitive": false,
       "aliases": [
@@ -122,6 +131,7 @@
       "term": "method overriding",
       "level": "intermediate",
       "definitionEn": "Providing a subclass method with the same name to replace inherited behavior.",
+      "definitionAr": "تعريف ميثود في الصنف الفرعي بنفس الاسم عشان تغيّر السلوك الموروث.",
       "example": "class Dog extends Animal { speak() {} }",
       "caseSensitive": false,
       "aliases": [
@@ -133,6 +143,7 @@
       "term": "delegation",
       "level": "advanced",
       "definitionEn": "Reusing behavior by forwarding property lookup to another linked value.",
+      "definitionAr": "إعادة استخدام سلوك عن طريق توجيه البحث عن الخاصية لسجل مرتبط.",
       "example": "const child = Object.create(parent);",
       "caseSensitive": false,
       "aliases": [
@@ -144,6 +155,7 @@
       "term": "static method",
       "level": "intermediate",
       "definitionEn": "A class operation invoked on the constructor itself instead of an instance.",
+      "definitionAr": "عملية بنناديها على تعريف الصنف نفسه بدل ما نناديها على نسخة.",
       "example": "class User { static kind() { return 'user'; } }",
       "caseSensitive": false,
       "aliases": [

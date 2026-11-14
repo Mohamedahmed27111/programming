@@ -20,6 +20,7 @@
       "term": "type coercion",
       "level": "intermediate",
       "definitionEn": "An implicit or explicit conversion of a value from one type to another.",
+      "definitionAr": "تحويل قيمة من نوع لنوع تاني، بشكل تلقائي أو بطلب من الكود.",
       "example": "'5' * 2;",
       "caseSensitive": false,
       "aliases": [
@@ -31,6 +32,7 @@
       "term": "implicit coercion",
       "level": "advanced",
       "definitionEn": "A type conversion performed automatically as part of an operation.",
+      "definitionAr": "تحويل نوع بيحصل لوحده كجزء من تنفيذ عملية.",
       "example": "'5' * 2;",
       "caseSensitive": false,
       "aliases": [
@@ -42,6 +44,7 @@
       "term": "explicit conversion",
       "level": "intermediate",
       "definitionEn": "A type conversion requested directly by program code.",
+      "definitionAr": "تحويل نوع الكود بيطلبه بشكل واضح ومباشر.",
       "example": "Number('5');",
       "caseSensitive": false,
       "aliases": [
@@ -53,6 +56,7 @@
       "term": "strict equality",
       "level": "beginner",
       "definitionEn": "A comparison that checks type and value without coercing operands.",
+      "definitionAr": "مقارنة بتراجع النوع والقيمة من غير ما تحوّل أي طرف.",
       "example": "5 === '5';",
       "caseSensitive": false,
       "aliases": [
@@ -64,6 +68,7 @@
       "term": "loose equality",
       "level": "intermediate",
       "definitionEn": "A comparison that can convert operands before deciding whether they are equal.",
+      "definitionAr": "مقارنة ممكن تحوّل القيم قبل ما تحكم إذا كانوا متساويين.",
       "example": "5 == '5';",
       "caseSensitive": false,
       "aliases": [
@@ -75,6 +80,7 @@
       "term": "truthy",
       "level": "beginner",
       "definitionEn": "A value that behaves like true when used as a condition.",
+      "definitionAr": "قيمة بتتصرف كأنها صح لما تتحط في شرط.",
       "example": "if ('ok') {}",
       "caseSensitive": false,
       "aliases": [
@@ -86,6 +92,7 @@
       "term": "falsy",
       "level": "beginner",
       "definitionEn": "A value that behaves like false when used as a condition.",
+      "definitionAr": "قيمة بتتصرف كأنها غلط لما تتحط في شرط.",
       "example": "if (0) {}",
       "caseSensitive": false,
       "aliases": [
@@ -97,6 +104,7 @@
       "term": "NaN",
       "level": "intermediate",
       "definitionEn": "A numeric value representing an invalid or unrepresentable numeric result.",
+      "definitionAr": "قيمة رقمية خاصة بتظهر لما النتيجة مش رقم صالح أو مش قابلة للتمثيل.",
       "example": "Number('nope');",
       "caseSensitive": true,
       "aliases": [
@@ -108,6 +116,7 @@
       "term": "Boolean conversion",
       "level": "beginner",
       "definitionEn": "The conversion of a value to the true or false primitive.",
+      "definitionAr": "تحويل قيمة لواحدة من القيمتين البدائيتين صح أو غلط.",
       "example": "Boolean('text');",
       "caseSensitive": false,
       "aliases": [
@@ -119,6 +128,7 @@
       "term": "identity",
       "level": "advanced",
       "definitionEn": "A relationship in which two references point to the same object value.",
+      "definitionAr": "علاقة بيكون فيها اسمان أو مرجعان بيشاوروا لنفس السجل.",
       "example": "const b = a;",
       "caseSensitive": false,
       "aliases": [
@@ -130,6 +140,7 @@
       "term": "operand",
       "level": "beginner",
       "definitionEn": "A value or expression that an operator acts upon.",
+      "definitionAr": "قيمة أو تعبير العامل بيطبّق العملية عليه.",
       "example": "In 3 + 4, both values are operands.",
       "caseSensitive": false,
       "aliases": [
@@ -142,6 +153,7 @@
       "display": "Object.is()",
       "level": "advanced",
       "definitionEn": "A built-in comparison that distinguishes signed zero and treats NaN as equal to itself.",
+      "definitionAr": "مقارنة جاهزة بتميز بين الصفر الموجب والسالب وبتعتبر القيمة غير الرقمية مساوية لنفسها.",
       "example": "Object.is(NaN, NaN);",
       "caseSensitive": true,
       "aliases": [

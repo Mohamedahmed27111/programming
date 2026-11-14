@@ -18,6 +18,7 @@
       "term": "this",
       "level": "beginner",
       "definitionEn": "A keyword whose value depends on how a regular function is invoked.",
+      "definitionAr": "كلمة محجوزة قيمتها بتعتمد على طريقة استدعاء الدالة العادية.",
       "example": "const obj = { read() { return this.value; } };",
       "caseSensitive": true,
       "aliases": [
@@ -29,6 +30,7 @@
       "term": "method call",
       "level": "beginner",
       "definitionEn": "An invocation through a property's function value, using the base as its receiver.",
+      "definitionAr": "استدعاء دالة موجودة كخاصية، وبيستخدم السجل الأساسي كقيمة مرتبطة بالدالة.",
       "example": "object.read();",
       "caseSensitive": false,
       "aliases": [
@@ -40,6 +42,7 @@
       "term": "receiver",
       "level": "intermediate",
       "definitionEn": "The value on which a method is invoked and which supplies its this value.",
+      "definitionAr": "القيمة اللي الميثود بتتنادى عليها وبتحدد قيمة this أثناء التنفيذ.",
       "example": "account.deposit();",
       "caseSensitive": false,
       "aliases": [
@@ -52,6 +55,7 @@
       "display": "call()",
       "level": "intermediate",
       "definitionEn": "A function method that invokes the function with a chosen this value and separate arguments.",
+      "definitionAr": "ميثود بتشغّل دالة مع قيمة this محددة ومدخلات منفصلة.",
       "example": "show.call(user, 'hi');",
       "caseSensitive": true,
       "aliases": [
@@ -64,6 +68,7 @@
       "display": "apply()",
       "level": "intermediate",
       "definitionEn": "A function method that invokes the function with a chosen this value and an argument array.",
+      "definitionAr": "ميثود بتشغّل دالة مع قيمة this محددة ومجموعة فيها المدخلات.",
       "example": "sum.apply(null, [2, 3]);",
       "caseSensitive": true,
       "aliases": [
@@ -76,6 +81,7 @@
       "display": "bind()",
       "level": "intermediate",
       "definitionEn": "A function method that creates a new function with a fixed this value and optional leading arguments.",
+      "definitionAr": "ميثود بترجع دالة جديدة بقيمة this ثابتة وممكن تثبّت مدخلات كمان.",
       "example": "const read = method.bind(object);",
       "caseSensitive": true,
       "aliases": [
@@ -87,6 +93,7 @@
       "term": "arrow function",
       "level": "beginner",
       "definitionEn": "A function form that uses this from the surrounding lexical scope.",
+      "definitionAr": "صيغة دالة بتستخدم قيمة this اللي جاية من النطاق المحيط بيها.",
       "example": "const read = () => this.value;",
       "caseSensitive": false,
       "aliases": [
@@ -98,6 +105,7 @@
       "term": "constructor call",
       "level": "intermediate",
       "definitionEn": "An invocation using new that creates an instance and binds this to it during construction.",
+      "definitionAr": "استدعاء باستخدام new بينشئ نسخة وبيخلي this يشاور عليها وقت التجهيز.",
       "example": "new Point(2, 3);",
       "caseSensitive": false,
       "aliases": [
@@ -109,6 +117,7 @@
       "term": "strict mode",
       "level": "advanced",
       "definitionEn": "A JavaScript mode with stricter rules, including a different this value for plain function calls.",
+      "definitionAr": "وضع في JavaScript بيطبق قواعد أدق، ومنها اختلاف قيمة this في الاستدعاء العادي.",
       "example": "'use strict';",
       "caseSensitive": false,
       "aliases": [
@@ -120,6 +129,7 @@
       "term": "method shorthand",
       "level": "beginner",
       "definitionEn": "An object-literal syntax for defining a function property without the function keyword.",
+      "definitionAr": "صيغة داخل تعريف السجل بتعمل خاصية دالة من غير كتابة كلمة function.",
       "example": "const obj = { read() { return 1; } };",
       "caseSensitive": false,
       "aliases": [
@@ -131,6 +141,7 @@
       "term": "dynamic binding",
       "level": "advanced",
       "definitionEn": "A rule where a function's this value is determined by its invocation form.",
+      "definitionAr": "قاعدة بتحدد قيمة this حسب الطريقة اللي اتنادت بيها الدالة.",
       "example": "first.read();\nsecond.read();",
       "caseSensitive": false,
       "aliases": [
@@ -142,6 +153,7 @@
       "term": "lexical binding",
       "level": "advanced",
       "definitionEn": "A value relationship determined by the surrounding source-code location.",
+      "definitionAr": "ارتباط قيمة بيتحدد حسب مكان الكود والنطاق اللي حواليه.",
       "example": "const callback = () => this.value;",
       "caseSensitive": false,
       "aliases": [

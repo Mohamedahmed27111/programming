@@ -18,6 +18,7 @@
       "term": "challenge",
       "level": "beginner",
       "definitionEn": "A small programming task designed to practice applying one or more concepts.",
+      "definitionAr": "مهمة برمجية صغيرة للتدريب على استخدام مفهوم أو أكتر.",
       "example": "function add(a, b) { return a + b; }",
       "caseSensitive": false,
       "aliases": [
@@ -29,6 +30,7 @@
       "term": "test case",
       "level": "beginner",
       "definitionEn": "A specific input and expected result used to check program behavior.",
+      "definitionAr": "مدخل محدد ونتيجته المتوقعة بنستخدمهم عشان نراجع سلوك البرنامج.",
       "example": "add(2, 3) should return 5.",
       "caseSensitive": false,
       "aliases": [
@@ -40,6 +42,7 @@
       "term": "edge case",
       "level": "intermediate",
       "definitionEn": "An input at an unusual boundary that may reveal a hidden defect.",
+      "definitionAr": "مدخل عند حد غير معتاد ممكن يوضح غلطة مش باينة.",
       "example": "sum([]) should return 0.",
       "caseSensitive": false,
       "aliases": [
@@ -51,6 +54,7 @@
       "term": "accumulator",
       "level": "intermediate",
       "definitionEn": "A variable that combines results as a sequence is processed.",
+      "definitionAr": "قيمة بتجمع النتائج واحدة واحدة وإحنا بنعالج العناصر.",
       "example": "let total = 0;\ntotal += next;",
       "caseSensitive": false,
       "aliases": [
@@ -62,6 +66,7 @@
       "term": "lookup",
       "level": "intermediate",
       "definitionEn": "An operation that retrieves a value associated with a key.",
+      "definitionAr": "عملية بتدور على قيمة مرتبطة بمفتاح معين وترجعها.",
       "example": "const result = table[key];",
       "caseSensitive": false,
       "aliases": [
@@ -73,6 +78,7 @@
       "term": "queue",
       "level": "beginner",
       "definitionEn": "An ordered collection where the earliest added item is usually handled first.",
+      "definitionAr": "مجموعة مرتبة غالبًا أول عنصر يدخلها هو أول عنصر يخرج منها.",
       "example": "const waiting = ['A', 'B'];",
       "caseSensitive": false,
       "aliases": [
@@ -84,6 +90,7 @@
       "term": "mutation",
       "level": "intermediate",
       "definitionEn": "A direct change to an existing collection or record.",
+      "definitionAr": "تغيير مباشر في مجموعة أو سجل موجود بدل إنشاء نسخة جديدة.",
       "example": "items.push('new');",
       "caseSensitive": false,
       "aliases": [
@@ -95,6 +102,7 @@
       "term": "condition",
       "level": "beginner",
       "definitionEn": "A test that selects behavior based on whether an expression is true.",
+      "definitionAr": "اختبار بيحدد السلوك حسب ما إذا كان التعبير صح أو غلط.",
       "example": "if (score > 0) return 'up';",
       "caseSensitive": false,
       "aliases": [
@@ -106,6 +114,7 @@
       "term": "return value",
       "level": "beginner",
       "definitionEn": "The result a function sends back to the code that called it.",
+      "definitionAr": "النتيجة اللي الدالة بترجعها للكود اللي ناداها.",
       "example": "function get() { return 4; }",
       "caseSensitive": false,
       "aliases": [
@@ -117,6 +126,7 @@
       "term": "test-driven development",
       "level": "advanced",
       "definitionEn": "A workflow that uses failing tests to guide implementation before verifying the fix.",
+      "definitionAr": "طريقة شغل بنبدأ فيها باختبار فاشل يوضح المطلوب، وبعدها نكتب الحل ونتأكد إنه نجح.",
       "example": "Add a test, implement behavior, then rerun the test.",
       "caseSensitive": false,
       "aliases": [
@@ -128,6 +138,7 @@
       "term": "boundary",
       "level": "intermediate",
       "definitionEn": "An input at the limit of a rule, such as an empty sequence or exact threshold.",
+      "definitionAr": "مدخل عند آخر حد للقاعدة، زي مجموعة فاضية أو قيمة مساوية للحد.",
       "example": "count = 0;",
       "caseSensitive": false,
       "aliases": [
@@ -139,6 +150,7 @@
       "term": "invariant",
       "level": "advanced",
       "definitionEn": "A property that should remain true throughout an algorithm's execution.",
+      "definitionAr": "شرط أو خاصية المفروض تفضل صحيحة طول ما الخوارزمية شغالة.",
       "example": "A queue's length never becomes negative.",
       "caseSensitive": false,
       "aliases": [

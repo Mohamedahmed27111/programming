@@ -17,6 +17,7 @@
       "term": "class",
       "level": "beginner",
       "definitionEn": "A syntax for defining a constructor and shared behavior for a kind of value.",
+      "definitionAr": "صيغة بتعرّف طريقة إنشاء قيم جديدة وسلوك مشترك بينها.",
       "example": "class Box {}",
       "caseSensitive": true,
       "aliases": [
@@ -28,6 +29,7 @@
       "term": "constructor",
       "level": "beginner",
       "definitionEn": "A special method that initializes an instance created from a class.",
+      "definitionAr": "ميثود خاصة بتجهز القيم والخصائص وقت إنشاء نسخة جديدة.",
       "example": "constructor(name) { this.name = name; }",
       "caseSensitive": false,
       "aliases": [
@@ -39,6 +41,7 @@
       "term": "instance",
       "level": "beginner",
       "definitionEn": "An individual value created by calling a class with new.",
+      "definitionAr": "قيمة مستقلة بتتعمل لما نستخدم new مع تعريف الصنف.",
       "example": "const box = new Box();",
       "caseSensitive": false,
       "aliases": [
@@ -50,6 +53,7 @@
       "term": "field",
       "level": "beginner",
       "definitionEn": "A property declared to hold data on a class instance.",
+      "definitionAr": "خاصية متعرفة عشان تخزن بيانات على النسخة.",
       "example": "class User { name = 'Ari'; }",
       "caseSensitive": false,
       "aliases": [
@@ -61,6 +65,7 @@
       "term": "getter",
       "level": "intermediate",
       "definitionEn": "A special method accessed like a property that computes or returns a value.",
+      "definitionAr": "ميثود بنقراها كأنها خاصية، وبتحسب قيمة أو بترجعها.",
       "example": "get area() { return this.width * this.height; }",
       "caseSensitive": false,
       "aliases": [
@@ -72,6 +77,7 @@
       "term": "setter",
       "level": "intermediate",
       "definitionEn": "A special method invoked by assigning to a property-like name.",
+      "definitionAr": "ميثود بتتنادى لما نسند قيمة لاسم بيتعامل كخاصية.",
       "example": "set name(value) { this._name = value; }",
       "caseSensitive": false,
       "aliases": [
@@ -83,6 +89,7 @@
       "term": "static method",
       "level": "intermediate",
       "definitionEn": "A method called on the class itself rather than on an instance.",
+      "definitionAr": "ميثود بنناديها على تعريف الصنف نفسه مش على نسخة منه.",
       "example": "static create() { return new Box(); }",
       "caseSensitive": false,
       "aliases": [
@@ -94,6 +101,7 @@
       "term": "module",
       "level": "beginner",
       "definitionEn": "A JavaScript file with its own scope that can expose or consume bindings.",
+      "definitionAr": "ملف JavaScript ليه نطاقه الخاص وممكن يصدّر أو يستورد أسماء.",
       "example": "export const version = 1;",
       "caseSensitive": false,
       "aliases": [
@@ -105,6 +113,7 @@
       "term": "named export",
       "level": "intermediate",
       "definitionEn": "An exported binding that consumers import by its exported name.",
+      "definitionAr": "اسم متصدّر من الملف التاني وبنستورده بنفس الاسم.",
       "example": "export const answer = 42;",
       "caseSensitive": false,
       "aliases": [
@@ -116,6 +125,7 @@
       "term": "default export",
       "level": "intermediate",
       "definitionEn": "A module's single specially designated primary exported value.",
+      "definitionAr": "القيمة الأساسية الوحيدة اللي الملف بيحددها كتصدير افتراضي.",
       "example": "export default class Service {}",
       "caseSensitive": false,
       "aliases": [
@@ -127,6 +137,7 @@
       "term": "encapsulation",
       "level": "advanced",
       "definitionEn": "The practice of grouping state with operations that manage or protect it.",
+      "definitionAr": "تنظيم البيانات مع العمليات اللي بتتعامل معاها أو بتحميها.",
       "example": "class Wallet { #balance = 0; }",
       "caseSensitive": false,
       "aliases": [
@@ -138,6 +149,7 @@
       "term": "private field",
       "level": "advanced",
       "definitionEn": "A class field marked with a hash that is accessible only inside that class.",
+      "definitionAr": "خاصية في الصنف بتبدأ بعلامة # وماتتفتحش إلا من جوه نفس الصنف.",
       "example": "class Vault { #code = 7; }",
       "caseSensitive": false,
       "aliases": [

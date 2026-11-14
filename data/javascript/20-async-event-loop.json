@@ -18,6 +18,7 @@
       "term": "asynchronous",
       "level": "beginner",
       "definitionEn": "Describing work that can continue later without blocking the current call stack until completion.",
+      "definitionAr": "وصف لشغل ممكن يكمل بعدين من غير ما يوقف تنفيذ الخطوات الحالية لحد ما يخلص.",
       "example": "setTimeout(() => console.log('later'), 0);",
       "caseSensitive": false,
       "aliases": [
@@ -29,6 +30,7 @@
       "term": "callback",
       "level": "beginner",
       "definitionEn": "A function passed to another operation to be invoked when some work is ready or complete.",
+      "definitionAr": "دالة بتتبعت لعملية تانية عشان تتنادى لما الشغل يبقى جاهز أو يخلص.",
       "example": "setTimeout(() => {}, 0);",
       "caseSensitive": false,
       "aliases": [
@@ -40,6 +42,7 @@
       "term": "Promise",
       "level": "beginner",
       "definitionEn": "An object representing the eventual fulfillment or rejection of an asynchronous operation.",
+      "definitionAr": "كائن بيمثل نتيجة شغل غير متزامن ممكن تنجح أو تفشل بعدين.",
       "example": "Promise.resolve(3);",
       "caseSensitive": true,
       "aliases": [
@@ -52,6 +55,7 @@
       "display": "then()",
       "level": "beginner",
       "definitionEn": "A method that registers a fulfillment handler and returns a chained promise.",
+      "definitionAr": "ميثود بتسجل دالة للنجاح وبتسمح بربط خطوة تانية بعدها.",
       "example": "Promise.resolve(1).then(value => value + 1);",
       "caseSensitive": true,
       "aliases": [
@@ -63,6 +67,7 @@
       "term": "microtask",
       "level": "intermediate",
       "definitionEn": "A queued job such as a promise reaction that runs after the current stack before the next task.",
+      "definitionAr": "مهمة صغيرة في الطابور، زي رد فعل لنجاح وعد، بتشتغل بعد انتهاء التنفيذ الحالي.",
       "example": "Promise.resolve().then(() => {});",
       "caseSensitive": false,
       "aliases": [
@@ -74,6 +79,7 @@
       "term": "macrotask",
       "level": "intermediate",
       "definitionEn": "An event-loop task such as a timer callback that runs in a later task turn.",
+      "definitionAr": "مهمة في دورة التنفيذ، زي دالة مؤقت، بتشتغل في دور لاحق.",
       "example": "setTimeout(() => {}, 0);",
       "caseSensitive": false,
       "aliases": [
@@ -85,6 +91,7 @@
       "term": "event loop",
       "level": "intermediate",
       "definitionEn": "The runtime mechanism that schedules queued tasks after the current JavaScript stack completes.",
+      "definitionAr": "آلية وقت التشغيل اللي بتنظم المهام بعد ما تنفيذ JavaScript الحالي يخلص.",
       "example": "queueMicrotask(() => console.log('later'));",
       "caseSensitive": false,
       "aliases": [
@@ -96,6 +103,7 @@
       "term": "async function",
       "level": "beginner",
       "definitionEn": "A function form that always returns a promise and can use await in its body.",
+      "definitionAr": "صيغة دالة بترجع وعد في كل الأحوال وممكن تنتظر نتيجته جوه جسمها.",
       "example": "async function read() { return 2; }",
       "caseSensitive": false,
       "aliases": [
@@ -108,6 +116,7 @@
       "display": "await",
       "level": "intermediate",
       "definitionEn": "An expression that pauses an async function until a promise settles and produces its fulfillment value.",
+      "definitionAr": "تعبير بيوقف الدالة غير المتزامنة مؤقتًا لحد ما الوعد يكتمل ويرجع قيمته.",
       "example": "const value = await Promise.resolve(3);",
       "caseSensitive": true,
       "aliases": [
@@ -119,6 +128,7 @@
       "term": "promise fulfillment",
       "level": "intermediate",
       "definitionEn": "The successful completion state of a promise, carrying a result value.",
+      "definitionAr": "حالة نجاح الوعد لما يكتمل ومعاه قيمة النتيجة.",
       "example": "Promise.resolve('done');",
       "caseSensitive": false,
       "aliases": [
@@ -130,6 +140,7 @@
       "term": "promise rejection",
       "level": "intermediate",
       "definitionEn": "The unsuccessful completion state of a promise, carrying a reason.",
+      "definitionAr": "حالة فشل الوعد لما ما يكتملش ومعاه سبب الفشل.",
       "example": "Promise.reject(new Error('no'));",
       "caseSensitive": false,
       "aliases": [
@@ -141,6 +152,7 @@
       "term": "call stack",
       "level": "advanced",
       "definitionEn": "The runtime record of currently executing function calls.",
+      "definitionAr": "سجل وقت التشغيل اللي بيتابع استدعاءات الدوال اللي شغالة حاليًا.",
       "example": "function f() { return g(); }",
       "caseSensitive": false,
       "aliases": [
