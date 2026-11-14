@@ -178,7 +178,8 @@ function renderHtmlText(markup) {
 
 async function validateQuestion(question, file, updateExpected, subject) {
   const label = question.id ?? '(question without id)';
-  if (!TYPES.includes(question.type)) report(file, `${label} has unsupported type "${question.type}"`);
+  const allowedTypes = subject === 'css' ? TYPES.filter(type => type !== 'writeCode') : TYPES;
+  if (!allowedTypes.includes(question.type)) report(file, `${label} has unsupported type "${question.type}" for subject "${subject}"`);
   if (!LEVELS.includes(question.level)) report(file, `${label} has unsupported level "${question.level}"`);
 
   if (question.type === 'whatDoes') {
@@ -210,7 +211,12 @@ async function validateQuestion(question, file, updateExpected, subject) {
     } else {
       const actual = subject === 'html'
         ? renderHtmlText(question.code)
-        : await executeOutput(question.code, file, label);
+        : subject === 'css'
+          ? null
+          : await executeOutput(question.code, file, label);
+      if (subject === 'css' && typeof question.expectedOutput !== 'string') {
+        report(file, `${label} is missing expectedOutput`);
+      }
       if (actual !== null) {
         if (updateExpected) question.expectedOutput = actual;
         else {
@@ -220,6 +226,11 @@ async function validateQuestion(question, file, updateExpected, subject) {
             report(file, `${label} correct option must equal actual output ${JSON.stringify(actual)}`);
           }
         }
+      }
+      if (subject === 'css' && question.mode === 'choose' &&
+          typeof question.expectedOutput === 'string' &&
+          question.options?.[question.correctOption] !== question.expectedOutput) {
+        report(file, `${label} correct option must equal expectedOutput ${JSON.stringify(question.expectedOutput)}`);
       }
     }
   }
@@ -234,7 +245,14 @@ async function validateQuestion(question, file, updateExpected, subject) {
       for (const answers of question.blanks) {
         code = code.replace('____', String(answers[0]));
       }
-      const actual = subject === 'html' ? renderHtmlText(code) : await executeOutput(code, file, label);
+      const actual = subject === 'html'
+        ? renderHtmlText(code)
+        : subject === 'css'
+          ? null
+          : await executeOutput(code, file, label);
+      if (subject === 'css' && typeof question.expectedOutput !== 'string') {
+        report(file, `${label} is missing expectedOutput`);
+      }
       if (actual !== null) {
         if (updateExpected) question.expectedOutput = actual;
         else if (typeof question.expectedOutput !== 'string') report(file, `${label} is missing expectedOutput (use --write-expected to generate it)`);
@@ -351,15 +369,18 @@ for (const file of selectedFiles) {
     parsed.set(file, { content, data });
     validateSchema(data, schema, 'topic', file);
     if (!Array.isArray(data.terms) || !Array.isArray(data.questions)) continue;
-    const subjectPrefix = data.meta?.subject === 'javascript' ? 'js' : data.meta?.subject;
+    const subject = data.meta?.subject;
+    const idPrefixes = subject === 'javascript' ? ['js', 'javascript'] : [subject];
     const topicSlug = path.basename(file).startsWith('_')
       ? data.meta.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       : path.basename(file, '.json').replace(/^\d+-/, '');
     const topicQuestions = new Set();
     for (let index = 0; index < data.terms.length; index += 1) {
       const term = data.terms[index];
-      const expectedId = `${subjectPrefix}-${topicSlug}-t${String(index + 1).padStart(3, '0')}`;
-      if (term.id !== expectedId) report(file, `${term.id ?? `term ${index + 1}`} must use stable sequential id ${expectedId}`);
+      const expectedId = `${topicSlug}-t${String(index + 1).padStart(3, '0')}`;
+      if (!idPrefixes.some(prefix => term.id === `${prefix}-${expectedId}`)) {
+        report(file, `${term.id ?? `term ${index + 1}`} must use stable sequential id <subject>-${expectedId}`);
+      }
       if (typeof term.definitionEn === 'string' && typeof term.term === 'string' &&
           normalize(term.definitionEn).includes(normalize(term.term))) {
         report(file, `${term.id} definitionEn must not contain its term`);
@@ -367,8 +388,10 @@ for (const file of selectedFiles) {
     }
     for (let index = 0; index < data.questions.length; index += 1) {
       const question = data.questions[index];
-      const expectedId = `${subjectPrefix}-${topicSlug}-q${String(index + 1).padStart(3, '0')}`;
-      if (question.id !== expectedId) report(file, `${question.id ?? `question ${index + 1}`} must use stable sequential id ${expectedId}`);
+      const expectedId = `${topicSlug}-q${String(index + 1).padStart(3, '0')}`;
+      if (!idPrefixes.some(prefix => question.id === `${prefix}-${expectedId}`)) {
+        report(file, `${question.id ?? `question ${index + 1}`} must use stable sequential id <subject>-${expectedId}`);
+      }
       if (question.type && typeof (question.code ?? question.question ?? question.prompt) === 'string') {
         const normalized = `${normalize(question.code ?? '')}|${normalize(question.question ?? question.prompt ?? '')}`;
         if (topicQuestions.has(normalized)) report(file, `${question.id} duplicates a normalized question and code`);
