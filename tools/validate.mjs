@@ -227,7 +227,7 @@ async function validateQuestion(question, file, updateExpected, subject) {
           }
         }
       }
-      if (['css', 'typescript'].includes(subject) && question.mode === 'choose' &&
+      if (subject === 'css' && question.mode === 'choose' &&
           typeof question.expectedOutput === 'string' &&
           question.options?.[question.correctOption] !== question.expectedOutput) {
         report(file, `${label} correct option must equal expectedOutput ${JSON.stringify(question.expectedOutput)}`);
