@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Error Handling and JSON",
+    "order": 21,
+    "sourceSections": [
+      "try/catch/finally",
+      "throw",
+      "Error Objects",
+      "JSON.parse",
+      "JSON.stringify",
+      "Serialization Limits"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-error-handling-json-t001",
+      "term": "exception",
+      "level": "beginner",
+      "definitionEn": "A runtime failure signal that interrupts normal control flow unless handled.",
+      "example": "throw new Error('failed');",
+      "caseSensitive": false,
+      "aliases": [
+        "thrown error"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t002",
+      "term": "try",
+      "level": "beginner",
+      "definitionEn": "A clause that marks statements whose thrown failures may be handled by a matching handler.",
+      "example": "try { risky(); } catch (error) {}",
+      "caseSensitive": true,
+      "aliases": [
+        "try block"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t003",
+      "term": "catch",
+      "level": "beginner",
+      "definitionEn": "A clause that receives a failure thrown while its associated protected statements execute.",
+      "example": "try {} catch (error) { console.log(error.message); }",
+      "caseSensitive": true,
+      "aliases": [
+        "handler"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t004",
+      "term": "finally",
+      "level": "intermediate",
+      "definitionEn": "A clause that runs after a protected operation whether it completes normally or abruptly.",
+      "example": "try { work(); } finally { close(); }",
+      "caseSensitive": true,
+      "aliases": [
+        "cleanup clause"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t005",
+      "term": "throw",
+      "level": "beginner",
+      "definitionEn": "A statement that raises a value and transfers control to a handler or caller.",
+      "example": "throw new Error('invalid');",
+      "caseSensitive": true,
+      "aliases": [
+        "raise"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t006",
+      "term": "Error",
+      "level": "beginner",
+      "definitionEn": "A built-in constructor for values that carry a failure message and stack information.",
+      "example": "new Error('not found');",
+      "caseSensitive": true,
+      "aliases": [
+        "error object"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t007",
+      "term": "SyntaxError",
+      "level": "intermediate",
+      "definitionEn": "A built-in failure type used when source text or parsed data has invalid syntax.",
+      "example": "JSON.parse('{');",
+      "caseSensitive": true,
+      "aliases": [
+        "syntax failure"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t008",
+      "term": "TypeError",
+      "level": "intermediate",
+      "definitionEn": "A built-in failure type used when an operation is not valid for a value's kind.",
+      "example": "null.value;",
+      "caseSensitive": true,
+      "aliases": [
+        "type failure"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t009",
+      "term": "JSON.parse",
+      "display": "JSON.parse()",
+      "level": "beginner",
+      "definitionEn": "A built-in function that converts JSON text into a JavaScript value.",
+      "example": "JSON.parse('{\"n\":2}');",
+      "caseSensitive": true,
+      "aliases": [
+        "parse JSON"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t010",
+      "term": "JSON.stringify",
+      "display": "JSON.stringify()",
+      "level": "beginner",
+      "definitionEn": "A built-in function that converts supported JavaScript data into JSON text.",
+      "example": "JSON.stringify({ n: 2 });",
+      "caseSensitive": true,
+      "aliases": [
+        "serialize JSON"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t011",
+      "term": "serialization",
+      "level": "intermediate",
+      "definitionEn": "The conversion of structured data into a text form suitable for storage or transfer.",
+      "example": "JSON.stringify({ ready: true });",
+      "caseSensitive": false,
+      "aliases": [
+        "encoding"
+      ]
+    },
+    {
+      "id": "js-error-handling-json-t012",
+      "term": "replacer",
+      "level": "advanced",
+      "definitionEn": "A function or list of keys used to control which values JSON text conversion includes.",
+      "example": "JSON.stringify(data, ['id']);",
+      "caseSensitive": false,
+      "aliases": [
+        "JSON filter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-error-handling-json-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "JSON.parse",
+      "code": "const data = JSON.parse('{\"ready\":true}');",
+      "question": "What does JSON.parse return here?",
+      "options": [
+        "A JavaScript object with ready set to true",
+        "The original text unchanged",
+        "A promise",
+        "A syntax tree string"
+      ],
+      "correctOption": 0,
+      "explanation": "JSON.parse converts valid JSON text into its corresponding JavaScript value."
+    },
+    {
+      "id": "js-error-handling-json-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "JSON.stringify",
+      "code": "console.log(JSON.stringify({ n: 2 }));",
+      "options": [
+        "{\"n\":2}",
+        "{ n: 2 }",
+        "n=2",
+        "[2]"
+      ],
+      "correctOption": 0,
+      "explanation": "JSON.stringify produces compact JSON text with quoted property names.",
+      "expectedOutput": "{\"n\":2}"
+    },
+    {
+      "id": "js-error-handling-json-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "try/catch/finally",
+      "code": "try {\n  JSON.parse('{');\n} catch (error) {\n  console.log(error.name);\n}",
+      "explanation": "Invalid JSON text causes JSON.parse to throw a SyntaxError that catch receives.",
+      "expectedOutput": "SyntaxError"
+    },
+    {
+      "id": "js-error-handling-json-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "try/catch/finally",
+      "prompt": "Fill the clause that handles a failure from the try block.",
+      "code": "try { throw new Error('stop'); }\n____ (error) { console.log(error.message); }",
+      "blanks": [
+        [
+          "catch"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "catch receives a thrown value when the try block fails.",
+      "expectedOutput": "stop"
+    },
+    {
+      "id": "js-error-handling-json-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "JSON.parse",
+      "code": "const value = JSON.parse('[1,2]');\nconsole.log(value.length);",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The JSON text becomes a two-element array.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-error-handling-json-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "throw",
+      "code": "throw new Error('bad input');",
+      "question": "What does this statement do?",
+      "options": [
+        "Raises an Error value and interrupts normal flow",
+        "Logs the message and continues",
+        "Returns the string from the current function",
+        "Creates a rejected promise automatically"
+      ],
+      "correctOption": 0,
+      "explanation": "throw transfers control to an applicable catch handler or caller."
+    },
+    {
+      "id": "js-error-handling-json-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "JSON.stringify",
+      "prompt": "Write encodeName(name), returning a JSON string containing an object with a name property.",
+      "functionName": "encodeName",
+      "starter": "function encodeName(name) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "Ava"
+          ],
+          "expect": "{\"name\":\"Ava\"}"
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": "{\"name\":\"\"}"
+        },
+        {
+          "args": [
+            "Jo"
+          ],
+          "expect": "{\"name\":\"Jo\"}"
+        }
+      ],
+      "solution": "function encodeName(name) {\n  return JSON.stringify({ name });\n}",
+      "explanation": "Create a JavaScript object and serialize it to JSON text."
+    },
+    {
+      "id": "js-error-handling-json-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "JSON.stringify",
+      "prompt": "Fill the method that converts a JavaScript object into JSON text.",
+      "code": "console.log(JSON.____({ ok: true }));",
+      "blanks": [
+        [
+          "stringify"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "JSON.stringify serializes supported data as JSON text.",
+      "expectedOutput": "{\"ok\":true}"
+    },
+    {
+      "id": "js-error-handling-json-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "JSON.parse",
+      "prompt": "Write parseOrNull(text), returning the parsed JSON value or null when parsing fails.",
+      "functionName": "parseOrNull",
+      "starter": "function parseOrNull(text) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "{\"n\":3}"
+          ],
+          "expect": {
+            "n": 3
+          }
+        },
+        {
+          "args": [
+            "{"
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            "null"
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function parseOrNull(text) {\n  try {\n    return JSON.parse(text);\n  } catch {\n    return null;\n  }\n}",
+      "explanation": "Handle parse failures locally and return the documented fallback."
+    },
+    {
+      "id": "js-error-handling-json-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "try/catch/finally",
+      "code": "try {\n  throw new Error('no');\n} catch (error) {\n  console.log(error.message);\n} finally {\n  console.log('done');\n}",
+      "options": [
+        "no\ndone",
+        "done\\nno",
+        "no",
+        "done"
+      ],
+      "correctOption": 0,
+      "explanation": "catch handles the thrown value, then finally runs afterward.",
+      "expectedOutput": "no\ndone"
+    },
+    {
+      "id": "js-error-handling-json-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Serialization Limits",
+      "code": "console.log(JSON.stringify({ a: 1, b: undefined }));",
+      "explanation": "Object properties whose values are undefined are omitted from JSON text.",
+      "expectedOutput": "{\"a\":1}"
+    },
+    {
+      "id": "js-error-handling-json-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "throw",
+      "prompt": "Fill the keyword that raises the provided Error object.",
+      "code": "try { ____ new Error('missing'); }\ncatch (error) { console.log(error.name); }",
+      "blanks": [
+        [
+          "throw"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "throw raises the Error value, which the catch clause receives.",
+      "expectedOutput": "Error"
+    },
+    {
+      "id": "js-error-handling-json-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "JSON.parse",
+      "prompt": "Write readCount(text), returning a parsed object's count or null if parsing fails or count is absent.",
+      "functionName": "readCount",
+      "starter": "function readCount(text) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "{\"count\":4}"
+          ],
+          "expect": 4
+        },
+        {
+          "args": [
+            "{"
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            "{}"
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function readCount(text) {\n  try {\n    const value = JSON.parse(text);\n    return Object.hasOwn(value, 'count') ? value.count : null;\n  } catch {\n    return null;\n  }\n}",
+      "explanation": "Parse inside try/catch and distinguish a missing property from a parsed value."
+    },
+    {
+      "id": "js-error-handling-json-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "try/catch/finally",
+      "prompt": "Fill the clause that runs after either success or failure.",
+      "code": "try { console.log('work'); }\n____ { console.log('cleanup'); }",
+      "blanks": [
+        [
+          "finally"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "finally executes after the try and any catch clause.",
+      "expectedOutput": "work\ncleanup"
+    },
+    {
+      "id": "js-error-handling-json-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "JSON.stringify",
+      "code": "JSON.stringify({ value: undefined });",
+      "question": "What happens to this undefined-valued object property in the JSON text?",
+      "options": [
+        "It is omitted",
+        "It becomes the text 'undefined'",
+        "It is converted to null",
+        "Serialization throws a TypeError"
+      ],
+      "correctOption": 0,
+      "explanation": "JSON.stringify omits object properties whose values are undefined."
+    },
+    {
+      "id": "js-error-handling-json-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Error Objects",
+      "prompt": "Write errorName(message), returning the name of a newly created Error.",
+      "functionName": "errorName",
+      "starter": "function errorName(message) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "bad"
+          ],
+          "expect": "Error"
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": "Error"
+        },
+        {
+          "args": [
+            "missing"
+          ],
+          "expect": "Error"
+        }
+      ],
+      "solution": "function errorName(message) {\n  return new Error(message).name;\n}",
+      "explanation": "A standard Error instance has the name Error."
+    },
+    {
+      "id": "js-error-handling-json-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "try/catch/finally",
+      "code": "try { returnValue = 1; } finally { returnValue = 2; }",
+      "question": "If execution reaches the end of the finally block normally, what is returnValue?",
+      "options": [
+        "2, because finally runs after the try block",
+        "1, because finally is skipped on success",
+        "undefined, because finally clears bindings",
+        "A SyntaxError"
+      ],
+      "correctOption": 0,
+      "explanation": "finally executes after the try block even when it completes normally."
+    },
+    {
+      "id": "js-error-handling-json-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Serialization Limits",
+      "code": "const value = { a: 1, b: undefined };\nconsole.log(JSON.stringify(value));",
+      "explanation": "The undefined-valued property is omitted from the serialized object.",
+      "expectedOutput": "{\"a\":1}"
+    },
+    {
+      "id": "js-error-handling-json-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Error Objects",
+      "prompt": "Fill the property that contains an Error's explanatory text.",
+      "code": "const error = new Error('bad');\nconsole.log(error.____);",
+      "blanks": [
+        [
+          "message"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The message property contains the text passed to the Error constructor.",
+      "expectedOutput": "bad"
+    },
+    {
+      "id": "js-error-handling-json-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "JSON.parse",
+      "prompt": "Write parseArrayOrEmpty(text), returning a parsed array or an empty array if parsing fails or the result is not an array.",
+      "functionName": "parseArrayOrEmpty",
+      "starter": "function parseArrayOrEmpty(text) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "[1,2]"
+          ],
+          "expect": [
+            1,
+            2
+          ]
+        },
+        {
+          "args": [
+            "{"
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            "{}"
+          ],
+          "expect": []
+        }
+      ],
+      "solution": "function parseArrayOrEmpty(text) {\n  try {\n    const value = JSON.parse(text);\n    return Array.isArray(value) ? value : [];\n  } catch {\n    return [];\n  }\n}",
+      "explanation": "Catch malformed input and verify the parsed value has the required shape."
+    },
+    {
+      "id": "js-error-handling-json-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Serialization Limits",
+      "code": "console.log(JSON.stringify([1, undefined, 3]));",
+      "options": [
+        "[1,null,3]",
+        "[1,3]",
+        "[1,undefined,3]",
+        "A TypeError"
+      ],
+      "correctOption": 0,
+      "explanation": "Undefined array entries are serialized as null to preserve their positions.",
+      "expectedOutput": "[1,null,3]"
+    },
+    {
+      "id": "js-error-handling-json-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "try/catch/finally",
+      "question": "When should code catch an exception, and what is finally used for?",
+      "keyPoints": [
+        "Catch failures the current layer can handle meaningfully",
+        "Avoid hiding unexpected failures silently",
+        "finally runs after success or failure",
+        "Use finally for cleanup that must occur"
+      ],
+      "modelAnswer": "Catch an exception when the current layer can recover, add useful context, or convert it into a documented result; otherwise let it propagate. finally is useful for cleanup that should happen whether the protected work succeeds or fails."
+    },
+    {
+      "id": "js-error-handling-json-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "JSON.parse",
+      "question": "Why can JSON.parse throw, and how should untrusted JSON text be handled?",
+      "keyPoints": [
+        "Malformed JSON causes SyntaxError",
+        "Parsing is synchronous",
+        "Use try/catch at an appropriate boundary",
+        "Validate the parsed shape as well as syntax"
+      ],
+      "modelAnswer": "JSON.parse throws a SyntaxError when the input is not valid JSON. Handle that failure at a boundary where a fallback or useful error can be provided, and validate the parsed value's shape because valid JSON may still have unexpected data."
+    },
+    {
+      "id": "js-error-handling-json-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "JSON.stringify",
+      "question": "What data-shape limitations should be considered when using JSON.stringify?",
+      "keyPoints": [
+        "JSON supports a limited set of data types",
+        "Undefined object properties are omitted",
+        "Undefined array entries become null",
+        "Circular references cannot be represented directly"
+      ],
+      "modelAnswer": "JSON represents a limited data model, so functions and undefined values do not serialize as ordinary values, and circular references cause serialization to fail. Undefined object properties are omitted, while undefined array entries are represented as null."
+    }
+  ]
+}

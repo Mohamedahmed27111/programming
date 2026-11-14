@@ -442,6 +442,28 @@
               "interview": 3
             }
           }
+        },
+        {
+          "order": 21,
+          "topic": "Error Handling and JSON",
+          "file": "data/javascript/21-error-handling-json.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
         }
       ]
     }
