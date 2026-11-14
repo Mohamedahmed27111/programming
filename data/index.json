@@ -112,6 +112,72 @@
               "interview": 3
             }
           }
+        },
+        {
+          "order": 6,
+          "topic": "Control Flow",
+          "file": "data/javascript/06-control-flow.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 7,
+          "topic": "Objects",
+          "file": "data/javascript/07-objects.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 8,
+          "topic": "Loops",
+          "file": "data/javascript/08-loops.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
         }
       ]
     }

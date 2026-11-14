@@ -1,0 +1,641 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Loops",
+    "order": 8,
+    "sourceSections": [
+      "While",
+      "For",
+      "Odd Numbers",
+      "Count Backwards",
+      "Iterate Arrays",
+      "Nested For",
+      "Do…While",
+      "Profile Lookup"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-loops-t001",
+      "term": "loop",
+      "level": "beginner",
+      "definitionEn": "A control structure that repeats statements while a rule allows it.",
+      "example": "for (let i = 0; i < 3; i++) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "iteration"
+      ]
+    },
+    {
+      "id": "js-loops-t002",
+      "term": "iteration",
+      "level": "beginner",
+      "definitionEn": "One pass through the repeated body of a loop.",
+      "example": "while (count < 2) count++;",
+      "caseSensitive": false,
+      "aliases": [
+        "loop pass"
+      ]
+    },
+    {
+      "id": "js-loops-t003",
+      "term": "loop condition",
+      "level": "beginner",
+      "definitionEn": "An expression checked to determine whether another pass should run.",
+      "example": "while (index < list.length) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "test condition"
+      ]
+    },
+    {
+      "id": "js-loops-t004",
+      "term": "counter",
+      "level": "beginner",
+      "definitionEn": "A variable that tracks a changing number of repeated steps.",
+      "example": "let count = 0;",
+      "caseSensitive": false,
+      "aliases": [
+        "index variable"
+      ]
+    },
+    {
+      "id": "js-loops-t005",
+      "term": "for loop",
+      "level": "beginner",
+      "definitionEn": "A loop form that places initialization, continuation test, and update in its header.",
+      "example": "for (let i = 0; i < 4; i++) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "for statement"
+      ]
+    },
+    {
+      "id": "js-loops-t006",
+      "term": "while loop",
+      "level": "beginner",
+      "definitionEn": "A loop form that checks its condition before each body execution.",
+      "example": "while (n > 0) n--;",
+      "caseSensitive": false,
+      "aliases": [
+        "while statement"
+      ]
+    },
+    {
+      "id": "js-loops-t007",
+      "term": "do...while loop",
+      "level": "intermediate",
+      "definitionEn": "A loop form that checks its condition after executing the body.",
+      "example": "do { count++; } while (count < 1);",
+      "caseSensitive": false,
+      "aliases": [
+        "post-test loop"
+      ]
+    },
+    {
+      "id": "js-loops-t008",
+      "term": "nested loop",
+      "level": "intermediate",
+      "definitionEn": "A repeated structure whose body contains another repeated structure.",
+      "example": "for (const row of grid) { for (const cell of row) {} }",
+      "caseSensitive": false,
+      "aliases": [
+        "inner loop"
+      ]
+    },
+    {
+      "id": "js-loops-t009",
+      "term": "accumulator",
+      "level": "intermediate",
+      "definitionEn": "A variable that collects a running result across repeated steps.",
+      "example": "let total = 0;\ntotal += value;",
+      "caseSensitive": false,
+      "aliases": [
+        "running total"
+      ]
+    },
+    {
+      "id": "js-loops-t010",
+      "term": "off-by-one error",
+      "level": "advanced",
+      "definitionEn": "A boundary mistake that repeats one time too many or one time too few.",
+      "example": "i <= values.length",
+      "caseSensitive": false,
+      "aliases": [
+        "boundary error"
+      ]
+    },
+    {
+      "id": "js-loops-t011",
+      "term": "infinite loop",
+      "level": "advanced",
+      "definitionEn": "A repetition that does not reach a stopping condition.",
+      "example": "while (true) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "non-terminating loop"
+      ]
+    },
+    {
+      "id": "js-loops-t012",
+      "term": "break",
+      "display": "break",
+      "level": "intermediate",
+      "definitionEn": "A statement that immediately exits the nearest enclosing loop or switch.",
+      "example": "if (found) break;",
+      "caseSensitive": true,
+      "aliases": [
+        "exit statement"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-loops-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "For",
+      "code": "for (let i = 0; i < 3; i++) console.log(i);",
+      "question": "How many times does the loop body run?",
+      "options": [
+        "Three times",
+        "Two times",
+        "Four times",
+        "It never runs"
+      ],
+      "correctOption": 0,
+      "explanation": "The body runs for i values 0, 1, and 2."
+    },
+    {
+      "id": "js-loops-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "While",
+      "code": "let n = 0;\nwhile (n < 2) n++;\nconsole.log(n);",
+      "options": [
+        "2",
+        "1",
+        "0",
+        "3"
+      ],
+      "correctOption": 0,
+      "explanation": "The counter increases until it reaches the condition's stopping boundary.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-loops-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Iterate Arrays",
+      "code": "const values = [3, 5];\nlet total = 0;\nfor (const value of values) total += value;\nconsole.log(total);",
+      "explanation": "The loop adds both array values to the accumulator.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-loops-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "For",
+      "prompt": "Fill the update expression so i increases by one each pass.",
+      "code": "for (let i = 0; i < 3; ____ ) console.log(i);",
+      "blanks": [
+        [
+          "i++"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The update expression increments the counter after each pass.",
+      "expectedOutput": "0\n1\n2"
+    },
+    {
+      "id": "js-loops-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Count Backwards",
+      "code": "for (let n = 3; n > 0; n--) console.log(n);",
+      "options": [
+        "3\n2\n1",
+        "2\\n1\\n0",
+        "3\\n2\\n1\\n0",
+        "1\\n2\\n3"
+      ],
+      "correctOption": 0,
+      "explanation": "The condition is checked before each pass, so zero is excluded.",
+      "expectedOutput": "3\n2\n1"
+    },
+    {
+      "id": "js-loops-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Do…While",
+      "code": "do { work(); } while (again);",
+      "question": "What is guaranteed by a do...while loop?",
+      "options": [
+        "Its body executes at least once",
+        "Its body executes only if the condition starts true",
+        "Its condition is checked before the first body",
+        "It always executes exactly twice"
+      ],
+      "correctOption": 0,
+      "explanation": "A do...while checks the condition only after its first body execution."
+    },
+    {
+      "id": "js-loops-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "For",
+      "prompt": "Write sumTo(n), returning the sum of integers from 1 through n; return 0 when n is below 1.",
+      "functionName": "sumTo",
+      "starter": "function sumTo(n) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4
+          ],
+          "expect": 10
+        },
+        {
+          "args": [
+            1
+          ],
+          "expect": 1
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function sumTo(n) {\n  let total = 0;\n  for (let i = 1; i <= n; i++) total += i;\n  return total;\n}",
+      "explanation": "Accumulate each integer while the counter remains within the endpoint."
+    },
+    {
+      "id": "js-loops-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Odd Numbers",
+      "prompt": "Fill the increment so the loop visits every other integer.",
+      "code": "for (let n = 1; n <= 5; n ____ 2) console.log(n);",
+      "blanks": [
+        [
+          "+="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Adding two moves from one odd integer to the next.",
+      "expectedOutput": "1\n3\n5"
+    },
+    {
+      "id": "js-loops-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Iterate Arrays",
+      "prompt": "Write countMatches(values, target), counting strict-equality matches.",
+      "functionName": "countMatches",
+      "starter": "function countMatches(values, target) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              1,
+              2
+            ],
+            2
+          ],
+          "expect": 2
+        },
+        {
+          "args": [
+            [],
+            1
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              "2",
+              2
+            ],
+            2
+          ],
+          "expect": 1
+        }
+      ],
+      "solution": "function countMatches(values, target) {\n  let count = 0;\n  for (const value of values) if (value === target) count++;\n  return count;\n}",
+      "explanation": "Visit each value and increment the counter only for a strict match."
+    },
+    {
+      "id": "js-loops-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Nested For",
+      "code": "let count = 0;\nfor (let r = 0; r < 2; r++) {\n  for (let c = 0; c < 3; c++) count++;\n}\nconsole.log(count);",
+      "options": [
+        "6",
+        "5",
+        "3",
+        "9"
+      ],
+      "correctOption": 0,
+      "explanation": "The inner body runs three times for each of two outer passes.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-loops-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Do…While",
+      "code": "let count = 0;\ndo { count++; } while (count < 0);\nconsole.log(count);",
+      "explanation": "The body executes once before the false condition is checked.",
+      "expectedOutput": "1"
+    },
+    {
+      "id": "js-loops-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "While",
+      "prompt": "Fill the update so the loop eventually reaches its stopping condition.",
+      "code": "let n = 2;\nwhile (n > 0) {\n  n ____;\n}\nconsole.log(n);",
+      "blanks": [
+        [
+          "--"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Decrementing n moves it toward zero and terminates the loop.",
+      "expectedOutput": "0"
+    },
+    {
+      "id": "js-loops-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Odd Numbers",
+      "prompt": "Write sumOdds(values), returning the sum of odd numeric entries.",
+      "functionName": "sumOdds",
+      "starter": "function sumOdds(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              2,
+              5
+            ]
+          ],
+          "expect": 6
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              -3,
+              4
+            ]
+          ],
+          "expect": -3
+        }
+      ],
+      "solution": "function sumOdds(values) {\n  let total = 0;\n  for (const value of values) if (value % 2 !== 0) total += value;\n  return total;\n}",
+      "explanation": "The remainder test identifies odd integers before adding them."
+    },
+    {
+      "id": "js-loops-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Iterate Arrays",
+      "prompt": "Fill the expression that visits each value in the array.",
+      "code": "const names = ['Eli', 'Mo'];\nfor (const name ____ names) console.log(name);",
+      "blanks": [
+        [
+          "of"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "for...of iterates over the values supplied by an iterable.",
+      "expectedOutput": "Eli\nMo"
+    },
+    {
+      "id": "js-loops-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "While",
+      "code": "while (index < items.length) {\n  index++;\n}",
+      "question": "What is the likely purpose of incrementing index in the body?",
+      "options": [
+        "To progress toward the loop's stopping condition",
+        "To restart the loop at the first item",
+        "To make the condition permanently true",
+        "To change the array length"
+      ],
+      "correctOption": 0,
+      "explanation": "Updating the loop variable lets it eventually reach the boundary."
+    },
+    {
+      "id": "js-loops-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Profile Lookup",
+      "prompt": "Write findProfile(profiles, id), returning the first profile with a matching id, or null.",
+      "functionName": "findProfile",
+      "starter": "function findProfile(profiles, id) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              {
+                "id": 1
+              },
+              {
+                "id": 2
+              }
+            ],
+            2
+          ],
+          "expect": {
+            "id": 2
+          }
+        },
+        {
+          "args": [
+            [],
+            4
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            [
+              {
+                "id": 1
+              }
+            ],
+            9
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function findProfile(profiles, id) {\n  for (const profile of profiles) if (profile.id === id) return profile;\n  return null;\n}",
+      "explanation": "Return immediately when a profile matches, otherwise return null after checking all entries."
+    },
+    {
+      "id": "js-loops-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Nested For",
+      "code": "for (let row = 0; row < 3; row++) {\n  for (let col = 0; col < 2; col++) {}\n}",
+      "question": "How many times does the inner body execute in total?",
+      "options": [
+        "6",
+        "5",
+        "3",
+        "2"
+      ],
+      "correctOption": 0,
+      "explanation": "Each of three outer iterations runs the inner body twice."
+    },
+    {
+      "id": "js-loops-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Count Backwards",
+      "code": "let n = 4;\nwhile (n >= 1) n -= 2;\nconsole.log(n);",
+      "explanation": "The counter takes values 4, 2, and then 0, where the condition fails.",
+      "expectedOutput": "0"
+    },
+    {
+      "id": "js-loops-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "For",
+      "prompt": "Fill the comparison to process indexes 0 through length - 1 without reading beyond the array.",
+      "code": "const values = [4, 7];\nfor (let i = 0; i ____ values.length; i++) console.log(values[i]);",
+      "blanks": [
+        [
+          "<"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The last valid index is length - 1, so the index must remain less than length.",
+      "expectedOutput": "4\n7"
+    },
+    {
+      "id": "js-loops-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Nested For",
+      "prompt": "Write countCells(grid), returning the total number of entries across all rows.",
+      "functionName": "countCells",
+      "starter": "function countCells(grid) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3
+              ]
+            ]
+          ],
+          "expect": 3
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              [],
+              [
+                1,
+                2
+              ]
+            ]
+          ],
+          "expect": 2
+        }
+      ],
+      "solution": "function countCells(grid) {\n  let count = 0;\n  for (const row of grid) for (const cell of row) count++;\n  return count;\n}",
+      "explanation": "Use a nested loop to visit every entry in every row."
+    },
+    {
+      "id": "js-loops-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Break",
+      "code": "let n = 0;\nwhile (n < 5) {\n  n++;\n  if (n === 3) break;\n}\nconsole.log(n);",
+      "options": [
+        "3",
+        "2",
+        "5",
+        "6"
+      ],
+      "correctOption": 0,
+      "explanation": "break exits the loop immediately when n reaches three.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-loops-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "For",
+      "question": "When is a for loop a natural choice, and what belongs in its header?",
+      "keyPoints": [
+        "Often useful when iteration count or index is clear",
+        "Header has initialization, condition, and update",
+        "The condition is checked before each pass",
+        "A while loop may better express condition-driven repetition"
+      ],
+      "modelAnswer": "A for loop is convenient when initialization, a continuation condition, and a per-pass update form one clear pattern. Its header contains those three expressions, and the condition is checked before each body execution."
+    },
+    {
+      "id": "js-loops-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Do…While",
+      "question": "How does a do...while loop differ from a while loop?",
+      "keyPoints": [
+        "do...while checks after the body",
+        "Its body runs at least once",
+        "while checks before its body",
+        "Choose based on whether a first pass is required"
+      ],
+      "modelAnswer": "A while loop checks its condition before running the body, so it may run zero times. A do...while checks after the body, which guarantees at least one execution."
+    },
+    {
+      "id": "js-loops-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Nested For",
+      "question": "How can nested loops affect the amount of work a program performs?",
+      "keyPoints": [
+        "The inner loop repeats for each outer pass",
+        "Total iterations multiply when bounds are fixed",
+        "Large nested bounds can become expensive",
+        "Analyze the actual stopping conditions"
+      ],
+      "modelAnswer": "The inner loop runs once for every outer iteration, so fixed bounds often multiply the total number of passes. When both bounds grow with the input, the work can grow much faster than for a single loop."
+    }
+  ]
+}

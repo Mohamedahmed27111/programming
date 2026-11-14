@@ -1,0 +1,647 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Objects",
+    "order": 7,
+    "sourceSections": [
+      "Build Objects",
+      "Dot/Bracket Notation",
+      "Variables as keys",
+      "Update/Add/Delete Properties",
+      "Objects for Lookups",
+      "Testing for Properties (hasOwnProperty)",
+      "Nested Objects",
+      "Nested Arrays",
+      "Record Collection"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-objects-t001",
+      "term": "property",
+      "level": "beginner",
+      "definitionEn": "A named association between a key and a value in a record-like value.",
+      "example": "const user = { name: 'Ira' };",
+      "caseSensitive": false,
+      "aliases": [
+        "field"
+      ]
+    },
+    {
+      "id": "js-objects-t002",
+      "term": "key",
+      "level": "beginner",
+      "definitionEn": "A name used to identify a stored value in a record-like value.",
+      "example": "const color = item['shade'];",
+      "caseSensitive": false,
+      "aliases": [
+        "property name"
+      ]
+    },
+    {
+      "id": "js-objects-t003",
+      "term": "dot notation",
+      "level": "beginner",
+      "definitionEn": "A syntax for reading or changing a named property with a dot.",
+      "example": "user.name;",
+      "caseSensitive": false,
+      "aliases": [
+        "dot access"
+      ]
+    },
+    {
+      "id": "js-objects-t004",
+      "term": "bracket notation",
+      "level": "beginner",
+      "definitionEn": "A syntax for accessing a property using a quoted or computed key.",
+      "example": "user['name'];",
+      "caseSensitive": false,
+      "aliases": [
+        "bracket access"
+      ]
+    },
+    {
+      "id": "js-objects-t005",
+      "term": "nested object",
+      "level": "intermediate",
+      "definitionEn": "A record-like value stored as a property value inside another one.",
+      "example": "const user = { address: { city: 'Lima' } };",
+      "caseSensitive": false,
+      "aliases": [
+        "object inside object"
+      ]
+    },
+    {
+      "id": "js-objects-t006",
+      "term": "method",
+      "level": "intermediate",
+      "definitionEn": "A function stored as a property and invoked through its containing value.",
+      "example": "const box = { open() { return true; } };",
+      "caseSensitive": false,
+      "aliases": [
+        "object function"
+      ]
+    },
+    {
+      "id": "js-objects-t007",
+      "term": "computed property",
+      "level": "intermediate",
+      "definitionEn": "A property whose key is determined by evaluating an expression.",
+      "example": "const key = 'id';\nconst item = { [key]: 3 };",
+      "caseSensitive": false,
+      "aliases": [
+        "dynamic key"
+      ]
+    },
+    {
+      "id": "js-objects-t008",
+      "term": "hasOwnProperty",
+      "display": "hasOwnProperty()",
+      "level": "intermediate",
+      "definitionEn": "A method that reports whether a value has a directly defined property with a given name.",
+      "example": "record.hasOwnProperty('id');",
+      "caseSensitive": true,
+      "aliases": [
+        "own property check"
+      ]
+    },
+    {
+      "id": "js-objects-t009",
+      "term": "lookup table",
+      "level": "intermediate",
+      "definitionEn": "A keyed collection used to retrieve a value associated with an input.",
+      "example": "const codes = { ok: 200, missing: 404 };",
+      "caseSensitive": false,
+      "aliases": [
+        "mapping"
+      ]
+    },
+    {
+      "id": "js-objects-t010",
+      "term": "delete",
+      "display": "delete",
+      "level": "intermediate",
+      "definitionEn": "An operator that removes a configurable property from its containing value.",
+      "example": "delete profile.nickname;",
+      "caseSensitive": true,
+      "aliases": [
+        "property removal"
+      ]
+    },
+    {
+      "id": "js-objects-t011",
+      "term": "reference",
+      "level": "advanced",
+      "definitionEn": "A value that identifies a stored object so it can be accessed through a binding.",
+      "example": "const other = profile;",
+      "caseSensitive": false,
+      "aliases": [
+        "object reference"
+      ]
+    },
+    {
+      "id": "js-objects-t012",
+      "term": "prototype",
+      "level": "advanced",
+      "definitionEn": "An object from which another object's property lookup can continue.",
+      "example": "Object.getPrototypeOf({});",
+      "caseSensitive": false,
+      "aliases": [
+        "prototype chain link"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-objects-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Build Objects",
+      "code": "const book = { title: 'Dune', pages: 400 };",
+      "question": "Which expression reads the title property?",
+      "options": [
+        "book.title",
+        "book->title",
+        "book(title)",
+        "title.book"
+      ],
+      "correctOption": 0,
+      "explanation": "Dot notation reads a property with a valid identifier name."
+    },
+    {
+      "id": "js-objects-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Dot/Bracket Notation",
+      "code": "const user = { name: 'Jo' };\nconsole.log(user.name);",
+      "options": [
+        "Jo",
+        "name",
+        "undefined",
+        "user"
+      ],
+      "correctOption": 0,
+      "explanation": "The dot expression retrieves the value associated with name.",
+      "expectedOutput": "Jo"
+    },
+    {
+      "id": "js-objects-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Update/Add/Delete Properties",
+      "code": "const item = { count: 2 };\nitem.count = 5;\nconsole.log(item.count);",
+      "explanation": "The assignment updates the existing property value.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-objects-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Dot/Bracket Notation",
+      "prompt": "Fill the property name to read the value under the key 'color'.",
+      "code": "const paint = { color: 'green' };\nconsole.log(paint.____);",
+      "blanks": [
+        [
+          "color"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Dot notation uses the property name after the dot.",
+      "expectedOutput": "green"
+    },
+    {
+      "id": "js-objects-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Variables as keys",
+      "code": "const key = 'level';\nconst data = { [key]: 3 };\nconsole.log(data.level);",
+      "options": [
+        "3",
+        "level",
+        "undefined",
+        "key"
+      ],
+      "correctOption": 0,
+      "explanation": "The brackets evaluate key and use its value as the property name.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-objects-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Build Objects",
+      "code": "const point = { x: 2, y: 7 };",
+      "question": "What does x: 2 describe?",
+      "options": [
+        "A property named x with value 2",
+        "A variable declaration named x",
+        "A function call named x",
+        "An array index of 2"
+      ],
+      "correctOption": 0,
+      "explanation": "Object literal entries associate property names with values."
+    },
+    {
+      "id": "js-objects-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Dot/Bracket Notation",
+      "prompt": "Write getLabel(item), returning its label property or null if the property is missing.",
+      "functionName": "getLabel",
+      "starter": "function getLabel(item) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "label": "cup"
+            }
+          ],
+          "expect": "cup"
+        },
+        {
+          "args": [
+            {}
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            {
+              "label": ""
+            }
+          ],
+          "expect": ""
+        }
+      ],
+      "solution": "function getLabel(item) {\n  return Object.hasOwn(item, 'label') ? item.label : null;\n}",
+      "explanation": "Check that the property exists directly before returning its value."
+    },
+    {
+      "id": "js-objects-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Update/Add/Delete Properties",
+      "prompt": "Fill the assignment that adds a ready property.",
+      "code": "const state = {};\nstate.____ = true;\nconsole.log(state.ready);",
+      "blanks": [
+        [
+          "ready"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Assigning to a new property name adds it to the value.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-objects-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Objects for Lookups",
+      "prompt": "Write lookupColor(name, colors), returning the mapped value or 'unknown' when absent.",
+      "functionName": "lookupColor",
+      "starter": "function lookupColor(name, colors) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "sky",
+            {
+              "sky": "blue"
+            }
+          ],
+          "expect": "blue"
+        },
+        {
+          "args": [
+            "leaf",
+            {}
+          ],
+          "expect": "unknown"
+        },
+        {
+          "args": [
+            "empty",
+            {
+              "empty": ""
+            }
+          ],
+          "expect": ""
+        }
+      ],
+      "solution": "function lookupColor(name, colors) {\n  return Object.hasOwn(colors, name) ? colors[name] : 'unknown';\n}",
+      "explanation": "An own-property check distinguishes a missing key from a stored falsy value."
+    },
+    {
+      "id": "js-objects-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Nested Objects",
+      "code": "const user = { address: { city: 'Lima' } };\nconsole.log(user.address.city);",
+      "options": [
+        "Lima",
+        "address",
+        "city",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Follow each property access from the outer value to the nested value.",
+      "expectedOutput": "Lima"
+    },
+    {
+      "id": "js-objects-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Update/Add/Delete Properties",
+      "code": "const record = { a: 1, b: 2 };\ndelete record.a;\nconsole.log(Object.keys(record).join(','));",
+      "explanation": "The delete operator removes property a, leaving only b.",
+      "expectedOutput": "b"
+    },
+    {
+      "id": "js-objects-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Testing for Properties (hasOwnProperty)",
+      "prompt": "Fill the call that checks whether data directly defines 'id'.",
+      "code": "const data = { id: 8 };\nconsole.log(Object.____(data, 'id'));",
+      "blanks": [
+        [
+          "hasOwn"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Object.hasOwn checks for a directly defined property.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-objects-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Nested Arrays",
+      "prompt": "Write firstTag(record), returning the first tag or null if tags is missing or empty.",
+      "functionName": "firstTag",
+      "starter": "function firstTag(record) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "tags": [
+                "new",
+                "sale"
+              ]
+            }
+          ],
+          "expect": "new"
+        },
+        {
+          "args": [
+            {
+              "tags": []
+            }
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            {}
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function firstTag(record) {\n  return record.tags?.length ? record.tags[0] : null;\n}",
+      "explanation": "Optional chaining handles a missing array, and length handles an empty one."
+    },
+    {
+      "id": "js-objects-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Variables as keys",
+      "prompt": "Fill the computed-key expression using the key variable.",
+      "code": "const key = 'score';\nconst result = { [____]: 10 };\nconsole.log(result.score);",
+      "blanks": [
+        [
+          "key"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A computed property name is evaluated inside brackets.",
+      "expectedOutput": "10"
+    },
+    {
+      "id": "js-objects-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Testing for Properties (hasOwnProperty)",
+      "code": "Object.hasOwn(settings, 'theme');",
+      "question": "What does this expression check?",
+      "options": [
+        "Whether settings directly has a theme property",
+        "Whether theme is truthy",
+        "Whether settings inherits from theme",
+        "Whether settings is an array"
+      ],
+      "correctOption": 0,
+      "explanation": "Object.hasOwn checks for an own property even when its value is falsy."
+    },
+    {
+      "id": "js-objects-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Record Collection",
+      "prompt": "Write setStatus(record, status), assigning status and returning the same record.",
+      "functionName": "setStatus",
+      "starter": "function setStatus(record, status) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "id": 1
+            },
+            "done"
+          ],
+          "expect": {
+            "id": 1,
+            "status": "done"
+          }
+        },
+        {
+          "args": [
+            {},
+            ""
+          ],
+          "expect": {
+            "status": ""
+          }
+        },
+        {
+          "args": [
+            {
+              "status": "old"
+            },
+            "new"
+          ],
+          "expect": {
+            "status": "new"
+          }
+        }
+      ],
+      "solution": "function setStatus(record, status) {\n  record.status = status;\n  return record;\n}",
+      "explanation": "Property assignment updates an existing entry or creates it when absent."
+    },
+    {
+      "id": "js-objects-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Variables as keys",
+      "code": "const key = 'shade';\nconst item = { key: 'blue' };",
+      "question": "Which property name does the object literal create?",
+      "options": [
+        "key, because the name is not in brackets",
+        "shade, because key always evaluates in an object literal",
+        "blue, because it is the value",
+        "No property is created"
+      ],
+      "correctOption": 0,
+      "explanation": "Without brackets, key is used as the literal property name."
+    },
+    {
+      "id": "js-objects-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Nested Objects",
+      "code": "const original = { profile: { score: 1 } };\nconst copy = { ...original };\ncopy.profile.score = 4;\nconsole.log(original.profile.score);",
+      "explanation": "The spread makes a shallow copy, so the nested profile object is still shared.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-objects-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Delete Properties",
+      "prompt": "Fill the operator that removes the temporary property.",
+      "code": "const item = { temp: 1 };\n____ item.temp;\nconsole.log(Object.hasOwn(item, 'temp'));",
+      "blanks": [
+        [
+          "delete"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "delete removes the selected own property.",
+      "expectedOutput": "false"
+    },
+    {
+      "id": "js-objects-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Objects for Lookups",
+      "prompt": "Write countByKind(records), returning an object with counts for each record's kind.",
+      "functionName": "countByKind",
+      "starter": "function countByKind(records) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              {
+                "kind": "a"
+              },
+              {
+                "kind": "b"
+              },
+              {
+                "kind": "a"
+              }
+            ]
+          ],
+          "expect": {
+            "a": 2,
+            "b": 1
+          }
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": {}
+        },
+        {
+          "args": [
+            [
+              {
+                "kind": "x"
+              }
+            ]
+          ],
+          "expect": {
+            "x": 1
+          }
+        }
+      ],
+      "solution": "function countByKind(records) {\n  const counts = {};\n  for (const record of records) {\n    counts[record.kind] = (counts[record.kind] ?? 0) + 1;\n  }\n  return counts;\n}",
+      "explanation": "Use each kind as a computed key and increase its current count."
+    },
+    {
+      "id": "js-objects-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Nested Arrays",
+      "code": "const data = { rows: [[2, 4], [6, 8]] };\nconsole.log(data.rows[1][0]);",
+      "options": [
+        "6",
+        "4",
+        "8",
+        "2"
+      ],
+      "correctOption": 0,
+      "explanation": "Select the second row, then its first element.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-objects-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Dot/Bracket Notation",
+      "question": "When should bracket notation be used instead of dot notation?",
+      "keyPoints": [
+        "Use it for computed property names",
+        "Use it when the key is stored in a variable",
+        "Use it for keys that are not valid identifiers",
+        "Dot notation is concise for fixed valid names"
+      ],
+      "modelAnswer": "Bracket notation is needed when the property name is computed from a variable or contains characters that cannot be used in dot notation. Dot notation is convenient when the key is a fixed valid identifier."
+    },
+    {
+      "id": "js-objects-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Testing for Properties (hasOwnProperty)",
+      "question": "How can a property-existence check differ from checking a property's truthiness?",
+      "keyPoints": [
+        "A property can exist with value false or zero",
+        "Truthiness does not prove presence",
+        "Object.hasOwn checks direct ownership",
+        "Presence checks avoid confusing missing and falsy values"
+      ],
+      "modelAnswer": "A property can be present while holding false, zero, or an empty string, so a truthiness check can mistake it for missing. Object.hasOwn tests whether the property is directly present regardless of its value."
+    },
+    {
+      "id": "js-objects-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Nested Objects",
+      "question": "What does a shallow copy of an object copy, and what remains shared?",
+      "keyPoints": [
+        "The outer object is new",
+        "Top-level property values are copied",
+        "Nested objects remain shared references",
+        "Deep copying requires a deliberate strategy"
+      ],
+      "modelAnswer": "A shallow copy creates a new outer object and copies its top-level property values. If those values refer to nested objects, both the original and copy still refer to the same nested objects."
+    }
+  ]
+}
