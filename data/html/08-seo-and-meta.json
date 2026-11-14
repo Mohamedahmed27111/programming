@@ -1,0 +1,556 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "SEO and Metadata",
+    "order": 8,
+    "sourceSections": [
+      "Document title and description",
+      "Open Graph metadata",
+      "Canonical URL",
+      "Robots directives",
+      "Language and favicon"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-seo-and-meta-t001",
+      "term": "page title",
+      "display": "<title>",
+      "level": "beginner",
+      "definitionEn": "A concise document name used in browser interfaces and commonly shown as a search-result link.",
+      "definitionAr": "اسم مختصر للمستند بيظهر في المتصفح وغالبًا كرابط في نتيجة البحث.",
+      "example": "<title>City garden guide</title>",
+      "caseSensitive": false,
+      "aliases": [
+        "document title"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t002",
+      "term": "meta description",
+      "display": "name=\"description\"",
+      "level": "beginner",
+      "definitionEn": "A metadata value that summarizes a page and may be used as a search-result snippet.",
+      "definitionAr": "قيمة وصفية بتلخص الصفحة وممكن تظهر كمقتطف في نتيجة البحث.",
+      "example": "<meta name=\"description\" content=\"A guide to balcony herbs\">",
+      "caseSensitive": false,
+      "aliases": [
+        "description metadata"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t003",
+      "term": "favicon",
+      "display": "rel=\"icon\"",
+      "level": "beginner",
+      "definitionEn": "A small site icon that browsers can show in tabs or other interface locations.",
+      "definitionAr": "أيقونة صغيرة للموقع ممكن تظهر في ألسنة المتصفح أو أماكن تانية في الواجهة.",
+      "example": "<link rel=\"icon\" href=\"/favicon.ico\">",
+      "caseSensitive": false,
+      "aliases": [
+        "site icon"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t004",
+      "term": "lang",
+      "display": "lang=\"en\"",
+      "level": "beginner",
+      "definitionEn": "An attribute identifying the primary tongue used by document content.",
+      "definitionAr": "خاصية بتحدد اللغة الأساسية لمحتوى المستند.",
+      "example": "<html lang=\"ar\">",
+      "caseSensitive": false,
+      "aliases": [
+        "language attribute"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t005",
+      "term": "robots",
+      "display": "name=\"robots\"",
+      "level": "beginner",
+      "definitionEn": "A metadata directive that can express crawling or indexing preferences for compliant crawlers.",
+      "definitionAr": "توجيه وصفي ممكن يحدد تفضيلات الزحف أو الفهرسة للبرامج اللي بتحترمه.",
+      "example": "<meta name=\"robots\" content=\"noindex\">",
+      "caseSensitive": false,
+      "aliases": [
+        "robots directive"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t006",
+      "term": "Open Graph",
+      "display": "property=\"og:title\"",
+      "level": "intermediate",
+      "definitionEn": "A metadata vocabulary used by social platforms to describe shared pages.",
+      "definitionAr": "مجموعة بيانات وصفية بتستخدمها منصات التواصل لوصف الصفحات المشتركة.",
+      "example": "<meta property=\"og:title\" content=\"Garden notes\">",
+      "caseSensitive": false,
+      "aliases": [
+        "OG metadata"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t007",
+      "term": "og:title",
+      "display": "property=\"og:title\"",
+      "level": "intermediate",
+      "definitionEn": "A social-sharing metadata property that names the shared page.",
+      "definitionAr": "خاصية للبيانات الوصفية بتحدد اسم الصفحة عند مشاركتها اجتماعيًا.",
+      "example": "<meta property=\"og:title\" content=\"Weekend market\">",
+      "caseSensitive": false,
+      "aliases": [
+        "Open Graph title"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t008",
+      "term": "og:image",
+      "display": "property=\"og:image\"",
+      "level": "intermediate",
+      "definitionEn": "A social-sharing metadata property that identifies an image for a page preview.",
+      "definitionAr": "خاصية وصفية بتحدد صورة لمعاينة الصفحة عند مشاركتها.",
+      "example": "<meta property=\"og:image\" content=\"https://example.org/market.jpg\">",
+      "caseSensitive": false,
+      "aliases": [
+        "Open Graph image"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t009",
+      "term": "canonical URL",
+      "display": "rel=\"canonical\"",
+      "level": "intermediate",
+      "definitionEn": "A link identifying the preferred URL when substantially similar pages have multiple addresses.",
+      "definitionAr": "رابط بيحدد العنوان المفضل لما يكون للمحتوى المتشابه أكتر من عنوان.",
+      "example": "<link rel=\"canonical\" href=\"https://example.org/guide\">",
+      "caseSensitive": false,
+      "aliases": [
+        "canonical link"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t010",
+      "term": "theme-color",
+      "display": "name=\"theme-color\"",
+      "level": "intermediate",
+      "definitionEn": "A metadata value suggesting a color for browser interface surfaces associated with the page.",
+      "definitionAr": "قيمة وصفية بتقترح لونًا لبعض أجزاء واجهة المتصفح المرتبطة بالصفحة.",
+      "example": "<meta name=\"theme-color\" content=\"#176b55\">",
+      "caseSensitive": false,
+      "aliases": [
+        "browser theme color"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t011",
+      "term": "noindex",
+      "display": "content=\"noindex\"",
+      "level": "advanced",
+      "definitionEn": "A robots directive asking compliant search crawlers not to include a page in results.",
+      "definitionAr": "توجيه لبرامج البحث المتوافقة إنها ما تضيفش الصفحة للنتائج.",
+      "example": "<meta name=\"robots\" content=\"noindex\">",
+      "caseSensitive": false,
+      "aliases": [
+        "no-index directive"
+      ]
+    },
+    {
+      "id": "html-seo-and-meta-t012",
+      "term": "rel canonical",
+      "display": "rel=\"canonical\"",
+      "level": "advanced",
+      "definitionEn": "A link relationship marking the preferred address for a document's content.",
+      "definitionAr": "علاقة في الرابط بتحدد العنوان المفضل لمحتوى المستند.",
+      "example": "<link rel=\"canonical\" href=\"https://example.org/article\">",
+      "caseSensitive": false,
+      "aliases": [
+        "canonical relationship"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-seo-and-meta-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Document title and description",
+      "code": "<head><title>Harbor walking guide</title></head>",
+      "question": "What is the purpose of the title element?",
+      "options": [
+        "It names the document in browser interfaces",
+        "It creates the page's main visible heading",
+        "It supplies the image used for social sharing",
+        "It tells crawlers to exclude the document"
+      ],
+      "correctOption": 0,
+      "explanation": "title names the document and can be used in browser tabs and search-result links.",
+      "explanationAr": "عنصر title بيسمي المستند وممكن يظهر في لسان المتصفح ونتيجة البحث."
+    },
+    {
+      "id": "html-seo-and-meta-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Document title and description",
+      "code": "<meta name=\"description\" content=\"A short guide to harbor walks\">",
+      "question": "What does this metadata value summarize?",
+      "options": [
+        "The page's content for a possible search-result snippet",
+        "The image file used as the browser favicon",
+        "The language used by every page on the website",
+        "The canonical destination of every hyperlink"
+      ],
+      "correctOption": 1,
+      "explanation": "A meta description summarizes a page and may be used as a search-result snippet; search engines choose what to display.",
+      "explanationAr": "وصف meta بيلخص الصفحة وممكن يُستخدم كمقتطف، ومحرك البحث هو اللي بيختار العرض."
+    },
+    {
+      "id": "html-seo-and-meta-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Document title and description",
+      "code": "<head><title>Harbor walks</title></head><body><h1>Three routes</h1><p>Choose a path.</p></body>",
+      "options": [
+        "Harbor walks\nThree routes\nChoose a path.",
+        "Three routes\nChoose a path.",
+        "Harbor walks\nChoose a path.",
+        "No visible text"
+      ],
+      "correctOption": 1,
+      "explanation": "The document title is metadata; the heading and paragraph are visible body content.",
+      "explanationAr": "عنوان المستند بيانات وصفية، لكن العنوان والفقرة في body محتوى ظاهر.",
+      "expectedOutput": "Three routes\nChoose a path."
+    },
+    {
+      "id": "html-seo-and-meta-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Document title and description",
+      "prompt": "Give the document a concise name for its browser tab.",
+      "code": "<head><____>Trail journal</____></head>",
+      "blanks": [
+        [
+          "title"
+        ],
+        [
+          "title"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The title element provides the document name rather than body text."
+    },
+    {
+      "id": "html-seo-and-meta-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Language and favicon",
+      "code": "<html lang=\"fr\"><body><p>Bonjour</p></body></html>",
+      "question": "What does lang=\"fr\" communicate here?",
+      "options": [
+        "The URL path to a French translation",
+        "The text direction for every element",
+        "The preferred color for browser controls",
+        "The document's primary language"
+      ],
+      "correctOption": 3,
+      "explanation": "lang identifies the language used by the element's text and supports language-aware tools.",
+      "explanationAr": "lang بتحدد لغة النص وبتساعد الأدوات اللي بتتعامل مع اللغة."
+    },
+    {
+      "id": "html-seo-and-meta-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Language and favicon",
+      "prompt": "Declare the main document language as Spanish.",
+      "code": "<html ____=\"es\"><body><p>Hola</p></body></html>",
+      "blanks": [
+        [
+          "lang"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Hola",
+      "explanation": "The lang attribute declares the language of the document or a section."
+    },
+    {
+      "id": "html-seo-and-meta-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Language and favicon",
+      "code": "<link rel=\"icon\" href=\"/assets/mark.png\">",
+      "question": "What resource is this link intended to identify?",
+      "options": [
+        "A canonical version of the current article",
+        "A social-sharing description for search engines",
+        "An audio track for captions",
+        "A site icon for browser interfaces"
+      ],
+      "correctOption": 0,
+      "explanation": "rel=\"icon\" links an icon resource that browsers may use in their interface.",
+      "explanationAr": "rel=\"icon\" بيربط أيقونة ممكن المتصفح يستخدمها في واجهته."
+    },
+    {
+      "id": "html-seo-and-meta-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Language and favicon",
+      "code": "<body><h1>Port map</h1><p>Updated today.</p></body>",
+      "expectedOutput": "Port map\nUpdated today.",
+      "explanation": "The heading and paragraph are visible content in their document order.",
+      "explanationAr": "العنوان والفقرة محتوى ظاهر بترتيب المستند."
+    },
+    {
+      "id": "html-seo-and-meta-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Document title and description",
+      "prompt": "Provide a short summary that may be used as a search-result snippet.",
+      "code": "<meta name=\"____\" content=\"Walking routes along the harbor\">",
+      "blanks": [
+        [
+          "description"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The name value identifies this metadata as the page description."
+    },
+    {
+      "id": "html-seo-and-meta-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Open Graph metadata",
+      "code": "<meta property=\"og:title\" content=\"Harbor at sunrise\">",
+      "question": "How may a social platform use this property?",
+      "options": [
+        "As the file path for the page's stylesheet",
+        "As a command to prevent indexing",
+        "As the canonical URL of the document",
+        "As the shared-preview title"
+      ],
+      "correctOption": 3,
+      "explanation": "og:title supplies a title value for social-sharing metadata previews.",
+      "explanationAr": "og:title بتوفر عنوانًا لمعاينة الصفحة عند مشاركتها."
+    },
+    {
+      "id": "html-seo-and-meta-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Open Graph metadata",
+      "prompt": "Declare a preview image URL using the Open Graph image property.",
+      "code": "<meta property=\"____\" content=\"https://example.org/coast.jpg\">",
+      "blanks": [
+        [
+          "og:image"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "og:image identifies an image that social-sharing tools may use in a preview."
+    },
+    {
+      "id": "html-seo-and-meta-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Open Graph metadata",
+      "code": "<head><meta property=\"og:title\" content=\"Market day\"></head><body><h1>Saturday stalls</h1><p>Open at eight.</p></body>",
+      "options": [
+        "Market day\nSaturday stalls\nOpen at eight.",
+        "Saturday stalls\nOpen at eight.",
+        "Market day\nOpen at eight.",
+        "No visible text"
+      ],
+      "correctOption": 1,
+      "explanation": "Open Graph metadata is not body text; the heading and paragraph are visible.",
+      "explanationAr": "بيانات Open Graph مش نص body ظاهر، لكن العنوان والفقرة ظاهرين.",
+      "expectedOutput": "Saturday stalls\nOpen at eight."
+    },
+    {
+      "id": "html-seo-and-meta-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Canonical URL",
+      "code": "<link rel=\"canonical\" href=\"https://example.org/guide\">",
+      "question": "What does this canonical link identify?",
+      "options": [
+        "Preferred URL among similar pages",
+        "The location of a site's icon",
+        "The text shown inside the main heading",
+        "A restriction that blocks every crawler"
+      ],
+      "correctOption": 0,
+      "explanation": "A canonical link indicates the preferred URL for substantially similar content.",
+      "explanationAr": "رابط canonical بيحدد العنوان المفضل للمحتوى المتشابه."
+    },
+    {
+      "id": "html-seo-and-meta-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Canonical URL",
+      "prompt": "Declare the preferred URL for this article.",
+      "code": "<link rel=\"____\" href=\"https://example.org/news/story\">",
+      "blanks": [
+        [
+          "canonical"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "rel=\"canonical\" identifies the preferred address for the page's content."
+    },
+    {
+      "id": "html-seo-and-meta-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Open Graph metadata",
+      "code": "<head><meta property=\"og:image\" content=\"https://example.org/market.jpg\"></head><body><p>Visit the market.</p></body>",
+      "expectedOutput": "Visit the market.",
+      "explanation": "The metadata image URL is not visible body text; the paragraph is displayed.",
+      "explanationAr": "عنوان صورة metadata مش نص ظاهر في body، لكن الفقرة بتظهر."
+    },
+    {
+      "id": "html-seo-and-meta-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Robots directives",
+      "prompt": "Ask compliant search crawlers not to include this page in their index.",
+      "code": "<meta name=\"robots\" content=\"____\">",
+      "blanks": [
+        [
+          "noindex"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "noindex is a directive for compliant crawlers not to include a page in search results."
+    },
+    {
+      "id": "html-seo-and-meta-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Robots directives",
+      "code": "<meta name=\"robots\" content=\"noindex,follow\">",
+      "question": "What does the noindex directive request from a compliant search crawler?",
+      "options": [
+        "Do not include this page in search results",
+        "Do not follow any link anywhere on the site",
+        "Delete the page from the web server",
+        "Block every visitor from loading the page"
+      ],
+      "correctOption": 0,
+      "explanation": "noindex requests that a compliant crawler not include the page in its search index; it does not remove the page from the server.",
+      "explanationAr": "noindex بيطلب من crawler متوافق ما يضيفش الصفحة لفهرس البحث، لكنه مش بيمسحها من الخادم."
+    },
+    {
+      "id": "html-seo-and-meta-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Canonical URL",
+      "prompt": "Point this duplicate page to its preferred HTTPS address.",
+      "code": "<link rel=\"canonical\" href=\"____\">",
+      "blanks": [
+        [
+          "https://example.org/catalog/item"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The canonical href contains the preferred page URL."
+    },
+    {
+      "id": "html-seo-and-meta-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Open Graph metadata",
+      "code": "<meta property=\"og:title\" content=\"Autumn menu\"><meta property=\"og:image\" content=\"https://example.org/menu.jpg\">",
+      "question": "What do these two properties provide together?",
+      "options": [
+        "A complete guarantee of ranking position in search results",
+        "The page's canonical address and crawler permissions",
+        "The visible heading and image caption in the body",
+        "A shared-page preview title and image"
+      ],
+      "correctOption": 3,
+      "explanation": "og:title and og:image describe a title and image for social-sharing previews; they do not guarantee how a platform renders them.",
+      "explanationAr": "og:title وog:image بيوصفوا عنوان وصورة لمعاينة المشاركة، لكن المنصة بتقرر العرض."
+    },
+    {
+      "id": "html-seo-and-meta-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Robots directives",
+      "prompt": "Set the robots metadata to request indexing be disallowed for this page.",
+      "code": "<meta name=\"robots\" content=\"____,follow\">",
+      "blanks": [
+        [
+          "noindex"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "noindex requests exclusion from search results, while follow is a separate crawler directive."
+    },
+    {
+      "id": "html-seo-and-meta-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Document title and description",
+      "question": "How do the document title and meta description contribute differently to search presentation?",
+      "keyPoints": [
+        "title names the document and often supplies a result link",
+        "description summarizes page content",
+        "Search engines may rewrite either presentation",
+        "Keep both accurate and page-specific"
+      ],
+      "modelAnswer": "The title names the document and often informs the clickable title in a search result, while the description summarizes its content. Search engines may choose different text, so both should be accurate and specific without assuming they will be displayed verbatim."
+    },
+    {
+      "id": "html-seo-and-meta-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Open Graph metadata",
+      "question": "What information do Open Graph title and image metadata provide when sharing a page?",
+      "keyPoints": [
+        "og:title supplies a shared-page title",
+        "og:image identifies a preview image",
+        "Platforms may apply their own preview rules",
+        "Metadata does not guarantee a particular display"
+      ],
+      "modelAnswer": "og:title and og:image provide a suggested title and image for a shared-page preview. Platforms can apply their own rules, so the metadata does not guarantee an exact presentation."
+    },
+    {
+      "id": "html-seo-and-meta-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Canonical URL",
+      "question": "When can a canonical URL help, and what does it not do?",
+      "keyPoints": [
+        "It identifies a preferred URL among similar pages",
+        "It can help consolidate duplicate or variant URLs",
+        "It is a hint interpreted by search engines",
+        "It does not redirect visitors by itself"
+      ],
+      "modelAnswer": "A canonical link identifies the URL preferred for substantially similar content, which can help search engines understand duplicates or variants. It is a signal rather than a redirect, and crawlers may interpret it alongside other evidence."
+    },
+    {
+      "id": "html-seo-and-meta-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Language and favicon",
+      "question": "Why declare the document language, and what does a favicon do?",
+      "keyPoints": [
+        "lang identifies the language of text",
+        "Language metadata helps pronunciation and language-aware tools",
+        "A favicon is a small site icon for browser interfaces",
+        "They serve distinct purposes"
+      ],
+      "modelAnswer": "The lang attribute helps browsers and assistive technologies interpret the page's text with the right language rules and pronunciation. A favicon is a small icon that browsers may show in tabs and other interface locations."
+    }
+  ]
+}
