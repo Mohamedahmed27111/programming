@@ -1,5 +1,6 @@
 import { getFilteredItems, loadDataset, TOPIC_COLORS } from './data.js';
 import { bindTerms, renderTerms } from './terms.js';
+import { bindPractice, renderPractice } from './practice.js';
 
 const LEVELS = ['beginner', 'intermediate', 'advanced', 'interview'];
 const state = {
@@ -85,7 +86,11 @@ function render() {
             <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search-input" type="search" value="${escapeHtml(state.filters.search)}" placeholder="Search terms or questions" aria-label="Search terms or questions"></label>
           </div>
         </section>
-        <div id="screen-content">${state.screen === 'terms' ? renderTerms(state, terms) : renderPlaceholder(terms.length, questions.length)}</div>
+        <div id="screen-content">${state.screen === 'terms'
+          ? renderTerms(state, terms)
+          : state.screen === 'practice'
+            ? renderPractice(state, questions)
+            : renderPlaceholder(terms.length, questions.length)}</div>
       </main>
       <nav class="mobile-nav" aria-label="Main navigation">
         ${navButton('terms', 'Terms', '✳')}
@@ -93,7 +98,7 @@ function render() {
         ${navButton('progress', 'Progress', '▥')}
       </nav>
     </div>`;
-  bindShellEvents(terms);
+  bindShellEvents(terms, questions);
 }
 
 function navButton(screen, label, icon) {
@@ -110,7 +115,7 @@ function renderPlaceholder(termCount, questionCount) {
   return `<section class="welcome-grid"><div class="welcome-card tilt-left"><p class="eyebrow">${state.screen.toUpperCase()} / READY</p><h1>${title}</h1><p>${copy}</p><span class="count-tag">${tag}</span></div><div class="welcome-aside tilt-right"><span class="sticker" aria-hidden="true">✦</span><p class="eyebrow">ACTIVE FILTERS</p><p>${escapeHtml([...state.filters.topicNames].join(', ') || 'Every topic')}</p><p>${escapeHtml([...state.filters.levels].map(titleCase).join(', ') || 'Every level')}</p></div></section>`;
 }
 
-function bindShellEvents(terms) {
+function bindShellEvents(terms, questions) {
   app.querySelectorAll('[data-screen]').forEach(button => button.addEventListener('click', () => {
     state.screen = button.dataset.screen;
     render();
@@ -145,6 +150,7 @@ function bindShellEvents(terms) {
     search.setSelectionRange(selectionStart, selectionStart);
   });
   if (state.screen === 'terms') bindTerms(app, state, terms, render);
+  if (state.screen === 'practice') bindPractice(app, state, questions, render);
 }
 
 function titleCase(value) {

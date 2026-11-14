@@ -1,4 +1,5 @@
-import { normalizeText } from './data.js';
+import { normalizeText, TOPIC_COLORS } from './data.js';
+import { escapeHtml, highlightCode, shuffle } from './ui.js';
 
 const SESSION_SIZE = 10;
 
@@ -110,12 +111,12 @@ function renderFlashcard(ts, terms) {
     <p class="session-progress">CARD ${ts.index + 1} <span>/</span> ${terms.length} <span class="progress-spacer"></span><span>${ts.known.size} known · ${ts.learning.size} learning</span></p>
     <article class="flashcard ${ts.flipped ? 'is-flipped' : ''}" tabindex="0" role="button" aria-label="${ts.flipped ? 'Flashcard back. Activate to see the term' : 'Flashcard front. Activate to see definitions'}">
       <div class="flashcard-face flashcard-front">
-        <div class="card-topline"><span class="topic-tag">${escapeHtml(term.topic)}</span><button class="copy-button" type="button" data-action="copy" aria-label="Copy term">Copy term</button></div>
+        <div class="card-topline">${topicTag(term.topic)}<button class="copy-button" type="button" data-action="copy" aria-label="Copy term">Copy term</button></div>
         <span class="flash-term">${escapeHtml(term.display || term.term)}</span>
         <span class="card-hint">Click, Enter, or Space to flip</span>
       </div>
       <div class="flashcard-face flashcard-back">
-        <div class="card-topline"><span class="topic-tag">${escapeHtml(term.topic)}</span><button class="copy-button" type="button" data-action="copy" aria-label="Copy term">Copy term</button></div>
+        <div class="card-topline">${topicTag(term.topic)}<button class="copy-button" type="button" data-action="copy" aria-label="Copy term">Copy term</button></div>
         <div class="definition-pair"><p>${escapeHtml(term.definitionEn)}</p><p class="definition-ar" dir="rtl">${escapeHtml(term.definitionAr)}</p></div>
         ${term.example ? `<pre class="code-block"><code>${highlightCode(term.example)}</code></pre>` : ''}
         <span class="card-hint">Click the card to return to the term</span>
@@ -129,7 +130,7 @@ function renderChoose(ts) {
   const question = ts.session[ts.index];
   const definitionToTerm = question.direction === 'definition';
   return `<div class="quiz-card tilt-left">
-    <div class="quiz-topline"><span class="topic-tag">${escapeHtml(question.term.topic)}</span><span>${ts.index + 1} / ${ts.session.length}</span></div>
+    <div class="quiz-topline">${topicTag(question.term.topic)}<span>${ts.index + 1} / ${ts.session.length}</span></div>
     <p class="eyebrow">${definitionToTerm ? 'DEFINITION → TERM' : 'TERM → DEFINITION'}</p>
     <h2 class="${definitionToTerm ? 'definition-ar' : ''}" ${definitionToTerm ? 'dir="rtl"' : ''}>${escapeHtml(definitionToTerm ? question.term.definitionEn : question.term.display || question.term.term)}</h2>
     <div class="answer-options">${question.options.map((option, index) => {
@@ -151,7 +152,7 @@ function renderSpelling(ts) {
   const definition = arabicPrompt ? item.term.definitionAr : item.term.definitionEn;
   const accepted = [item.term.term, ...(item.term.aliases || [])];
   return `<div class="quiz-card spelling-card tilt-right">
-    <div class="quiz-topline"><span class="topic-tag">${escapeHtml(item.term.topic)}</span><span>${ts.index + 1} / ${ts.session.length}</span></div>
+    <div class="quiz-topline">${topicTag(item.term.topic)}<span>${ts.index + 1} / ${ts.session.length}</span></div>
     <p class="eyebrow">${arabicPrompt ? 'TYPE THE ENGLISH TERM / ARABIC CLUE' : 'SPELL IN ENGLISH'}</p>
     <h2 class="spelling-definition ${arabicPrompt ? 'definition-ar' : ''}" ${arabicPrompt ? 'dir="rtl"' : ''}>${escapeHtml(maskTerm(definition, accepted))}</h2>
     <label class="sr-only" for="term-answer">Type the term</label>
@@ -211,15 +212,6 @@ function uniqueTerms(terms) {
     found.add(key);
     return true;
   });
-}
-
-function shuffle(items) {
-  const shuffled = [...items];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
-  }
-  return shuffled;
 }
 
 function checkChoice(ts) {
@@ -353,19 +345,6 @@ function modeButton(active, mode, label) {
   return `<button class="mode-button ${active === mode ? 'is-active' : ''}" data-term-mode="${mode}" aria-pressed="${active === mode}">${label}</button>`;
 }
 
-function highlightCode(value) {
-  const escaped = escapeHtml(value);
-  const tokens = /(\/\/.*|\/\*[\s\S]*?\*\/|'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|\b(?:const|let|var|function|return|if|else|new|class|async|await|true|false|null|undefined)\b|\b\d+(?:\.\d+)?\b)/g;
-  return escaped.replace(tokens, token => {
-    const kind = token.startsWith('//') || token.startsWith('/*') ? 'comment'
-      : /^['"]/.test(token) ? 'string'
-        : /^\d/.test(token) ? 'number' : 'keyword';
-    return `<span class="token-${kind}">${token}</span>`;
-  });
-}
-
-function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, char => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  })[char]);
+function topicTag(topic) {
+  return `<span class="topic-tag" style="--topic-color:${TOPIC_COLORS.get(topic) || '#ffd166'}">${escapeHtml(topic)}</span>`;
 }
