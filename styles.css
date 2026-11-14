@@ -55,9 +55,15 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .level-row { align-items: center; }
 .level-row .filter-label { padding-top: 0; }
 .search-wrap { min-width: 190px; height: 40px; display: flex; align-items: center; gap: 8px; margin-left: auto; padding: 0 10px; border: 2px solid var(--ink); border-radius: 9px; background: #fff; }
+.search-wrap:focus-within { outline: 3px solid #185adb; outline-offset: 3px; }
 .search-wrap span { font-size: 21px; }
 .search-wrap input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 12px; }
 .search-wrap input:focus-visible { outline: none; }
+.keyboard-help { margin-top: 18px; padding: 8px 13px; border: 2px solid var(--ink); border-radius: 9px; background: #fff; }
+.keyboard-help summary { min-height: 36px; display: flex; align-items: center; cursor: pointer; font-size: 13px; font-weight: 700; }
+.keyboard-shortcuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 8px 18px; padding: 5px 0 8px; }
+.keyboard-shortcuts p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.keyboard-shortcuts strong { color: var(--ink); }
 #screen-content { margin-top: 40px; }
 .welcome-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(230px, .7fr); gap: 28px; align-items: stretch; }
 .welcome-card, .welcome-aside { position: relative; min-height: 320px; padding: clamp(24px, 4vw, 54px); border: var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
@@ -267,6 +273,9 @@ kbd { padding: 2px 5px; border: 1px solid currentColor; border-radius: 4px; back
   .chip-list { gap: 7px; }
   .chip { min-height: 40px; }
   .search-wrap { width: 100%; margin-top: 12px; }
+  .keyboard-help { margin-top: 15px; }
+  .keyboard-help summary { min-height: 44px; }
+  .keyboard-shortcuts { grid-template-columns: 1fr; }
   #screen-content { margin-top: 27px; }
   .welcome-card { min-height: 300px; padding: 28px 23px; }
   .welcome-card h1 { font-size: clamp(52px, 16vw, 78px); }

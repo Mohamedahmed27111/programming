@@ -90,6 +90,13 @@ function render() {
             <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search-input" type="search" value="${escapeHtml(state.filters.search)}" placeholder="Search terms or questions" aria-label="Search terms or questions"></label>
           </div>
         </section>
+        <details class="keyboard-help">
+          <summary>Keyboard shortcuts</summary>
+          <div class="keyboard-shortcuts">
+            <p><strong>Terms:</strong> ←/→ next card · Space/Enter flip · K known · L learning · 1–4 choose · Enter check/next</p>
+            <p><strong>Practice:</strong> 1–4 choose · Enter check/continue outside text fields · Tab inserts two spaces in the code editor</p>
+          </div>
+        </details>
         <div id="screen-content">${state.screen === 'terms'
           ? renderTerms(state, terms)
           : state.screen === 'practice'
