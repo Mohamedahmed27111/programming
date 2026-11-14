@@ -4,7 +4,14 @@
     "subject": "javascript",
     "topic": "Arrays",
     "order": 4,
-    "sourceSections": ["Arrays", "Access Array Data", "push()", "pop()", "shift()", "unshift()"]
+    "sourceSections": [
+      "Arrays",
+      "Access Array Data",
+      "push()",
+      "pop()",
+      "shift()",
+      "unshift()"
+    ]
   },
   "terms": [
     {
@@ -38,12 +45,12 @@
       "code": "const fruits = ['apple', 'banana'];\nfruits.push('orange');",
       "question": "What does fruits.push('orange') do?",
       "options": [
+        "Removes the last item from the array",
         "Adds 'orange' to the end of the array",
         "Adds 'orange' to the start of the array",
-        "Removes the last item from the array",
         "Replaces the first item with 'orange'"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "push() adds items to the END of the array and changes the original array.",
       "explanationAr": "push() بتضيف العنصر في آخر الـ array وبتغيّر الـ array الأصلي."
     },
@@ -55,8 +62,13 @@
       "sourceSection": "pop()",
       "code": "const nums = [10, 20, 30];\nnums.pop();\nconsole.log(nums);",
       "expectedOutput": "[ 10, 20 ]",
-      "options": ["[ 10, 20 ]", "[ 20, 30 ]", "30", "[ 10, 20, 30 ]"],
-      "correctOption": 0,
+      "options": [
+        "[ 10, 20, 30 ]",
+        "[ 20, 30 ]",
+        "[ 10, 20 ]",
+        "30"
+      ],
+      "correctOption": 2,
       "explanation": "pop() removes the last item (30) from the original array, then the array is printed.",
       "explanationAr": "pop() بتشيل آخر عنصر (30) من الـ array الأصلي، وبعدين بتتطبع."
     },
@@ -78,7 +90,11 @@
       "sourceSection": "push()",
       "prompt": "Fill in the blank so the code prints [ 1, 2, 3 ].",
       "code": "const stack = [1, 2];\nstack.____(3);\nconsole.log(stack);",
-      "blanks": [["push"]],
+      "blanks": [
+        [
+          "push"
+        ]
+      ],
       "caseSensitive": true,
       "expectedOutput": "[ 1, 2, 3 ]",
       "explanation": "push(3) appends 3 to the end of the array."
@@ -92,9 +108,30 @@
       "functionName": "lastItem",
       "starter": "function lastItem(arr) {\n  // your code here\n}",
       "tests": [
-        { "args": [[1, 2, 3]], "expect": 3 },
-        { "args": [[]], "expect": null },
-        { "args": [["a"]], "expect": "a" }
+        {
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "expect": 3
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            [
+              "a"
+            ]
+          ],
+          "expect": "a"
+        }
       ],
       "solution": "function lastItem(arr) {\n  return arr.length ? arr[arr.length - 1] : null;\n}",
       "explanation": "The last index is arr.length - 1. Check for an empty array first."

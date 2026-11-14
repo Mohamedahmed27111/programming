@@ -159,12 +159,12 @@
       "code": "const answer = 7 + 5;",
       "question": "Which arithmetic operation is used to calculate answer?",
       "options": [
-        "Addition",
         "Subtraction",
         "Multiplication",
+        "Addition",
         "Division"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The plus operator adds the numeric operands."
     },
     {
@@ -175,12 +175,12 @@
       "sourceSection": "Basic Math",
       "code": "console.log(18 - 6);",
       "options": [
+        "108",
         "12",
-        "24",
         "3",
-        "108"
+        "24"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Subtracting 6 from 18 gives 12.",
       "expectedOutput": "12"
     },
@@ -218,12 +218,12 @@
       "sourceSection": "Increment/Decrement",
       "code": "let lives = 3;\nlives++;\nconsole.log(lives);",
       "options": [
-        "4",
-        "3",
         "2",
-        "6"
+        "3",
+        "6",
+        "4"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The increment operator increases lives by one.",
       "expectedOutput": "4"
     },
@@ -332,12 +332,12 @@
       "sourceSection": "Augmented Math",
       "code": "let points = 10;\npoints -= 3;\nconsole.log(points);",
       "options": [
+        "10",
         "7",
-        "13",
         "3",
-        "10"
+        "13"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Subtraction-assignment subtracts three from the current value.",
       "expectedOutput": "7"
     },
@@ -431,12 +431,12 @@
       "code": "const fraction = Math.random();",
       "question": "Which range describes the value returned by Math.random()?",
       "options": [
-        "At least 0 and less than 1",
-        "Greater than 0 and at most 1",
+        "Always exactly 0.5",
         "Any integer from 0 through 10",
-        "Always exactly 0.5"
+        "At least 0 and less than 1",
+        "Greater than 0 and at most 1"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Math.random returns a pseudorandom Number in the half-open interval [0, 1)."
     },
     {
@@ -482,9 +482,9 @@
       "question": "What value does before receive?",
       "options": [
         "5, because postfix increment evaluates to the old value",
-        "6, because every increment evaluates to the new value",
+        "undefined, because n is reassigned",
         "7, because both increments happen first",
-        "undefined, because n is reassigned"
+        "6, because every increment evaluates to the new value"
       ],
       "correctOption": 0,
       "explanation": "Postfix increment yields the prior value before updating the binding."
@@ -554,12 +554,12 @@
       "sourceSection": "Decimal Numbers",
       "code": "console.log(0.1 + 0.2 === 0.3);",
       "options": [
-        "false",
-        "true",
+        "A TypeError",
         "0.3",
-        "A TypeError"
+        "true",
+        "false"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Binary floating-point cannot represent these decimal fractions exactly, so the computed sum is not exactly 0.3.",
       "expectedOutput": "false"
     },

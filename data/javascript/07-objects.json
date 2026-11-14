@@ -163,8 +163,8 @@
       "options": [
         "book.title",
         "book->title",
-        "book(title)",
-        "title.book"
+        "title.book",
+        "book(title)"
       ],
       "correctOption": 0,
       "explanation": "Dot notation reads a property with a valid identifier name."
@@ -177,12 +177,12 @@
       "sourceSection": "Dot/Bracket Notation",
       "code": "const user = { name: 'Jo' };\nconsole.log(user.name);",
       "options": [
-        "Jo",
-        "name",
         "undefined",
-        "user"
+        "user",
+        "Jo",
+        "name"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The dot expression retrieves the value associated with name.",
       "expectedOutput": "Jo"
     },
@@ -220,12 +220,12 @@
       "sourceSection": "Variables as keys",
       "code": "const key = 'level';\nconst data = { [key]: 3 };\nconsole.log(data.level);",
       "options": [
-        "3",
         "level",
+        "3",
         "undefined",
         "key"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The brackets evaluate key and use its value as the property name.",
       "expectedOutput": "3"
     },
@@ -237,12 +237,12 @@
       "code": "const point = { x: 2, y: 7 };",
       "question": "What does x: 2 describe?",
       "options": [
-        "A property named x with value 2",
-        "A variable declaration named x",
         "A function call named x",
-        "An array index of 2"
+        "A variable declaration named x",
+        "An array index of 2",
+        "A property named x with value 2"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Object literal entries associate property names with values."
     },
     {
@@ -342,12 +342,12 @@
       "sourceSection": "Nested Objects",
       "code": "const user = { address: { city: 'Lima' } };\nconsole.log(user.address.city);",
       "options": [
-        "Lima",
         "address",
         "city",
+        "Lima",
         "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Follow each property access from the outer value to the nested value.",
       "expectedOutput": "Lima"
     },
@@ -439,12 +439,12 @@
       "code": "Object.hasOwn(settings, 'theme');",
       "question": "What does this expression check?",
       "options": [
-        "Whether settings directly has a theme property",
+        "Whether settings is an array",
         "Whether theme is truthy",
         "Whether settings inherits from theme",
-        "Whether settings is an array"
+        "Whether settings directly has a theme property"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Object.hasOwn checks for an own property even when its value is falsy."
     },
     {
@@ -592,12 +592,12 @@
       "sourceSection": "Nested Arrays",
       "code": "const data = { rows: [[2, 4], [6, 8]] };\nconsole.log(data.rows[1][0]);",
       "options": [
-        "6",
         "4",
-        "8",
-        "2"
+        "6",
+        "2",
+        "8"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Select the second row, then its first element.",
       "expectedOutput": "6"
     },

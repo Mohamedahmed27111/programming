@@ -152,12 +152,12 @@
       "code": "const [first, second] = ['red', 'blue'];",
       "question": "Which value is assigned to first?",
       "options": [
-        "'red'",
-        "'blue'",
         "The whole array",
+        "'blue'",
+        "'red'",
         "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Array patterns match values by position, starting at index zero."
     },
     {
@@ -211,12 +211,12 @@
       "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
       "code": "const [a, , c] = [2, 4, 6];\nconsole.log(a, c);",
       "options": [
-        "2 6",
         "2 4",
-        "4 6",
-        "2 undefined"
+        "2 6",
+        "2 undefined",
+        "4 6"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The empty slot skips the second value so c receives the third.",
       "expectedOutput": "2 6"
     },
@@ -228,12 +228,12 @@
       "code": "const text = `Line one\nLine two`;",
       "question": "What can a template literal contain directly?",
       "options": [
-        "A line break as part of its value",
+        "No quotation marks",
         "Only a single line of text",
         "Only numeric expressions",
-        "No quotation marks"
+        "A line break as part of its value"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Backtick-delimited template literals can span multiple lines."
     },
     {
@@ -330,8 +330,8 @@
       "code": "const { id: userId } = { id: 7 };\nconsole.log(userId);",
       "options": [
         "7",
-        "id",
         "userId",
+        "id",
         "undefined"
       ],
       "correctOption": 0,
@@ -436,12 +436,12 @@
       "code": "const { color = 'gray' } = { color: null };",
       "question": "What value does color receive?",
       "options": [
+        "An empty string",
         "null, because a default applies only to undefined",
-        "'gray', because null is missing",
-        "undefined, because the key is absent",
-        "An empty string"
+        "undefined, because the key is absent and the default replaces every value that is not a string",
+        "'gray', because null is missing"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A destructuring default is used for undefined, not for null."
     },
     {
@@ -494,12 +494,12 @@
       "code": "const [head = 'empty'] = [undefined];",
       "question": "Which value is assigned to head?",
       "options": [
-        "'empty', because the extracted value is undefined",
-        "undefined, because an array element exists",
         "null, because defaults convert missing values",
-        "An empty array"
+        "An empty array",
+        "undefined, because an array element exists",
+        "'empty', because the extracted value is undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Destructuring defaults apply when the extracted value is undefined."
     },
     {
@@ -576,12 +576,12 @@
       "sourceSection": "Template Literals",
       "code": "const value = 2;\nconsole.log(`sum=${value + 3}`);",
       "options": [
-        "sum=5",
+        "5",
         "sum=value + 3",
-        "sum=23",
-        "5"
+        "sum=5",
+        "sum=23"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The expression inside the interpolation is evaluated before the text is printed.",
       "expectedOutput": "sum=5"
     },

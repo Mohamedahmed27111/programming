@@ -154,12 +154,12 @@
       "code": "console.log('ready');",
       "question": "What does this statement do when run in Node?",
       "options": [
-        "Writes ready to standard output",
-        "Stores ready in a variable",
         "Pauses the program until input arrives",
-        "Creates a file named ready"
+        "Creates a file named ready",
+        "Writes ready to standard output",
+        "Stores ready in a variable"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Node provides console.log for writing a value to the process output."
     },
     {
@@ -170,12 +170,12 @@
       "sourceSection": "Declare Variables",
       "code": "let total = 4;\nconsole.log(total);",
       "options": [
+        "undefined",
         "4",
         "total",
-        "undefined",
         "null"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The binding is initialized with the number 4.",
       "expectedOutput": "4"
     },
@@ -213,12 +213,12 @@
       "sourceSection": "Comment Your Code",
       "code": "const x = 6;\n// x = 99;\nconsole.log(x);",
       "options": [
-        "6",
-        "99",
+        "A syntax error",
         "undefined",
-        "A syntax error"
+        "99",
+        "6"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The line beginning with // is a comment and is not executed.",
       "expectedOutput": "6"
     },
@@ -232,8 +232,8 @@
       "options": [
         "undefined",
         "null",
-        "0",
-        "An empty string"
+        "An empty string",
+        "0"
       ],
       "correctOption": 0,
       "explanation": "A declared but uninitialized let binding has the value undefined."
@@ -327,12 +327,12 @@
       "sourceSection": "Case Sensitivity",
       "code": "const code = 'A';\nconst Code = 'B';\nconsole.log(code + Code);",
       "options": [
-        "AB",
+        "A syntax error",
         "AA",
-        "BB",
-        "A syntax error"
+        "AB",
+        "BB"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "code and Code are distinct identifiers because JavaScript is case-sensitive.",
       "expectedOutput": "AB"
     },
@@ -420,12 +420,12 @@
       "code": "const limit = 12;\nlimit = 13;",
       "question": "What happens when the second statement runs?",
       "options": [
-        "A TypeError occurs because the binding cannot be reassigned",
         "limit changes to 13 successfully",
-        "limit becomes undefined",
-        "A new block-scoped limit is created"
+        "A TypeError occurs because the binding cannot be reassigned",
+        "A new block-scoped limit is created",
+        "limit becomes undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A const binding must be initialized and cannot be reassigned."
     },
     {
@@ -472,8 +472,8 @@
       "options": [
         "A declared let binding without an initializer starts as undefined",
         "All uninitialized bindings start as null",
-        "The declaration creates a string with no characters",
-        "The comparison assigns undefined to draft"
+        "The comparison assigns undefined to draft",
+        "The declaration creates a string with no characters"
       ],
       "correctOption": 0,
       "explanation": "A let declaration without an initializer gives its binding the value undefined."
@@ -564,12 +564,12 @@
       "sourceSection": "Comment Your Code",
       "code": "const n = 3;\n/* n = 8;\nconsole.log('hidden'); */\nconsole.log(n);",
       "options": [
-        "3",
+        "A syntax error",
         "8",
         "hidden",
-        "A syntax error"
+        "3"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The block comment excludes both enclosed lines from execution.",
       "expectedOutput": "3"
     },

@@ -154,12 +154,12 @@
       "code": "function outer() {\n  const color = 'blue';\n  return function inner() { return color; };\n}",
       "question": "Why can inner read color after outer has returned?",
       "options": [
+        "The value was copied to the global object when the outer function returned, so each call can read it there",
         "The returned function retains access to its lexical environment",
-        "The value was copied to the global object",
-        "All local variables become global after return",
-        "Functions automatically rerun their parent"
+        "Functions automatically rerun their parent",
+        "All local variables become global after return"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A closure retains access to bindings from the surrounding lexical scope."
     },
     {
@@ -171,9 +171,9 @@
       "code": "const factor = 3;\nfunction scale(value) { return value * factor; }\nconsole.log(scale(4));",
       "options": [
         "12",
+        "undefined",
         "7",
-        "4",
-        "undefined"
+        "4"
       ],
       "correctOption": 0,
       "explanation": "The function resolves factor from its outer lexical scope.",
@@ -213,12 +213,12 @@
       "sourceSection": "Factory Functions",
       "code": "function withTax(rate) { return price => price + rate; }\nconst total = withTax(2);\nconsole.log(total(5));",
       "options": [
-        "7",
-        "10",
+        "undefined",
         "5",
-        "undefined"
+        "7",
+        "10"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The returned function retains the rate value from the factory call.",
       "expectedOutput": "7"
     },
@@ -230,12 +230,12 @@
       "code": "const message = 'outside';\nfunction show() { return message; }",
       "question": "Where does show find message?",
       "options": [
-        "In the enclosing lexical scope",
-        "Only on its arguments object",
         "By making a new local copy",
-        "In the return value of console.log"
+        "In the return value of console.log",
+        "Only on its arguments object",
+        "In the enclosing lexical scope"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Name lookup follows lexical nesting from the function outward."
     },
     {
@@ -335,12 +335,12 @@
       "sourceSection": "Closures",
       "code": "function makeReader() {\n  let value = 1;\n  return () => value;\n}\nconst read = makeReader();\nconsole.log(read());",
       "options": [
+        "A ReferenceError",
         "1",
-        "undefined",
         "null",
-        "A ReferenceError"
+        "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The closure retains access to the initialized binding.",
       "expectedOutput": "1"
     },
@@ -428,12 +428,12 @@
       "code": "function makeSecret() {\n  const code = 123;\n  return () => code;\n}",
       "question": "What makes code private from callers?",
       "options": [
-        "The binding is local to makeSecret and is not directly returned",
-        "const encrypts every local value",
         "The function creates a private class field",
-        "The function automatically deletes the binding"
+        "The function automatically deletes the binding",
+        "The binding is local to makeSecret and is not directly returned",
+        "const encrypts every local value"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Callers cannot name a function-local binding directly, though the returned closure can access it."
     },
     {
@@ -487,8 +487,8 @@
       "options": [
         "It persists between calls and increases to 3",
         "It resets to 1 on each call",
-        "It becomes undefined after the first call",
-        "It is copied into the global scope"
+        "It is copied into the global scope",
+        "It becomes undefined after the first call"
       ],
       "correctOption": 0,
       "explanation": "Both invocations access the same retained binding."
@@ -571,12 +571,12 @@
       "sourceSection": "Closures",
       "code": "function create() {\n  let n = 0;\n  return () => ++n;\n}\nconst next = create();\nconsole.log(next(), next());",
       "options": [
-        "1 2",
-        "0 1",
         "1 1",
-        "undefined undefined"
+        "undefined undefined",
+        "0 1",
+        "1 2"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Each call increments the same closed-over binding.",
       "expectedOutput": "1 2"
     },

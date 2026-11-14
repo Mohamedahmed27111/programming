@@ -162,9 +162,9 @@
       "question": "What kind of value is stored in city?",
       "options": [
         "A string containing text",
-        "An array of four separate values",
         "A boolean value",
-        "A function"
+        "A function",
+        "An array of four separate values"
       ],
       "correctOption": 0,
       "explanation": "Text between matching quotes is a string literal."
@@ -177,12 +177,12 @@
       "sourceSection": "Plus / Plus Equals",
       "code": "console.log('ice' + 'berg');",
       "options": [
-        "iceberg",
-        "ice berg",
+        "2",
         "ice+berg",
-        "2"
+        "ice berg",
+        "iceberg"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The plus operator concatenates two strings directly.",
       "expectedOutput": "iceberg"
     },
@@ -220,12 +220,12 @@
       "sourceSection": "Escape Sequences",
       "code": "console.log('A\\nB');",
       "options": [
-        "A\nB",
         "A B",
+        "A\nB",
         "AB",
         "A\\nB"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The escape sequence \\n represents a line feed.",
       "expectedOutput": "A\nB"
     },
@@ -237,12 +237,12 @@
       "code": "const quote = 'It\\'s fine';",
       "question": "Why is the apostrophe escaped?",
       "options": [
-        "So it does not end the single-quoted string early",
+        "To begin a comment",
         "To convert the apostrophe to a number",
-        "To make the string immutable",
-        "To begin a comment"
+        "So it does not end the single-quoted string early",
+        "To make the string immutable"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The backslash lets an apostrophe appear inside a single-quoted literal."
     },
     {
@@ -334,12 +334,12 @@
       "sourceSection": "String Immutability",
       "code": "let word = 'cat';\nword[0] = 'b';\nconsole.log(word);",
       "options": [
-        "cat",
+        "undefined",
         "bat",
         "b",
-        "undefined"
+        "cat"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "String characters cannot be changed by assigning to an indexed position.",
       "expectedOutput": "cat"
     },
@@ -427,12 +427,12 @@
       "code": "const code = '7' + 2;",
       "question": "What kind of result does the plus operator produce here?",
       "options": [
-        "The string '72', because one operand is a string",
-        "The number 9, because plus always adds numerically",
         "The number 72, because the digits are multiplied",
-        "A TypeError because the operand types differ"
+        "The string '72', because one operand is a string",
+        "A TypeError because the operand types differ",
+        "The number 9, because plus always adds numerically"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "When plus has a string operand, the other value is converted to text and concatenated."
     },
     {
@@ -477,12 +477,12 @@
       "code": "let text = 'sun';\ntext = 'r' + text.slice(1);",
       "question": "Why is a new string assigned instead of changing text[0]?",
       "options": [
-        "String values are immutable, so the expression constructs a replacement",
         "The first character is always read-only because text uses let",
         "slice changes the original string in place",
+        "String values are immutable, so the expression constructs a replacement",
         "The plus operator converts the result to an array"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "String operations produce new values; they do not mutate the existing string."
     },
     {
@@ -554,9 +554,9 @@
       "code": "console.log('A😀'.length);",
       "options": [
         "3",
+        "4",
         "2",
-        "1",
-        "4"
+        "1"
       ],
       "correctOption": 0,
       "explanation": "The emoji is represented by a surrogate pair, so it contributes two UTF-16 code units.",

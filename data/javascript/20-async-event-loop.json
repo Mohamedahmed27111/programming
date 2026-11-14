@@ -157,12 +157,12 @@
       "code": "Promise.resolve('done');",
       "question": "What does Promise.resolve('done') create?",
       "options": [
-        "A fulfilled promise with value 'done'",
-        "A timer that prints done",
         "A rejected promise",
-        "A synchronous callback"
+        "A fulfilled promise with value 'done'",
+        "A synchronous callback",
+        "A timer that prints done"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Promise.resolve creates a promise fulfilled with the supplied value."
     },
     {
@@ -173,12 +173,12 @@
       "sourceSection": "Callbacks",
       "code": "console.log('start');\nsetTimeout(() => console.log('later'), 0);\nconsole.log('end');",
       "options": [
-        "start\nend\nlater",
-        "start\\nlater\\nend",
+        "start\\nend",
         "later\\nstart\\nend",
-        "start\\nend"
+        "start\nend\nlater",
+        "start\\nlater\\nend"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The timer callback runs after the current synchronous stack completes.",
       "expectedOutput": "start\nend\nlater"
     },
@@ -233,12 +233,12 @@
       "code": "setTimeout(() => console.log('done'), 0);",
       "question": "When does the callback run relative to the current synchronous statements?",
       "options": [
-        "After the current call stack finishes",
         "Before the next statement",
+        "Only after the program exits",
         "During parsing before execution",
-        "Only after the program exits"
+        "After the current call stack finishes"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "A timer callback is scheduled for a later event-loop task."
     },
     {
@@ -332,8 +332,8 @@
       "options": [
         "sync\npromise\ntimer",
         "sync\\ntimer\\npromise",
-        "promise\\nsync\\ntimer",
-        "timer\\nsync\\npromise"
+        "timer\\nsync\\npromise",
+        "promise\\nsync\\ntimer"
       ],
       "correctOption": 0,
       "explanation": "The current stack finishes, then promise microtasks run before timer tasks.",
@@ -430,12 +430,12 @@
       "code": "Promise.resolve().then(onDone);",
       "question": "When does the promise reaction normally run?",
       "options": [
-        "As a microtask after the current stack",
-        "As a timer task before synchronous statements",
         "Immediately in the middle of the current statement",
+        "As a timer task before synchronous statements",
+        "As a microtask after the current stack",
         "Only when the promise is rejected"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Promise reactions are queued as microtasks and run after the current stack."
     },
     {
@@ -477,12 +477,12 @@
       "code": "console.log('A');\nPromise.resolve().then(() => console.log('B'));\nconsole.log('C');",
       "question": "Why is B logged after C?",
       "options": [
+        "The promise is still pending forever",
         "The promise handler waits until the current call stack completes",
-        "Promise handlers always run after timers",
-        "console.log sorts output alphabetically",
-        "The promise is still pending forever"
+        "Promise handlers always run after timers, because the event loop checks the timer queue before microtasks",
+        "console.log sorts output alphabetically"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Promise reactions run after the current synchronous stack unwinds."
     },
     {
@@ -555,12 +555,12 @@
       "sourceSection": "async/await",
       "code": "async function run() {\n  console.log('A');\n  await Promise.resolve();\n  console.log('B');\n}\nrun();\nconsole.log('C');",
       "options": [
-        "A\nC\nB",
+        "B\\nA\\nC",
         "A\\nB\\nC",
         "C\\nA\\nB",
-        "B\\nA\\nC"
+        "A\nC\nB"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The async function runs until await, yields, then resumes after the current stack.",
       "expectedOutput": "A\nC\nB"
     },

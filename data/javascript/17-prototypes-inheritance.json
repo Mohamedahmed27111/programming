@@ -162,8 +162,8 @@
       "options": [
         "Creates an instance and binds it as this during construction",
         "Calls Item without creating a value",
-        "Copies Item's source text",
-        "Turns name into a global variable"
+        "Turns name into a global variable",
+        "Copies Item's source text into a new object without invoking the constructor or creating an instance"
       ],
       "correctOption": 0,
       "explanation": "new creates a fresh instance, invokes the constructor with it as this, and returns it."
@@ -176,12 +176,12 @@
       "sourceSection": "instanceof",
       "code": "function Tool() {}\nconst tool = new Tool();\nconsole.log(tool instanceof Tool);",
       "options": [
+        "undefined",
         "true",
-        "false",
         "Tool",
-        "undefined"
+        "false"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The Tool prototype is in the new instance's prototype chain.",
       "expectedOutput": "true"
     },
@@ -219,12 +219,12 @@
       "sourceSection": "Prototype Chain",
       "code": "const base = { ready: true };\nconst derived = Object.create(base);\nconsole.log(derived.ready);",
       "options": [
-        "true",
-        "false",
+        "base",
         "undefined",
-        "base"
+        "true",
+        "false"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The property is found on the derived value's prototype.",
       "expectedOutput": "true"
     },
@@ -236,12 +236,12 @@
       "code": "Object.getPrototypeOf(child);",
       "question": "What does the prototype chain allow during property access?",
       "options": [
-        "Lookup can continue on linked prototype objects",
+        "Methods are executed automatically",
         "Every property is copied into the child",
         "The child becomes a primitive",
-        "Methods are executed automatically"
+        "Lookup can continue on linked prototype objects"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "A missing own property can be found by following the prototype links."
     },
     {
@@ -349,9 +349,9 @@
       "code": "class Base { value() { return 2; } }\nclass More extends Base { value() { return super.value() + 1; } }\nconsole.log(new More().value());",
       "options": [
         "3",
-        "2",
+        "undefined",
         "1",
-        "undefined"
+        "2"
       ],
       "correctOption": 0,
       "explanation": "super.value invokes the parent implementation and the override adds one.",
@@ -445,12 +445,12 @@
       "code": "Object.hasOwn(child, 'kind');",
       "question": "What does this check distinguish?",
       "options": [
-        "A direct property from one found through the prototype",
-        "A string from a number",
         "An instance from a constructor call",
-        "A frozen value from a mutable one"
+        "A frozen value from a mutable one",
+        "A direct property from one found through the prototype",
+        "A string from a number"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Object.hasOwn reports only properties defined directly on the value."
     },
     {
@@ -492,12 +492,12 @@
       "code": "const parent = { score: 2 };\nconst child = Object.create(parent);\nchild.score = 7;",
       "question": "What happens to parent.score after the assignment?",
       "options": [
-        "It remains 2 because an own child property is created",
         "It changes to 7 because assignment updates every prototype",
+        "It remains 2 because an own child property is created",
         "It becomes undefined",
         "The assignment is ignored"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Assigning a property on child creates or updates an own property rather than changing the prototype's value."
     },
     {
@@ -575,12 +575,12 @@
       "sourceSection": "instanceof",
       "code": "class Animal {}\nclass Cat extends Animal {}\nconsole.log(new Cat() instanceof Animal);",
       "options": [
-        "true",
+        "undefined",
         "false",
         "Animal",
-        "undefined"
+        "true"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The parent prototype appears in a Cat instance's prototype chain.",
       "expectedOutput": "true"
     },

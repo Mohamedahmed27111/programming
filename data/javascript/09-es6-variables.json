@@ -147,12 +147,12 @@
       "code": "const max = 9;",
       "question": "What does this declaration prevent?",
       "options": [
+        "Using max in a later expression, because a const binding cannot be read after initialization",
         "Reassigning max to a different value",
-        "Reading max later",
-        "Using max in an expression",
-        "Storing a number in max"
+        "Storing a number in max",
+        "Reading max later"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A const binding cannot be reassigned after initialization."
     },
     {
@@ -163,12 +163,12 @@
       "sourceSection": "var vs let",
       "code": "let count = 2;\ncount = 6;\nconsole.log(count);",
       "options": [
-        "6",
         "2",
         "undefined",
-        "A SyntaxError"
+        "A SyntaxError",
+        "6"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "let bindings can be reassigned.",
       "expectedOutput": "6"
     },
@@ -207,9 +207,9 @@
       "code": "const numbers = [2];\nnumbers[0] = 5;\nconsole.log(numbers[0]);",
       "options": [
         "5",
+        "A TypeError",
         "2",
-        "undefined",
-        "A TypeError"
+        "undefined"
       ],
       "correctOption": 0,
       "explanation": "const does not prevent mutation of the referenced array.",
@@ -223,12 +223,12 @@
       "code": "for (let i = 0; i < 1; i++) {}",
       "question": "What scope does the i binding have?",
       "options": [
-        "The enclosing block",
-        "Every function in the program",
         "Only the global object",
+        "Every function in the program",
+        "The enclosing block",
         "No scope"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "A let declaration is block-scoped."
     },
     {
@@ -328,9 +328,9 @@
       "code": "if (true) {\n  var outer = 1;\n  let inner = 2;\n}\nconsole.log(outer);",
       "options": [
         "1",
+        "A ReferenceError",
         "2",
-        "undefined",
-        "A ReferenceError"
+        "undefined"
       ],
       "correctOption": 0,
       "explanation": "var is not limited to the block, so outer remains visible afterward.",
@@ -425,12 +425,12 @@
       "code": "const data = Object.freeze({ count: 1 });",
       "question": "What does Object.freeze(data) directly guarantee?",
       "options": [
-        "Existing own properties cannot be reassigned or removed",
-        "Nested objects are recursively frozen",
+        "The object becomes a primitive",
         "The variable data can never be read",
-        "The object becomes a primitive"
+        "Existing own properties cannot be reassigned or removed",
+        "Nested objects are recursively frozen"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Object.freeze is shallow and restricts changes to the object's own properties."
     },
     {
@@ -487,12 +487,12 @@
       "code": "const user = Object.freeze({ settings: { theme: 'light' } });\nuser.settings.theme = 'dark';",
       "question": "What is the effect of assigning the nested theme in non-strict code?",
       "options": [
-        "The nested value changes because the freeze is shallow",
         "The nested value stays light because freeze is deep",
         "The entire user object becomes null",
-        "The const binding is reassigned"
+        "The const binding is reassigned",
+        "The nested value changes because the freeze is shallow"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Object.freeze does not recursively freeze nested objects."
     },
     {
@@ -576,12 +576,12 @@
       "sourceSection": "var vs let",
       "code": "let result = 'outer';\n{\n  let result = 'inner';\n  console.log(result);\n}\nconsole.log(result);",
       "options": [
+        "inner\\ninner",
         "inner\nouter",
         "outer\\ninner",
-        "inner\\ninner",
         "outer\\nouter"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The inner block-scoped binding shadows, but does not replace, the outer binding.",
       "expectedOutput": "inner\nouter"
     },

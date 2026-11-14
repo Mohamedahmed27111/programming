@@ -158,12 +158,12 @@
       "code": "const lamp = { on: true, read() { return this.on; } };",
       "question": "In lamp.read(), what does this refer to?",
       "options": [
-        "lamp, the method-call receiver",
+        "The boolean true",
         "The read function itself",
-        "The global object in every mode",
-        "The boolean true"
+        "lamp, the method-call receiver",
+        "The global object in every mode"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "A regular function called as a method receives the base object as this."
     },
     {
@@ -175,8 +175,8 @@
       "code": "const user = { name: 'Ivy', say() { return this.name; } };\nconsole.log(user.say());",
       "options": [
         "Ivy",
-        "say",
         "undefined",
+        "say",
         "user"
       ],
       "correctOption": 0,
@@ -217,12 +217,12 @@
       "sourceSection": "Method Calls",
       "code": "const box = { value: 3, read() { return this.value; } };\nconsole.log(box.read());",
       "options": [
+        "box",
         "3",
-        "undefined",
         "read",
-        "box"
+        "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The method reads value from the receiver object.",
       "expectedOutput": "3"
     },
@@ -234,12 +234,12 @@
       "code": "const read = () => this.value;",
       "question": "How does an arrow function determine this?",
       "options": [
-        "It uses the surrounding lexical this value",
-        "It always uses the object to its left",
         "It creates a new this for every call",
-        "It always uses undefined"
+        "It always uses the object to its left",
+        "It always uses undefined",
+        "It uses the surrounding lexical this value"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Arrow functions do not have their own this binding."
     },
     {
@@ -341,12 +341,12 @@
       "sourceSection": "call/apply/bind",
       "code": "function label(prefix) { return prefix + this.name; }\nconsole.log(label.call({ name: 'Jo' }, 'Hi '));",
       "options": [
-        "Hi Jo",
-        "Jo",
         "Hi undefined",
+        "Jo",
+        "Hi Jo",
         "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "call supplies both the this value and the function argument.",
       "expectedOutput": "Hi Jo"
     },
@@ -441,9 +441,9 @@
       "question": "What is this in a plain call to read() in strict mode?",
       "options": [
         "undefined",
-        "The function object",
+        "The most recent object",
         "The global object",
-        "The most recent object"
+        "The function object"
       ],
       "correctOption": 0,
       "explanation": "A strict-mode regular function called without a receiver has undefined as this."
@@ -496,12 +496,12 @@
       "code": "const obj = { value: 2, read: () => this.value };",
       "question": "Why might obj.read() not return 2?",
       "options": [
+        "value cannot be read from an object",
         "The arrow's this comes from outside obj, not the method receiver",
         "Arrow functions always return undefined",
-        "value cannot be read from an object",
         "Object properties cannot hold functions"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Calling an arrow through an object does not give it that object as this."
     },
     {
@@ -583,12 +583,12 @@
       "sourceSection": "Constructor Calls",
       "code": "function Item(value) { this.value = value; }\nconst item = new Item(4);\nconsole.log(item instanceof Item, item.value);",
       "options": [
-        "true 4",
-        "false 4",
+        "Item 4",
         "true undefined",
-        "Item 4"
+        "false 4",
+        "true 4"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The constructed value has Item in its prototype chain and stores value 4.",
       "expectedOutput": "true 4"
     },

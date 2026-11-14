@@ -154,12 +154,12 @@
       "code": "const double = n => n * 2;",
       "question": "What does this arrow function return for input 4?",
       "options": [
-        "8",
-        "4",
         "2",
-        "undefined"
+        "undefined",
+        "4",
+        "8"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "A concise arrow body implicitly returns its expression."
     },
     {
@@ -171,8 +171,8 @@
       "code": "const add = (a, b) => a + b;\nconsole.log(add(2, 5));",
       "options": [
         "7",
-        "25",
         "2",
+        "25",
         "undefined"
       ],
       "correctOption": 0,
@@ -213,12 +213,12 @@
       "sourceSection": "Arrow Functions",
       "code": "const first = ([value]) => value;\nconsole.log(first([9, 4]));",
       "options": [
-        "9",
         "4",
+        "9",
         "[ 9, 4 ]",
         "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The parameter pattern takes the first array element.",
       "expectedOutput": "9"
     },
@@ -230,12 +230,12 @@
       "code": "const getZero = () => 0;",
       "question": "Why are parentheses used before the arrow here?",
       "options": [
-        "The function has no parameters",
-        "The body must always be an object",
         "They call the function immediately",
+        "The body must always be an object",
+        "The function has no parameters",
         "They make the result a string"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Empty parentheses represent a parameter list with no parameters."
     },
     {
@@ -325,12 +325,12 @@
       "sourceSection": "Rest Operator",
       "code": "function collect(first, ...others) { return others.length; }\nconsole.log(collect('a', 'b', 'c'));",
       "options": [
-        "2",
         "3",
-        "1",
-        "undefined"
+        "undefined",
+        "2",
+        "1"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The first argument fills first, and the remaining two are collected in others.",
       "expectedOutput": "2"
     },
@@ -417,8 +417,8 @@
       "question": "Does the default parameter replace the explicitly supplied null?",
       "options": [
         "No, null is used because the argument was provided",
-        "Yes, every falsy value triggers the default",
         "Yes, null is treated exactly like omission",
+        "Yes, every falsy value triggers the default",
         "No, the function call throws"
       ],
       "correctOption": 0,
@@ -480,12 +480,12 @@
       "code": "const obj = { value: 3, read: () => this.value };",
       "question": "Does read receive obj as its this value when called as obj.read()?",
       "options": [
+        "No, arrow functions cannot be called",
         "No, an arrow function uses the surrounding this value",
-        "Yes, every method call binds this to obj",
         "Yes, because value is a property",
-        "No, arrow functions cannot be called"
+        "Yes, every method call binds this to obj"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Arrow functions do not create their own this binding."
     },
     {
@@ -554,12 +554,12 @@
       "sourceSection": "Spread Operator",
       "code": "const nested = { count: 1 };\nconst original = { nested };\nconst copy = { ...original };\ncopy.nested.count = 4;\nconsole.log(original.nested.count);",
       "options": [
-        "4",
+        "A TypeError",
         "1",
         "undefined",
-        "A TypeError"
+        "4"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Object spread is shallow, so both outer values share the nested object.",
       "expectedOutput": "4"
     },

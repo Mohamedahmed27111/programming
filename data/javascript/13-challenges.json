@@ -189,12 +189,12 @@
       "sourceSection": "Stand in Line",
       "code": "const line = ['Moe', 'Ray'];\nconst served = line.shift();\nconsole.log(served, line.length);",
       "options": [
-        "Moe 1",
         "Ray 1",
         "Moe 2",
-        "Ray 2"
+        "Ray 2",
+        "Moe 1"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "shift serves the first person and leaves one item in the line.",
       "expectedOutput": "Moe 1"
     },
@@ -254,9 +254,9 @@
       "question": "What value does length contain after this call?",
       "options": [
         "2, the new number of entries",
-        "1, the previous number of entries",
         "'B', the appended value",
-        "['A', 'B'], a new line"
+        "['A', 'B'], a new line",
+        "1, the previous number of entries"
       ],
       "correctOption": 0,
       "explanation": "push appends the value to the same array and returns its updated length."
@@ -624,12 +624,12 @@
       "code": "delete record.alias;",
       "question": "What does this statement do?",
       "options": [
-        "Removes alias from record if it is configurable",
-        "Sets alias to the string 'undefined'",
+        "Adds alias with a null value, because deleting a property resets it while preserving the record",
         "Removes the entire record",
-        "Adds alias with a null value"
+        "Removes alias from record if it is configurable",
+        "Sets alias to the string 'undefined'"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "delete removes the named property rather than assigning a replacement value."
     },
     {
@@ -674,12 +674,12 @@
       "code": "let count = 0;\nfunction step(card) {\n  if (card >= 2 && card <= 6) count++;\n  return count > 0 ? 'Bet' : 'Hold';\n}",
       "question": "Which inputs increase count?",
       "options": [
+        "Only the value 2",
         "Values from 2 through 6, inclusive",
         "Only values greater than 6",
-        "All values except zero",
-        "Only the value 2"
+        "All values except zero"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The combined inclusive comparisons select values in the stated interval."
     },
     {
@@ -769,12 +769,12 @@
       "sourceSection": "Golf Code",
       "code": "function result(par, strokes) {\n  if (strokes === 1) return 'Ace';\n  if (strokes <= par - 2) return 'Eagle';\n  return 'Other';\n}\nconsole.log(result(5, 3));",
       "options": [
-        "Eagle",
-        "Ace",
         "Other",
-        "undefined"
+        "undefined",
+        "Ace",
+        "Eagle"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Three strokes is two fewer than par five, matching Eagle after the Ace check.",
       "expectedOutput": "Eagle"
     },

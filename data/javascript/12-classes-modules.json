@@ -154,12 +154,12 @@
       "code": "class Lamp { turnOn() { return true; } }",
       "question": "What does the class body define?",
       "options": [
-        "A constructor and behavior for instances",
         "A module import list",
+        "A constructor and behavior for instances",
         "An array of lamps",
         "A function that runs immediately"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A class declaration defines a constructor and methods that instances can use."
     },
     {
@@ -172,8 +172,8 @@
       "options": [
         "gold",
         "label",
-        "undefined",
-        "Badge"
+        "Badge",
+        "undefined"
       ],
       "correctOption": 0,
       "explanation": "The constructor stores its argument on the newly created instance.",
@@ -213,12 +213,12 @@
       "sourceSection": "Simple Fields",
       "code": "class Point {\n  constructor(x, y) { this.x = x; this.y = y; }\n}\nconst p = new Point(2, 5);\nconsole.log(p.x + p.y);",
       "options": [
-        "7",
         "25",
         "2",
-        "undefined"
+        "undefined",
+        "7"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The constructor assigns both coordinates, and their sum is seven.",
       "expectedOutput": "7"
     },
@@ -230,12 +230,12 @@
       "code": "new Player('Kai');",
       "question": "What is an instance in this expression?",
       "options": [
-        "The individual Player value created by new",
-        "The class declaration itself",
         "The constructor parameter",
+        "The class declaration itself",
+        "The individual Player value created by new",
         "The module file"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "An instance is an individual value created from a class."
     },
     {
@@ -343,9 +343,9 @@
       "code": "class Box {\n  constructor(width) { this.width = width; }\n  get area() { return this.width * this.width; }\n}\nconsole.log(new Box(3).area);",
       "options": [
         "9",
-        "6",
         "3",
-        "undefined"
+        "undefined",
+        "6"
       ],
       "correctOption": 0,
       "explanation": "The getter computes area from the instance width.",
@@ -441,12 +441,12 @@
       "code": "export const version = '1.0';",
       "question": "What does a named export allow another module to do?",
       "options": [
-        "Import the binding by its exported name",
-        "Access every local variable in the file",
         "Run the file as a function",
-        "Replace the module's path"
+        "Replace the module's path",
+        "Import the binding by its exported name",
+        "Access every local variable in the file"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Named exports expose selected bindings for import by name."
     },
     {
@@ -497,12 +497,12 @@
       "code": "class Vault {\n  #pin = 12;\n  matches(value) { return this.#pin === value; }\n}",
       "question": "Where can the private field #pin be accessed?",
       "options": [
+        "Only in the constructor",
         "Inside the declaring class body",
-        "From every instance property expression",
         "From any subclass directly",
-        "Only in the constructor"
+        "From every instance property expression"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A hash-prefixed private field is accessible only within its declaring class body."
     },
     {
@@ -570,12 +570,12 @@
       "sourceSection": "class Syntax",
       "code": "class Base { value() { return 2; } }\nclass Child extends Base { value() { return super.value() + 3; } }\nconsole.log(new Child().value());",
       "options": [
-        "5",
-        "2",
         "3",
-        "undefined"
+        "2",
+        "undefined",
+        "5"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The override calls the base implementation and adds three.",
       "expectedOutput": "5"
     },

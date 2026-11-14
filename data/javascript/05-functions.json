@@ -172,12 +172,12 @@
       "code": "function announce() {\n  console.log('ready');\n}\nannounce();",
       "question": "What does calling announce() do?",
       "options": [
-        "Runs the statements in its body",
         "Creates a string named announce",
-        "Returns the word 'ready' automatically",
-        "Runs the body only when the file is loaded"
+        "Runs the statements in its body",
+        "Runs the body only when the file is loaded",
+        "Returns the word 'ready' automatically"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "A function call runs that function's body."
     },
     {
@@ -190,9 +190,9 @@
       "expectedOutput": "Hi, Lina",
       "options": [
         "Hi, Lina",
+        "undefined",
         "Hi, name",
-        "Lina",
-        "undefined"
+        "Lina"
       ],
       "correctOption": 0,
       "explanation": "The argument 'Lina' is used as the value of parameter name."
@@ -232,12 +232,12 @@
       "code": "function label(value) {\n  return '[' + value + ']';\n}\nconsole.log(label('ok'));",
       "expectedOutput": "[ok]",
       "options": [
-        "[ok]",
-        "[value]",
+        "undefined",
         "ok",
-        "undefined"
+        "[value]",
+        "[ok]"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The supplied argument becomes value inside the function."
     },
     {
@@ -248,12 +248,12 @@
       "code": "function showStatus() {\n  console.log('online');\n}\nconst result = showStatus();",
       "question": "What value is assigned to result?",
       "options": [
+        "true, because the call completed normally and a function with no return value is treated as successful",
+        "An empty string",
         "undefined, because the function has no return statement",
-        "'online', because it was printed",
-        "true, because the call completed",
-        "An empty string"
+        "'online', because it was printed"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Logging a value does not return it; a function without an explicit return produces undefined."
     },
     {
@@ -369,12 +369,12 @@
       "code": "let points = 2;\nfunction readPoints() {\n  let points = 5;\n  return points;\n}\nconsole.log(readPoints(), points);",
       "expectedOutput": "5 2",
       "options": [
-        "5 2",
         "5 5",
+        "undefined 2",
         "2 2",
-        "undefined 2"
+        "5 2"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The local declaration shadows the outer binding only inside readPoints."
     },
     {
@@ -445,12 +445,12 @@
       "code": "function fee(age) {\n  if (age < 18) return 0;\n  return 5;\n}",
       "question": "What is the effect of the first return when age is 16?",
       "options": [
-        "The call ends immediately with 0",
-        "It prints 0 and then returns 5",
         "It skips only the if condition",
+        "It prints 0 and then returns 5",
+        "The call ends immediately with 0",
         "It changes age to 0"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "A return exits the current function call immediately."
     },
     {
@@ -497,12 +497,12 @@
       "code": "const mode = 'outer';\nfunction getMode() {\n  const mode = 'inner';\n  return mode;\n}",
       "question": "What does getMode() return, and what remains true outside the function?",
       "options": [
+        "undefined; local values cannot be returned",
         "'inner'; the outer mode is still 'outer'",
-        "'outer'; the inner declaration replaces it everywhere",
         "'inner'; both declarations are merged",
-        "undefined; local values cannot be returned"
+        "'outer'; the inner declaration replaces it everywhere"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The inner binding shadows the outer one in the function and does not overwrite it."
     },
     {
@@ -579,8 +579,8 @@
       "expectedOutput": "undefined",
       "options": [
         "undefined",
-        "8",
         "null",
+        "8",
         "NaN"
       ],
       "correctOption": 0,

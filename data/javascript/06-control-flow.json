@@ -163,12 +163,12 @@
       "code": "const subscribed = false;",
       "question": "What value does subscribed hold?",
       "options": [
-        "The boolean value false",
-        "The string 'false'",
+        "An undefined value",
         "The number zero",
-        "An undefined value"
+        "The string 'false'",
+        "The boolean value false"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The unquoted keyword false is a boolean primitive."
     },
     {
@@ -180,9 +180,9 @@
       "code": "if (4 > 2) console.log('yes');",
       "options": [
         "yes",
-        "no",
         "true",
-        "undefined"
+        "undefined",
+        "no"
       ],
       "correctOption": 0,
       "explanation": "The condition is true, so the if body runs.",
@@ -222,12 +222,12 @@
       "sourceSection": "Equality Operators (== vs ===)",
       "code": "console.log(5 === '5');",
       "options": [
-        "false",
         "true",
-        "5",
-        "A TypeError"
+        "A TypeError",
+        "false",
+        "5"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Strict equality does not convert the string into a number.",
       "expectedOutput": "false"
     },
@@ -239,12 +239,12 @@
       "code": "const canEnter = age >= 18 && hasPass;",
       "question": "When is canEnter truthy?",
       "options": [
+        "Whenever age is exactly 18",
         "When both age >= 18 and hasPass are truthy",
-        "When either condition is truthy",
-        "Only when both conditions are false",
-        "Whenever age is exactly 18"
+        "When either condition is truthy, because an if statement accepts either side as a successful match",
+        "Only when both conditions are false"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Logical AND requires both operands to be truthy for a truthy result."
     },
     {
@@ -336,12 +336,12 @@
       "sourceSection": "Else If",
       "code": "const n = 0;\nif (n < 0) console.log('low');\nelse if (n === 0) console.log('zero');\nelse console.log('high');",
       "options": [
-        "zero",
-        "low",
         "high",
-        "No output"
+        "low",
+        "No output",
+        "zero"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The second condition matches after the first condition fails.",
       "expectedOutput": "zero"
     },
@@ -426,12 +426,12 @@
       "code": "switch (kind) { case 'a': runA(); break; default: runOther(); }",
       "question": "When does the default branch run?",
       "options": [
-        "When no case value matches",
-        "After every matched case",
         "Only when kind is undefined",
-        "Before the switch expression is evaluated"
+        "Before the switch expression is evaluated",
+        "When no case value matches",
+        "After every matched case"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "default is selected when no case label matches the switch value."
     },
     {
@@ -474,8 +474,8 @@
       "question": "Why is the 'large' branch unreachable for n = 12?",
       "options": [
         "The earlier n > 5 condition already matches",
-        "else if conditions run before if",
         "The comparison n > 10 is always false",
+        "else if conditions run before if",
         "Assignments cannot occur inside branches"
       ],
       "correctOption": 0,
@@ -546,12 +546,12 @@
       "sourceSection": "Short Circuiting",
       "code": "let calls = 0;\nfalse && (++calls);\ntrue || (++calls);\nconsole.log(calls);",
       "options": [
-        "0",
         "1",
+        "0",
         "2",
         "undefined"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Both operators skip their right operand when the left side determines the result.",
       "expectedOutput": "0"
     },

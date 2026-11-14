@@ -154,12 +154,12 @@
       "code": "function greet() { return 'hello'; }",
       "question": "What kind of declaration is greet?",
       "options": [
-        "A function declaration",
-        "A function expression assigned to const",
         "A class field",
-        "A method call"
+        "A function declaration",
+        "A method call",
+        "A function expression assigned to const"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The function keyword followed by a name and body is a function declaration."
     },
     {
@@ -170,12 +170,12 @@
       "sourceSection": "var Hoisting",
       "code": "console.log(typeof count);\nvar count = 4;",
       "options": [
-        "undefined",
-        "number",
         "ReferenceError",
+        "number",
+        "undefined",
         "4"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The var binding exists before its assignment and initially contains undefined.",
       "expectedOutput": "undefined"
     },
@@ -214,9 +214,9 @@
       "code": "console.log(value);\nvar value = 9;\nconsole.log(value);",
       "options": [
         "undefined\n9",
-        "9\\n9",
+        "null\\n9",
         "ReferenceError",
-        "null\\n9"
+        "9\\n9"
       ],
       "correctOption": 0,
       "explanation": "The binding starts as undefined, then receives 9 when the assignment executes.",
@@ -230,12 +230,12 @@
       "code": "let ready = true;",
       "question": "Where can a let binding be referenced after initialization?",
       "options": [
-        "Within its enclosing block and nested scopes",
-        "Anywhere before its declaration",
         "Only in the same statement",
-        "Only through globalThis"
+        "Anywhere before its declaration",
+        "Only through globalThis",
+        "Within its enclosing block and nested scopes"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "A let binding is block-scoped and usable after initialization in that scope."
     },
     {
@@ -319,9 +319,9 @@
       "code": "console.log(typeof greet);\nfunction greet() { return 'hi'; }",
       "options": [
         "function",
-        "undefined",
+        "object",
         "ReferenceError",
-        "object"
+        "undefined"
       ],
       "correctOption": 0,
       "explanation": "The function declaration is available before its source position.",
@@ -402,12 +402,12 @@
       "code": "let value = 3;\nconsole.log(value);",
       "question": "What ends the temporal dead zone for value?",
       "options": [
-        "Its initialization is evaluated",
-        "The file finishes parsing",
+        "Its block is entered",
         "A different function reads it",
-        "Its block is entered"
+        "Its initialization is evaluated",
+        "The file finishes parsing"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "A lexical binding becomes available when its declaration initializes it."
     },
     {
@@ -449,12 +449,12 @@
       "code": "{\n  console.log(item);\n  let item = 3;\n}",
       "question": "What happens at the first access to item?",
       "options": [
-        "A ReferenceError occurs because item is in its temporal dead zone",
-        "It logs undefined like a var binding",
         "It logs 3 due to hoisting",
+        "A ReferenceError occurs because item is in its temporal dead zone",
+        "It logs undefined like a var binding, because let declarations are hoisted and initialized before the block runs",
         "The declaration is skipped"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The lexical binding exists but cannot be accessed before initialization."
     },
     {
@@ -525,12 +525,12 @@
       "sourceSection": "Function Declaration Hoisting",
       "code": "console.log(run());\nfunction run() { return 'ready'; }",
       "options": [
-        "ready",
         "undefined",
         "ReferenceError",
-        "run"
+        "run",
+        "ready"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The declaration can be called before its textual location.",
       "expectedOutput": "ready"
     },

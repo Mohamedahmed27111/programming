@@ -11,10 +11,15 @@ const SCHEMA_PATH = path.join(ROOT, 'tools', 'schema.json');
 const LEVELS = ['beginner', 'intermediate', 'advanced', 'interview'];
 const TYPES = ['whatDoes', 'predictOutput', 'completeCode', 'writeCode', 'interview'];
 const errors = [];
+const warnings = [];
 const schema = JSON.parse(await fs.readFile(SCHEMA_PATH, 'utf8'));
 
 function report(file, message) {
   errors.push(`${path.relative(ROOT, file)}: ${message}`);
+}
+
+function warn(file, message) {
+  warnings.push(`${path.relative(ROOT, file)}: ${message}`);
 }
 
 function validateSchema(value, definition, location, file) {
@@ -302,8 +307,9 @@ for (const file of selectedFiles) {
 }
 
 const idsByFile = new Map();
+const correctOptionCounts = [0, 0, 0, 0];
+let optionQuestionCount = 0;
 for (const file of allFiles) {
-  if (path.basename(file).startsWith('_')) continue;
   let data;
   if (parsed.has(file)) data = parsed.get(file).data;
   else {
@@ -314,11 +320,50 @@ for (const file of allFiles) {
     }
   }
   if (!Array.isArray(data.terms) || !Array.isArray(data.questions)) continue;
-  for (const item of [...data.terms, ...data.questions]) {
-    if (!item.id) continue;
-    if (idsByFile.has(item.id)) report(file, `duplicate id "${item.id}" also found in ${path.relative(ROOT, idsByFile.get(item.id))}`);
-    else idsByFile.set(item.id, file);
+  if (!path.basename(file).startsWith('_')) {
+    for (const item of [...data.terms, ...data.questions]) {
+      if (!item.id) continue;
+      if (idsByFile.has(item.id)) report(file, `duplicate id "${item.id}" also found in ${path.relative(ROOT, idsByFile.get(item.id))}`);
+      else idsByFile.set(item.id, file);
+    }
   }
+  const filePositions = [0, 0, 0, 0];
+  const longestCorrect = [];
+  for (const question of data.questions) {
+    const optionQuestion = question.type === 'whatDoes' ||
+      (question.type === 'predictOutput' && question.mode === 'choose');
+    if (!optionQuestion || !Array.isArray(question.options) ||
+        !Number.isInteger(question.correctOption) ||
+        question.correctOption < 0 || question.correctOption >= 4) continue;
+    filePositions[question.correctOption] += 1;
+    correctOptionCounts[question.correctOption] += 1;
+    optionQuestionCount += 1;
+    const correctLength = question.options[question.correctOption].length;
+    if (question.options.every((option, index) =>
+      index === question.correctOption || correctLength > option.length
+    )) longestCorrect.push(question.id);
+  }
+  const fileOptionCount = filePositions.reduce((sum, count) => sum + count, 0);
+  if (fileOptionCount > 0 && !path.basename(file).startsWith('_')) {
+    for (let position = 0; position < filePositions.length; position += 1) {
+      if (filePositions[position] / fileOptionCount > 0.4) {
+        report(file, `correctOption position ${position} has ${filePositions[position]}/${fileOptionCount} answers, exceeding 40%`);
+      }
+    }
+    if (longestCorrect.length > 0) {
+      warn(file, `${longestCorrect.length}/${fileOptionCount} correct options are longest: ${longestCorrect.join(', ')}`);
+    }
+  }
+}
+
+if (optionQuestionCount > 0) {
+  for (let position = 0; position < correctOptionCounts.length; position += 1) {
+    const share = correctOptionCounts[position] / optionQuestionCount;
+    if (share < 0.2 || share > 0.3) {
+      report(DATA_DIR, `global correctOption position ${position} has ${correctOptionCounts[position]}/${optionQuestionCount} answers (${(share * 100).toFixed(1)}%), outside 20%-30%`);
+    }
+  }
+  console.log(`Correct-option positions: ${correctOptionCounts.map((count, index) => `${index}=${count}`).join(', ')} (${optionQuestionCount} total)`);
 }
 
 if (updateExpected) {
@@ -343,4 +388,8 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log(`\nValidation passed for ${selectedFiles.length} file(s).`);
+}
+if (warnings.length) {
+  console.warn(`\n${warnings.length} warning(s):`);
+  for (const warning of warnings) console.warn(`- ${warning}`);
 }

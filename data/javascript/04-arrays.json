@@ -175,12 +175,12 @@
       "code": "const pets = ['cat'];\nconst count = pets.push('dog');",
       "question": "After these statements, what does count contain?",
       "options": [
-        "2, the updated number of items",
-        "1, the previous number of items",
         "'dog', the inserted value",
+        "1, the previous number of items",
+        "2, the updated number of items",
         "['cat', 'dog'], a new collection"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "push changes pets and returns its new length."
     },
     {
@@ -192,12 +192,12 @@
       "code": "const tools = ['map', 'level'];\nconsole.log(tools[0], tools.length);",
       "expectedOutput": "map 2",
       "options": [
-        "map 2",
         "level 2",
+        "undefined 2",
         "map 1",
-        "undefined 2"
+        "map 2"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The first position is index 0, and the collection has two items."
     },
     {
@@ -236,9 +236,9 @@
       "expectedOutput": "16 2",
       "options": [
         "16 2",
-        "14 2",
         "16 3",
-        "[ 12, 14 ] 2"
+        "[ 12, 14 ] 2",
+        "14 2"
       ],
       "correctOption": 0,
       "explanation": "pop returns the removed final item and shortens the original collection."
@@ -251,12 +251,12 @@
       "code": "const room = [['lamp', 'desk'], ['chair', 'shelf']];",
       "question": "What does room[1][0] access?",
       "options": [
-        "'chair', first value in the second inner collection",
         "'desk', second value in the first inner collection",
-        "The whole second inner collection",
-        "The first value in the first inner collection"
+        "'chair', first value in the second inner collection",
+        "The first value in the first inner collection",
+        "The whole second inner collection"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "The first index selects the inner collection; the second selects an item inside it."
     },
     {
@@ -455,12 +455,12 @@
       "code": "const colors = ['teal', 'gold'];\nconst removed = colors.shift();",
       "question": "What is true after this code runs?",
       "options": [
-        "removed is 'teal' and colors is ['gold']",
         "removed is 'gold' and colors is ['teal']",
+        "removed is 'teal' and colors is ['gold']",
         "removed is ['teal'] and colors is unchanged",
         "removed is 1 and colors is ['gold']"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "shift removes the first item, returns it, and mutates the original array."
     },
     {
@@ -522,12 +522,12 @@
       "code": "const first = [1, 2];\nconst second = first;\nsecond.push(3);",
       "question": "What does first contain after the final statement?",
       "options": [
-        "[1, 2, 3], because both variables refer to the same array",
         "[1, 2], because assigning to second copied the values",
         "[3], because push replaces the array",
+        "[1, 2, 3], because both variables refer to the same array",
         "An unchanged value, because const blocks array changes"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Assigning an array to another variable copies its reference, not its contents."
     },
     {
@@ -618,12 +618,12 @@
       "code": "const bag = ['pen'];\nconst length = bag.push('pad');\nconst last = bag.pop();\nconsole.log(length, last, bag.length);",
       "expectedOutput": "2 pad 1",
       "options": [
-        "2 pad 1",
-        "2 pen 1",
+        "['pen', 'pad'] pad 2",
         "1 pad 2",
-        "['pen', 'pad'] pad 2"
+        "2 pen 1",
+        "2 pad 1"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "push returns 2, then pop returns the newly appended item and restores the original size."
     },
     {

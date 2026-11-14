@@ -158,12 +158,12 @@
       "code": "5 === '5';",
       "question": "What does strict equality require here?",
       "options": [
-        "Matching type and value",
-        "Matching value after converting types",
         "Both operands to be strings",
-        "Both operands to be truthy"
+        "Matching type and value",
+        "Both operands to be truthy",
+        "Matching value after converting types"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Strict equality does not convert the number and string to a common type."
     },
     {
@@ -174,12 +174,12 @@
       "sourceSection": "Truthy and Falsy",
       "code": "console.log(Boolean('0'));",
       "options": [
-        "true",
-        "false",
         "0",
+        "false",
+        "true",
         "NaN"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "A non-empty string is truthy, even when its character is zero.",
       "expectedOutput": "true"
     },
@@ -218,8 +218,8 @@
       "code": "console.log(Boolean([]), Boolean(''));",
       "options": [
         "true false",
-        "false true",
         "false false",
+        "false true",
         "true true"
       ],
       "correctOption": 0,
@@ -234,12 +234,12 @@
       "code": "Number('12');",
       "question": "What is happening in this expression?",
       "options": [
-        "A string is explicitly converted to a number",
         "A number is converted to a string",
+        "A value is converted to an array",
         "Two values are compared",
-        "A value is converted to an array"
+        "A string is explicitly converted to a number"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Calling Number requests numeric conversion directly."
     },
     {
@@ -328,12 +328,12 @@
       "sourceSection": "Equality",
       "code": "console.log(0 == false, 0 === false);",
       "options": [
-        "true false",
         "false true",
+        "true false",
         "true true",
         "false false"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "Loose equality coerces in this comparison; strict equality preserves the type difference.",
       "expectedOutput": "true false"
     },
@@ -421,12 +421,12 @@
       "code": "const a = {};\nconst b = {};",
       "question": "What does a === b evaluate to?",
       "options": [
-        "false, because these are distinct object identities",
         "true, because both objects are empty",
         "undefined, because objects have no values",
+        "false, because these are distinct object identities",
         "A TypeError"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "Object equality compares identity, not matching property contents."
     },
     {
@@ -472,9 +472,9 @@
       "question": "How does Object.is compare these values?",
       "options": [
         "It returns true",
-        "It returns false like NaN === NaN",
+        "It converts both to strings",
         "It throws a TypeError",
-        "It converts both to strings"
+        "It returns false like NaN === NaN"
       ],
       "correctOption": 0,
       "explanation": "Object.is treats NaN as the same value as NaN."
@@ -547,12 +547,12 @@
       "sourceSection": "Equality",
       "code": "const first = { n: 1 };\nconst second = first;\nconsole.log(first === second);",
       "options": [
-        "true",
-        "false",
         "1",
-        "undefined"
+        "undefined",
+        "false",
+        "true"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Both variables refer to the same object identity.",
       "expectedOutput": "true"
     },

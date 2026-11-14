@@ -158,12 +158,12 @@
       "code": "const data = JSON.parse('{\"ready\":true}');",
       "question": "What does JSON.parse return here?",
       "options": [
+        "A syntax tree string that preserves the JSON source text rather than creating JavaScript values",
         "A JavaScript object with ready set to true",
         "The original text unchanged",
-        "A promise",
-        "A syntax tree string"
+        "A promise"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "JSON.parse converts valid JSON text into its corresponding JavaScript value."
     },
     {
@@ -217,12 +217,12 @@
       "sourceSection": "JSON.parse",
       "code": "const value = JSON.parse('[1,2]');\nconsole.log(value.length);",
       "options": [
-        "2",
+        "undefined",
         "1",
-        "3",
-        "undefined"
+        "2",
+        "3"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "The JSON text becomes a two-element array.",
       "expectedOutput": "2"
     },
@@ -234,12 +234,12 @@
       "code": "throw new Error('bad input');",
       "question": "What does this statement do?",
       "options": [
-        "Raises an Error value and interrupts normal flow",
+        "Creates a rejected promise automatically",
         "Logs the message and continues",
         "Returns the string from the current function",
-        "Creates a rejected promise automatically"
+        "Raises an Error value and interrupts normal flow"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "throw transfers control to an applicable catch handler or caller."
     },
     {
@@ -420,12 +420,12 @@
       "code": "JSON.stringify({ value: undefined });",
       "question": "What happens to this undefined-valued object property in the JSON text?",
       "options": [
-        "It is omitted",
         "It becomes the text 'undefined'",
+        "It is omitted",
         "It is converted to null",
         "Serialization throws a TypeError"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "JSON.stringify omits object properties whose values are undefined."
     },
     {
@@ -467,12 +467,12 @@
       "code": "try { returnValue = 1; } finally { returnValue = 2; }",
       "question": "If execution reaches the end of the finally block normally, what is returnValue?",
       "options": [
-        "2, because finally runs after the try block",
-        "1, because finally is skipped on success",
         "undefined, because finally clears bindings",
-        "A SyntaxError"
+        "A SyntaxError",
+        "2, because finally runs after the try block",
+        "1, because finally is skipped on success"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "finally executes after the try block even when it completes normally."
     },
     {
@@ -543,12 +543,12 @@
       "sourceSection": "Serialization Limits",
       "code": "console.log(JSON.stringify([1, undefined, 3]));",
       "options": [
-        "[1,null,3]",
-        "[1,3]",
         "[1,undefined,3]",
-        "A TypeError"
+        "[1,3]",
+        "A TypeError",
+        "[1,null,3]"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "Undefined array entries are serialized as null to preserve their positions.",
       "expectedOutput": "[1,null,3]"
     },
