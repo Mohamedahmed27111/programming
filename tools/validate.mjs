@@ -210,12 +210,19 @@ async function validateQuestion(question, file, updateExpected) {
     }
     for (let index = 0; index < question.tests.length; index += 1) {
       const test = question.tests[index];
-      if (!test || !Array.isArray(test.args) || !Object.hasOwn(test, 'expect') || !isJsonValue(test.args) || !isJsonValue(test.expect)) {
-        report(file, `${label} test ${index + 1} must have JSON-serialisable args and expect`);
+      const hasInvoke = test && Object.hasOwn(test, 'invoke');
+      if (!test || !Array.isArray(test.args) || !Object.hasOwn(test, 'expect') ||
+          !isJsonValue(test.args) || !isJsonValue(test.expect) ||
+          (hasInvoke && (!Array.isArray(test.invoke) || !isJsonValue(test.invoke)))) {
+        report(file, `${label} test ${index + 1} must have JSON-serialisable args, expect, and optional invoke`);
         continue;
       }
       try {
-        const actual = fn(...JSON.parse(JSON.stringify(test.args)));
+        let actual = fn(...JSON.parse(JSON.stringify(test.args)));
+        if (hasInvoke) {
+          if (typeof actual !== 'function') throw new TypeError('invoke tests require the solution to return a function');
+          actual = test.invoke.map(args => actual(...JSON.parse(JSON.stringify(args))));
+        }
         if (!isJsonValue(actual) || !isDeepStrictEqual(JSON.parse(canonical(actual)), JSON.parse(canonical(test.expect)))) {
           report(file, `${label} test ${index + 1} mismatch: expected ${JSON.stringify(test.expect)}, actual ${JSON.stringify(actual)}`);
         }

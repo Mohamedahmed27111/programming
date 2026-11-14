@@ -55,7 +55,18 @@
           "caseSensitive": { "type": "boolean" },
           "functionName": { "type": "string" },
           "starter": { "type": "string" },
-          "tests": { "type": "array" },
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["args", "expect"],
+              "properties": {
+                "args": { "type": "array" },
+                "invoke": { "type": "array", "items": { "type": "array" } },
+                "expect": {}
+              }
+            }
+          },
           "solution": { "type": "string" },
           "keyPoints": { "type": "array", "items": { "type": "string" } },
           "modelAnswer": { "type": "string" },
