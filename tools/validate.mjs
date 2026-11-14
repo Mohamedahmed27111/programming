@@ -314,6 +314,7 @@ for (const file of selectedFiles) {
 }
 
 const idsByFile = new Map();
+const similarityQuestions = [];
 const correctOptionCounts = [0, 0, 0, 0];
 let optionQuestionCount = 0;
 for (const file of allFiles) {
@@ -327,6 +328,7 @@ for (const file of allFiles) {
     }
   }
   if (!Array.isArray(data.terms) || !Array.isArray(data.questions)) continue;
+  for (const question of data.questions) similarityQuestions.push({ file, question });
   if (!path.basename(file).startsWith('_')) {
     for (const item of [...data.terms, ...data.questions]) {
       if (!item.id) continue;
@@ -371,6 +373,28 @@ if (optionQuestionCount > 0) {
     }
   }
   console.log(`Correct-option positions: ${correctOptionCounts.map((count, index) => `${index}=${count}`).join(', ')} (${optionQuestionCount} total)`);
+}
+
+function similarityTokens(question) {
+  const text = `${question.question ?? question.prompt ?? ''} ${question.code ?? question.solution ?? ''}`;
+  return new Set((text.toLowerCase().match(/[\p{L}\p{N}_$]+/gu) ?? []));
+}
+
+for (let leftIndex = 0; leftIndex < similarityQuestions.length; leftIndex += 1) {
+  const left = similarityQuestions[leftIndex];
+  const leftTokens = similarityTokens(left.question);
+  if (leftTokens.size === 0) continue;
+  for (let rightIndex = leftIndex + 1; rightIndex < similarityQuestions.length; rightIndex += 1) {
+    const right = similarityQuestions[rightIndex];
+    const rightTokens = similarityTokens(right.question);
+    if (rightTokens.size === 0) continue;
+    let intersection = 0;
+    for (const token of leftTokens) if (rightTokens.has(token)) intersection += 1;
+    const union = leftTokens.size + rightTokens.size - intersection;
+    if (intersection / union >= 0.85) {
+      report(right.file, `${right.question.id} has token-set Jaccard similarity >= 0.85 with ${left.question.id} in ${path.relative(ROOT, left.file)}`);
+    }
+  }
 }
 
 if (updateExpected) {
