@@ -4,6 +4,72 @@
       "id": "javascript",
       "topics": [
         {
+          "order": 1,
+          "topic": "Basics",
+          "file": "data/javascript/01-basics.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 2,
+          "topic": "Operators and Math",
+          "file": "data/javascript/02-operators-math.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 3,
+          "topic": "Strings",
+          "file": "data/javascript/03-strings.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
           "order": 4,
           "topic": "Arrays",
           "file": "data/javascript/04-arrays.json",

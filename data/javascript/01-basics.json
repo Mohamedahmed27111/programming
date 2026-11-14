@@ -1,0 +1,619 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Basics",
+    "order": 1,
+    "sourceSections": [
+      "Running JavaScript",
+      "Comment Your Code",
+      "Declare Variables",
+      "Assignment Operator",
+      "Initializing / Uninitialized Variables",
+      "Case Sensitivity"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-basics-t001",
+      "term": "statement",
+      "level": "beginner",
+      "definitionEn": "A complete instruction that an engine can evaluate.",
+      "example": "console.log('hello');",
+      "caseSensitive": false,
+      "aliases": [
+        "instruction"
+      ]
+    },
+    {
+      "id": "js-basics-t002",
+      "term": "comment",
+      "level": "beginner",
+      "definitionEn": "Text in source code that the JavaScript engine ignores as an instruction.",
+      "example": "// explain this line",
+      "caseSensitive": false,
+      "aliases": []
+    },
+    {
+      "id": "js-basics-t003",
+      "term": "variable",
+      "level": "beginner",
+      "definitionEn": "A named binding that can refer to a value.",
+      "example": "let score = 7;",
+      "caseSensitive": false,
+      "aliases": [
+        "binding"
+      ]
+    },
+    {
+      "id": "js-basics-t004",
+      "term": "declaration",
+      "level": "beginner",
+      "definitionEn": "The creation of a named binding in a program.",
+      "example": "const color = 'blue';",
+      "caseSensitive": false,
+      "aliases": [
+        "definition"
+      ]
+    },
+    {
+      "id": "js-basics-t005",
+      "term": "initialization",
+      "level": "beginner",
+      "definitionEn": "Giving a binding its first value as it is created.",
+      "example": "let count = 0;",
+      "caseSensitive": false,
+      "aliases": [
+        "initial value"
+      ]
+    },
+    {
+      "id": "js-basics-t006",
+      "term": "assignment",
+      "level": "beginner",
+      "definitionEn": "Storing a value in an existing writable binding.",
+      "example": "let count = 0;\ncount = 1;",
+      "caseSensitive": false,
+      "aliases": [
+        "reassignment"
+      ]
+    },
+    {
+      "id": "js-basics-t007",
+      "term": "identifier",
+      "level": "beginner",
+      "definitionEn": "A name used to refer to a binding or other program entity.",
+      "example": "const playerName = 'Rae';",
+      "caseSensitive": false,
+      "aliases": [
+        "name"
+      ]
+    },
+    {
+      "id": "js-basics-t008",
+      "term": "case sensitivity",
+      "level": "intermediate",
+      "definitionEn": "The rule that treats uppercase and lowercase letters as different characters.",
+      "example": "let item = 1;\nlet Item = 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "letter case"
+      ]
+    },
+    {
+      "id": "js-basics-t009",
+      "term": "uninitialized variable",
+      "level": "beginner",
+      "definitionEn": "A declared binding that has not yet been given an explicit value.",
+      "example": "let pending;",
+      "caseSensitive": false,
+      "aliases": [
+        "unassigned variable"
+      ]
+    },
+    {
+      "id": "js-basics-t010",
+      "term": "runtime",
+      "level": "intermediate",
+      "definitionEn": "The environment that executes a program and provides its built-in capabilities.",
+      "example": "node app.js",
+      "caseSensitive": false,
+      "aliases": [
+        "execution environment"
+      ]
+    },
+    {
+      "id": "js-basics-t011",
+      "term": "syntax error",
+      "level": "intermediate",
+      "definitionEn": "An error raised when source text does not follow the language grammar.",
+      "example": "const = 3;",
+      "caseSensitive": false,
+      "aliases": [
+        "parse error"
+      ]
+    },
+    {
+      "id": "js-basics-t012",
+      "term": "constant binding",
+      "level": "beginner",
+      "definitionEn": "A named binding that cannot be assigned a different value after creation.",
+      "example": "const limit = 10;",
+      "caseSensitive": false,
+      "aliases": [
+        "const declaration"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-basics-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Running JavaScript",
+      "code": "console.log('ready');",
+      "question": "What does this statement do when run in Node?",
+      "options": [
+        "Writes ready to standard output",
+        "Stores ready in a variable",
+        "Pauses the program until input arrives",
+        "Creates a file named ready"
+      ],
+      "correctOption": 0,
+      "explanation": "Node provides console.log for writing a value to the process output."
+    },
+    {
+      "id": "js-basics-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Declare Variables",
+      "code": "let total = 4;\nconsole.log(total);",
+      "options": [
+        "4",
+        "total",
+        "undefined",
+        "null"
+      ],
+      "correctOption": 0,
+      "explanation": "The binding is initialized with the number 4.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-basics-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Assignment Operator",
+      "code": "let level = 1;\nlevel = 3;\nconsole.log(level);",
+      "explanation": "The second assignment replaces the value held by the writable binding.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-basics-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Declare Variables",
+      "prompt": "Fill the keyword to create a binding that will be reassigned.",
+      "code": "____ points = 2;\npoints = 5;\nconsole.log(points);",
+      "blanks": [
+        [
+          "let"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "let creates a binding that can later be assigned another value.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-basics-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Comment Your Code",
+      "code": "const x = 6;\n// x = 99;\nconsole.log(x);",
+      "options": [
+        "6",
+        "99",
+        "undefined",
+        "A syntax error"
+      ],
+      "correctOption": 0,
+      "explanation": "The line beginning with // is a comment and is not executed.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-basics-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Initializing / Uninitialized Variables",
+      "code": "let nextTask;",
+      "question": "What is the value of nextTask before another assignment?",
+      "options": [
+        "undefined",
+        "null",
+        "0",
+        "An empty string"
+      ],
+      "correctOption": 0,
+      "explanation": "A declared but uninitialized let binding has the value undefined."
+    },
+    {
+      "id": "js-basics-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Assignment Operator",
+      "prompt": "Write makeLabel(word), returning the word wrapped in square brackets.",
+      "functionName": "makeLabel",
+      "starter": "function makeLabel(word) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "tea"
+          ],
+          "expect": "[tea]"
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": "[]"
+        },
+        {
+          "args": [
+            "x y"
+          ],
+          "expect": "[x y]"
+        }
+      ],
+      "solution": "function makeLabel(word) {\n  return '[' + word + ']';\n}",
+      "explanation": "Concatenate the opening bracket, input, and closing bracket."
+    },
+    {
+      "id": "js-basics-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Running JavaScript",
+      "prompt": "Complete the call that writes the value of status.",
+      "code": "const status = 'active';\nconsole.____(status);",
+      "blanks": [
+        [
+          "log"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "console.log writes its arguments to standard output.",
+      "expectedOutput": "active"
+    },
+    {
+      "id": "js-basics-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Assignment Operator",
+      "prompt": "Write clampLow(value, minimum), returning minimum when value is smaller and value otherwise.",
+      "functionName": "clampLow",
+      "starter": "function clampLow(value, minimum) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            5
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            8,
+            5
+          ],
+          "expect": 8
+        },
+        {
+          "args": [
+            5,
+            5
+          ],
+          "expect": 5
+        }
+      ],
+      "solution": "function clampLow(value, minimum) {\n  return value < minimum ? minimum : value;\n}",
+      "explanation": "Compare the inputs and select the lower bound only when needed."
+    },
+    {
+      "id": "js-basics-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Case Sensitivity",
+      "code": "const code = 'A';\nconst Code = 'B';\nconsole.log(code + Code);",
+      "options": [
+        "AB",
+        "AA",
+        "BB",
+        "A syntax error"
+      ],
+      "correctOption": 0,
+      "explanation": "code and Code are distinct identifiers because JavaScript is case-sensitive.",
+      "expectedOutput": "AB"
+    },
+    {
+      "id": "js-basics-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Initializing / Uninitialized Variables",
+      "code": "let result;\nresult = 8;\nconsole.log(result);",
+      "explanation": "A later assignment gives the declared binding the value 8.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-basics-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Assignment Operator",
+      "prompt": "Fill the assignment operator to replace the old value with 9.",
+      "code": "let count = 4;\ncount ____ 9;\nconsole.log(count);",
+      "blanks": [
+        [
+          "="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The simple assignment operator stores its right-hand value in the binding.",
+      "expectedOutput": "9"
+    },
+    {
+      "id": "js-basics-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Declare Variables",
+      "prompt": "Write twiceAfterAdd(value, amount), adding amount to value and then returning twice the result.",
+      "functionName": "twiceAfterAdd",
+      "starter": "function twiceAfterAdd(value, amount) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            3
+          ],
+          "expect": 10
+        },
+        {
+          "args": [
+            0,
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -2,
+            1
+          ],
+          "expect": -2
+        }
+      ],
+      "solution": "function twiceAfterAdd(value, amount) {\n  const combined = value + amount;\n  return combined * 2;\n}",
+      "explanation": "Store the intermediate sum, then return its double."
+    },
+    {
+      "id": "js-basics-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Comment Your Code",
+      "prompt": "Fill in the single-line comment marker.",
+      "code": "____ this line is ignored\nconsole.log('ok');",
+      "blanks": [
+        [
+          "//"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Two forward slashes begin a single-line JavaScript comment.",
+      "expectedOutput": "ok"
+    },
+    {
+      "id": "js-basics-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Declare Variables",
+      "code": "const limit = 12;\nlimit = 13;",
+      "question": "What happens when the second statement runs?",
+      "options": [
+        "A TypeError occurs because the binding cannot be reassigned",
+        "limit changes to 13 successfully",
+        "limit becomes undefined",
+        "A new block-scoped limit is created"
+      ],
+      "correctOption": 0,
+      "explanation": "A const binding must be initialized and cannot be reassigned."
+    },
+    {
+      "id": "js-basics-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Case Sensitivity",
+      "prompt": "Write isSameCase(a, b), returning whether two strings are exactly equal, including letter case.",
+      "functionName": "isSameCase",
+      "starter": "function isSameCase(a, b) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "Node",
+            "Node"
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            "Node",
+            "node"
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            "",
+            ""
+          ],
+          "expect": true
+        }
+      ],
+      "solution": "function isSameCase(a, b) {\n  return a === b;\n}",
+      "explanation": "Strict string equality distinguishes uppercase from lowercase characters."
+    },
+    {
+      "id": "js-basics-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Initializing / Uninitialized Variables",
+      "code": "let draft;\nconsole.log(draft === undefined);",
+      "question": "Why does the comparison evaluate to true?",
+      "options": [
+        "A declared let binding without an initializer starts as undefined",
+        "All uninitialized bindings start as null",
+        "The declaration creates a string with no characters",
+        "The comparison assigns undefined to draft"
+      ],
+      "correctOption": 0,
+      "explanation": "A let declaration without an initializer gives its binding the value undefined."
+    },
+    {
+      "id": "js-basics-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Case Sensitivity",
+      "code": "let score = 2;\nlet Score = 7;\nscore += Score;\nconsole.log(score, Score);",
+      "explanation": "The two identifiers hold separate values; adding Score changes only score.",
+      "expectedOutput": "9 7"
+    },
+    {
+      "id": "js-basics-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Assignment Operator",
+      "prompt": "Fill the operator that adds 3 to the existing count and stores the result.",
+      "code": "let count = 4;\ncount ____ 3;\nconsole.log(count);",
+      "blanks": [
+        [
+          "+="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The addition-assignment operator adds to the current value and reassigns it.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-basics-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Assignment Operator",
+      "prompt": "Write updatePair(pair, value), changing only the first value in a two-item array and returning the same array.",
+      "functionName": "updatePair",
+      "starter": "function updatePair(pair, value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              2
+            ],
+            9
+          ],
+          "expect": [
+            9,
+            2
+          ]
+        },
+        {
+          "args": [
+            [
+              0,
+              0
+            ],
+            -1
+          ],
+          "expect": [
+            -1,
+            0
+          ]
+        },
+        {
+          "args": [
+            [
+              "a",
+              "b"
+            ],
+            "z"
+          ],
+          "expect": [
+            "z",
+            "b"
+          ]
+        }
+      ],
+      "solution": "function updatePair(pair, value) {\n  pair[0] = value;\n  return pair;\n}",
+      "explanation": "An array passed as an argument can be updated by assigning to one of its positions."
+    },
+    {
+      "id": "js-basics-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Comment Your Code",
+      "code": "const n = 3;\n/* n = 8;\nconsole.log('hidden'); */\nconsole.log(n);",
+      "options": [
+        "3",
+        "8",
+        "hidden",
+        "A syntax error"
+      ],
+      "correctOption": 0,
+      "explanation": "The block comment excludes both enclosed lines from execution.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-basics-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Declare Variables",
+      "question": "When would you choose let rather than const for a binding?",
+      "keyPoints": [
+        "const prevents reassignment of the binding",
+        "let supports later reassignment",
+        "Prefer const when reassignment is unnecessary",
+        "The choice does not make an object deeply immutable"
+      ],
+      "modelAnswer": "Use let when the binding needs to be assigned a new value later, such as a running counter. Prefer const when reassignment is not needed; const protects the binding itself, not the contents of an object it references."
+    },
+    {
+      "id": "js-basics-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Initializing / Uninitialized Variables",
+      "question": "What is the difference between an uninitialized binding and one explicitly assigned null?",
+      "keyPoints": [
+        "An uninitialized let binding has value undefined",
+        "null is an explicit value",
+        "Both can indicate absence but express different intent",
+        "Check the actual value rather than assuming"
+      ],
+      "modelAnswer": "A declared let binding without an initializer has the value undefined. Assigning null stores an explicit value, often used to represent intentional absence, so the two values are distinct."
+    },
+    {
+      "id": "js-basics-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Case Sensitivity",
+      "question": "What does it mean that JavaScript identifiers are case-sensitive?",
+      "keyPoints": [
+        "Uppercase and lowercase letters differ",
+        "Names differing by case can be separate bindings",
+        "References must match the declared spelling",
+        "A case mismatch can produce an unresolved-name error"
+      ],
+      "modelAnswer": "JavaScript distinguishes uppercase and lowercase characters in identifiers, so item and Item are different names. A reference must use the exact spelling of the declaration or it may refer to another binding or fail to resolve."
+    }
+  ]
+}

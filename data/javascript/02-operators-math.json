@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Operators and Math",
+    "order": 2,
+    "sourceSections": [
+      "Basic Math",
+      "Increment/Decrement",
+      "Decimal Numbers",
+      "Multiply/Divide Decimals",
+      "Remainder",
+      "Augmented Math",
+      "parseInt",
+      "Random Fractions and Whole Numbers"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-operators-math-t001",
+      "term": "addition",
+      "level": "beginner",
+      "definitionEn": "An arithmetic operation that combines numeric values.",
+      "example": "const total = 3 + 4;",
+      "caseSensitive": false,
+      "aliases": [
+        "sum"
+      ]
+    },
+    {
+      "id": "js-operators-math-t002",
+      "term": "subtraction",
+      "level": "beginner",
+      "definitionEn": "An arithmetic operation that finds the difference between values.",
+      "example": "const left = 9 - 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "difference"
+      ]
+    },
+    {
+      "id": "js-operators-math-t003",
+      "term": "multiplication",
+      "level": "beginner",
+      "definitionEn": "An arithmetic operation that scales a value by another value.",
+      "example": "const area = 3 * 5;",
+      "caseSensitive": false,
+      "aliases": [
+        "product"
+      ]
+    },
+    {
+      "id": "js-operators-math-t004",
+      "term": "division",
+      "level": "beginner",
+      "definitionEn": "An arithmetic operation that splits a value into equal parts.",
+      "example": "const half = 8 / 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "quotient"
+      ]
+    },
+    {
+      "id": "js-operators-math-t005",
+      "term": "remainder",
+      "level": "beginner",
+      "definitionEn": "The leftover amount after one number is divided by another.",
+      "example": "const left = 11 % 4;",
+      "caseSensitive": false,
+      "aliases": [
+        "modulo"
+      ]
+    },
+    {
+      "id": "js-operators-math-t006",
+      "term": "increment",
+      "level": "beginner",
+      "definitionEn": "An operation that increases a numeric value by one.",
+      "example": "count++;",
+      "caseSensitive": false,
+      "aliases": [
+        "add one"
+      ]
+    },
+    {
+      "id": "js-operators-math-t007",
+      "term": "decrement",
+      "level": "beginner",
+      "definitionEn": "An operation that decreases a numeric value by one.",
+      "example": "count--;",
+      "caseSensitive": false,
+      "aliases": [
+        "subtract one"
+      ]
+    },
+    {
+      "id": "js-operators-math-t008",
+      "term": "floating-point number",
+      "level": "intermediate",
+      "definitionEn": "A number representation used for values that can include a fractional part.",
+      "example": "const ratio = 0.25;",
+      "caseSensitive": false,
+      "aliases": [
+        "decimal number"
+      ]
+    },
+    {
+      "id": "js-operators-math-t009",
+      "term": "operator precedence",
+      "level": "intermediate",
+      "definitionEn": "The rules that determine which operations are evaluated first.",
+      "example": "const value = 2 + 3 * 4;",
+      "caseSensitive": false,
+      "aliases": [
+        "order of operations"
+      ]
+    },
+    {
+      "id": "js-operators-math-t010",
+      "term": "augmented assignment",
+      "level": "intermediate",
+      "definitionEn": "A shorthand operation that calculates with and reassigns to the same binding.",
+      "example": "score += 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "compound assignment"
+      ]
+    },
+    {
+      "id": "js-operators-math-t011",
+      "term": "parseInt",
+      "display": "parseInt()",
+      "level": "intermediate",
+      "definitionEn": "A built-in function that parses an integer from the start of a string.",
+      "example": "const value = parseInt('24px', 10);",
+      "caseSensitive": true,
+      "aliases": [
+        "integer parser"
+      ]
+    },
+    {
+      "id": "js-operators-math-t012",
+      "term": "radix",
+      "level": "advanced",
+      "definitionEn": "The base that specifies how digits in a numeral are interpreted.",
+      "example": "parseInt('11', 2);",
+      "caseSensitive": false,
+      "aliases": [
+        "base"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-operators-math-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Basic Math",
+      "code": "const answer = 7 + 5;",
+      "question": "Which arithmetic operation is used to calculate answer?",
+      "options": [
+        "Addition",
+        "Subtraction",
+        "Multiplication",
+        "Division"
+      ],
+      "correctOption": 0,
+      "explanation": "The plus operator adds the numeric operands."
+    },
+    {
+      "id": "js-operators-math-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Basic Math",
+      "code": "console.log(18 - 6);",
+      "options": [
+        "12",
+        "24",
+        "3",
+        "108"
+      ],
+      "correctOption": 0,
+      "explanation": "Subtracting 6 from 18 gives 12.",
+      "expectedOutput": "12"
+    },
+    {
+      "id": "js-operators-math-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Multiply/Divide Decimals",
+      "code": "console.log(2.5 * 4);",
+      "explanation": "Multiplying 2.5 by 4 gives 10.",
+      "expectedOutput": "10"
+    },
+    {
+      "id": "js-operators-math-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Remainder",
+      "prompt": "Fill the operator to get the remainder after dividing 14 by 5.",
+      "code": "console.log(14 ____ 5);",
+      "blanks": [
+        [
+          "%"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The remainder operator returns the leftover after division.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-operators-math-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Increment/Decrement",
+      "code": "let lives = 3;\nlives++;\nconsole.log(lives);",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "6"
+      ],
+      "correctOption": 0,
+      "explanation": "The increment operator increases lives by one.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-operators-math-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Decimal Numbers",
+      "code": "const price = 3.75;",
+      "question": "What kind of numeric value is 3.75?",
+      "options": [
+        "A number with a fractional part",
+        "A numeric string",
+        "A remainder operation",
+        "An integer in base 2"
+      ],
+      "correctOption": 0,
+      "explanation": "The value includes a fractional part and is represented as a JavaScript Number."
+    },
+    {
+      "id": "js-operators-math-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Basic Math",
+      "prompt": "Write absoluteDifference(a, b), returning the non-negative difference between two numbers.",
+      "functionName": "absoluteDifference",
+      "starter": "function absoluteDifference(a, b) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            9,
+            4
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            2,
+            8
+          ],
+          "expect": 6
+        },
+        {
+          "args": [
+            -2,
+            -2
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function absoluteDifference(a, b) {\n  return Math.abs(a - b);\n}",
+      "explanation": "Math.abs makes the subtraction result non-negative."
+    },
+    {
+      "id": "js-operators-math-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Basic Math",
+      "prompt": "Fill the operator that multiplies width by height.",
+      "code": "const area = 3 ____ 4;\nconsole.log(area);",
+      "blanks": [
+        [
+          "*"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The asterisk operator performs multiplication.",
+      "expectedOutput": "12"
+    },
+    {
+      "id": "js-operators-math-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Remainder",
+      "prompt": "Write isEven(number), returning true when number is evenly divisible by two.",
+      "functionName": "isEven",
+      "starter": "function isEven(number) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            8
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            7
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": true
+        }
+      ],
+      "solution": "function isEven(number) {\n  return number % 2 === 0;\n}",
+      "explanation": "An even integer has remainder zero when divided by two."
+    },
+    {
+      "id": "js-operators-math-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Augmented Math",
+      "code": "let points = 10;\npoints -= 3;\nconsole.log(points);",
+      "options": [
+        "7",
+        "13",
+        "3",
+        "10"
+      ],
+      "correctOption": 0,
+      "explanation": "Subtraction-assignment subtracts three from the current value.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-operators-math-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "parseInt",
+      "code": "console.log(parseInt('42px', 10));",
+      "explanation": "parseInt reads the initial integer digits and stops at the non-digit suffix.",
+      "expectedOutput": "42"
+    },
+    {
+      "id": "js-operators-math-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "parseInt",
+      "prompt": "Fill the explicit base for parsing the decimal string '18'.",
+      "code": "console.log(parseInt('18', ____));",
+      "blanks": [
+        [
+          "10"
+        ]
+      ],
+      "caseSensitive": false,
+      "explanation": "Providing radix 10 makes the intended decimal base explicit.",
+      "expectedOutput": "18"
+    },
+    {
+      "id": "js-operators-math-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Augmented Math",
+      "prompt": "Write applySteps(start, steps), where each step is added to the running total.",
+      "functionName": "applySteps",
+      "starter": "function applySteps(start, steps) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            [
+              3,
+              -1
+            ]
+          ],
+          "expect": 4
+        },
+        {
+          "args": [
+            0,
+            []
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -5,
+            [
+              2,
+              2
+            ]
+          ],
+          "expect": -1
+        }
+      ],
+      "solution": "function applySteps(start, steps) {\n  let total = start;\n  for (const step of steps) total += step;\n  return total;\n}",
+      "explanation": "Apply each delta to the current accumulated value."
+    },
+    {
+      "id": "js-operators-math-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Increment/Decrement",
+      "prompt": "Fill the operator to reduce attempts by one.",
+      "code": "let attempts = 4;\nattempts____;\nconsole.log(attempts);",
+      "blanks": [
+        [
+          "--"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The decrement operator reduces a numeric binding by one.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-operators-math-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Random Fractions and Whole Numbers",
+      "code": "const fraction = Math.random();",
+      "question": "Which range describes the value returned by Math.random()?",
+      "options": [
+        "At least 0 and less than 1",
+        "Greater than 0 and at most 1",
+        "Any integer from 0 through 10",
+        "Always exactly 0.5"
+      ],
+      "correctOption": 0,
+      "explanation": "Math.random returns a pseudorandom Number in the half-open interval [0, 1)."
+    },
+    {
+      "id": "js-operators-math-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Basic Math",
+      "prompt": "Write averageOfTwo(a, b), returning the arithmetic mean.",
+      "functionName": "averageOfTwo",
+      "starter": "function averageOfTwo(a, b) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4,
+            8
+          ],
+          "expect": 6
+        },
+        {
+          "args": [
+            0,
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -2,
+            2
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function averageOfTwo(a, b) {\n  return (a + b) / 2;\n}",
+      "explanation": "Add the values and divide their sum by two."
+    },
+    {
+      "id": "js-operators-math-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Increment/Decrement",
+      "code": "let n = 5;\nconst before = n++;\nconst after = ++n;",
+      "question": "What value does before receive?",
+      "options": [
+        "5, because postfix increment evaluates to the old value",
+        "6, because every increment evaluates to the new value",
+        "7, because both increments happen first",
+        "undefined, because n is reassigned"
+      ],
+      "correctOption": 0,
+      "explanation": "Postfix increment yields the prior value before updating the binding."
+    },
+    {
+      "id": "js-operators-math-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Basic Math",
+      "code": "console.log(2 + 3 * 4, (2 + 3) * 4);",
+      "explanation": "Multiplication has higher precedence unless parentheses change the grouping.",
+      "expectedOutput": "14 20"
+    },
+    {
+      "id": "js-operators-math-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Remainder",
+      "prompt": "Fill the comparison so the function is true only for multiples of three.",
+      "code": "function isMultipleOfThree(n) {\n  return n % 3 ____ 0;\n}\nconsole.log(isMultipleOfThree(12));",
+      "blanks": [
+        [
+          "==="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A multiple of three has remainder zero.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-operators-math-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "parseInt",
+      "prompt": "Write parseBinary(text), interpreting the supplied digit string as base two.",
+      "functionName": "parseBinary",
+      "starter": "function parseBinary(text) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "101"
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            "0"
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            "1111"
+          ],
+          "expect": 15
+        }
+      ],
+      "solution": "function parseBinary(text) {\n  return parseInt(text, 2);\n}",
+      "explanation": "Pass radix 2 to interpret the digits as binary."
+    },
+    {
+      "id": "js-operators-math-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Decimal Numbers",
+      "code": "console.log(0.1 + 0.2 === 0.3);",
+      "options": [
+        "false",
+        "true",
+        "0.3",
+        "A TypeError"
+      ],
+      "correctOption": 0,
+      "explanation": "Binary floating-point cannot represent these decimal fractions exactly, so the computed sum is not exactly 0.3.",
+      "expectedOutput": "false"
+    },
+    {
+      "id": "js-operators-math-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Remainder",
+      "question": "How can the remainder operator help identify whether an integer is even?",
+      "keyPoints": [
+        "Divide by two using remainder",
+        "Even integers leave remainder zero",
+        "Odd integers leave remainder one for positive integers",
+        "Use a comparison to produce a boolean"
+      ],
+      "modelAnswer": "An integer is even when dividing it by two leaves a remainder of zero, so a check like n % 2 === 0 returns a boolean. For a general divisibility check, compare the remainder to zero using the chosen divisor."
+    },
+    {
+      "id": "js-operators-math-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "parseInt",
+      "question": "Why should code often pass a radix to parseInt?",
+      "keyPoints": [
+        "The radix specifies the numeral base",
+        "Radix 10 clearly expresses decimal parsing",
+        "Other bases interpret the same digits differently",
+        "Invalid input may produce NaN"
+      ],
+      "modelAnswer": "The radix tells parseInt which number base to use, making the intended interpretation explicit. For ordinary decimal text, passing 10 avoids relying on implicit choices and makes code easier to understand."
+    },
+    {
+      "id": "js-operators-math-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Decimal Numbers",
+      "question": "Why can a decimal calculation such as 0.1 + 0.2 fail an exact equality check against 0.3?",
+      "keyPoints": [
+        "JavaScript Number uses binary floating-point",
+        "Many decimal fractions lack exact binary representations",
+        "Rounding error can remain after arithmetic",
+        "Use a tolerance for approximate comparisons"
+      ],
+      "modelAnswer": "JavaScript Number values use binary floating-point, and values such as 0.1 cannot be represented exactly in that format. Their arithmetic can therefore produce a nearby value rather than exactly 0.3; numeric code can compare within an appropriate tolerance when approximation is expected."
+    }
+  ]
+}

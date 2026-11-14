@@ -1,0 +1,608 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Strings",
+    "order": 3,
+    "sourceSections": [
+      "Declare Strings",
+      "Escaping Quotes",
+      "Single Quotes",
+      "Escape Sequences",
+      "Plus / Plus Equals",
+      "Constructing Strings with Variables",
+      "Length",
+      "Bracket Notation",
+      "String Immutability",
+      "Nth Character",
+      "Word Blanks"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-strings-t001",
+      "term": "string",
+      "level": "beginner",
+      "definitionEn": "A sequence of text characters represented as a primitive value.",
+      "example": "const name = 'Nora';",
+      "caseSensitive": false,
+      "aliases": [
+        "text"
+      ]
+    },
+    {
+      "id": "js-strings-t002",
+      "term": "quote",
+      "level": "beginner",
+      "definitionEn": "A delimiter that marks the beginning and end of a string literal.",
+      "example": "const word = 'hello';",
+      "caseSensitive": false,
+      "aliases": [
+        "quotation mark"
+      ]
+    },
+    {
+      "id": "js-strings-t003",
+      "term": "escape sequence",
+      "level": "intermediate",
+      "definitionEn": "A backslash-based notation for a character with special meaning in text.",
+      "example": "const line = 'a\\nb';",
+      "caseSensitive": false,
+      "aliases": [
+        "escaped character"
+      ]
+    },
+    {
+      "id": "js-strings-t004",
+      "term": "concatenation",
+      "level": "beginner",
+      "definitionEn": "The operation of joining text values into a longer sequence.",
+      "example": "const full = 'red' + 'wood';",
+      "caseSensitive": false,
+      "aliases": [
+        "joining strings"
+      ]
+    },
+    {
+      "id": "js-strings-t005",
+      "term": "length",
+      "level": "beginner",
+      "definitionEn": "The number of UTF-16 code units in a string.",
+      "example": "const count = 'abc'.length;",
+      "caseSensitive": false,
+      "aliases": [
+        "string size"
+      ]
+    },
+    {
+      "id": "js-strings-t006",
+      "term": "bracket notation",
+      "level": "beginner",
+      "definitionEn": "A way to access a character-like code unit using a numeric position.",
+      "example": "const letter = 'cat'[1];",
+      "caseSensitive": false,
+      "aliases": [
+        "indexed access"
+      ]
+    },
+    {
+      "id": "js-strings-t007",
+      "term": "index",
+      "level": "beginner",
+      "definitionEn": "A zero-based position used to access a character in text.",
+      "example": "const first = 'sun'[0];",
+      "caseSensitive": false,
+      "aliases": [
+        "position"
+      ]
+    },
+    {
+      "id": "js-strings-t008",
+      "term": "immutability",
+      "level": "intermediate",
+      "definitionEn": "The property that an existing value cannot be altered in place.",
+      "example": "const text = 'cat';\nconst next = 'b' + text.slice(1);",
+      "caseSensitive": false,
+      "aliases": [
+        "immutable behavior"
+      ]
+    },
+    {
+      "id": "js-strings-t009",
+      "term": "template literal",
+      "level": "intermediate",
+      "definitionEn": "A string form delimited by backticks that supports interpolation.",
+      "example": "const message = `Hi, ${name}`;",
+      "caseSensitive": false,
+      "aliases": [
+        "backtick string"
+      ]
+    },
+    {
+      "id": "js-strings-t010",
+      "term": "interpolation",
+      "level": "intermediate",
+      "definitionEn": "The insertion of an expression's value into a text template.",
+      "example": "const line = `Count: ${count}`;",
+      "caseSensitive": false,
+      "aliases": [
+        "expression substitution"
+      ]
+    },
+    {
+      "id": "js-strings-t011",
+      "term": "string coercion",
+      "level": "advanced",
+      "definitionEn": "The conversion of a value to text during an operation that needs a string.",
+      "example": "const label = 'id-' + 4;",
+      "caseSensitive": false,
+      "aliases": [
+        "string conversion"
+      ]
+    },
+    {
+      "id": "js-strings-t012",
+      "term": "code unit",
+      "level": "advanced",
+      "definitionEn": "A 16-bit value used as a basic component of JavaScript string indexing.",
+      "example": "const units = 'A'.length;",
+      "caseSensitive": false,
+      "aliases": [
+        "UTF-16 unit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-strings-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Declare Strings",
+      "code": "const city = 'Oslo';",
+      "question": "What kind of value is stored in city?",
+      "options": [
+        "A string containing text",
+        "An array of four separate values",
+        "A boolean value",
+        "A function"
+      ],
+      "correctOption": 0,
+      "explanation": "Text between matching quotes is a string literal."
+    },
+    {
+      "id": "js-strings-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Plus / Plus Equals",
+      "code": "console.log('ice' + 'berg');",
+      "options": [
+        "iceberg",
+        "ice berg",
+        "ice+berg",
+        "2"
+      ],
+      "correctOption": 0,
+      "explanation": "The plus operator concatenates two strings directly.",
+      "expectedOutput": "iceberg"
+    },
+    {
+      "id": "js-strings-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Length",
+      "code": "console.log('lamp'.length);",
+      "explanation": "The word contains four UTF-16 code units.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-strings-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Bracket Notation",
+      "prompt": "Fill the index to access the second character.",
+      "code": "const word = 'map';\nconsole.log(word[____]);",
+      "blanks": [
+        [
+          "1"
+        ]
+      ],
+      "caseSensitive": false,
+      "explanation": "String indexes begin at zero, making the second character index 1.",
+      "expectedOutput": "a"
+    },
+    {
+      "id": "js-strings-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Escape Sequences",
+      "code": "console.log('A\\nB');",
+      "options": [
+        "A\nB",
+        "A B",
+        "AB",
+        "A\\nB"
+      ],
+      "correctOption": 0,
+      "explanation": "The escape sequence \\n represents a line feed.",
+      "expectedOutput": "A\nB"
+    },
+    {
+      "id": "js-strings-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Escaping Quotes",
+      "code": "const quote = 'It\\'s fine';",
+      "question": "Why is the apostrophe escaped?",
+      "options": [
+        "So it does not end the single-quoted string early",
+        "To convert the apostrophe to a number",
+        "To make the string immutable",
+        "To begin a comment"
+      ],
+      "correctOption": 0,
+      "explanation": "The backslash lets an apostrophe appear inside a single-quoted literal."
+    },
+    {
+      "id": "js-strings-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Constructing Strings with Variables",
+      "prompt": "Write welcome(name), returning the text 'Welcome, ' followed by name and an exclamation mark.",
+      "functionName": "welcome",
+      "starter": "function welcome(name) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "Ava"
+          ],
+          "expect": "Welcome, Ava!"
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": "Welcome, !"
+        },
+        {
+          "args": [
+            "Sam Lee"
+          ],
+          "expect": "Welcome, Sam Lee!"
+        }
+      ],
+      "solution": "function welcome(name) {\n  return 'Welcome, ' + name + '!';\n}",
+      "explanation": "Concatenate fixed text around the supplied name."
+    },
+    {
+      "id": "js-strings-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Plus / Plus Equals",
+      "prompt": "Fill the operator that appends a question mark to the existing string.",
+      "code": "let prompt = 'Ready';\nprompt ____ '?';\nconsole.log(prompt);",
+      "blanks": [
+        [
+          "+="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Addition-assignment concatenates the new string and stores it back.",
+      "expectedOutput": "Ready?"
+    },
+    {
+      "id": "js-strings-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Word Blanks",
+      "prompt": "Write makeSentence(noun, verb), returning 'The noun verb.' with the supplied words.",
+      "functionName": "makeSentence",
+      "starter": "function makeSentence(noun, verb) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "bird",
+            "sings"
+          ],
+          "expect": "The bird sings."
+        },
+        {
+          "args": [
+            "robot",
+            "waits"
+          ],
+          "expect": "The robot waits."
+        },
+        {
+          "args": [
+            "",
+            ""
+          ],
+          "expect": "The  ."
+        }
+      ],
+      "solution": "function makeSentence(noun, verb) {\n  return 'The ' + noun + ' ' + verb + '.';\n}",
+      "explanation": "Place each supplied word between the fixed pieces of text."
+    },
+    {
+      "id": "js-strings-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "String Immutability",
+      "code": "let word = 'cat';\nword[0] = 'b';\nconsole.log(word);",
+      "options": [
+        "cat",
+        "bat",
+        "b",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "String characters cannot be changed by assigning to an indexed position.",
+      "expectedOutput": "cat"
+    },
+    {
+      "id": "js-strings-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Constructing Strings with Variables",
+      "code": "const item = 'pen';\nconsole.log('A ' + item + ' costs ' + 2);",
+      "explanation": "Concatenation joins the text and converts the number to text.",
+      "expectedOutput": "A pen costs 2"
+    },
+    {
+      "id": "js-strings-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Nth Character",
+      "prompt": "Complete the index expression to print the final character in a non-empty word.",
+      "code": "const word = 'planet';\nconsole.log(word[word.length ____ 1]);",
+      "blanks": [
+        [
+          "-"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The final index is one less than the string length.",
+      "expectedOutput": "t"
+    },
+    {
+      "id": "js-strings-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Length",
+      "prompt": "Write endsWithMark(text), returning true if text ends with an exclamation mark.",
+      "functionName": "endsWithMark",
+      "starter": "function endsWithMark(text) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "Great!"
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            "Great"
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": false
+        }
+      ],
+      "solution": "function endsWithMark(text) {\n  return text.endsWith('!');\n}",
+      "explanation": "endsWith checks whether a string ends with the supplied suffix."
+    },
+    {
+      "id": "js-strings-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Escaping Quotes",
+      "prompt": "Fill the escape character so the inner double quote is part of the text.",
+      "code": "const line = \"She said: ____go____\";\nconsole.log(line);",
+      "blanks": [
+        [
+          "\\\""
+        ],
+        [
+          "\\\""
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A backslash escapes a quote that would otherwise end the literal.",
+      "expectedOutput": "She said: \"go\""
+    },
+    {
+      "id": "js-strings-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Plus / Plus Equals",
+      "code": "const code = '7' + 2;",
+      "question": "What kind of result does the plus operator produce here?",
+      "options": [
+        "The string '72', because one operand is a string",
+        "The number 9, because plus always adds numerically",
+        "The number 72, because the digits are multiplied",
+        "A TypeError because the operand types differ"
+      ],
+      "correctOption": 0,
+      "explanation": "When plus has a string operand, the other value is converted to text and concatenated."
+    },
+    {
+      "id": "js-strings-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Bracket Notation",
+      "prompt": "Write charAtOrEmpty(text, index), returning the character at index or an empty string when it is missing.",
+      "functionName": "charAtOrEmpty",
+      "starter": "function charAtOrEmpty(text, index) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "bird",
+            2
+          ],
+          "expect": "r"
+        },
+        {
+          "args": [
+            "bird",
+            9
+          ],
+          "expect": ""
+        },
+        {
+          "args": [
+            "",
+            0
+          ],
+          "expect": ""
+        }
+      ],
+      "solution": "function charAtOrEmpty(text, index) {\n  return text[index] ?? '';\n}",
+      "explanation": "An out-of-range bracket access is undefined, so nullish coalescing supplies the fallback."
+    },
+    {
+      "id": "js-strings-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "String Immutability",
+      "code": "let text = 'sun';\ntext = 'r' + text.slice(1);",
+      "question": "Why is a new string assigned instead of changing text[0]?",
+      "options": [
+        "String values are immutable, so the expression constructs a replacement",
+        "The first character is always read-only because text uses let",
+        "slice changes the original string in place",
+        "The plus operator converts the result to an array"
+      ],
+      "correctOption": 0,
+      "explanation": "String operations produce new values; they do not mutate the existing string."
+    },
+    {
+      "id": "js-strings-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Escape Sequences",
+      "code": "const text = 'A\\tB';\nconsole.log(text.length, text[1] === '\\t');",
+      "explanation": "The tab escape is one code unit, so the string has three code units.",
+      "expectedOutput": "3 true"
+    },
+    {
+      "id": "js-strings-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Nth Character",
+      "prompt": "Fill the index so the code prints the second character, counting from one in ordinary speech.",
+      "code": "console.log('stone'[____]);",
+      "blanks": [
+        [
+          "1"
+        ]
+      ],
+      "caseSensitive": false,
+      "explanation": "JavaScript uses zero-based indexes, so the second character is at position 1.",
+      "expectedOutput": "t"
+    },
+    {
+      "id": "js-strings-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Constructing Strings with Variables",
+      "prompt": "Write repeatWithDash(left, right), joining the strings with exactly one hyphen.",
+      "functionName": "repeatWithDash",
+      "starter": "function repeatWithDash(left, right) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "north",
+            "star"
+          ],
+          "expect": "north-star"
+        },
+        {
+          "args": [
+            "",
+            "x"
+          ],
+          "expect": "-x"
+        },
+        {
+          "args": [
+            "a",
+            ""
+          ],
+          "expect": "a-"
+        }
+      ],
+      "solution": "function repeatWithDash(left, right) {\n  return left + '-' + right;\n}",
+      "explanation": "Insert the separator between the two supplied strings."
+    },
+    {
+      "id": "js-strings-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Length",
+      "code": "console.log('A😀'.length);",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "4"
+      ],
+      "correctOption": 0,
+      "explanation": "The emoji is represented by a surrogate pair, so it contributes two UTF-16 code units.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-strings-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "String Immutability",
+      "question": "What does it mean that JavaScript strings are immutable?",
+      "keyPoints": [
+        "Existing string values are not changed in place",
+        "Operations produce new strings",
+        "A variable can be reassigned to a new string",
+        "Indexed assignment does not replace a character"
+      ],
+      "modelAnswer": "String values cannot be changed in place, so methods and concatenation produce new strings. A variable holding a string can still be reassigned to a different string value."
+    },
+    {
+      "id": "js-strings-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Length",
+      "question": "Why can a visible character count differ from a JavaScript string's length?",
+      "keyPoints": [
+        "length counts UTF-16 code units",
+        "Some Unicode characters use multiple code units",
+        "Combining marks may render with another character",
+        "Code points or grapheme segmentation may be needed"
+      ],
+      "modelAnswer": "JavaScript's length property counts UTF-16 code units, not necessarily user-perceived characters. Some symbols use multiple code units, and a displayed grapheme can also combine multiple code points."
+    },
+    {
+      "id": "js-strings-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Plus / Plus Equals",
+      "question": "How does the plus operator behave when one operand is a string?",
+      "keyPoints": [
+        "The operation can concatenate rather than add numerically",
+        "The other operand is converted to a string",
+        "Operand grouping can affect results in longer expressions",
+        "Use explicit conversion for clear numeric addition"
+      ],
+      "modelAnswer": "When string concatenation applies, the other operand is converted to a string and the text values are joined. In expressions that mix numbers and strings, evaluation order matters, so explicit numeric conversion can make arithmetic intent clear."
+    }
+  ]
+}
