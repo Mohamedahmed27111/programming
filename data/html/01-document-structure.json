@@ -1,0 +1,559 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "Document Structure",
+    "order": 1,
+    "sourceSections": [
+      "DOCTYPE",
+      "html, head, and body",
+      "title and metadata",
+      "charset",
+      "viewport"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-document-structure-t001",
+      "term": "doctype",
+      "display": "<!doctype html>",
+      "level": "beginner",
+      "definitionEn": "A declaration that tells browsers to use modern HTML parsing mode.",
+      "definitionAr": "سطر في بداية الملف بيخلّي المتصفح يعرض الصفحة بوضع HTML الحديث.",
+      "example": "<!doctype html>",
+      "caseSensitive": false,
+      "aliases": [
+        "document type declaration"
+      ]
+    },
+    {
+      "id": "html-document-structure-t002",
+      "term": "html",
+      "display": "<html>",
+      "level": "beginner",
+      "definitionEn": "The root element that contains the complete page document.",
+      "definitionAr": "العنصر الأساسي اللي بيحتوي كل عناصر مستند الصفحة.",
+      "example": "<html lang=\"en\">...</html>",
+      "caseSensitive": false,
+      "aliases": [
+        "root element"
+      ]
+    },
+    {
+      "id": "html-document-structure-t003",
+      "term": "head",
+      "display": "<head>",
+      "level": "beginner",
+      "definitionEn": "The element containing document metadata and linked resources rather than page content.",
+      "definitionAr": "عنصر بيضم بيانات الصفحة وملفاتها المرتبطة، مش المحتوى الرئيسي الظاهر.",
+      "example": "<head><title>Notes</title></head>",
+      "caseSensitive": false,
+      "aliases": [
+        "document head"
+      ]
+    },
+    {
+      "id": "html-document-structure-t004",
+      "term": "body",
+      "display": "<body>",
+      "level": "beginner",
+      "definitionEn": "The element containing the document content presented in the page.",
+      "definitionAr": "عنصر بيضم المحتوى اللي بيتعرض جوه الصفحة.",
+      "example": "<body><p>Welcome</p></body>",
+      "caseSensitive": false,
+      "aliases": [
+        "document body"
+      ]
+    },
+    {
+      "id": "html-document-structure-t005",
+      "term": "title",
+      "display": "<title>",
+      "level": "beginner",
+      "definitionEn": "An element that names the document in browser tabs and other browser interfaces.",
+      "definitionAr": "عنصر بيحدد اسم الصفحة اللي بيظهر في لسان المتصفح وواجهاته.",
+      "example": "<title>Reading list</title>",
+      "caseSensitive": false,
+      "aliases": [
+        "document title"
+      ]
+    },
+    {
+      "id": "html-document-structure-t006",
+      "term": "meta",
+      "display": "<meta>",
+      "level": "intermediate",
+      "definitionEn": "An element that supplies descriptive information about a document through attributes.",
+      "definitionAr": "عنصر بيضيف معلومات وصفية عن الصفحة باستخدام خصائصه.",
+      "example": "<meta name=\"description\" content=\"A short guide\">",
+      "caseSensitive": false,
+      "aliases": [
+        "metadata element"
+      ]
+    },
+    {
+      "id": "html-document-structure-t007",
+      "term": "charset",
+      "display": "charset=\"utf-8\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute that declares the character encoding used by a document.",
+      "definitionAr": "خاصية بتحدد ترميز الحروف اللي المتصفح يستخدمه لقراءة الصفحة.",
+      "example": "<meta charset=\"utf-8\">",
+      "caseSensitive": false,
+      "aliases": [
+        "character encoding"
+      ]
+    },
+    {
+      "id": "html-document-structure-t008",
+      "term": "viewport",
+      "display": "name=\"viewport\"",
+      "level": "intermediate",
+      "definitionEn": "A metadata setting that controls the layout area on mobile devices.",
+      "definitionAr": "إعداد للـ metadata بيتحكم في مساحة عرض الصفحة على الموبايل.",
+      "example": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "caseSensitive": false,
+      "aliases": [
+        "viewport metadata"
+      ]
+    },
+    {
+      "id": "html-document-structure-t009",
+      "term": "lang",
+      "display": "lang=\"en\"",
+      "level": "intermediate",
+      "definitionEn": "An attribute that identifies the primary tongue used by an element's text.",
+      "definitionAr": "خاصية بتحدد اللغة الأساسية للنص داخل العنصر.",
+      "example": "<html lang=\"ar\">",
+      "caseSensitive": false,
+      "aliases": [
+        "language attribute"
+      ]
+    },
+    {
+      "id": "html-document-structure-t010",
+      "term": "metadata",
+      "level": "intermediate",
+      "definitionEn": "Information describing a document that is not usually displayed as page content.",
+      "definitionAr": "معلومات بتوصف المستند لكنها غالبًا مش جزء من محتوى الصفحة الظاهر.",
+      "example": "<meta name=\"author\" content=\"Mona\">",
+      "caseSensitive": false,
+      "aliases": [
+        "document metadata"
+      ]
+    },
+    {
+      "id": "html-document-structure-t011",
+      "term": "root element",
+      "level": "advanced",
+      "definitionEn": "The single top-level element that contains the other elements in a document tree.",
+      "definitionAr": "العنصر الوحيد في أعلى شجرة الصفحة وبيحتوي باقي العناصر.",
+      "example": "<html><body>Page</body></html>",
+      "caseSensitive": false,
+      "aliases": [
+        "document root"
+      ]
+    },
+    {
+      "id": "html-document-structure-t012",
+      "term": "quirks mode",
+      "level": "advanced",
+      "definitionEn": "A legacy browser rendering mode that may be selected when a document lacks the modern doctype.",
+      "definitionAr": "وضع توافق قديم ممكن المتصفح يختاره لو إعلان نوع المستند الحديث مش موجود.",
+      "example": "<!doctype html><html><body>Standards mode</body></html>",
+      "caseSensitive": false,
+      "aliases": [
+        "legacy rendering mode"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-document-structure-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "DOCTYPE",
+      "code": "<!doctype html>",
+      "question": "What does this declaration tell a modern browser?",
+      "options": [
+        "Use the modern HTML parsing mode",
+        "Load the page as an XML document",
+        "Choose the page's visual theme",
+        "Treat the next element as hidden"
+      ],
+      "correctOption": 0,
+      "explanation": "The HTML doctype selects standards mode; it is a declaration, not a content element.",
+      "explanationAr": "إعلان doctype بيختار وضع المعايير الحديث، ومش عنصر محتوى."
+    },
+    {
+      "id": "html-document-structure-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "html, head, and body",
+      "code": "<html lang=\"en\"><head><title>Map</title></head><body><p>North</p></body></html>",
+      "question": "Which element is the root containing both head and body?",
+      "options": [
+        "The head element",
+        "The html element",
+        "The body element",
+        "The title element"
+      ],
+      "correctOption": 1,
+      "explanation": "The html element is the document root and contains head and body.",
+      "explanationAr": "عنصر html هو جذر المستند وبيحتوي head وbody."
+    },
+    {
+      "id": "html-document-structure-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "html, head, and body",
+      "code": "<h1>Trail notes</h1><p>Day one</p>",
+      "options": [
+        "Trail notesDay one",
+        "h1 Trail notes p Day one",
+        "Trail notes\nDay one",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "The heading and paragraph display their text as separate block content.",
+      "explanationAr": "العنوان والفقرة بيعرضوا النص كسطرين منفصلين.",
+      "expectedOutput": "Trail notes\nDay one"
+    },
+    {
+      "id": "html-document-structure-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "html, head, and body",
+      "prompt": "Complete the document root element that wraps the head and body.",
+      "code": "<!doctype html>\n<____ lang=\"en\"><head><title>Atlas</title></head><body><p>Open</p></body></____>",
+      "blanks": [
+        [
+          "html"
+        ],
+        [
+          "html"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Open",
+      "explanation": "The html root contains the document's head and body."
+    },
+    {
+      "id": "html-document-structure-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "title and metadata",
+      "code": "<head><title>Garden journal</title></head>",
+      "question": "Where is this title normally shown by the browser?",
+      "options": [
+        "As a heading inside the main page body",
+        "As a caption under every image",
+        "In the browser tab or window title",
+        "As the page's URL path"
+      ],
+      "correctOption": 2,
+      "explanation": "The title element names the document in browser chrome and search results, not as body content.",
+      "explanationAr": "عنصر title بيسمي المستند في لسان المتصفح، مش كعنوان داخل body."
+    },
+    {
+      "id": "html-document-structure-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "title and metadata",
+      "prompt": "Fill in the element that names the page in its browser tab.",
+      "code": "<head><____>Kitchen notes</____></head>",
+      "blanks": [
+        [
+          "title"
+        ],
+        [
+          "title"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The title element provides the document title shown in browser interfaces."
+    },
+    {
+      "id": "html-document-structure-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "html, head, and body",
+      "code": "<head><meta name=\"description\" content=\"A field guide\"></head>",
+      "question": "What role does the meta element play here?",
+      "options": [
+        "It creates a visible heading in the body",
+        "It wraps all of the page's paragraphs",
+        "It applies a browser display preference from document metadata",
+        "It supplies document information through attributes"
+      ],
+      "correctOption": 3,
+      "explanation": "This meta element supplies metadata; it does not create visible body content.",
+      "explanationAr": "عنصر meta هنا بيضيف بيانات وصفية ومش محتوى ظاهر."
+    },
+    {
+      "id": "html-document-structure-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "html, head, and body",
+      "code": "<body><p>First line</p><p>Second line</p></body>",
+      "expectedOutput": "First line\nSecond line",
+      "explanation": "Each paragraph is displayed as a separate block of text.",
+      "explanationAr": "كل فقرة بتظهر ككتلة نص مستقلة."
+    },
+    {
+      "id": "html-document-structure-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "charset",
+      "prompt": "Declare the document's character encoding as UTF-8.",
+      "code": "<head><meta ____=\"utf-8\"></head>",
+      "blanks": [
+        [
+          "charset"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The charset attribute declares the encoding used to interpret the document text."
+    },
+    {
+      "id": "html-document-structure-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "viewport",
+      "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "question": "What is the main purpose of this metadata on a phone?",
+      "options": [
+        "Force every element to fit on one text line",
+        "Match the layout viewport to device width at the initial scale",
+        "Set a fixed width of 980 pixels for all devices",
+        "Lock the layout to a fixed desktop width regardless of device size"
+      ],
+      "correctOption": 1,
+      "explanation": "The viewport setting gives mobile browsers a device-width layout viewport and an initial scale.",
+      "explanationAr": "إعداد viewport بيخلي مساحة التخطيط بعرض الجهاز وبيحدد التكبير الأولي."
+    },
+    {
+      "id": "html-document-structure-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "lang",
+      "prompt": "Declare that the document's primary language is Arabic.",
+      "code": "<html ____=\"ar\"><body><p>أهلًا</p></body></html>",
+      "blanks": [
+        [
+          "lang"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "أهلًا",
+      "explanation": "The lang attribute communicates the text language to browsers and assistive technology."
+    },
+    {
+      "id": "html-document-structure-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "html, head, and body",
+      "code": "<head><title>Field log</title></head><body><h1>Day 4</h1><p>Cloudy</p></body>",
+      "options": [
+        "No visible text",
+        "Day 4\nCloudy",
+        "Field log\nCloudy",
+        "Day 4"
+      ],
+      "correctOption": 1,
+      "explanation": "The title belongs to document metadata; only the heading and paragraph are body content.",
+      "explanationAr": "العنوان داخل metadata، أما النص الظاهر هنا فهو العنوان والفقرة في body.",
+      "expectedOutput": "Day 4\nCloudy"
+    },
+    {
+      "id": "html-document-structure-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "charset",
+      "code": "<meta charset=\"utf-8\">",
+      "question": "Why is UTF-8 commonly declared near the start of head?",
+      "options": [
+        "It converts every page string into an image",
+        "It determines how character bytes and CSS styling are interpreted",
+        "It makes all text use the same font size",
+        "It lets the browser decode a broad set of characters consistently"
+      ],
+      "correctOption": 3,
+      "explanation": "Declaring the encoding early helps the browser interpret document bytes as the intended characters.",
+      "explanationAr": "إعلان الترميز بدري بيساعد المتصفح يقرأ الحروف بشكل صحيح."
+    },
+    {
+      "id": "html-document-structure-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "viewport",
+      "prompt": "Set the viewport width to the device width.",
+      "code": "<meta name=\"viewport\" content=\"____=device-width, initial-scale=1\">",
+      "blanks": [
+        [
+          "width"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The width=device-width directive makes the layout viewport follow the device width."
+    },
+    {
+      "id": "html-document-structure-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "html, head, and body",
+      "code": "<body><header>Daily log</header><main><p>Three entries</p></main><footer>Updated today</footer></body>",
+      "expectedOutput": "Daily log\nThree entries\nUpdated today",
+      "explanation": "The body contains all three visible text regions in document order.",
+      "explanationAr": "body بيضم المناطق النصية الثلاثة وبتظهر بترتيب المستند."
+    },
+    {
+      "id": "html-document-structure-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "title and metadata",
+      "prompt": "Add a description metadata element with the supplied content.",
+      "code": "<head><meta name=\"____\" content=\"A guide to local plants\"></head>",
+      "blanks": [
+        [
+          "description"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "",
+      "explanation": "The name attribute identifies the metadata value as a page description."
+    },
+    {
+      "id": "html-document-structure-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "DOCTYPE",
+      "code": "<!doctype html>\n<html><head><title>Report</title></head><body><main>Data</main></body></html>",
+      "question": "What changes when the modern doctype is omitted from this document?",
+      "options": [
+        "The browser may use legacy quirks mode instead of standards mode",
+        "The browser automatically adds a viewport declaration",
+        "The title becomes visible inside the main element",
+        "The browser parses everything as legacy XML and ignores normal document structure"
+      ],
+      "correctOption": 0,
+      "explanation": "Without the modern doctype, browsers may select quirks mode for legacy layout compatibility.",
+      "explanationAr": "من غير doctype الحديث، المتصفح ممكن يستخدم quirks mode للتوافق القديم."
+    },
+    {
+      "id": "html-document-structure-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "html, head, and body",
+      "prompt": "Complete the root-language declaration and place the title in document metadata.",
+      "code": "<!doctype html>\n<____ lang=\"en\"><head><title>Archive</title></head><body><p>Record</p></body></____>",
+      "blanks": [
+        [
+          "html"
+        ],
+        [
+          "html"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Record",
+      "explanation": "The html root owns the language setting and contains the separate head and body regions."
+    },
+    {
+      "id": "html-document-structure-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "title and metadata",
+      "code": "<head><title>River survey</title><meta name=\"description\" content=\"Water samples\"></head><body><h1>Results</h1></body>",
+      "question": "Which text is page content rather than head metadata?",
+      "options": [
+        "River survey, because title is always displayed in the body",
+        "Results, because it is inside the body heading",
+        "Water samples, because meta content is a visible paragraph",
+        "All three strings are rendered as body text"
+      ],
+      "correctOption": 1,
+      "explanation": "The h1 is body content; title and meta description are document metadata.",
+      "explanationAr": "عنصر h1 محتوى داخل body، أما title والوصف فبيانات وصفية."
+    },
+    {
+      "id": "html-document-structure-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "charset",
+      "prompt": "Use the encoding declaration that supports Arabic and many other writing systems.",
+      "code": "<head><meta charset=\"____\"></head><body><p>مرحبًا</p></body>",
+      "blanks": [
+        [
+          "utf-8"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "مرحبًا",
+      "explanation": "UTF-8 can encode the characters used by Arabic and a wide range of other scripts."
+    },
+    {
+      "id": "html-document-structure-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "html, head, and body",
+      "question": "How do the responsibilities of html, head, and body differ in an HTML document?",
+      "keyPoints": [
+        "html is the document root",
+        "head contains metadata and resource references",
+        "body contains page content",
+        "The document has one main head and body region"
+      ],
+      "modelAnswer": "The html element is the root of the document tree. Its head contains metadata and resource links, while its body contains the content presented as the page."
+    },
+    {
+      "id": "html-document-structure-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "DOCTYPE",
+      "question": "What does the HTML doctype do, and is it an HTML element?",
+      "keyPoints": [
+        "It is a declaration at the document start",
+        "It selects standards mode in modern browsers",
+        "It is not a content element",
+        "It does not create visible page text"
+      ],
+      "modelAnswer": "The HTML doctype tells the browser to use modern standards-mode parsing. It is a declaration rather than an element, so it does not add visible content to the page."
+    },
+    {
+      "id": "html-document-structure-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "charset",
+      "question": "Why should a page declare its character encoding early?",
+      "keyPoints": [
+        "The browser must decode document bytes",
+        "UTF-8 supports many languages and symbols",
+        "An early declaration reduces misinterpretation",
+        "Encoding is separate from visual styling"
+      ],
+      "modelAnswer": "A browser needs to know how to decode the bytes in an HTML document into characters. Declaring UTF-8 near the beginning helps multilingual text display as intended and is unrelated to visual styling."
+    },
+    {
+      "id": "html-document-structure-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "viewport",
+      "question": "What information does a viewport meta setting provide to mobile browsers?",
+      "keyPoints": [
+        "It influences the layout viewport",
+        "device-width matches the device's CSS width",
+        "initial-scale sets the initial zoom",
+        "It does not replace responsive CSS"
+      ],
+      "modelAnswer": "The viewport metadata can tell a mobile browser to size the layout viewport to the device width and choose an initial scale. Responsive CSS is still needed to adapt the layout itself."
+    }
+  ]
+}

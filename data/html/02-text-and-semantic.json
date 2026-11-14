@@ -1,0 +1,582 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "html",
+    "topic": "Text and Semantics",
+    "order": 2,
+    "sourceSections": [
+      "Headings and paragraphs",
+      "Emphasis and importance",
+      "Lists",
+      "Semantic page regions"
+    ]
+  },
+  "terms": [
+    {
+      "id": "html-text-and-semantic-t001",
+      "term": "h1",
+      "display": "<h1>",
+      "level": "beginner",
+      "definitionEn": "The highest-level heading element, commonly used for the page's main heading.",
+      "definitionAr": "عنصر عنوان من أعلى مستوى، وغالبًا بيكون العنوان الرئيسي للصفحة.",
+      "example": "<h1>Community garden</h1>",
+      "caseSensitive": false,
+      "aliases": [
+        "level one heading"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t002",
+      "term": "paragraph",
+      "display": "<p>",
+      "level": "beginner",
+      "definitionEn": "A block of prose expressing one related thought.",
+      "definitionAr": "عنصر بيمثل فقرة نصية مستقلة.",
+      "example": "<p>Seeds need light.</p>",
+      "caseSensitive": false,
+      "aliases": [
+        "paragraph"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t003",
+      "term": "strong",
+      "display": "<strong>",
+      "level": "beginner",
+      "definitionEn": "An element marking text as having great importance or urgency.",
+      "definitionAr": "عنصر بيوضح إن النص له أهمية قوية أو طابع عاجل.",
+      "example": "<strong>Wear gloves.</strong>",
+      "caseSensitive": false,
+      "aliases": [
+        "strong importance"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t004",
+      "term": "emphasis",
+      "display": "<em>",
+      "level": "beginner",
+      "definitionEn": "A spoken stress placed on a word or phrase to make its intended focus clear.",
+      "definitionAr": "عنصر بيضيف تشديد معنوي على كلمة أو جزء من الجملة.",
+      "example": "Bring <em>your own</em> cup.",
+      "caseSensitive": false,
+      "aliases": [
+        "emphasis"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t005",
+      "term": "ul",
+      "display": "<ul>",
+      "level": "beginner",
+      "definitionEn": "A container for items when their sequence carries no meaning.",
+      "definitionAr": "عنصر بيجمع عناصر قائمة ترتيبها مش مهم.",
+      "example": "<ul><li>Tea</li></ul>",
+      "caseSensitive": false,
+      "aliases": [
+        "unordered list"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t006",
+      "term": "li",
+      "display": "<li>",
+      "level": "intermediate",
+      "definitionEn": "An entry in an ordered or unordered collection, represented by one element.",
+      "definitionAr": "عنصر بيمثل بند واحد داخل قائمة مرتبة أو غير مرتبة.",
+      "example": "<ol><li>Mix</li></ol>",
+      "caseSensitive": false,
+      "aliases": [
+        "list item"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t007",
+      "term": "header",
+      "display": "<header>",
+      "level": "intermediate",
+      "definitionEn": "A section element for introductory content or navigation related to its surrounding region.",
+      "definitionAr": "عنصر لقسم تمهيدي أو روابط تنقل مرتبطة بالمنطقة اللي جواه.",
+      "example": "<header><h1>News</h1></header>",
+      "caseSensitive": false,
+      "aliases": [
+        "introductory region"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t008",
+      "term": "nav",
+      "display": "<nav>",
+      "level": "intermediate",
+      "definitionEn": "A section element containing the page's major links between locations.",
+      "definitionAr": "عنصر لقسم بيضم روابط التنقل الرئيسية.",
+      "example": "<nav><a href=\"/help\">Help</a></nav>",
+      "caseSensitive": false,
+      "aliases": [
+        "navigation region"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t009",
+      "term": "main",
+      "display": "<main>",
+      "level": "intermediate",
+      "definitionEn": "An element containing the document's dominant material, excluding repeated page-wide regions.",
+      "definitionAr": "عنصر بيضم المحتوى الأساسي للصفحة بعيدًا عن الأجزاء المتكررة زي التنقل.",
+      "example": "<main><p>Article text</p></main>",
+      "caseSensitive": false,
+      "aliases": [
+        "main content"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t010",
+      "term": "article",
+      "display": "<article>",
+      "level": "intermediate",
+      "definitionEn": "A self-contained composition that can make sense independently or be distributed separately.",
+      "definitionAr": "عنصر لمحتوى مستقل يقدر يتفهم لوحده أو يتنشر بشكل منفصل.",
+      "example": "<article><h2>Field note</h2></article>",
+      "caseSensitive": false,
+      "aliases": [
+        "article region"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t011",
+      "term": "section",
+      "display": "<section>",
+      "level": "advanced",
+      "definitionEn": "A thematic grouping of content, typically identified by a heading.",
+      "definitionAr": "عنصر بيجمع محتوى عن موضوع واحد، وغالبًا بيكون له عنوان.",
+      "example": "<section><h2>Schedule</h2></section>",
+      "caseSensitive": false,
+      "aliases": [
+        "thematic section"
+      ]
+    },
+    {
+      "id": "html-text-and-semantic-t012",
+      "term": "aside",
+      "display": "<aside>",
+      "level": "advanced",
+      "definitionEn": "A region for complementary content related to the surrounding page or article.",
+      "definitionAr": "عنصر لمحتوى جانبي أو مكمل مرتبط بالصفحة أو المقال المحيط.",
+      "example": "<aside>Related reading</aside>",
+      "caseSensitive": false,
+      "aliases": [
+        "complementary region"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-text-and-semantic-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Headings and paragraphs",
+      "code": "<h1>Seed library</h1>",
+      "question": "What is the usual semantic role of this element?",
+      "options": [
+        "The page's primary heading",
+        "A paragraph of fine print",
+        "A navigation menu",
+        "A caption attached to an image"
+      ],
+      "correctOption": 0,
+      "explanation": "h1 marks a top-level heading for the page or section.",
+      "explanationAr": "عنصر h1 بيمثل عنوانًا رئيسيًا للصفحة أو القسم."
+    },
+    {
+      "id": "html-text-and-semantic-q002",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Headings and paragraphs",
+      "code": "<p>Water the seedlings daily.</p>",
+      "question": "What kind of content does p represent?",
+      "options": [
+        "A numbered list entry",
+        "A standalone paragraph",
+        "An emphasized word only",
+        "A page footer"
+      ],
+      "correctOption": 1,
+      "explanation": "The p element represents a paragraph of text.",
+      "explanationAr": "عنصر p بيمثل فقرة نصية."
+    },
+    {
+      "id": "html-text-and-semantic-q003",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Headings and paragraphs",
+      "code": "<h2>Tools</h2><p>Bring a trowel.</p>",
+      "options": [
+        "ToolsBring a trowel.",
+        "h2 Tools p Bring a trowel.",
+        "Bring a trowel.",
+        "Tools\nBring a trowel."
+      ],
+      "correctOption": 3,
+      "explanation": "The heading and paragraph display their text in separate blocks.",
+      "explanationAr": "العنوان والفقرة بيظهروا كنصين في كتلتين منفصلتين.",
+      "expectedOutput": "Tools\nBring a trowel."
+    },
+    {
+      "id": "html-text-and-semantic-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Headings and paragraphs",
+      "prompt": "Mark the sentence as a paragraph.",
+      "code": "<____>The path is open.</____>",
+      "blanks": [
+        [
+          "p"
+        ],
+        [
+          "p"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "The path is open.",
+      "explanation": "The p element groups a paragraph."
+    },
+    {
+      "id": "html-text-and-semantic-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Emphasis and importance",
+      "code": "<strong>Keep the gate closed.</strong>",
+      "question": "What meaning does strong add to this text?",
+      "options": [
+        "It makes the text a hyperlink",
+        "It labels the text as a list item",
+        "It marks the instruction as important",
+        "It marks a citation from another source"
+      ],
+      "correctOption": 2,
+      "explanation": "strong conveys strong importance; bold styling alone is not its defining meaning.",
+      "explanationAr": "strong بيوضح أهمية النص، مش مجرد شكل الخط."
+    },
+    {
+      "id": "html-text-and-semantic-q006",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Emphasis and importance",
+      "prompt": "Mark the word as stress-emphasized.",
+      "code": "Water the ____plants____ first.",
+      "blanks": [
+        [
+          "<em>"
+        ],
+        [
+          "</em>"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Water the plants first.",
+      "explanation": "The em element marks stress emphasis, while the text remains visible."
+    },
+    {
+      "id": "html-text-and-semantic-q007",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Lists",
+      "code": "<ul><li>Mint</li><li>Basil</li></ul>",
+      "question": "What structure does this markup describe?",
+      "options": [
+        "Two paragraphs with numbering",
+        "A pair of navigation landmarks",
+        "One ordered list with nested headings",
+        "Two items in an unordered list"
+      ],
+      "correctOption": 3,
+      "explanation": "ul groups list items whose order is not significant.",
+      "explanationAr": "ul بيجمع بنود قائمة ترتيبها مش أساسي."
+    },
+    {
+      "id": "html-text-and-semantic-q008",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Lists",
+      "code": "<ol><li>Wash</li><li>Dry</li></ol>",
+      "expectedOutput": "Wash\nDry",
+      "explanation": "Each list item's text is rendered as a separate item.",
+      "explanationAr": "نص كل بند في القائمة بيظهر كبند منفصل."
+    },
+    {
+      "id": "html-text-and-semantic-q009",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Lists",
+      "prompt": "Choose the list container when the order of the items is not meaningful.",
+      "code": "<____><li>Oak</li><li>Pine</li></____>",
+      "blanks": [
+        [
+          "ul"
+        ],
+        [
+          "ul"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Oak\nPine",
+      "explanation": "An unordered list is appropriate when changing the order does not change the meaning."
+    },
+    {
+      "id": "html-text-and-semantic-q010",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Semantic page regions",
+      "code": "<nav><a href=\"/events\">Events</a><a href=\"/join\">Join</a></nav>",
+      "question": "Why is nav appropriate for this region?",
+      "options": [
+        "It declares a list with a required numeric order",
+        "It groups the page's major navigation links",
+        "It identifies one self-contained story",
+        "It defines the document's only visible heading"
+      ],
+      "correctOption": 1,
+      "explanation": "nav identifies a significant group of navigation links.",
+      "explanationAr": "nav بيحدد مجموعة مهمة من روابط التنقل."
+    },
+    {
+      "id": "html-text-and-semantic-q011",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Semantic page regions",
+      "prompt": "Wrap the dominant content of the page in its main region.",
+      "code": "<____><h1>Workshop</h1><p>Starts at noon.</p></____>",
+      "blanks": [
+        [
+          "main"
+        ],
+        [
+          "main"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Workshop\nStarts at noon.",
+      "explanation": "main contains the document's dominant content."
+    },
+    {
+      "id": "html-text-and-semantic-q012",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Semantic page regions",
+      "code": "<article><h2>Notice</h2><p>Room 4 is open.</p></article><aside>Map available</aside>",
+      "options": [
+        "Room 4 is open.",
+        "NoticeMap available",
+        "Notice\nRoom 4 is open.\nMap available",
+        "No visible text"
+      ],
+      "correctOption": 2,
+      "explanation": "Both the article and complementary aside contain visible text, in document order.",
+      "explanationAr": "المقال والمحتوى الجانبي فيهم نص ظاهر وبيظهروا بترتيب المستند.",
+      "expectedOutput": "Notice\nRoom 4 is open.\nMap available"
+    },
+    {
+      "id": "html-text-and-semantic-q013",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Semantic page regions",
+      "code": "<article><h2>Orchard report</h2><p>Harvest begins soon.</p></article>",
+      "question": "What makes article a suitable element here?",
+      "options": [
+        "It forces every child to become a heading",
+        "It creates a form submission boundary",
+        "It is the required parent of all paragraphs",
+        "The report is a self-contained composition"
+      ],
+      "correctOption": 3,
+      "explanation": "article is suited to a self-contained composition that can stand on its own.",
+      "explanationAr": "article مناسب لمحتوى مستقل يقدر يتفهم لوحده."
+    },
+    {
+      "id": "html-text-and-semantic-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Semantic page regions",
+      "prompt": "Mark the short related recommendation as complementary content.",
+      "code": "<____>See also: planting calendar</____>",
+      "blanks": [
+        [
+          "aside"
+        ],
+        [
+          "aside"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "See also: planting calendar",
+      "explanation": "aside can mark complementary content related to its surrounding context."
+    },
+    {
+      "id": "html-text-and-semantic-q015",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Emphasis and importance",
+      "code": "<p>Choose <em>fresh</em> leaves, not dried ones.</p>",
+      "expectedOutput": "Choose fresh leaves, not dried ones.",
+      "explanation": "em changes the emphasis, not the words presented to the reader.",
+      "explanationAr": "em بيغير التشديد في الكلام، مش الكلمات المعروضة."
+    },
+    {
+      "id": "html-text-and-semantic-q016",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Semantic page regions",
+      "prompt": "Use a thematic region for the schedule and identify it with a heading.",
+      "code": "<____><h2>Schedule</h2><p>Doors open at nine.</p></____>",
+      "blanks": [
+        [
+          "section"
+        ],
+        [
+          "section"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Schedule\nDoors open at nine.",
+      "explanation": "section groups related thematic content, usually with a heading."
+    },
+    {
+      "id": "html-text-and-semantic-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Emphasis and importance",
+      "code": "<p>I asked for <em>one</em> copy, not two.</p>",
+      "question": "What does em communicate beyond its typical italic appearance?",
+      "options": [
+        "Stress emphasis that can change the sentence's intended meaning",
+        "A requirement that the enclosed word is a foreign language",
+        "A warning that the text must be hidden from assistive technology",
+        "A guarantee that the enclosed text is a hyperlink"
+      ],
+      "correctOption": 0,
+      "explanation": "em represents stress emphasis; browsers commonly italicize it, but style is not the semantic purpose.",
+      "explanationAr": "em بيمثل تشديد معنوي، والمظهر المائل مش هو المعنى الأساسي."
+    },
+    {
+      "id": "html-text-and-semantic-q018",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Lists",
+      "prompt": "Complete a numbered sequence of steps and preserve each step as an item.",
+      "code": "<____><li>Measure</li><li>Cut</li></____>",
+      "blanks": [
+        [
+          "ol"
+        ],
+        [
+          "ol"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Measure\nCut",
+      "explanation": "ol expresses an ordered sequence, while li represents each step."
+    },
+    {
+      "id": "html-text-and-semantic-q019",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Semantic page regions",
+      "code": "<header><h1>Open studio</h1></header><main><article><h2>Clay class</h2></article></main><footer>Contact desk</footer>",
+      "question": "Which element is intended for the page's dominant content?",
+      "options": [
+        "header, since it is first in document order",
+        "main, which identifies the dominant page content",
+        "article, which must contain every other region",
+        "footer, since it follows the main region"
+      ],
+      "correctOption": 1,
+      "explanation": "main marks the dominant content, while header and footer commonly contain introductory and closing material.",
+      "explanationAr": "main بيحدد المحتوى الأساسي، وheader وfooter غالبًا للمقدمة والخاتمة."
+    },
+    {
+      "id": "html-text-and-semantic-q020",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Semantic page regions",
+      "prompt": "Provide a page-level introduction and then a distinct main-content region.",
+      "code": "<____><h1>Library</h1></____><____><p>Browse books</p></____>",
+      "blanks": [
+        [
+          "header"
+        ],
+        [
+          "header"
+        ],
+        [
+          "main"
+        ],
+        [
+          "main"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "Library\nBrowse books",
+      "explanation": "header introduces its surrounding page or section; main identifies the dominant content."
+    },
+    {
+      "id": "html-text-and-semantic-q021",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Headings and paragraphs",
+      "question": "How should heading levels and paragraphs be used to organize a readable document?",
+      "keyPoints": [
+        "Headings express a hierarchy of sections",
+        "A heading level reflects structural nesting",
+        "Paragraphs group prose into readable units",
+        "Choose headings for meaning rather than default font size"
+      ],
+      "modelAnswer": "Headings describe the hierarchy of a document, while paragraphs group related prose. Choose levels based on the content structure and use CSS, rather than heading levels, to control visual size."
+    },
+    {
+      "id": "html-text-and-semantic-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Emphasis and importance",
+      "question": "What is the semantic difference between strong and em?",
+      "keyPoints": [
+        "strong indicates strong importance or urgency",
+        "em indicates stress emphasis",
+        "They are not interchangeable merely because both can alter styling",
+        "Nesting can express different degrees or scopes of meaning"
+      ],
+      "modelAnswer": "strong marks content as especially important, while em marks stress emphasis within a sentence. Browsers often style them differently, but their meaning—not their default appearance—is the key distinction."
+    },
+    {
+      "id": "html-text-and-semantic-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Lists",
+      "question": "When would you choose ul rather than ol for a collection of items?",
+      "keyPoints": [
+        "ul is for items without meaningful sequence",
+        "ol represents an ordered sequence",
+        "Each item is represented by li",
+        "Visual marker style can be changed independently"
+      ],
+      "modelAnswer": "Use ul when the items form a group but their sequence is not meaningful. Use ol when order matters, such as steps, and represent each entry with li."
+    },
+    {
+      "id": "html-text-and-semantic-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Semantic page regions",
+      "question": "Why choose semantic page-region elements instead of using div for every region?",
+      "keyPoints": [
+        "Semantic elements communicate purpose",
+        "Landmarks help assistive-technology navigation",
+        "Elements provide structure to maintainers and tools",
+        "div remains useful when no semantic element fits"
+      ],
+      "modelAnswer": "Semantic elements communicate the purpose of regions to browsers, assistive technology, and people maintaining the page. A div is still useful as a generic container when no more meaningful element applies."
+    }
+  ]
+}
