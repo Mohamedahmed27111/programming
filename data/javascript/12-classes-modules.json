@@ -243,7 +243,7 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Simple Fields",
-      "prompt": "Write makePoint(x, y), returning an object with those two properties.",
+      "prompt": "Write makePoint(x, y), defining a Point class whose constructor stores both coordinates and returning an instance.",
       "functionName": "makePoint",
       "starter": "function makePoint(x, y) {\n  // your code here\n}",
       "tests": [
@@ -278,8 +278,8 @@
           }
         }
       ],
-      "solution": "function makePoint(x, y) {\n  return { x, y };\n}",
-      "explanation": "Return an object with one property for each supplied coordinate."
+      "solution": "function makePoint(x, y) {\n  class Point {\n    constructor(horizontal, vertical) {\n      this.x = horizontal;\n      this.y = vertical;\n    }\n  }\n  return new Point(x, y);\n}",
+      "explanation": "The class constructor initializes fields on each new Point instance."
     },
     {
       "id": "js-classes-modules-q008",
@@ -535,8 +535,8 @@
       "id": "js-classes-modules-q020",
       "type": "writeCode",
       "level": "advanced",
-      "sourceSection": "Simple Fields",
-      "prompt": "Write nextValue(start), returning the value after incrementing start once.",
+      "sourceSection": "getters and setters",
+      "prompt": "Write nextValue(start), using a class getter to expose the next value without changing the stored start.",
       "functionName": "nextValue",
       "starter": "function nextValue(start) {\n  // your code here\n}",
       "tests": [
@@ -559,8 +559,8 @@
           "expect": -1
         }
       ],
-      "solution": "function nextValue(start) {\n  return start + 1;\n}",
-      "explanation": "Return a value increased by one."
+      "solution": "function nextValue(start) {\n  class Counter {\n    constructor(value) { this.value = value; }\n    get next() { return this.value + 1; }\n  }\n  return new Counter(start).next;\n}",
+      "explanation": "Reading next invokes the getter, which computes a value from the instance field."
     },
     {
       "id": "js-classes-modules-q021",

@@ -246,7 +246,7 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Callbacks",
-      "prompt": "Write applyTwice(value), returning value after adding one twice.",
+      "prompt": "Write applyTwice(value), using a callback passed to reduce to apply an increment twice.",
       "functionName": "applyTwice",
       "starter": "function applyTwice(value) {\n  // your code here\n}",
       "tests": [
@@ -269,8 +269,8 @@
           "expect": 1
         }
       ],
-      "solution": "function applyTwice(value) {\n  return value + 2;\n}",
-      "explanation": "Apply the same increment twice to the supplied value."
+      "solution": "function applyTwice(value) {\n  const steps = [number => number + 1, number => number + 1];\n  return steps.reduce((current, callback) => callback(current), value);\n}",
+      "explanation": "reduce invokes its callback once for each step, passing the accumulated value forward."
     },
     {
       "id": "js-async-event-loop-q008",
@@ -293,16 +293,16 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Promises",
-      "prompt": "Write addNumbers(a, b), returning their numeric sum.",
-      "functionName": "addNumbers",
-      "starter": "function addNumbers(a, b) {\n  // your code here\n}",
+      "prompt": "Write doubleAfterSum(a, b), passing their sum to a completion callback that doubles the result.",
+      "functionName": "doubleAfterSum",
+      "starter": "function doubleAfterSum(a, b) {\n  // pass the sum to an onComplete callback\n}",
       "tests": [
         {
           "args": [
             2,
             3
           ],
-          "expect": 5
+          "expect": 10
         },
         {
           "args": [
@@ -319,8 +319,8 @@
           "expect": 0
         }
       ],
-      "solution": "function addNumbers(a, b) {\n  return a + b;\n}",
-      "explanation": "Return the sum as a plain value; promise behavior is covered in the output questions."
+      "solution": "function doubleAfterSum(a, b) {\n  const onComplete = result => result * 2;\n  return onComplete(a + b);\n}",
+      "explanation": "The completion callback receives the computed value and returns its transformed result."
     },
     {
       "id": "js-async-event-loop-q010",
@@ -370,7 +370,7 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Promises",
-      "prompt": "Write doubleValues(values), returning a new array with every number doubled.",
+      "prompt": "Write doubleValues(values), using map's callback to return a new array with every number doubled.",
       "functionName": "doubleValues",
       "starter": "function doubleValues(values) {\n  // your code here\n}",
       "tests": [
@@ -404,7 +404,7 @@
         }
       ],
       "solution": "function doubleValues(values) {\n  return values.map(value => value * 2);\n}",
-      "explanation": "Return a transformed array; promise behavior is covered in the event-loop examples."
+      "explanation": "map invokes its callback for each input value and collects the returned results."
     },
     {
       "id": "js-async-event-loop-q014",
@@ -513,39 +513,21 @@
     },
     {
       "id": "js-async-event-loop-q020",
-      "type": "writeCode",
+      "type": "predictOutput",
+      "mode": "choose",
       "level": "advanced",
       "sourceSection": "Event Loop",
-      "prompt": "Write joinWords(words), returning the words joined by one space.",
-      "functionName": "joinWords",
-      "starter": "function joinWords(words) {\n  // your code here\n}",
-      "tests": [
-        {
-          "args": [
-            [
-              "async",
-              "work"
-            ]
-          ],
-          "expect": "async work"
-        },
-        {
-          "args": [
-            []
-          ],
-          "expect": ""
-        },
-        {
-          "args": [
-            [
-              "one"
-            ]
-          ],
-          "expect": "one"
-        }
+      "code": "console.log('A');\nsetTimeout(() => console.log('timer'), 0);\nPromise.resolve().then(() => console.log('promise'));\nconsole.log('B');",
+      "question": "What is the complete output order?",
+      "options": [
+        "A\nB\npromise\ntimer",
+        "A\npromise\nB\ntimer",
+        "A\ntimer\nB\npromise",
+        "A\nB\ntimer\npromise"
       ],
-      "solution": "function joinWords(words) {\n  return words.join(' ');\n}",
-      "explanation": "Return the plain string result; asynchronous scheduling is covered by output predictions."
+      "correctOption": 0,
+      "explanation": "Synchronous logs run first, then promise reactions as microtasks, then the timer callback.",
+      "expectedOutput": "A\nB\npromise\ntimer"
     },
     {
       "id": "js-async-event-loop-q021",

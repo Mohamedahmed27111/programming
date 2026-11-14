@@ -243,7 +243,7 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Arrow Functions",
-      "prompt": "Write triple(value) as a function returning three times the input.",
+      "prompt": "Write triple(value) using arrow-function syntax to return three times the input.",
       "functionName": "triple",
       "starter": "function triple(value) {\n  // your code here\n}",
       "tests": [
@@ -266,8 +266,8 @@
           "expect": -6
         }
       ],
-      "solution": "function triple(value) {\n  return value * 3;\n}",
-      "explanation": "Multiply the input by three and return the product."
+      "solution": "var triple = value => value * 3;",
+      "explanation": "The arrow function has an expression body whose value is returned implicitly."
     },
     {
       "id": "js-modern-functions-q008",

@@ -243,34 +243,28 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Factory Functions",
-      "prompt": "Write addOffset(value, offset), returning value plus offset.",
-      "functionName": "addOffset",
-      "starter": "function addOffset(value, offset) {\n  // your code here\n}",
+      "prompt": "Write makeAdder(base), returning a function that remembers base and adds each supplied value.",
+      "functionName": "makeAdder",
+      "starter": "function makeAdder(base) {\n  // return an adder function\n}",
       "tests": [
         {
-          "args": [
-            3,
-            4
-          ],
-          "expect": 7
+          "args": [3],
+          "invoke": [[2], [0], [-3]],
+          "expect": [5, 3, 0]
         },
         {
-          "args": [
-            0,
-            0
-          ],
-          "expect": 0
+          "args": [-4],
+          "invoke": [[4], [1]],
+          "expect": [0, -3]
         },
         {
-          "args": [
-            -2,
-            1
-          ],
-          "expect": -1
+          "args": [0],
+          "invoke": [[-2]],
+          "expect": [-2]
         }
       ],
-      "solution": "function addOffset(value, offset) {\n  return value + offset;\n}",
-      "explanation": "Combine the input with the supplied offset."
+      "solution": "function makeAdder(base) {\n  return function(value) {\n    return base + value;\n  };\n}",
+      "explanation": "The returned function closes over base after makeAdder has finished."
     },
     {
       "id": "js-closures-q008",
@@ -293,39 +287,28 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Lexical Scope",
-      "prompt": "Write sumWithBase(base, values), summing every value together with base.",
-      "functionName": "sumWithBase",
-      "starter": "function sumWithBase(base, values) {\n  // your code here\n}",
+      "prompt": "Write makeCounter(start), returning a function that increments and returns its private count on every call.",
+      "functionName": "makeCounter",
+      "starter": "function makeCounter(start) {\n  // return a counter function\n}",
       "tests": [
         {
-          "args": [
-            2,
-            [
-              3,
-              4
-            ]
-          ],
-          "expect": 9
+          "args": [10],
+          "invoke": [[], [], []],
+          "expect": [11, 12, 13]
         },
         {
-          "args": [
-            5,
-            []
-          ],
-          "expect": 5
+          "args": [-1],
+          "invoke": [[], []],
+          "expect": [0, 1]
         },
         {
-          "args": [
-            -1,
-            [
-              1
-            ]
-          ],
-          "expect": 0
+          "args": [0],
+          "invoke": [[]],
+          "expect": [1]
         }
       ],
-      "solution": "function sumWithBase(base, values) {\n  let total = base;\n  for (const value of values) total += value;\n  return total;\n}",
-      "explanation": "The initial base is the starting value for the running total."
+      "solution": "function makeCounter(start) {\n  let count = start;\n  return function() {\n    count += 1;\n    return count;\n  };\n}",
+      "explanation": "Each returned function retains its own count binding between calls."
     },
     {
       "id": "js-closures-q010",
@@ -375,34 +358,28 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Factory Functions",
-      "prompt": "Write makeMultiplierResult(value, factor), returning the product of value and factor.",
-      "functionName": "makeMultiplierResult",
-      "starter": "function makeMultiplierResult(value, factor) {\n  // your code here\n}",
+      "prompt": "Write makeMultiplier(factor), returning a function that multiplies each supplied value by the remembered factor.",
+      "functionName": "makeMultiplier",
+      "starter": "function makeMultiplier(factor) {\n  // return a multiplier function\n}",
       "tests": [
         {
-          "args": [
-            4,
-            3
-          ],
-          "expect": 12
+          "args": [3],
+          "invoke": [[4], [0], [-2]],
+          "expect": [12, 0, -6]
         },
         {
-          "args": [
-            0,
-            10
-          ],
-          "expect": 0
+          "args": [0],
+          "invoke": [[5]],
+          "expect": [0]
         },
         {
-          "args": [
-            -2,
-            2
-          ],
-          "expect": -4
+          "args": [-2],
+          "invoke": [[2]],
+          "expect": [-4]
         }
       ],
-      "solution": "function makeMultiplierResult(value, factor) {\n  return value * factor;\n}",
-      "explanation": "Multiply the two inputs and return the result."
+      "solution": "function makeMultiplier(factor) {\n  return function(value) {\n    return value * factor;\n  };\n}",
+      "explanation": "The returned function remembers factor through its lexical environment."
     },
     {
       "id": "js-closures-q014",
@@ -441,41 +418,28 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Private State",
-      "prompt": "Write sumSelected(values, minimum), summing only entries at least minimum.",
-      "functionName": "sumSelected",
-      "starter": "function sumSelected(values, minimum) {\n  // your code here\n}",
+      "prompt": "Write makeRunningTotal(start), returning a function that adds each input to its private running total and returns the new total.",
+      "functionName": "makeRunningTotal",
+      "starter": "function makeRunningTotal(start) {\n  // return an accumulator function\n}",
       "tests": [
         {
-          "args": [
-            [
-              2,
-              5,
-              7
-            ],
-            5
-          ],
-          "expect": 12
+          "args": [2],
+          "invoke": [[3], [-2], [7]],
+          "expect": [5, 3, 10]
         },
         {
-          "args": [
-            [],
-            0
-          ],
-          "expect": 0
+          "args": [0],
+          "invoke": [[0], [0]],
+          "expect": [0, 0]
         },
         {
-          "args": [
-            [
-              -2,
-              0
-            ],
-            0
-          ],
-          "expect": 0
+          "args": [-2],
+          "invoke": [[1]],
+          "expect": [-1]
         }
       ],
-      "solution": "function sumSelected(values, minimum) {\n  let total = 0;\n  for (const value of values) if (value >= minimum) total += value;\n  return total;\n}",
-      "explanation": "Include values at the threshold and above in the accumulator."
+      "solution": "function makeRunningTotal(start) {\n  let total = start;\n  return function(value) {\n    total += value;\n    return total;\n  };\n}",
+      "explanation": "The closure keeps total private and carries its value forward across invocations."
     },
     {
       "id": "js-closures-q017",
@@ -524,44 +488,28 @@
       "type": "writeCode",
       "level": "advanced",
       "sourceSection": "Lexical Scope",
-      "prompt": "Write sumRows(grid), returning the sum of all numbers in a nested array.",
-      "functionName": "sumRows",
-      "starter": "function sumRows(grid) {\n  // your code here\n}",
+      "prompt": "Write makeStepCounter(start, step), returning a function that advances a private count by step each time it is called.",
+      "functionName": "makeStepCounter",
+      "starter": "function makeStepCounter(start, step) {\n  // return a step-counter function\n}",
       "tests": [
         {
-          "args": [
-            [
-              [
-                1,
-                2
-              ],
-              [
-                3
-              ]
-            ]
-          ],
-          "expect": 6
+          "args": [1, 2],
+          "invoke": [[], [], []],
+          "expect": [3, 5, 7]
         },
         {
-          "args": [
-            []
-          ],
-          "expect": 0
+          "args": [-3, 1],
+          "invoke": [[], []],
+          "expect": [-2, -1]
         },
         {
-          "args": [
-            [
-              [],
-              [
-                4
-              ]
-            ]
-          ],
-          "expect": 4
+          "args": [0, 0],
+          "invoke": [[]],
+          "expect": [0]
         }
       ],
-      "solution": "function sumRows(grid) {\n  let total = 0;\n  for (const row of grid) for (const value of row) total += value;\n  return total;\n}",
-      "explanation": "Nested loops visit each value and update the enclosing accumulator."
+      "solution": "function makeStepCounter(start, step) {\n  let count = start;\n  return function() {\n    count += step;\n    return count;\n  };\n}",
+      "explanation": "Each returned counter retains its independent count and the step from its creation."
     },
     {
       "id": "js-closures-q021",

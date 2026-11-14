@@ -247,7 +247,7 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Method Calls",
-      "prompt": "Write recordWithValue(value), returning an object with that value property.",
+      "prompt": "Write recordWithValue(value), creating a method that reads the object's value through this and returning that method's result.",
       "functionName": "recordWithValue",
       "starter": "function recordWithValue(value) {\n  // your code here\n}",
       "tests": [
@@ -255,29 +255,23 @@
           "args": [
             4
           ],
-          "expect": {
-            "value": 4
-          }
+          "expect": 4
         },
         {
           "args": [
             0
           ],
-          "expect": {
-            "value": 0
-          }
+          "expect": 0
         },
         {
           "args": [
             -2
           ],
-          "expect": {
-            "value": -2
-          }
+          "expect": -2
         }
       ],
-      "solution": "function recordWithValue(value) {\n  return { value };\n}",
-      "explanation": "Return a record that stores the supplied value."
+      "solution": "function recordWithValue(value) {\n  const record = { value, read() { return this.value; } };\n  return record.read();\n}",
+      "explanation": "The method uses this to read the value from its calling object."
     },
     {
       "id": "js-this-keyword-q008",
@@ -297,41 +291,21 @@
     },
     {
       "id": "js-this-keyword-q009",
-      "type": "writeCode",
+      "type": "predictOutput",
+      "mode": "choose",
       "level": "intermediate",
       "sourceSection": "call/apply/bind",
-      "prompt": "Write readProperty(context, key), returning context[key] without changing context.",
-      "functionName": "readProperty",
-      "starter": "function readProperty(context, key) {\n  // your code here\n}",
-      "tests": [
-        {
-          "args": [
-            {
-              "name": "Ada"
-            },
-            "name"
-          ],
-          "expect": "Ada"
-        },
-        {
-          "args": [
-            {
-              "n": 0
-            },
-            "n"
-          ],
-          "expect": 0
-        },
-        {
-          "args": [
-            {},
-            "missing"
-          ],
-          "expect": null
-        }
+      "code": "function getLabel() { return this.label; }\nconst item = { label: 'tool' };\nconsole.log(getLabel.call(item));",
+      "question": "What is logged?",
+      "options": [
+        "undefined",
+        "tool",
+        "item",
+        "A TypeError"
       ],
-      "solution": "function readProperty(context, key) {\n  return Object.hasOwn(context, key) ? context[key] : null;\n}",
-      "explanation": "Use the supplied context and key to retrieve an own property."
+      "correctOption": 1,
+      "explanation": "call invokes getLabel with item as its this value.",
+      "expectedOutput": "tool"
     },
     {
       "id": "js-this-keyword-q010",
@@ -381,7 +355,7 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Method Calls",
-      "prompt": "Write addToBalance(account, amount), adding amount to account.balance and returning the updated balance.",
+      "prompt": "Write addToBalance(account, amount), using call to run a function with account as this, update its balance, and return the new value.",
       "functionName": "addToBalance",
       "starter": "function addToBalance(account, amount) {\n  // your code here\n}",
       "tests": [
@@ -413,8 +387,8 @@
           "expect": 1
         }
       ],
-      "solution": "function addToBalance(account, amount) {\n  account.balance += amount;\n  return account.balance;\n}",
-      "explanation": "Update and return the receiver's current balance value."
+      "solution": "function addToBalance(account, amount) {\n  function increase(value) {\n    this.balance += value;\n    return this.balance;\n  }\n  return increase.call(account, amount);\n}",
+      "explanation": "call supplies account as the receiver, so this refers to that object inside increase."
     },
     {
       "id": "js-this-keyword-q014",
@@ -450,43 +424,21 @@
     },
     {
       "id": "js-this-keyword-q016",
-      "type": "writeCode",
+      "type": "predictOutput",
+      "mode": "choose",
       "level": "intermediate",
       "sourceSection": "call/apply/bind",
-      "prompt": "Write addToBase(context, amount), returning the base value plus amount.",
-      "functionName": "addToBase",
-      "starter": "function addToBase(context, amount) {\n  // your code here\n}",
-      "tests": [
-        {
-          "args": [
-            {
-              "base": 3
-            },
-            2
-          ],
-          "expect": 5
-        },
-        {
-          "args": [
-            {
-              "base": 0
-            },
-            0
-          ],
-          "expect": 0
-        },
-        {
-          "args": [
-            {
-              "base": -2
-            },
-            1
-          ],
-          "expect": -1
-        }
+      "code": "const person = { name: 'Mina', read() { return this.name; } };\nconst read = person.read;\nconsole.log(read.call({ name: 'Omar' }));",
+      "question": "What is logged?",
+      "options": [
+        "Mina",
+        "undefined",
+        "Omar",
+        "A TypeError"
       ],
-      "solution": "function addToBase(context, amount) {\n  return context.base + amount;\n}",
-      "explanation": "Read the supplied object's base property and add the amount."
+      "correctOption": 2,
+      "explanation": "The detached method receives the object passed to call as its this value.",
+      "expectedOutput": "Omar"
     },
     {
       "id": "js-this-keyword-q017",
@@ -535,7 +487,7 @@
       "type": "writeCode",
       "level": "advanced",
       "sourceSection": "Method Calls",
-      "prompt": "Write totalFor(account), returning the account's balance plus all entries in its changes array.",
+      "prompt": "Write totalFor(account), using a method whose this receiver is account to total its balance and changes.",
       "functionName": "totalFor",
       "starter": "function totalFor(account) {\n  // your code here\n}",
       "tests": [
@@ -572,8 +524,8 @@
           "expect": -1
         }
       ],
-      "solution": "function totalFor(account) {\n  return account.changes.reduce((total, change) => total + change, account.balance);\n}",
-      "explanation": "Start with the object's balance and accumulate each change."
+      "solution": "function totalFor(account) {\n  const total = function() {\n    return this.changes.reduce((sum, change) => sum + change, this.balance);\n  };\n  return total.call(account);\n}",
+      "explanation": "The explicit call sets this to account while the function reads and totals its properties."
     },
     {
       "id": "js-this-keyword-q021",

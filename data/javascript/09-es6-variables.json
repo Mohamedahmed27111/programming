@@ -236,37 +236,25 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "const",
-      "prompt": "Write makeCounter(start), returning an object with a value property initialized to start.",
-      "functionName": "makeCounter",
-      "starter": "function makeCounter(start) {\n  // your code here\n}",
+      "prompt": "Write makeSettings(name), using a const binding for an object, adding an active property, and returning the object.",
+      "functionName": "makeSettings",
+      "starter": "function makeSettings(name) {\n  // create a const object and update one of its properties\n}",
       "tests": [
         {
-          "args": [
-            3
-          ],
-          "expect": {
-            "value": 3
-          }
+          "args": ["Ada"],
+          "expect": { "name": "Ada", "active": true }
         },
         {
-          "args": [
-            0
-          ],
-          "expect": {
-            "value": 0
-          }
+          "args": [""],
+          "expect": { "name": "", "active": true }
         },
         {
-          "args": [
-            -1
-          ],
-          "expect": {
-            "value": -1
-          }
+          "args": ["Rae"],
+          "expect": { "name": "Rae", "active": true }
         }
       ],
-      "solution": "function makeCounter(start) {\n  return { value: start };\n}",
-      "explanation": "Return an object literal whose property receives the argument."
+      "solution": "function makeSettings(name) {\n  const settings = { name };\n  settings.active = true;\n  return settings;\n}",
+      "explanation": "const prevents rebinding settings but still allows its object's properties to be changed."
     },
     {
       "id": "js-es6-variables-q008",
