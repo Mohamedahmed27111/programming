@@ -209,25 +209,25 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Promises",
-      "prompt": "Write promiseSummary(value), returning whether Promise.resolve(value) creates a Promise and preserving the supplied value.",
-      "functionName": "promiseSummary",
-      "starter": "function promiseSummary(value) {\n  // your code here\n}",
+      "prompt": "Write async function delayedSum(a, b) that returns a Promise resolving to a + b.",
+      "functionName": "delayedSum",
+      "starter": "async function delayedSum(a, b) {\n  // your code here\n}",
       "tests": [
         {
-          "args": [2],
-          "expect": {"isPromise": true, "value": 2}
+          "args": [4, 3],
+          "expect": 7
         },
         {
-          "args": ["ready"],
-          "expect": {"isPromise": true, "value": "ready"}
+          "args": [-5, 2],
+          "expect": -3
         },
         {
-          "args": [null],
-          "expect": {"isPromise": true, "value": null}
+          "args": [0, 0],
+          "expect": 0
         }
       ],
-      "solution": "function promiseSummary(value) {\n  const promise = Promise.resolve(value);\n  return { isPromise: promise instanceof Promise, value };\n}",
-      "explanation": "Promise.resolve returns a Promise, including when its input is not already a Promise."
+      "solution": "async function delayedSum(a, b) {\n  return a + b;\n}",
+      "explanation": "An async function returns a Promise that fulfills with the sum of its arguments."
     },
     {
       "id": "js-async-event-loop-q005",
@@ -277,25 +277,25 @@
       "type": "writeCode",
       "level": "beginner",
       "sourceSection": "async/await",
-      "prompt": "Write inspectAsync(value), returning whether an async function call creates a Promise and preserving the supplied value.",
-      "functionName": "inspectAsync",
-      "starter": "function inspectAsync(value) {\n  // your code here\n}",
+      "prompt": "Write async function doubleAll(values) that returns a Promise resolving to a new array with every number doubled, using Promise.all.",
+      "functionName": "doubleAll",
+      "starter": "async function doubleAll(values) {\n  // your code here\n}",
       "tests": [
         {
-          "args": [1],
-          "expect": {"isPromise": true, "value": 1}
+          "args": [[1, 2]],
+          "expect": [2, 4]
         },
         {
-          "args": ["done"],
-          "expect": {"isPromise": true, "value": "done"}
+          "args": [[-3, 0]],
+          "expect": [-6, 0]
         },
         {
-          "args": [null],
-          "expect": {"isPromise": true, "value": null}
+          "args": [[]],
+          "expect": []
         }
       ],
-      "solution": "function inspectAsync(value) {\n  async function load() { return value; }\n  return { isPromise: load() instanceof Promise, value };\n}",
-      "explanation": "Calling an async function returns a Promise, even when its body returns a plain value."
+      "solution": "async function doubleAll(values) {\n  return Promise.all(values.map(async value => value * 2));\n}",
+      "explanation": "Promise.all fulfills with an array of the mapped results and also handles an empty input array."
     },
     {
       "id": "js-async-event-loop-q009",

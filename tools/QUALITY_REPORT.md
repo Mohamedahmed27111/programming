@@ -6,7 +6,7 @@
 - All 252 topic terms have `definitionAr`.
 - 167 option questions were deterministically shuffled in task A.
 - Global correct-answer position counts: 170 questions; positions 0–3 are `42 / 45 / 44 / 39` (24.7% / 26.5% / 25.9% / 22.9%).
-- The validator passed for all 22 JSON files, including `_example.json`.
+- The validator awaits Promise results from `writeCode` tests with a 2s timeout; all 22 JSON files, including `_example.json`, pass.
 - No topic has more than 30% of its option questions with a uniquely longest correct answer.
 
 ## Counts by Topic
@@ -40,7 +40,7 @@ Levels are shown as beginner / intermediate / advanced / interview. Types are sh
 
 ## Rewritten Question IDs
 
-There are **54 unique question IDs** rewritten across tasks B, C, E, F, and H. The C list overlaps B at `js-async-event-loop-q013`; task H also overlaps existing rewrites at `js-hoisting-tdz-q013`, `js-async-event-loop-q007`, and `js-async-event-loop-q009`. Overlaps are counted once.
+There are **54 unique question IDs** rewritten across tasks B, C, E, F, H, and I. The C list overlaps B at `js-async-event-loop-q013`; task H also overlaps existing rewrites at `js-hoisting-tdz-q013`, `js-async-event-loop-q007`, and `js-async-event-loop-q009`; task I further revises the H rewrites `js-async-event-loop-q004` and `js-async-event-loop-q008`. Overlaps are counted once.
 
 ### B — Topic relevance (21)
 
@@ -89,6 +89,11 @@ There are **54 unique question IDs** rewritten across tasks B, C, E, F, and H. T
 - `js-es6-variables-q009`
 - `js-async-event-loop-q004`, `js-async-event-loop-q007`, `js-async-event-loop-q008`, `js-async-event-loop-q009`, `js-async-event-loop-q016`
 - `js-error-handling-json-q016`
+
+### I — Promise-returning writeCode questions (2)
+
+- `js-async-event-loop-q004` — async sum with positive, negative, and zero inputs
+- `js-async-event-loop-q008` — `Promise.all` mapping with varied and empty arrays
 
 ## `node tools/validate.mjs` Output
 
