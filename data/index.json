@@ -647,6 +647,231 @@
           }
         }
       ]
+    },
+    {
+      "id": "css",
+      "topics": [
+        {
+          "order": 1,
+          "topic": "Selectors and Specificity",
+          "file": "data/css/01-selectors-and-specificity.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 2,
+          "topic": "Box Model",
+          "file": "data/css/02-box-model.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 3,
+          "topic": "Colors and Typography",
+          "file": "data/css/03-colors-and-typography.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 4,
+          "topic": "Flexbox",
+          "file": "data/css/04-flexbox.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 5,
+          "topic": "Grid",
+          "file": "data/css/05-grid.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 6,
+          "topic": "Positioning",
+          "file": "data/css/06-positioning.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 7,
+          "topic": "Responsive Design",
+          "file": "data/css/07-responsive-design.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 8,
+          "topic": "Variables and Functions",
+          "file": "data/css/08-variables-and-functions.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 9,
+          "topic": "Transitions and Animations",
+          "file": "data/css/09-transitions-and-animations.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 10,
+          "topic": "Pseudo-Classes and Elements",
+          "file": "data/css/10-pseudo-classes-and-elements.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        }
+      ]
     }
   ]
 }
