@@ -143,7 +143,31 @@ async function executeOutput(code, file, questionId) {
   }
 }
 
-async function validateQuestion(question, file, updateExpected) {
+function renderHtmlText(markup) {
+  const blockTags = /<\/(?:address|article|aside|blockquote|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h[1-6]|header|hr|li|main|nav|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul)\s*>/gi;
+  const entities = { amp: '&', apos: "'", gt: '>', lt: '<', nbsp: ' ', quot: '"' };
+  return markup
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<(?:head|script|style|template|title|noscript)\b[^>]*>[\s\S]*?<\/(?:head|script|style|template|title|noscript)\s*>/gi, '')
+    .replace(/<br\b[^>]*\/?>/gi, '\n')
+    .replace(blockTags, '\n')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&(#x[\da-f]+|#\d+|[a-z]+);/gi, (entity, value) => {
+      if (value[0] === '#') {
+        const codePoint = value[1].toLowerCase() === 'x'
+          ? Number.parseInt(value.slice(2), 16)
+          : Number.parseInt(value.slice(1), 10);
+        return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : entity;
+      }
+      return entities[value.toLowerCase()] ?? entity;
+    })
+    .split('\n')
+    .map(line => line.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n');
+}
+
+async function validateQuestion(question, file, updateExpected, subject) {
   const label = question.id ?? '(question without id)';
   if (!TYPES.includes(question.type)) report(file, `${label} has unsupported type "${question.type}"`);
   if (!LEVELS.includes(question.level)) report(file, `${label} has unsupported level "${question.level}"`);
@@ -175,7 +199,9 @@ async function validateQuestion(question, file, updateExpected) {
     if (typeof question.code !== 'string') {
       report(file, `${label} is missing code`);
     } else {
-      const actual = await executeOutput(question.code, file, label);
+      const actual = subject === 'html'
+        ? renderHtmlText(question.code)
+        : await executeOutput(question.code, file, label);
       if (actual !== null) {
         if (updateExpected) question.expectedOutput = actual;
         else {
@@ -199,7 +225,7 @@ async function validateQuestion(question, file, updateExpected) {
       for (const answers of question.blanks) {
         code = code.replace('____', String(answers[0]));
       }
-      const actual = await executeOutput(code, file, label);
+      const actual = subject === 'html' ? renderHtmlText(code) : await executeOutput(code, file, label);
       if (actual !== null) {
         if (updateExpected) question.expectedOutput = actual;
         else if (typeof question.expectedOutput !== 'string') report(file, `${label} is missing expectedOutput (use --write-expected to generate it)`);
@@ -316,13 +342,14 @@ for (const file of selectedFiles) {
     parsed.set(file, { content, data });
     validateSchema(data, schema, 'topic', file);
     if (!Array.isArray(data.terms) || !Array.isArray(data.questions)) continue;
+    const subjectPrefix = data.meta?.subject === 'javascript' ? 'js' : data.meta?.subject;
     const topicSlug = path.basename(file).startsWith('_')
       ? data.meta.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       : path.basename(file, '.json').replace(/^\d+-/, '');
     const topicQuestions = new Set();
     for (let index = 0; index < data.terms.length; index += 1) {
       const term = data.terms[index];
-      const expectedId = `js-${topicSlug}-t${String(index + 1).padStart(3, '0')}`;
+      const expectedId = `${subjectPrefix}-${topicSlug}-t${String(index + 1).padStart(3, '0')}`;
       if (term.id !== expectedId) report(file, `${term.id ?? `term ${index + 1}`} must use stable sequential id ${expectedId}`);
       if (typeof term.definitionEn === 'string' && typeof term.term === 'string' &&
           normalize(term.definitionEn).includes(normalize(term.term))) {
@@ -331,14 +358,14 @@ for (const file of selectedFiles) {
     }
     for (let index = 0; index < data.questions.length; index += 1) {
       const question = data.questions[index];
-      const expectedId = `js-${topicSlug}-q${String(index + 1).padStart(3, '0')}`;
+      const expectedId = `${subjectPrefix}-${topicSlug}-q${String(index + 1).padStart(3, '0')}`;
       if (question.id !== expectedId) report(file, `${question.id ?? `question ${index + 1}`} must use stable sequential id ${expectedId}`);
       if (question.type && typeof (question.code ?? question.question ?? question.prompt) === 'string') {
         const normalized = `${normalize(question.code ?? '')}|${normalize(question.question ?? question.prompt ?? '')}`;
         if (topicQuestions.has(normalized)) report(file, `${question.id} duplicates a normalized question and code`);
         topicQuestions.add(normalized);
       }
-      await validateQuestion(question, file, updateExpected);
+      await validateQuestion(question, file, updateExpected, data.meta?.subject);
     }
   } catch (error) {
     report(file, `cannot parse or read JSON: ${error.message}`);
