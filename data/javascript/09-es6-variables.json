@@ -1,0 +1,631 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "ES6 Variables",
+    "order": 9,
+    "sourceSections": [
+      "var vs let",
+      "const",
+      "Mutate an Array Declared with const",
+      "Object.freeze"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-es6-variables-t001",
+      "term": "var",
+      "level": "beginner",
+      "definitionEn": "A declaration form whose bindings are scoped to a function or the surrounding global context.",
+      "example": "var count = 1;",
+      "caseSensitive": true,
+      "aliases": []
+    },
+    {
+      "id": "js-es6-variables-t002",
+      "term": "let",
+      "level": "beginner",
+      "definitionEn": "A declaration form that creates a block-scoped writable binding.",
+      "example": "let count = 1;",
+      "caseSensitive": true,
+      "aliases": []
+    },
+    {
+      "id": "js-es6-variables-t003",
+      "term": "const",
+      "level": "beginner",
+      "definitionEn": "A declaration form that creates a block-scoped binding that cannot be reassigned.",
+      "example": "const limit = 5;",
+      "caseSensitive": true,
+      "aliases": []
+    },
+    {
+      "id": "js-es6-variables-t004",
+      "term": "block scope",
+      "level": "intermediate",
+      "definitionEn": "The visibility region enclosed by a block where certain declarations are available.",
+      "example": "if (true) { let inside = 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "lexical scope"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t005",
+      "term": "function scope",
+      "level": "intermediate",
+      "definitionEn": "The visibility region created by a function for declarations such as var.",
+      "example": "function run() { var local = 1; }",
+      "caseSensitive": false,
+      "aliases": []
+    },
+    {
+      "id": "js-es6-variables-t006",
+      "term": "reassignment",
+      "level": "beginner",
+      "definitionEn": "Giving an existing writable binding a different value.",
+      "example": "let n = 1;\nn = 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "assignment"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t007",
+      "term": "mutation",
+      "level": "intermediate",
+      "definitionEn": "Changing the contents of an existing object or collection without replacing its binding.",
+      "example": "const list = [1];\nlist.push(2);",
+      "caseSensitive": false,
+      "aliases": [
+        "in-place change"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t008",
+      "term": "Object.freeze",
+      "display": "Object.freeze()",
+      "level": "intermediate",
+      "definitionEn": "A built-in operation that prevents direct changes to an object's own properties.",
+      "example": "Object.freeze(config);",
+      "caseSensitive": true,
+      "aliases": [
+        "freeze"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t009",
+      "term": "hoisting",
+      "level": "advanced",
+      "definitionEn": "A description of how declarations are processed before their surrounding code executes.",
+      "example": "function greet() { return 'hi'; }",
+      "caseSensitive": false,
+      "aliases": [
+        "declaration processing"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t010",
+      "term": "temporal dead zone",
+      "level": "advanced",
+      "definitionEn": "The interval before a lexical binding is initialized in which accessing it throws an error.",
+      "example": "{ console.log(value); let value = 2; }",
+      "caseSensitive": false,
+      "aliases": [
+        "TDZ"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t011",
+      "term": "shallow freeze",
+      "level": "advanced",
+      "definitionEn": "A restriction applied to an outer value while nested referenced values can still change.",
+      "example": "Object.freeze({ nested: { n: 1 } });",
+      "caseSensitive": false,
+      "aliases": [
+        "top-level freeze"
+      ]
+    },
+    {
+      "id": "js-es6-variables-t012",
+      "term": "global object",
+      "level": "intermediate",
+      "definitionEn": "The object associated with the top-level environment of a JavaScript runtime.",
+      "example": "globalThis.console.log('ok');",
+      "caseSensitive": false,
+      "aliases": [
+        "globalThis"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-es6-variables-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "const",
+      "code": "const max = 9;",
+      "question": "What does this declaration prevent?",
+      "options": [
+        "Reassigning max to a different value",
+        "Reading max later",
+        "Using max in an expression",
+        "Storing a number in max"
+      ],
+      "correctOption": 0,
+      "explanation": "A const binding cannot be reassigned after initialization."
+    },
+    {
+      "id": "js-es6-variables-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "var vs let",
+      "code": "let count = 2;\ncount = 6;\nconsole.log(count);",
+      "options": [
+        "6",
+        "2",
+        "undefined",
+        "A SyntaxError"
+      ],
+      "correctOption": 0,
+      "explanation": "let bindings can be reassigned.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-es6-variables-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Mutate an Array Declared with const",
+      "code": "const tags = ['new'];\ntags.push('sale');\nconsole.log(tags.length);",
+      "explanation": "The binding stays the same while its referenced array is mutated.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-es6-variables-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "const",
+      "prompt": "Fill the declaration keyword so config cannot be reassigned.",
+      "code": "____ config = { mode: 'safe' };\nconsole.log(config.mode);",
+      "blanks": [
+        [
+          "const"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "const makes the binding non-reassignable.",
+      "expectedOutput": "safe"
+    },
+    {
+      "id": "js-es6-variables-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Mutate an Array Declared with const",
+      "code": "const numbers = [2];\nnumbers[0] = 5;\nconsole.log(numbers[0]);",
+      "options": [
+        "5",
+        "2",
+        "undefined",
+        "A TypeError"
+      ],
+      "correctOption": 0,
+      "explanation": "const does not prevent mutation of the referenced array.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-es6-variables-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "var vs let",
+      "code": "for (let i = 0; i < 1; i++) {}",
+      "question": "What scope does the i binding have?",
+      "options": [
+        "The enclosing block",
+        "Every function in the program",
+        "Only the global object",
+        "No scope"
+      ],
+      "correctOption": 0,
+      "explanation": "A let declaration is block-scoped."
+    },
+    {
+      "id": "js-es6-variables-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "const",
+      "prompt": "Write makeCounter(start), returning an object with a value property initialized to start.",
+      "functionName": "makeCounter",
+      "starter": "function makeCounter(start) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            3
+          ],
+          "expect": {
+            "value": 3
+          }
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": {
+            "value": 0
+          }
+        },
+        {
+          "args": [
+            -1
+          ],
+          "expect": {
+            "value": -1
+          }
+        }
+      ],
+      "solution": "function makeCounter(start) {\n  return { value: start };\n}",
+      "explanation": "Return an object literal whose property receives the argument."
+    },
+    {
+      "id": "js-es6-variables-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "var vs let",
+      "prompt": "Fill the keyword to create a block-scoped writable binding.",
+      "code": "____ total = 0;\ntotal++;\nconsole.log(total);",
+      "blanks": [
+        [
+          "let"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "let creates a block-scoped binding that can be reassigned.",
+      "expectedOutput": "1"
+    },
+    {
+      "id": "js-es6-variables-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Object.freeze",
+      "prompt": "Write freezeAndRead(item), freezing the object and returning whether it is frozen.",
+      "functionName": "freezeAndRead",
+      "starter": "function freezeAndRead(item) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "n": 1
+            }
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            {}
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            {
+              "name": "x"
+            }
+          ],
+          "expect": true
+        }
+      ],
+      "solution": "function freezeAndRead(item) {\n  Object.freeze(item);\n  return Object.isFrozen(item);\n}",
+      "explanation": "Object.freeze prevents direct own-property changes and returns the same object."
+    },
+    {
+      "id": "js-es6-variables-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "var vs let",
+      "code": "if (true) {\n  var outer = 1;\n  let inner = 2;\n}\nconsole.log(outer);",
+      "options": [
+        "1",
+        "2",
+        "undefined",
+        "A ReferenceError"
+      ],
+      "correctOption": 0,
+      "explanation": "var is not limited to the block, so outer remains visible afterward.",
+      "expectedOutput": "1"
+    },
+    {
+      "id": "js-es6-variables-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Object.freeze",
+      "code": "const config = Object.freeze({ mode: 'fast' });\nconsole.log(Object.isFrozen(config));",
+      "explanation": "Object.isFrozen reports true for a frozen object.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-es6-variables-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Object.freeze",
+      "prompt": "Fill the method to freeze the object.",
+      "code": "const options = { retries: 2 };\nObject.____(options);\nconsole.log(Object.isFrozen(options));",
+      "blanks": [
+        [
+          "freeze"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Object.freeze prevents direct modifications to own properties.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-es6-variables-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Mutate an Array Declared with const",
+      "prompt": "Write appendValue(values, value), appending the value and returning the array's new length.",
+      "functionName": "appendValue",
+      "starter": "function appendValue(values, value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1
+            ],
+            2
+          ],
+          "expect": 2
+        },
+        {
+          "args": [
+            [],
+            "x"
+          ],
+          "expect": 1
+        },
+        {
+          "args": [
+            [
+              0,
+              0
+            ],
+            3
+          ],
+          "expect": 3
+        }
+      ],
+      "solution": "function appendValue(values, value) {\n  return values.push(value);\n}",
+      "explanation": "push mutates the array but does not reassign the const binding."
+    },
+    {
+      "id": "js-es6-variables-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "var vs let",
+      "prompt": "Fill the keyword that confines the variable to the surrounding function.",
+      "code": "function read() {\n  ____ result = 4;\n  return result;\n}\nconsole.log(read());",
+      "blanks": [
+        [
+          "var"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "var is function-scoped.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-es6-variables-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Object.freeze",
+      "code": "const data = Object.freeze({ count: 1 });",
+      "question": "What does Object.freeze(data) directly guarantee?",
+      "options": [
+        "Existing own properties cannot be reassigned or removed",
+        "Nested objects are recursively frozen",
+        "The variable data can never be read",
+        "The object becomes a primitive"
+      ],
+      "correctOption": 0,
+      "explanation": "Object.freeze is shallow and restricts changes to the object's own properties."
+    },
+    {
+      "id": "js-es6-variables-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Mutate an Array Declared with const",
+      "prompt": "Write updateFirst(list, value), changing the first item and returning the list.",
+      "functionName": "updateFirst",
+      "starter": "function updateFirst(list, value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              2
+            ],
+            8
+          ],
+          "expect": [
+            8,
+            2
+          ]
+        },
+        {
+          "args": [
+            [],
+            4
+          ],
+          "expect": [
+            4
+          ]
+        },
+        {
+          "args": [
+            [
+              "a"
+            ],
+            "b"
+          ],
+          "expect": [
+            "b"
+          ]
+        }
+      ],
+      "solution": "function updateFirst(list, value) {\n  if (list.length === 0) list.push(value);\n  else list[0] = value;\n  return list;\n}",
+      "explanation": "Mutate the existing array by updating its first slot, adding one if empty."
+    },
+    {
+      "id": "js-es6-variables-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Object.freeze",
+      "code": "const user = Object.freeze({ settings: { theme: 'light' } });\nuser.settings.theme = 'dark';",
+      "question": "What is the effect of assigning the nested theme in non-strict code?",
+      "options": [
+        "The nested value changes because the freeze is shallow",
+        "The nested value stays light because freeze is deep",
+        "The entire user object becomes null",
+        "The const binding is reassigned"
+      ],
+      "correctOption": 0,
+      "explanation": "Object.freeze does not recursively freeze nested objects."
+    },
+    {
+      "id": "js-es6-variables-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Mutate an Array Declared with const",
+      "code": "const a = [1];\nconst b = a;\nb.push(2);\nconsole.log(a.join(','));",
+      "explanation": "Both const bindings refer to the same mutable array.",
+      "expectedOutput": "1,2"
+    },
+    {
+      "id": "js-es6-variables-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "var vs let",
+      "prompt": "Fill the declaration that prevents the inner block from redeclaring and shadowing outer let in the same scope.",
+      "code": "let value = 1;\n{\n  ____ value = 2;\n  console.log(value);\n}\nconsole.log(value);",
+      "blanks": [
+        [
+          "let"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "let creates a separate block-scoped binding inside the braces.",
+      "expectedOutput": "2\n1"
+    },
+    {
+      "id": "js-es6-variables-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Object.freeze",
+      "prompt": "Write freezeTopLevel(data), freezing and returning data without attempting to freeze nested values.",
+      "functionName": "freezeTopLevel",
+      "starter": "function freezeTopLevel(data) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "nested": {
+                "x": 1
+              }
+            }
+          ],
+          "expect": {
+            "nested": {
+              "x": 1
+            }
+          }
+        },
+        {
+          "args": [
+            {}
+          ],
+          "expect": {}
+        },
+        {
+          "args": [
+            {
+              "items": [
+                1
+              ]
+            }
+          ],
+          "expect": {
+            "items": [
+              1
+            ]
+          }
+        }
+      ],
+      "solution": "function freezeTopLevel(data) {\n  return Object.freeze(data);\n}",
+      "explanation": "Object.freeze applies to the supplied outer object and returns it."
+    },
+    {
+      "id": "js-es6-variables-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "var vs let",
+      "code": "let result = 'outer';\n{\n  let result = 'inner';\n  console.log(result);\n}\nconsole.log(result);",
+      "options": [
+        "inner\nouter",
+        "outer\\ninner",
+        "inner\\ninner",
+        "outer\\nouter"
+      ],
+      "correctOption": 0,
+      "explanation": "The inner block-scoped binding shadows, but does not replace, the outer binding.",
+      "expectedOutput": "inner\nouter"
+    },
+    {
+      "id": "js-es6-variables-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "var vs let",
+      "question": "How do var and let differ in their scoping behavior?",
+      "keyPoints": [
+        "var is function-scoped",
+        "let is block-scoped",
+        "A let binding cannot be redeclared in the same lexical scope",
+        "Prefer block-scoped declarations for local intent"
+      ],
+      "modelAnswer": "var is scoped to its containing function or global context, while let is scoped to the nearest enclosing block. Block scoping generally makes it easier to reason about where a binding is available."
+    },
+    {
+      "id": "js-es6-variables-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "const",
+      "question": "Does const make an array or object immutable?",
+      "keyPoints": [
+        "const prevents reassignment of the binding",
+        "Referenced contents can still be mutated",
+        "Object.freeze restricts shallow property changes",
+        "Nested structures need separate handling"
+      ],
+      "modelAnswer": "const prevents assigning a different value to the binding, but it does not make a referenced array or object immutable. Object.freeze can restrict changes to an object's own properties, though it is shallow."
+    },
+    {
+      "id": "js-es6-variables-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Object.freeze",
+      "question": "What does Object.freeze do, and what is one limitation?",
+      "keyPoints": [
+        "Prevents direct own-property changes",
+        "Returns the same object",
+        "Does not recursively freeze nested values",
+        "Strict-mode writes to frozen properties can throw"
+      ],
+      "modelAnswer": "Object.freeze prevents adding, removing, or changing an object's own properties and returns that object. It is shallow, so nested objects can still be changed unless they are frozen separately."
+    }
+  ]
+}

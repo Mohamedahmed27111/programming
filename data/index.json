@@ -178,6 +178,72 @@
               "interview": 3
             }
           }
+        },
+        {
+          "order": 9,
+          "topic": "ES6 Variables",
+          "file": "data/javascript/09-es6-variables.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 10,
+          "topic": "Modern Functions",
+          "file": "data/javascript/10-modern-functions.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 11,
+          "topic": "Destructuring and Templates",
+          "file": "data/javascript/11-destructuring-templates.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
         }
       ]
     }

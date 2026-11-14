@@ -1,0 +1,631 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Destructuring and Templates",
+    "order": 11,
+    "sourceSections": [
+      "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "Template Literals"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-destructuring-templates-t001",
+      "term": "destructuring",
+      "level": "beginner",
+      "definitionEn": "A syntax that extracts values from arrays or properties from objects into bindings.",
+      "example": "const [first] = values;",
+      "caseSensitive": false,
+      "aliases": [
+        "destructuring assignment"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t002",
+      "term": "array pattern",
+      "level": "beginner",
+      "definitionEn": "A bracket pattern that assigns values by their sequence positions.",
+      "example": "const [a, b] = [1, 2];",
+      "caseSensitive": false,
+      "aliases": [
+        "array destructuring"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t003",
+      "term": "object pattern",
+      "level": "beginner",
+      "definitionEn": "A brace pattern that assigns values based on matching property names.",
+      "example": "const { name } = user;",
+      "caseSensitive": false,
+      "aliases": [
+        "object destructuring"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t004",
+      "term": "renaming",
+      "level": "intermediate",
+      "definitionEn": "Choosing a different local binding name while extracting a property.",
+      "example": "const { id: userId } = user;",
+      "caseSensitive": false,
+      "aliases": [
+        "property alias"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t005",
+      "term": "default value",
+      "level": "intermediate",
+      "definitionEn": "A fallback used by a pattern when an extracted value is undefined.",
+      "example": "const { size = 1 } = options;",
+      "caseSensitive": false,
+      "aliases": [
+        "fallback"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t006",
+      "term": "nested destructuring",
+      "level": "advanced",
+      "definitionEn": "A pattern that extracts a value from a structure inside another structure.",
+      "example": "const { address: { city } } = user;",
+      "caseSensitive": false,
+      "aliases": [
+        "nested pattern"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t007",
+      "term": "template literal",
+      "level": "beginner",
+      "definitionEn": "A backtick-delimited string form that can contain embedded expressions.",
+      "example": "const text = `Hello ${name}`;",
+      "caseSensitive": false,
+      "aliases": [
+        "template string"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t008",
+      "term": "interpolation",
+      "level": "beginner",
+      "definitionEn": "An embedded expression whose value is inserted into a text template.",
+      "example": "const text = `Total: ${sum}`;",
+      "caseSensitive": false,
+      "aliases": [
+        "expression insertion"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t009",
+      "term": "rest property",
+      "level": "intermediate",
+      "definitionEn": "A pattern entry that gathers properties not already selected.",
+      "example": "const { id, ...rest } = item;",
+      "caseSensitive": false,
+      "aliases": [
+        "object rest"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t010",
+      "term": "parameter destructuring",
+      "level": "intermediate",
+      "definitionEn": "Extracting values from an argument directly in a function's parameter list.",
+      "example": "function show({ name }) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "destructured parameter"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t011",
+      "term": "multiline string",
+      "level": "beginner",
+      "definitionEn": "Text that contains line breaks as part of its value.",
+      "example": "const poem = `one\ntwo`;",
+      "caseSensitive": false,
+      "aliases": [
+        "line-broken string"
+      ]
+    },
+    {
+      "id": "js-destructuring-templates-t012",
+      "term": "binding pattern",
+      "level": "intermediate",
+      "definitionEn": "A structured declaration form that assigns multiple extracted values to names.",
+      "example": "const [head, ...tail] = list;",
+      "caseSensitive": false,
+      "aliases": [
+        "pattern"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-destructuring-templates-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const [first, second] = ['red', 'blue'];",
+      "question": "Which value is assigned to first?",
+      "options": [
+        "'red'",
+        "'blue'",
+        "The whole array",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Array patterns match values by position, starting at index zero."
+    },
+    {
+      "id": "js-destructuring-templates-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const { color } = { color: 'teal' };\nconsole.log(color);",
+      "options": [
+        "teal",
+        "color",
+        "undefined",
+        "{ color: 'teal' }"
+      ],
+      "correctOption": 0,
+      "explanation": "The object pattern reads the property with the same name.",
+      "expectedOutput": "teal"
+    },
+    {
+      "id": "js-destructuring-templates-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Template Literals",
+      "code": "const name = 'Mia';\nconsole.log(`Hi, ${name}!`);",
+      "explanation": "The expression inside ${} is evaluated and inserted into the string.",
+      "expectedOutput": "Hi, Mia!"
+    },
+    {
+      "id": "js-destructuring-templates-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Template Literals",
+      "prompt": "Fill the delimiter that allows expression interpolation.",
+      "code": "const count = 4;\nconst label = ____Count: ${count}`;\nconsole.log(label);",
+      "blanks": [
+        [
+          "`"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Template literals begin and end with backticks.",
+      "expectedOutput": "Count: 4"
+    },
+    {
+      "id": "js-destructuring-templates-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const [a, , c] = [2, 4, 6];\nconsole.log(a, c);",
+      "options": [
+        "2 6",
+        "2 4",
+        "4 6",
+        "2 undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The empty slot skips the second value so c receives the third.",
+      "expectedOutput": "2 6"
+    },
+    {
+      "id": "js-destructuring-templates-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Template Literals",
+      "code": "const text = `Line one\nLine two`;",
+      "question": "What can a template literal contain directly?",
+      "options": [
+        "A line break as part of its value",
+        "Only a single line of text",
+        "Only numeric expressions",
+        "No quotation marks"
+      ],
+      "correctOption": 0,
+      "explanation": "Backtick-delimited template literals can span multiple lines."
+    },
+    {
+      "id": "js-destructuring-templates-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Template Literals",
+      "prompt": "Write makeGreeting(name), returning 'Hello, ' followed by the name and a period.",
+      "functionName": "makeGreeting",
+      "starter": "function makeGreeting(name) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "Ari"
+          ],
+          "expect": "Hello, Ari."
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": "Hello, ."
+        },
+        {
+          "args": [
+            "Lee Kim"
+          ],
+          "expect": "Hello, Lee Kim."
+        }
+      ],
+      "solution": "function makeGreeting(name) {\n  return `Hello, ${name}.`;\n}",
+      "explanation": "Interpolate the parameter between the fixed text portions."
+    },
+    {
+      "id": "js-destructuring-templates-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Fill the name that receives the second array entry.",
+      "code": "const [first, second] = [3, 8];\nconsole.log(____);",
+      "blanks": [
+        [
+          "second"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The second binding in an array pattern receives the second element.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-destructuring-templates-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Write getUserName(user), returning the name property using parameter destructuring.",
+      "functionName": "getUserName",
+      "starter": "function getUserName(user) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "name": "Nia"
+            }
+          ],
+          "expect": "Nia"
+        },
+        {
+          "args": [
+            {
+              "name": ""
+            }
+          ],
+          "expect": ""
+        },
+        {
+          "args": [
+            {
+              "name": "Omar",
+              "id": 2
+            }
+          ],
+          "expect": "Omar"
+        }
+      ],
+      "solution": "function getUserName({ name }) {\n  return name;\n}",
+      "explanation": "Destructure name directly in the function parameter list."
+    },
+    {
+      "id": "js-destructuring-templates-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const { id: userId } = { id: 7 };\nconsole.log(userId);",
+      "options": [
+        "7",
+        "id",
+        "userId",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The pattern reads property id and stores it in the local name userId.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-destructuring-templates-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const { size = 4 } = {};\nconsole.log(size);",
+      "explanation": "The property is undefined, so the destructuring default is selected.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-destructuring-templates-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Fill the property alias so local variable city receives location.city.",
+      "code": "const { location: { ____ } } = { location: { city: 'Oslo' } };\nconsole.log(city);",
+      "blanks": [
+        [
+          "city"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Nested patterns can extract a property from a nested object.",
+      "expectedOutput": "Oslo"
+    },
+    {
+      "id": "js-destructuring-templates-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Write firstAndRest(values), returning an object with the first item and the remaining items.",
+      "functionName": "firstAndRest",
+      "starter": "function firstAndRest(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "expect": {
+            "first": 1,
+            "rest": [
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": {
+            "rest": []
+          }
+        },
+        {
+          "args": [
+            [
+              "x"
+            ]
+          ],
+          "expect": {
+            "first": "x",
+            "rest": []
+          }
+        }
+      ],
+      "solution": "function firstAndRest(values) {\n  const [first, ...rest] = values;\n  const result = { rest };\n  if (values.length > 0) result.first = first;\n  return result;\n}",
+      "explanation": "Array rest syntax gathers all elements after the first into a new array."
+    },
+    {
+      "id": "js-destructuring-templates-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Template Literals",
+      "prompt": "Fill the interpolation syntax to insert value into the template.",
+      "code": "const value = 6;\nconsole.log(`value: ____`);",
+      "blanks": [
+        [
+          "${value}"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "An expression inside ${...} is evaluated within a template literal.",
+      "expectedOutput": "value: 6"
+    },
+    {
+      "id": "js-destructuring-templates-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const { color = 'gray' } = { color: null };",
+      "question": "What value does color receive?",
+      "options": [
+        "null, because a default applies only to undefined",
+        "'gray', because null is missing",
+        "undefined, because the key is absent",
+        "An empty string"
+      ],
+      "correctOption": 0,
+      "explanation": "A destructuring default is used for undefined, not for null."
+    },
+    {
+      "id": "js-destructuring-templates-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Write omitId(record), returning a new object with all properties except id.",
+      "functionName": "omitId",
+      "starter": "function omitId(record) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "id": 1,
+              "name": "A"
+            }
+          ],
+          "expect": {
+            "name": "A"
+          }
+        },
+        {
+          "args": [
+            {
+              "id": 2
+            }
+          ],
+          "expect": {}
+        },
+        {
+          "args": [
+            {
+              "name": "B"
+            }
+          ],
+          "expect": {
+            "name": "B"
+          }
+        }
+      ],
+      "solution": "function omitId(record) {\n  const { id, ...rest } = record;\n  return rest;\n}",
+      "explanation": "Object rest collects the remaining properties after id is selected."
+    },
+    {
+      "id": "js-destructuring-templates-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const [head = 'empty'] = [undefined];",
+      "question": "Which value is assigned to head?",
+      "options": [
+        "'empty', because the extracted value is undefined",
+        "undefined, because an array element exists",
+        "null, because defaults convert missing values",
+        "An empty array"
+      ],
+      "correctOption": 0,
+      "explanation": "Destructuring defaults apply when the extracted value is undefined."
+    },
+    {
+      "id": "js-destructuring-templates-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "code": "const source = { a: 1, nested: { b: 2 } };\nconst { a, ...rest } = source;\nrest.nested.b = 5;\nconsole.log(a, source.nested.b);",
+      "explanation": "The rest object is new but its nested property still references the original nested object.",
+      "expectedOutput": "1 5"
+    },
+    {
+      "id": "js-destructuring-templates-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Fill the rest binding so tail contains the values after first.",
+      "code": "const [first, ____tail] = [1, 2, 3];\nconsole.log(tail.join(','));",
+      "blanks": [
+        [
+          "..."
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Array rest syntax gathers remaining values into a new array.",
+      "expectedOutput": "2,3"
+    },
+    {
+      "id": "js-destructuring-templates-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "prompt": "Write formatPoint(point), returning 'x,y' from an object with x and y values.",
+      "functionName": "formatPoint",
+      "starter": "function formatPoint(point) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "x": 3,
+              "y": 4
+            }
+          ],
+          "expect": "3,4"
+        },
+        {
+          "args": [
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "expect": "0,0"
+        },
+        {
+          "args": [
+            {
+              "x": -1,
+              "y": 2
+            }
+          ],
+          "expect": "-1,2"
+        }
+      ],
+      "solution": "function formatPoint({ x, y }) {\n  return `${x},${y}`;\n}",
+      "explanation": "Extract both named properties in the parameter and interpolate them."
+    },
+    {
+      "id": "js-destructuring-templates-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Template Literals",
+      "code": "const value = 2;\nconsole.log(`sum=${value + 3}`);",
+      "options": [
+        "sum=5",
+        "sum=value + 3",
+        "sum=23",
+        "5"
+      ],
+      "correctOption": 0,
+      "explanation": "The expression inside the interpolation is evaluated before the text is printed.",
+      "expectedOutput": "sum=5"
+    },
+    {
+      "id": "js-destructuring-templates-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "question": "How do array and object destructuring choose which values to bind?",
+      "keyPoints": [
+        "Array patterns match by position",
+        "Object patterns match by property name",
+        "Object properties can be renamed",
+        "Either pattern can use defaults"
+      ],
+      "modelAnswer": "Array destructuring assigns by position, while object destructuring looks up properties by name. Object patterns can rename a property into a local binding, and both forms support defaults for undefined values."
+    },
+    {
+      "id": "js-destructuring-templates-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Template Literals",
+      "question": "What are useful features of template literals compared with quoted strings?",
+      "keyPoints": [
+        "Expressions can be interpolated",
+        "Multiline text can be written directly",
+        "Expressions use ${...}",
+        "Backticks delimit the literal"
+      ],
+      "modelAnswer": "Template literals use backticks and allow expressions to be embedded with ${...}. They also support writing multiline text directly, which can make constructed strings easier to read."
+    },
+    {
+      "id": "js-destructuring-templates-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Destructuring Assignment (objects, arrays, nested, parameters)",
+      "question": "How does a rest element or property work in a destructuring pattern?",
+      "keyPoints": [
+        "It collects values not already selected",
+        "Array rest gathers later indexed items",
+        "Object rest gathers remaining own enumerable properties",
+        "The rest entry must appear last"
+      ],
+      "modelAnswer": "A rest entry gathers the remaining values after earlier pattern entries have been assigned. Array rest collects later elements, while object rest collects remaining enumerable own properties, and the rest entry must be last in its pattern."
+    }
+  ]
+}

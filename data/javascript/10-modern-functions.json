@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Modern Functions",
+    "order": 10,
+    "sourceSections": [
+      "Arrow Functions",
+      "Default Parameters",
+      "Rest Operator",
+      "Spread Operator"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-modern-functions-t001",
+      "term": "arrow function",
+      "level": "beginner",
+      "definitionEn": "A function expression written with an arrow token and lexical this behavior.",
+      "example": "const twice = n => n * 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "arrow"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t002",
+      "term": "default parameter",
+      "level": "beginner",
+      "definitionEn": "A parameter initializer used when the corresponding argument is omitted or undefined.",
+      "example": "function greet(name = 'friend') {}",
+      "caseSensitive": false,
+      "aliases": [
+        "default argument"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t003",
+      "term": "rest parameter",
+      "level": "intermediate",
+      "definitionEn": "A final parameter that gathers remaining arguments into an array.",
+      "example": "function collect(...items) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "rest syntax"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t004",
+      "term": "spread syntax",
+      "level": "intermediate",
+      "definitionEn": "A syntax that expands iterable values or object properties into another context.",
+      "example": "const copy = [...values];",
+      "caseSensitive": false,
+      "aliases": [
+        "spread operator"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t005",
+      "term": "lexical this",
+      "level": "advanced",
+      "definitionEn": "The behavior where an arrow function uses the this value from its surrounding scope.",
+      "example": "const obj = { run: () => this };",
+      "caseSensitive": false,
+      "aliases": [
+        "lexical binding"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t006",
+      "term": "implicit return",
+      "level": "beginner",
+      "definitionEn": "A returned expression supplied automatically by a concise function body.",
+      "example": "const square = n => n * n;",
+      "caseSensitive": false,
+      "aliases": [
+        "concise return"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t007",
+      "term": "function body",
+      "level": "beginner",
+      "definitionEn": "The statements or expression executed when a function is called.",
+      "example": "function run() { return 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "body"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t008",
+      "term": "iterable",
+      "level": "intermediate",
+      "definitionEn": "A value whose elements can be visited in sequence by iteration syntax.",
+      "example": "const copy = [...'cat'];",
+      "caseSensitive": false,
+      "aliases": [
+        "iterable value"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t009",
+      "term": "shallow copy",
+      "level": "advanced",
+      "definitionEn": "A new outer collection whose nested object references remain shared with the source.",
+      "example": "const copy = [...items];",
+      "caseSensitive": false,
+      "aliases": [
+        "top-level copy"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t010",
+      "term": "rest argument",
+      "level": "intermediate",
+      "definitionEn": "An individual value collected by the final rest parameter.",
+      "example": "sum(2, 3, 4);",
+      "caseSensitive": false,
+      "aliases": [
+        "collected argument"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t011",
+      "term": "callable",
+      "level": "beginner",
+      "definitionEn": "A value that can be invoked with function-call syntax.",
+      "example": "const run = () => 'ok';",
+      "caseSensitive": false,
+      "aliases": [
+        "function value"
+      ]
+    },
+    {
+      "id": "js-modern-functions-t012",
+      "term": "parameter list",
+      "level": "beginner",
+      "definitionEn": "The named input positions declared for a function.",
+      "example": "const add = (a, b) => a + b;",
+      "caseSensitive": false,
+      "aliases": [
+        "parameters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-modern-functions-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "code": "const double = n => n * 2;",
+      "question": "What does this arrow function return for input 4?",
+      "options": [
+        "8",
+        "4",
+        "2",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "A concise arrow body implicitly returns its expression."
+    },
+    {
+      "id": "js-modern-functions-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "code": "const add = (a, b) => a + b;\nconsole.log(add(2, 5));",
+      "options": [
+        "7",
+        "25",
+        "2",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The arrow's expression returns the sum of its parameters.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-modern-functions-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Default Parameters",
+      "code": "function greet(name = 'guest') { return name; }\nconsole.log(greet());",
+      "explanation": "The omitted argument causes the default parameter value to be used.",
+      "expectedOutput": "guest"
+    },
+    {
+      "id": "js-modern-functions-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Default Parameters",
+      "prompt": "Fill a default value used when the caller provides no title.",
+      "code": "function label(title = ____) { return title; }\nconsole.log(label());",
+      "blanks": [
+        [
+          "'untitled'"
+        ]
+      ],
+      "caseSensitive": false,
+      "explanation": "A parameter initializer supplies a value when the argument is omitted.",
+      "expectedOutput": "untitled"
+    },
+    {
+      "id": "js-modern-functions-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "code": "const first = ([value]) => value;\nconsole.log(first([9, 4]));",
+      "options": [
+        "9",
+        "4",
+        "[ 9, 4 ]",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The parameter pattern takes the first array element.",
+      "expectedOutput": "9"
+    },
+    {
+      "id": "js-modern-functions-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "code": "const getZero = () => 0;",
+      "question": "Why are parentheses used before the arrow here?",
+      "options": [
+        "The function has no parameters",
+        "The body must always be an object",
+        "They call the function immediately",
+        "They make the result a string"
+      ],
+      "correctOption": 0,
+      "explanation": "Empty parentheses represent a parameter list with no parameters."
+    },
+    {
+      "id": "js-modern-functions-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "prompt": "Write triple(value) as a function returning three times the input.",
+      "functionName": "triple",
+      "starter": "function triple(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4
+          ],
+          "expect": 12
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -2
+          ],
+          "expect": -6
+        }
+      ],
+      "solution": "function triple(value) {\n  return value * 3;\n}",
+      "explanation": "Multiply the input by three and return the product."
+    },
+    {
+      "id": "js-modern-functions-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Arrow Functions",
+      "prompt": "Fill the token that separates an arrow function's parameter from its body.",
+      "code": "const negate = value ____ !value;\nconsole.log(negate(false));",
+      "blanks": [
+        [
+          "=>"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The arrow token follows the parameter list and precedes the body.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-modern-functions-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Default Parameters",
+      "prompt": "Write multiplyOrDefault(value, factor), multiplying by factor or by 2 when factor is omitted.",
+      "functionName": "multiplyOrDefault",
+      "starter": "function multiplyOrDefault(value, factor) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4,
+            3
+          ],
+          "expect": 12
+        },
+        {
+          "args": [
+            5
+          ],
+          "expect": 10
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function multiplyOrDefault(value, factor = 2) {\n  return value * factor;\n}",
+      "explanation": "A default parameter is used when the second argument is omitted."
+    },
+    {
+      "id": "js-modern-functions-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Rest Operator",
+      "code": "function collect(first, ...others) { return others.length; }\nconsole.log(collect('a', 'b', 'c'));",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The first argument fills first, and the remaining two are collected in others.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-modern-functions-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Spread Operator",
+      "code": "const left = [1, 2];\nconst joined = [...left, 3];\nconsole.log(joined.join(','));",
+      "explanation": "Spread inserts the existing elements into a new array literal before 3.",
+      "expectedOutput": "1,2,3"
+    },
+    {
+      "id": "js-modern-functions-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Rest Operator",
+      "prompt": "Fill the rest syntax to collect the remaining arguments into values.",
+      "code": "function count(first, ____values) { return values.length; }\nconsole.log(count('x', 2, 3));",
+      "blanks": [
+        [
+          "..."
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A rest parameter begins with three dots and gathers remaining arguments into an array.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-modern-functions-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Rest Operator",
+      "prompt": "Write sumAll(...values), returning the sum of any number of numeric arguments.",
+      "functionName": "sumAll",
+      "starter": "function sumAll(...values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            3,
+            4
+          ],
+          "expect": 9
+        },
+        {
+          "args": [],
+          "expect": 0
+        },
+        {
+          "args": [
+            -1,
+            1
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function sumAll(...values) {\n  return values.reduce((total, value) => total + value, 0);\n}",
+      "explanation": "The rest parameter collects arguments into an array that can be reduced."
+    },
+    {
+      "id": "js-modern-functions-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Spread Operator",
+      "prompt": "Fill the syntax to copy every value from source into the new array.",
+      "code": "const source = [4, 5];\nconst copy = [____source];\nconsole.log(copy.length);",
+      "blanks": [
+        [
+          "..."
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Spread syntax expands the iterable values into the array literal.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-modern-functions-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Default Parameters",
+      "code": "function choose(value = 'base') { return value; }\nchoose(null);",
+      "question": "Does the default parameter replace the explicitly supplied null?",
+      "options": [
+        "No, null is used because the argument was provided",
+        "Yes, every falsy value triggers the default",
+        "Yes, null is treated exactly like omission",
+        "No, the function call throws"
+      ],
+      "correctOption": 0,
+      "explanation": "Defaults are used for omitted or undefined arguments, not null."
+    },
+    {
+      "id": "js-modern-functions-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Spread Operator",
+      "prompt": "Write copyAndAppend(values, item), returning a new array with item added without changing values.",
+      "functionName": "copyAndAppend",
+      "starter": "function copyAndAppend(values, item) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              2
+            ],
+            3
+          ],
+          "expect": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "args": [
+            [],
+            "x"
+          ],
+          "expect": [
+            "x"
+          ]
+        },
+        {
+          "args": [
+            [
+              0
+            ],
+            0
+          ],
+          "expect": [
+            0,
+            0
+          ]
+        }
+      ],
+      "solution": "function copyAndAppend(values, item) {\n  return [...values, item];\n}",
+      "explanation": "Spread copies the source elements into a new array before appending the item."
+    },
+    {
+      "id": "js-modern-functions-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Arrow Functions",
+      "code": "const obj = { value: 3, read: () => this.value };",
+      "question": "Does read receive obj as its this value when called as obj.read()?",
+      "options": [
+        "No, an arrow function uses the surrounding this value",
+        "Yes, every method call binds this to obj",
+        "Yes, because value is a property",
+        "No, arrow functions cannot be called"
+      ],
+      "correctOption": 0,
+      "explanation": "Arrow functions do not create their own this binding."
+    },
+    {
+      "id": "js-modern-functions-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Default Parameters",
+      "code": "function pick(value = 7) { return value; }\nconsole.log(pick(undefined), pick(null));",
+      "explanation": "undefined activates the default, while null is retained as the supplied argument.",
+      "expectedOutput": "7 null"
+    },
+    {
+      "id": "js-modern-functions-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Spread Operator",
+      "prompt": "Fill the syntax to pass every item as a separate function argument.",
+      "code": "const values = [3, 8];\nconsole.log(Math.max(____values));",
+      "blanks": [
+        [
+          "..."
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Spread expands the array elements into positional arguments.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-modern-functions-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Rest Operator",
+      "prompt": "Write maxOrNull(...values), returning the largest argument or null when none are provided.",
+      "functionName": "maxOrNull",
+      "starter": "function maxOrNull(...values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            9,
+            4
+          ],
+          "expect": 9
+        },
+        {
+          "args": [],
+          "expect": null
+        },
+        {
+          "args": [
+            -3,
+            -1
+          ],
+          "expect": -1
+        }
+      ],
+      "solution": "function maxOrNull(...values) {\n  return values.length ? Math.max(...values) : null;\n}",
+      "explanation": "Check for an empty rest array before expanding it into Math.max."
+    },
+    {
+      "id": "js-modern-functions-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Spread Operator",
+      "code": "const nested = { count: 1 };\nconst original = { nested };\nconst copy = { ...original };\ncopy.nested.count = 4;\nconsole.log(original.nested.count);",
+      "options": [
+        "4",
+        "1",
+        "undefined",
+        "A TypeError"
+      ],
+      "correctOption": 0,
+      "explanation": "Object spread is shallow, so both outer values share the nested object.",
+      "expectedOutput": "4"
+    },
+    {
+      "id": "js-modern-functions-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Rest Operator",
+      "question": "How do rest syntax and spread syntax differ?",
+      "keyPoints": [
+        "Rest gathers multiple values into one array or object",
+        "Spread expands values into a surrounding context",
+        "Rest appears in parameter or binding positions",
+        "Spread can appear in calls and literals"
+      ],
+      "modelAnswer": "Rest syntax gathers remaining values into an array or object, such as a function's rest parameter. Spread syntax does the opposite in a context: it expands iterable elements or object properties into a call or literal."
+    },
+    {
+      "id": "js-modern-functions-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Default Parameters",
+      "question": "When does a default parameter value take effect?",
+      "keyPoints": [
+        "It applies when the argument is omitted",
+        "It also applies when the argument is undefined",
+        "It does not replace null",
+        "Defaults are evaluated when the call needs them"
+      ],
+      "modelAnswer": "A parameter's default is used when the corresponding argument is omitted or explicitly undefined. Passing null or another value supplies that value instead of activating the default."
+    },
+    {
+      "id": "js-modern-functions-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Arrow Functions",
+      "question": "What are two important differences between arrow functions and regular functions?",
+      "keyPoints": [
+        "Arrow syntax can provide concise expression bodies",
+        "Arrow functions have lexical this",
+        "They are not constructible with new",
+        "Choose regular functions for dynamic this or constructors"
+      ],
+      "modelAnswer": "Arrow functions can use concise syntax and take this from their surrounding scope instead of creating their own binding. They also cannot be used as constructors with new, so regular functions remain useful when constructor behavior or dynamic this is needed."
+    }
+  ]
+}
