@@ -1,9 +1,11 @@
 import { getFilteredItems, loadDataset, TOPIC_COLORS } from './data.js';
+import { bindTerms, renderTerms } from './terms.js';
 
 const LEVELS = ['beginner', 'intermediate', 'advanced', 'interview'];
 const state = {
   dataset: null,
   screen: 'terms',
+  termState: null,
   filters: { subjectId: '', topicNames: new Set(), levels: new Set(), search: '' }
 };
 
@@ -83,7 +85,7 @@ function render() {
             <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search-input" type="search" value="${escapeHtml(state.filters.search)}" placeholder="Search terms or questions" aria-label="Search terms or questions"></label>
           </div>
         </section>
-        <div id="screen-content">${renderPlaceholder(terms.length, questions.length)}</div>
+        <div id="screen-content">${state.screen === 'terms' ? renderTerms(state, terms) : renderPlaceholder(terms.length, questions.length)}</div>
       </main>
       <nav class="mobile-nav" aria-label="Main navigation">
         ${navButton('terms', 'Terms', '✳')}
@@ -91,7 +93,7 @@ function render() {
         ${navButton('progress', 'Progress', '▥')}
       </nav>
     </div>`;
-  bindShellEvents();
+  bindShellEvents(terms);
 }
 
 function navButton(screen, label, icon) {
@@ -108,7 +110,7 @@ function renderPlaceholder(termCount, questionCount) {
   return `<section class="welcome-grid"><div class="welcome-card tilt-left"><p class="eyebrow">${state.screen.toUpperCase()} / READY</p><h1>${title}</h1><p>${copy}</p><span class="count-tag">${tag}</span></div><div class="welcome-aside tilt-right"><span class="sticker" aria-hidden="true">✦</span><p class="eyebrow">ACTIVE FILTERS</p><p>${escapeHtml([...state.filters.topicNames].join(', ') || 'Every topic')}</p><p>${escapeHtml([...state.filters.levels].map(titleCase).join(', ') || 'Every level')}</p></div></section>`;
 }
 
-function bindShellEvents() {
+function bindShellEvents(terms) {
   app.querySelectorAll('[data-screen]').forEach(button => button.addEventListener('click', () => {
     state.screen = button.dataset.screen;
     render();
@@ -142,6 +144,7 @@ function bindShellEvents() {
     search.focus();
     search.setSelectionRange(selectionStart, selectionStart);
   });
+  if (state.screen === 'terms') bindTerms(app, state, terms, render);
 }
 
 function titleCase(value) {
