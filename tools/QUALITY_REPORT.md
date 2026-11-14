@@ -34,13 +34,13 @@ Levels are shown as beginner / intermediate / advanced / interview. Types are sh
 | 17-prototypes-inheritance | 8 / 8 / 5 / 3 | 4 / 7 / 5 / 5 / 3 |
 | 18-array-methods | 8 / 8 / 5 / 3 | 4 / 7 / 5 / 5 / 3 |
 | 19-coercion-equality | 8 / 8 / 5 / 3 | 4 / 7 / 5 / 5 / 3 |
-| 20-async-event-loop | 8 / 8 / 5 / 3 | 4 / 9 / 5 / 3 / 3 |
+| 20-async-event-loop | 8 / 8 / 5 / 3 | 4 / 11 / 3 / 3 / 3 |
 | 21-error-handling-json | 8 / 8 / 5 / 3 | 4 / 7 / 5 / 5 / 3 |
-| **Total** | **168 / 168 / 105 / 63** | **83 / 147 / 103 / 108 / 63** |
+| **Total** | **168 / 168 / 105 / 63** | **83 / 149 / 101 / 108 / 63** |
 
 ## Rewritten Question IDs
 
-There are **47 unique question IDs** rewritten across tasks B, C, E, and F. The C list overlaps B at `js-async-event-loop-q013`; it is counted once in the unique total.
+There are **54 unique question IDs** rewritten across tasks B, C, E, F, and H. The C list overlaps B at `js-async-event-loop-q013`; task H also overlaps existing rewrites at `js-hoisting-tdz-q013`, `js-async-event-loop-q007`, and `js-async-event-loop-q009`. Overlaps are counted once.
 
 ### B — Topic relevance (21)
 
@@ -82,6 +82,13 @@ There are **47 unique question IDs** rewritten across tasks B, C, E, and F. The 
 - `js-strings-q016`
 - `js-arrays-q013`
 - `js-destructuring-templates-q013`
+
+### H — Non-hardcodable writeCode tests (10)
+
+- `js-hoisting-tdz-q009`, `js-hoisting-tdz-q013`, `js-hoisting-tdz-q020`
+- `js-es6-variables-q009`
+- `js-async-event-loop-q004`, `js-async-event-loop-q007`, `js-async-event-loop-q008`, `js-async-event-loop-q009`, `js-async-event-loop-q016`
+- `js-error-handling-json-q016`
 
 ## `node tools/validate.mjs` Output
 
@@ -146,7 +153,7 @@ data\javascript\19-coercion-equality.json | terms: 12 | questions: 24
   type:  whatDoes=4, predictOutput=7, completeCode=5, writeCode=5, interview=3
 data\javascript\20-async-event-loop.json | terms: 12 | questions: 24
   level: beginner=8, intermediate=8, advanced=5, interview=3
-  type:  whatDoes=4, predictOutput=9, completeCode=5, writeCode=3, interview=3
+  type:  whatDoes=4, predictOutput=11, completeCode=3, writeCode=3, interview=3
 data\javascript\21-error-handling-json.json | terms: 12 | questions: 24
   level: beginner=8, intermediate=8, advanced=5, interview=3
   type:  whatDoes=4, predictOutput=7, completeCode=5, writeCode=5, interview=3

@@ -445,31 +445,31 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Error Objects",
-      "prompt": "Write errorName(message), returning the name of a newly created Error.",
-      "functionName": "errorName",
-      "starter": "function errorName(message) {\n  // your code here\n}",
+      "prompt": "Write describeError(message), returning the name and message of a newly created Error.",
+      "functionName": "describeError",
+      "starter": "function describeError(message) {\n  // your code here\n}",
       "tests": [
         {
           "args": [
             "bad"
           ],
-          "expect": "Error"
+          "expect": "Error: bad"
         },
         {
           "args": [
             ""
           ],
-          "expect": "Error"
+          "expect": "Error: "
         },
         {
           "args": [
             "missing"
           ],
-          "expect": "Error"
+          "expect": "Error: missing"
         }
       ],
-      "solution": "function errorName(message) {\n  return new Error(message).name;\n}",
-      "explanation": "A standard Error instance has the name Error."
+      "solution": "function describeError(message) {\n  const error = new Error(message);\n  return error.name + ': ' + error.message;\n}",
+      "explanation": "A standard Error has the name Error and retains the supplied message."
     },
     {
       "id": "js-error-handling-json-q017",

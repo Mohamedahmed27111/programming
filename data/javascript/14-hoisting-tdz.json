@@ -302,25 +302,25 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Block Scope",
-      "prompt": "Write getInnerValue(), returning the value of a let binding declared inside a nested block.",
+      "prompt": "Write getInnerValue(value), returning the argument through a let binding declared inside a nested block.",
       "functionName": "getInnerValue",
-      "starter": "function getInnerValue() {\n  // your code here\n}",
+      "starter": "function getInnerValue(value) {\n  // your code here\n}",
       "tests": [
         {
-          "args": [],
+          "args": [5],
           "expect": 5
         },
         {
-          "args": [],
-          "expect": 5
+          "args": [-3],
+          "expect": -3
         },
         {
-          "args": [],
-          "expect": 5
+          "args": [12],
+          "expect": 12
         }
       ],
-      "solution": "function getInnerValue() {\n  {\n    let value = 5;\n    return value;\n  }\n}",
-      "explanation": "The binding can be used inside the block where it is declared."
+      "solution": "function getInnerValue(value) {\n  {\n    let inner = value;\n    return inner;\n  }\n}",
+      "explanation": "The block-local binding receives the argument and is read inside the block where it is declared."
     },
     {
       "id": "js-hoisting-tdz-q010",
@@ -370,24 +370,24 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "var Hoisting",
-      "prompt": "Write varInitialValue(), returning typeof a var binding before its assignment statement.",
+      "prompt": "Write varInitialValue(value), returning the hoisted binding's type before assignment and its value afterward.",
       "functionName": "varInitialValue",
-      "starter": "function varInitialValue() {\n  // your code here\n}",
+      "starter": "function varInitialValue(value) {\n  // your code here\n}",
       "tests": [
         {
-          "args": [],
-          "expect": "undefined"
+          "args": [4],
+          "expect": ["undefined", 4]
         },
         {
-          "args": [],
-          "expect": "undefined"
+          "args": ["ready"],
+          "expect": ["undefined", "ready"]
         },
         {
-          "args": [],
-          "expect": "undefined"
+          "args": [-2],
+          "expect": ["undefined", -2]
         }
       ],
-      "solution": "function varInitialValue() {\n  return typeof value;\n  var value = 10;\n}",
+      "solution": "function varInitialValue(value) {\n  const initialType = typeof localValue;\n  var localValue = value;\n  return [initialType, localValue];\n}",
       "explanation": "The local name is available when the function starts, and typeof reports its value as undefined before assignment."
     },
     {
@@ -500,34 +500,34 @@
       "type": "writeCode",
       "level": "advanced",
       "sourceSection": "Block Scope",
-      "prompt": "Write readScopedValues(), returning [1, 2] after reading an outer binding and a block-local binding.",
+      "prompt": "Write readScopedValues(outerValue, innerValue), returning both arguments after reading the second from a block-local binding.",
       "functionName": "readScopedValues",
-      "starter": "function readScopedValues() {\n  // your code here\n}",
+      "starter": "function readScopedValues(outerValue, innerValue) {\n  // your code here\n}",
       "tests": [
         {
-          "args": [],
+          "args": [1, 2],
           "expect": [
             1,
             2
           ]
         },
         {
-          "args": [],
+          "args": [-5, 0],
           "expect": [
-            1,
-            2
+            -5,
+            0
           ]
         },
         {
-          "args": [],
+          "args": [9, -3],
           "expect": [
-            1,
-            2
+            9,
+            -3
           ]
         }
       ],
-      "solution": "function readScopedValues() {\n  const outer = 1;\n  let inner;\n  {\n    const local = 2;\n    inner = local;\n  }\n  return [outer, inner];\n}",
-      "explanation": "The block-local binding is read inside its scope before returning its value."
+      "solution": "function readScopedValues(outerValue, innerValue) {\n  let inner;\n  {\n    const local = innerValue;\n    inner = local;\n  }\n  return [outerValue, inner];\n}",
+      "explanation": "The block-local binding is read inside its scope while the outer argument remains available outside it."
     },
     {
       "id": "js-hoisting-tdz-q021",

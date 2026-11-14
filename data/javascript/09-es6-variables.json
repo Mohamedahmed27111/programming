@@ -289,34 +289,37 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Object.freeze",
-      "prompt": "Write freezeAndRead(item), freezing the object and returning whether it is frozen.",
+      "prompt": "Write freezeAndRead(item, shouldFreeze), optionally freezing the object before checking its frozen state.",
       "functionName": "freezeAndRead",
-      "starter": "function freezeAndRead(item) {\n  // your code here\n}",
+      "starter": "function freezeAndRead(item, shouldFreeze) {\n  // your code here\n}",
       "tests": [
         {
           "args": [
             {
               "n": 1
-            }
+            },
+            true
           ],
           "expect": true
         },
         {
           "args": [
-            {}
+            {},
+            false
           ],
-          "expect": true
+          "expect": false
         },
         {
           "args": [
             {
               "name": "x"
-            }
+            },
+            true
           ],
           "expect": true
         }
       ],
-      "solution": "function freezeAndRead(item) {\n  Object.freeze(item);\n  return Object.isFrozen(item);\n}",
+      "solution": "function freezeAndRead(item, shouldFreeze) {\n  if (shouldFreeze) Object.freeze(item);\n  return Object.isFrozen(item);\n}",
       "explanation": "Object.freeze prevents direct own-property changes and returns the same object."
     },
     {

@@ -206,19 +206,28 @@
     },
     {
       "id": "js-async-event-loop-q004",
-      "type": "completeCode",
+      "type": "writeCode",
       "level": "beginner",
       "sourceSection": "Promises",
-      "prompt": "Fill the method that registers a fulfillment handler.",
-      "code": "Promise.resolve(2).____(value => console.log(value));",
-      "blanks": [
-        [
-          "then"
-        ]
+      "prompt": "Write promiseSummary(value), returning whether Promise.resolve(value) creates a Promise and preserving the supplied value.",
+      "functionName": "promiseSummary",
+      "starter": "function promiseSummary(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [2],
+          "expect": {"isPromise": true, "value": 2}
+        },
+        {
+          "args": ["ready"],
+          "expect": {"isPromise": true, "value": "ready"}
+        },
+        {
+          "args": [null],
+          "expect": {"isPromise": true, "value": null}
+        }
       ],
-      "caseSensitive": true,
-      "explanation": "then registers a handler to run when the promise is fulfilled.",
-      "expectedOutput": "2"
+      "solution": "function promiseSummary(value) {\n  const promise = Promise.resolve(value);\n  return { isPromise: promise instanceof Promise, value };\n}",
+      "explanation": "Promise.resolve returns a Promise, including when its input is not already a Promise."
     },
     {
       "id": "js-async-event-loop-q005",
@@ -255,84 +264,48 @@
     },
     {
       "id": "js-async-event-loop-q007",
-      "type": "writeCode",
+      "type": "predictOutput",
+      "mode": "type",
       "level": "beginner",
       "sourceSection": "Callbacks",
-      "prompt": "Write applyTwice(value), using a callback passed to reduce to apply an increment twice.",
-      "functionName": "applyTwice",
-      "starter": "function applyTwice(value) {\n  // your code here\n}",
-      "tests": [
-        {
-          "args": [
-            3
-          ],
-          "expect": 5
-        },
-        {
-          "args": [
-            0
-          ],
-          "expect": 2
-        },
-        {
-          "args": [
-            -1
-          ],
-          "expect": 1
-        }
-      ],
-      "solution": "function applyTwice(value) {\n  const steps = [number => number + 1, number => number + 1];\n  return steps.reduce((current, callback) => callback(current), value);\n}",
-      "explanation": "reduce invokes its callback once for each step, passing the accumulated value forward."
+      "code": "console.log('sync');\nPromise.resolve().then(() => console.log('microtask'));\nsetTimeout(() => console.log('callback'), 0);",
+      "explanation": "The Promise reaction runs after the synchronous stack and before the timer callback.",
+      "expectedOutput": "sync\nmicrotask\ncallback"
     },
     {
       "id": "js-async-event-loop-q008",
-      "type": "completeCode",
+      "type": "writeCode",
       "level": "beginner",
       "sourceSection": "async/await",
-      "prompt": "Fill the keyword that declares a function which returns a promise.",
-      "code": "____ function load() { return 1; }\nconsole.log(load() instanceof Promise);",
-      "blanks": [
-        [
-          "async"
-        ]
+      "prompt": "Write inspectAsync(value), returning whether an async function call creates a Promise and preserving the supplied value.",
+      "functionName": "inspectAsync",
+      "starter": "function inspectAsync(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [1],
+          "expect": {"isPromise": true, "value": 1}
+        },
+        {
+          "args": ["done"],
+          "expect": {"isPromise": true, "value": "done"}
+        },
+        {
+          "args": [null],
+          "expect": {"isPromise": true, "value": null}
+        }
       ],
-      "caseSensitive": true,
-      "explanation": "An async function always returns a promise.",
-      "expectedOutput": "true"
+      "solution": "function inspectAsync(value) {\n  async function load() { return value; }\n  return { isPromise: load() instanceof Promise, value };\n}",
+      "explanation": "Calling an async function returns a Promise, even when its body returns a plain value."
     },
     {
       "id": "js-async-event-loop-q009",
-      "type": "writeCode",
+      "type": "predictOutput",
+      "mode": "type",
       "level": "intermediate",
       "sourceSection": "Promises",
-      "prompt": "Write doubleAfterSum(a, b), passing their sum to a completion callback that doubles the result.",
-      "functionName": "doubleAfterSum",
-      "starter": "function doubleAfterSum(a, b) {\n  // pass the sum to an onComplete callback\n}",
-      "tests": [
-        {
-          "args": [
-            2,
-            3
-          ],
-          "expect": 10
-        },
-        {
-          "args": [
-            0,
-            0
-          ],
-          "expect": 0
-        },
-        {
-          "args": [
-            -1,
-            1
-          ],
-          "expect": 0
-        }
-      ],
-      "solution": "function doubleAfterSum(a, b) {\n  const onComplete = result => result * 2;\n  return onComplete(a + b);\n}",
-      "explanation": "The completion callback receives the computed value and returns its transformed result."
+      "code": "Promise.resolve().then(() => {\n  console.log('first');\n  Promise.resolve().then(() => console.log('nested'));\n});\nPromise.resolve().then(() => console.log('second'));\nconsole.log('sync');",
+      "explanation": "The already queued second reaction runs before the first reaction's newly queued microtask.",
+      "expectedOutput": "sync\nfirst\nsecond\nnested"
     },
     {
       "id": "js-async-event-loop-q010",
@@ -424,9 +397,9 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "async/await",
-      "prompt": "Write isPromise(value), returning whether value is an instance of Promise.",
-      "functionName": "isPromise",
-      "starter": "function isPromise(value) {\n  // your code here\n}",
+      "prompt": "Write hasThenProperty(value), returning whether a non-null object has its own then property.",
+      "functionName": "hasThenProperty",
+      "starter": "function hasThenProperty(value) {\n  // your code here\n}",
       "tests": [
         {
           "args": [
@@ -445,10 +418,16 @@
             []
           ],
           "expect": false
+        },
+        {
+          "args": [
+            {"then": "not a function"}
+          ],
+          "expect": true
         }
       ],
-      "solution": "function isPromise(value) {\n  return value instanceof Promise;\n}",
-      "explanation": "instanceof Promise checks whether the value is a Promise instance."
+      "solution": "function hasThenProperty(value) {\n  return value !== null && typeof value === 'object' && Object.hasOwn(value, 'then');\n}",
+      "explanation": "A then property is commonly inspected when identifying promise-like objects, although a JSON value cannot represent a callable then method."
     },
     {
       "id": "js-async-event-loop-q017",
