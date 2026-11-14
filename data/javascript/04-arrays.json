@@ -1,0 +1,672 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Arrays",
+    "order": 4,
+    "sourceSections": [
+      "Arrays",
+      "Nested Arrays",
+      "Access/Modify Array Data",
+      "Multi-Dimensional Arrays",
+      "push",
+      "pop",
+      "shift",
+      "unshift",
+      "Shopping List"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-arrays-t001",
+      "term": "array",
+      "level": "beginner",
+      "definitionEn": "An ordered collection that stores values under numbered positions.",
+      "definitionAr": "مجموعة مرتبة بتخزن قيم في أماكن مرقمة.",
+      "example": "const colors = ['red', 'blue'];",
+      "caseSensitive": false,
+      "aliases": [
+        "list"
+      ]
+    },
+    {
+      "id": "js-arrays-t002",
+      "term": "index",
+      "level": "beginner",
+      "definitionEn": "The numbered position used to access an item, beginning at zero.",
+      "definitionAr": "رقم المكان اللي بنستخدمه للوصول لعنصر، وبيبدأ من صفر.",
+      "example": "const first = colors[0];",
+      "caseSensitive": false,
+      "aliases": [
+        "position"
+      ]
+    },
+    {
+      "id": "js-arrays-t003",
+      "term": "element",
+      "level": "beginner",
+      "definitionEn": "A single value stored inside an ordered collection.",
+      "definitionAr": "قيمة واحدة متخزنة جوه مجموعة مرتبة.",
+      "example": "const firstElement = ['oak', 'pine'][0];",
+      "caseSensitive": false,
+      "aliases": [
+        "item"
+      ]
+    },
+    {
+      "id": "js-arrays-t004",
+      "term": "nested array",
+      "level": "intermediate",
+      "definitionEn": "A collection that contains another collection as one of its values.",
+      "definitionAr": "مجموعة جواها مجموعة تانية كواحدة من قيمها.",
+      "example": "const board = [['X', 'O'], ['O', 'X']];",
+      "caseSensitive": false,
+      "aliases": [
+        "array of arrays"
+      ]
+    },
+    {
+      "id": "js-arrays-t005",
+      "term": "multidimensional array",
+      "level": "intermediate",
+      "definitionEn": "A structure whose values are reached through more than one numbered position.",
+      "definitionAr": "تركيب بنوصل لقيمه باستخدام أكتر من رقم مكان.",
+      "example": "const value = [[5, 6], [7, 8]][1][0];",
+      "caseSensitive": false,
+      "aliases": [
+        "2D array"
+      ]
+    },
+    {
+      "id": "js-arrays-t006",
+      "term": "length",
+      "level": "beginner",
+      "definitionEn": "The count of positions in an array, including empty slots.",
+      "definitionAr": "عدد الأماكن في الـ array، وبيشمل الأماكن الفاضية.",
+      "example": "const count = ['a', 'b'].length;",
+      "caseSensitive": false,
+      "aliases": [
+        "size"
+      ]
+    },
+    {
+      "id": "js-arrays-t007",
+      "term": "push",
+      "display": "push()",
+      "level": "beginner",
+      "definitionEn": "A method that appends one or more values and gives back the updated count.",
+      "definitionAr": "ميثود بتضيف قيم في الآخر وبترجّع العدد بعد التحديث.",
+      "example": "const a = [1];\na.push(2);",
+      "caseSensitive": true,
+      "aliases": [
+        "append"
+      ]
+    },
+    {
+      "id": "js-arrays-t008",
+      "term": "pop",
+      "display": "pop()",
+      "level": "beginner",
+      "definitionEn": "A method that removes and gives back the final value.",
+      "definitionAr": "ميثود بتشيل وترجّع آخر قيمة.",
+      "example": "const last = [4, 9].pop();",
+      "caseSensitive": true,
+      "aliases": [
+        "remove last"
+      ]
+    },
+    {
+      "id": "js-arrays-t009",
+      "term": "shift",
+      "display": "shift()",
+      "level": "intermediate",
+      "definitionEn": "A method that removes and gives back the value at the first position.",
+      "definitionAr": "ميثود بتشيل وترجّع القيمة اللي في أول مكان.",
+      "example": "const first = ['a', 'b'].shift();",
+      "caseSensitive": true,
+      "aliases": [
+        "remove first"
+      ]
+    },
+    {
+      "id": "js-arrays-t010",
+      "term": "unshift",
+      "display": "unshift()",
+      "level": "intermediate",
+      "definitionEn": "A method that inserts one or more values before the current first value.",
+      "definitionAr": "ميثود بتضيف قيمة أو أكتر قبل أول قيمة موجودة.",
+      "example": "const a = [2];\na.unshift(1);",
+      "caseSensitive": true,
+      "aliases": [
+        "prepend"
+      ]
+    },
+    {
+      "id": "js-arrays-t011",
+      "term": "mutation",
+      "level": "advanced",
+      "definitionEn": "A change made directly to an existing value or structure.",
+      "definitionAr": "تغيير بيحصل مباشرة في قيمة أو تركيب موجود.",
+      "example": "const a = [1];\na[0] = 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "in-place change"
+      ]
+    },
+    {
+      "id": "js-arrays-t012",
+      "term": "return value",
+      "level": "intermediate",
+      "definitionEn": "The result a method or function sends back to its caller.",
+      "definitionAr": "النتيجة اللي ميثود أو function بترجّعها للي ناداها.",
+      "example": "const newCount = [1].push(2);",
+      "caseSensitive": false,
+      "aliases": [
+        "result"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-arrays-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "push",
+      "code": "const pets = ['cat'];\nconst count = pets.push('dog');",
+      "question": "After these statements, what does count contain?",
+      "options": [
+        "2, the updated number of items",
+        "1, the previous number of items",
+        "'dog', the inserted value",
+        "['cat', 'dog'], a new collection"
+      ],
+      "correctOption": 0,
+      "explanation": "push changes pets and returns its new length."
+    },
+    {
+      "id": "js-arrays-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Access/Modify Array Data",
+      "code": "const tools = ['map', 'level'];\nconsole.log(tools[0], tools.length);",
+      "expectedOutput": "map 2",
+      "options": [
+        "map 2",
+        "level 2",
+        "map 1",
+        "undefined 2"
+      ],
+      "correctOption": 0,
+      "explanation": "The first position is index 0, and the collection has two items."
+    },
+    {
+      "id": "js-arrays-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Access/Modify Array Data",
+      "code": "const scores = [6, 8];\nscores[1] = 9;\nconsole.log(scores);",
+      "expectedOutput": "[ 6, 9 ]",
+      "explanation": "Assigning to index 1 replaces the value at that position."
+    },
+    {
+      "id": "js-arrays-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "unshift",
+      "prompt": "Fill the method name so the new task appears before the existing one.",
+      "code": "const tasks = ['wash cup'];\ntasks.____('read');\nconsole.log(tasks);",
+      "blanks": [
+        [
+          "unshift"
+        ]
+      ],
+      "caseSensitive": true,
+      "expectedOutput": "[ 'read', 'wash cup' ]",
+      "explanation": "unshift inserts values at the beginning."
+    },
+    {
+      "id": "js-arrays-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "pop",
+      "code": "const ids = [12, 14, 16];\nconst removed = ids.pop();\nconsole.log(removed, ids.length);",
+      "expectedOutput": "16 2",
+      "options": [
+        "16 2",
+        "14 2",
+        "16 3",
+        "[ 12, 14 ] 2"
+      ],
+      "correctOption": 0,
+      "explanation": "pop returns the removed final item and shortens the original collection."
+    },
+    {
+      "id": "js-arrays-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Nested Arrays",
+      "code": "const room = [['lamp', 'desk'], ['chair', 'shelf']];",
+      "question": "What does room[1][0] access?",
+      "options": [
+        "'chair', first value in the second inner collection",
+        "'desk', second value in the first inner collection",
+        "The whole second inner collection",
+        "The first value in the first inner collection"
+      ],
+      "correctOption": 0,
+      "explanation": "The first index selects the inner collection; the second selects an item inside it."
+    },
+    {
+      "id": "js-arrays-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Access/Modify Array Data",
+      "prompt": "Write secondOrNull(values), returning the second item or null when it is missing.",
+      "functionName": "secondOrNull",
+      "starter": "function secondOrNull(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              4,
+              7,
+              9
+            ]
+          ],
+          "expect": 7
+        },
+        {
+          "args": [
+            [
+              "only"
+            ]
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function secondOrNull(values) {\n  return values.length > 1 ? values[1] : null;\n}",
+      "explanation": "Index 1 is the second position, so check the item count first."
+    },
+    {
+      "id": "js-arrays-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Multi-Dimensional Arrays",
+      "prompt": "Fill the missing row index to print the first value in the second row.",
+      "code": "const grid = [[2, 4], [6, 8]];\nconsole.log(grid[____][0]);",
+      "blanks": [
+        [
+          "1"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "6",
+      "explanation": "The second row is at index 1 and its first item is at index 0."
+    },
+    {
+      "id": "js-arrays-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "shift",
+      "prompt": "Write takeFirst(queue), which removes and returns the first item, or null for an empty queue.",
+      "functionName": "takeFirst",
+      "starter": "function takeFirst(queue) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              3,
+              5
+            ]
+          ],
+          "expect": 3
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            [
+              "solo"
+            ]
+          ],
+          "expect": "solo"
+        }
+      ],
+      "solution": "function takeFirst(queue) {\n  return queue.length ? queue.shift() : null;\n}",
+      "explanation": "shift removes the first item and gives that item back."
+    },
+    {
+      "id": "js-arrays-q010",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "unshift",
+      "prompt": "Complete the call so 'A' is placed before 'B'.",
+      "code": "const line = ['B'];\nline.____('A');\nconsole.log(line.join('-'));",
+      "blanks": [
+        [
+          "unshift"
+        ]
+      ],
+      "caseSensitive": true,
+      "expectedOutput": "A-B",
+      "explanation": "unshift places a new item before the current first item."
+    },
+    {
+      "id": "js-arrays-q011",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Shopping List",
+      "code": "const list = ['rice', 'beans'];\nlist.push('oil');\nlist.pop();\nconsole.log(list.join(', '));",
+      "expectedOutput": "rice, beans",
+      "options": [
+        "rice, beans",
+        "beans, oil",
+        "rice, beans, oil",
+        "oil, rice, beans"
+      ],
+      "correctOption": 0,
+      "explanation": "push appends oil, then pop removes that final item."
+    },
+    {
+      "id": "js-arrays-q012",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Access/Modify Array Data",
+      "code": "const original = [1, 2];\nconst copy = original.slice();\ncopy.push(3);\nconsole.log(original.length, copy.length);",
+      "expectedOutput": "2 3",
+      "explanation": "slice makes a separate shallow array, so adding to copy does not change original."
+    },
+    {
+      "id": "js-arrays-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "pop",
+      "prompt": "Write withoutLast(values), returning a new array without its last item. Do not change values.",
+      "functionName": "withoutLast",
+      "starter": "function withoutLast(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "expect": [
+            1,
+            2
+          ]
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            [
+              "x"
+            ]
+          ],
+          "expect": []
+        }
+      ],
+      "solution": "function withoutLast(values) {\n  return values.slice(0, -1);\n}",
+      "explanation": "slice creates a new array and a negative end position excludes the final item."
+    },
+    {
+      "id": "js-arrays-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Multi-Dimensional Arrays",
+      "prompt": "Fill the row index to print D2.",
+      "code": "const seats = [['A1', 'A2'], ['D1', 'D2']];\nconsole.log(seats[____][1]);",
+      "blanks": [
+        [
+          "1"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "D2",
+      "explanation": "The second row is selected with index 1."
+    },
+    {
+      "id": "js-arrays-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "shift",
+      "code": "const colors = ['teal', 'gold'];\nconst removed = colors.shift();",
+      "question": "What is true after this code runs?",
+      "options": [
+        "removed is 'teal' and colors is ['gold']",
+        "removed is 'gold' and colors is ['teal']",
+        "removed is ['teal'] and colors is unchanged",
+        "removed is 1 and colors is ['gold']"
+      ],
+      "correctOption": 0,
+      "explanation": "shift removes the first item, returns it, and mutates the original array."
+    },
+    {
+      "id": "js-arrays-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Access/Modify Array Data",
+      "prompt": "Write insertAt(values, index, item), returning a new array with item inserted before index. Assume index is from 0 through values.length.",
+      "functionName": "insertAt",
+      "starter": "function insertAt(values, index, item) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              4
+            ],
+            1,
+            3
+          ],
+          "expect": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "args": [
+            [],
+            0,
+            "a"
+          ],
+          "expect": [
+            "a"
+          ]
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            1,
+            2
+          ],
+          "expect": [
+            1,
+            2
+          ]
+        }
+      ],
+      "solution": "function insertAt(values, index, item) {\n  const result = values.slice();\n  result.splice(index, 0, item);\n  return result;\n}",
+      "explanation": "Copy first, then splice into the copy so the input remains unchanged."
+    },
+    {
+      "id": "js-arrays-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Arrays",
+      "code": "const first = [1, 2];\nconst second = first;\nsecond.push(3);",
+      "question": "What does first contain after the final statement?",
+      "options": [
+        "[1, 2, 3], because both variables refer to the same array",
+        "[1, 2], because assigning to second copied the values",
+        "[3], because push replaces the array",
+        "An unchanged value, because const blocks array changes"
+      ],
+      "correctOption": 0,
+      "explanation": "Assigning an array to another variable copies its reference, not its contents."
+    },
+    {
+      "id": "js-arrays-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "unshift / pop",
+      "code": "const values = [1, 2];\nconst size = values.unshift(0);\nconst removed = values.pop();\nconsole.log(size, removed, values.join(','));",
+      "expectedOutput": "3 2 0,1",
+      "explanation": "unshift returns the new length; pop then returns 2 from the end."
+    },
+    {
+      "id": "js-arrays-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Access/Modify Array Data",
+      "prompt": "Fill the value so the aliasing change makes the first item print as 9.",
+      "code": "const source = [1, 2];\nconst alias = source;\nalias[0] = ____;\nconsole.log(source[0]);",
+      "blanks": [
+        [
+          "9"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "9",
+      "explanation": "Both names point to the same array, so an indexed assignment is visible through either name."
+    },
+    {
+      "id": "js-arrays-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Nested Arrays",
+      "prompt": "Write flattenOne(values), flattening exactly one level of nested arrays.",
+      "functionName": "flattenOne",
+      "starter": "function flattenOne(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              1,
+              [
+                2,
+                3
+              ],
+              4
+            ]
+          ],
+          "expect": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            [
+              [
+                "a"
+              ],
+              [
+                "b"
+              ]
+            ]
+          ],
+          "expect": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "solution": "function flattenOne(values) {\n  return values.flat(1);\n}",
+      "explanation": "flat(1) combines child arrays one level deep."
+    },
+    {
+      "id": "js-arrays-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "push / pop",
+      "code": "const bag = ['pen'];\nconst length = bag.push('pad');\nconst last = bag.pop();\nconsole.log(length, last, bag.length);",
+      "expectedOutput": "2 pad 1",
+      "options": [
+        "2 pad 1",
+        "2 pen 1",
+        "1 pad 2",
+        "['pen', 'pad'] pad 2"
+      ],
+      "correctOption": 0,
+      "explanation": "push returns 2, then pop returns the newly appended item and restores the original size."
+    },
+    {
+      "id": "js-arrays-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Arrays",
+      "question": "How do assigning an array to another variable and copying its elements differ?",
+      "keyPoints": [
+        "Assignment copies the reference",
+        "Mutations through either reference are visible",
+        "A shallow copy can be made with slice or spread",
+        "Nested objects remain shared in a shallow copy"
+      ],
+      "modelAnswer": "Assigning an array to another variable copies its reference, so both variables access the same array. A shallow copy such as [...items] creates a distinct outer array, but nested objects inside it are still shared."
+    },
+    {
+      "id": "js-arrays-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "push / pop / shift / unshift",
+      "question": "Compare the values returned by push(), pop(), shift(), and unshift().",
+      "keyPoints": [
+        "push and unshift return the new length",
+        "pop returns the removed final item",
+        "shift returns the removed first item",
+        "Removal from an empty array returns undefined"
+      ],
+      "modelAnswer": "push() and unshift() add items and return the resulting length. pop() and shift() remove and return an item from opposite ends, and either returns undefined when there is nothing to remove."
+    },
+    {
+      "id": "js-arrays-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Multi-Dimensional Arrays",
+      "question": "How do you read a value from a two-dimensional array, and what should you check when an access gives undefined?",
+      "keyPoints": [
+        "Use one index per nested level",
+        "Each index starts at zero",
+        "Check row and column bounds",
+        "An incorrect shape or index can produce undefined"
+      ],
+      "modelAnswer": "Use the row index first and then an index for the value inside that row, such as grid[row][column]. Check that the selected row exists and that the column is within that row's bounds, since a missing position evaluates to undefined."
+    }
+  ]
+}

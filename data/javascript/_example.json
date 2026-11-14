@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Arrays",
+    "order": 4,
+    "sourceSections": ["Arrays", "Access Array Data", "push()", "pop()", "shift()", "unshift()"]
+  },
+  "terms": [
+    {
+      "id": "js-arrays-t001",
+      "term": "push",
+      "display": "push()",
+      "level": "beginner",
+      "definitionEn": "An array method that adds one or more items to the end of an array and returns the new length.",
+      "definitionAr": "ميثود بتضيف عنصر أو أكتر في آخر الـ array وبترجّع الطول الجديد.",
+      "example": "const a = [1, 2];\na.push(3); // a is now [1, 2, 3]",
+      "caseSensitive": true,
+      "aliases": []
+    },
+    {
+      "id": "js-arrays-t002",
+      "term": "index",
+      "level": "beginner",
+      "definitionEn": "The numbered position of an item inside an array, starting from 0.",
+      "definitionAr": "رقم مكان العنصر جوه الـ array، وبيبدأ من 0.",
+      "example": "const a = ['x', 'y'];\nconsole.log(a[1]); // y",
+      "caseSensitive": false,
+      "aliases": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-arrays-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "push()",
+      "code": "const fruits = ['apple', 'banana'];\nfruits.push('orange');",
+      "question": "What does fruits.push('orange') do?",
+      "options": [
+        "Adds 'orange' to the end of the array",
+        "Adds 'orange' to the start of the array",
+        "Removes the last item from the array",
+        "Replaces the first item with 'orange'"
+      ],
+      "correctOption": 0,
+      "explanation": "push() adds items to the END of the array and changes the original array.",
+      "explanationAr": "push() بتضيف العنصر في آخر الـ array وبتغيّر الـ array الأصلي."
+    },
+    {
+      "id": "js-arrays-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "pop()",
+      "code": "const nums = [10, 20, 30];\nnums.pop();\nconsole.log(nums);",
+      "expectedOutput": "[ 10, 20 ]",
+      "options": ["[ 10, 20 ]", "[ 20, 30 ]", "30", "[ 10, 20, 30 ]"],
+      "correctOption": 0,
+      "explanation": "pop() removes the last item (30) from the original array, then the array is printed.",
+      "explanationAr": "pop() بتشيل آخر عنصر (30) من الـ array الأصلي، وبعدين بتتطبع."
+    },
+    {
+      "id": "js-arrays-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "shift() / unshift()",
+      "code": "const q = [1, 2, 3];\nq.shift();\nq.unshift(9);\nconsole.log(q.length, q[0]);",
+      "expectedOutput": "3 9",
+      "explanation": "After shift() q is [2, 3]; unshift(9) makes it [9, 2, 3], so length is 3 and q[0] is 9.",
+      "explanationAr": "بعد shift() بقت [2, 3]، وبعد unshift(9) بقت [9, 2, 3]، يعني الطول 3 وأول عنصر 9."
+    },
+    {
+      "id": "js-arrays-q004",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "push()",
+      "prompt": "Fill in the blank so the code prints [ 1, 2, 3 ].",
+      "code": "const stack = [1, 2];\nstack.____(3);\nconsole.log(stack);",
+      "blanks": [["push"]],
+      "caseSensitive": true,
+      "expectedOutput": "[ 1, 2, 3 ]",
+      "explanation": "push(3) appends 3 to the end of the array."
+    },
+    {
+      "id": "js-arrays-q005",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Access Array Data",
+      "prompt": "Write a function lastItem(arr) that returns the last element of the array, or null if the array is empty.",
+      "functionName": "lastItem",
+      "starter": "function lastItem(arr) {\n  // your code here\n}",
+      "tests": [
+        { "args": [[1, 2, 3]], "expect": 3 },
+        { "args": [[]], "expect": null },
+        { "args": [["a"]], "expect": "a" }
+      ],
+      "solution": "function lastItem(arr) {\n  return arr.length ? arr[arr.length - 1] : null;\n}",
+      "explanation": "The last index is arr.length - 1. Check for an empty array first."
+    },
+    {
+      "id": "js-arrays-q006",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "push()",
+      "question": "What is the difference between push() and concat()?",
+      "keyPoints": [
+        "push() mutates the original array; concat() returns a new array",
+        "push() returns the new length; concat() returns the new array",
+        "push() can add items one by one; concat() can merge whole arrays"
+      ],
+      "modelAnswer": "push() changes the array it is called on and returns its new length. concat() leaves the original untouched and returns a new array that contains the merged items."
+    }
+  ]
+}

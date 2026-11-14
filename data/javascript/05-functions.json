@@ -1,0 +1,632 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Functions",
+    "order": 5,
+    "sourceSections": [
+      "Reusable Functions",
+      "Arguments",
+      "Global Scope",
+      "Local Scope",
+      "Global vs Local",
+      "Return a Value",
+      "Undefined Return",
+      "Assignment with Returned Value",
+      "Return Early Pattern",
+      "Returning Booleans",
+      "Stand in Line"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-functions-t001",
+      "term": "function",
+      "level": "beginner",
+      "definitionEn": "A reusable block of statements that can be invoked by name.",
+      "definitionAr": "بلوك أوامر ممكن نستخدمه تاني عن طريق اسمه.",
+      "example": "function wave() { return 'hi'; }",
+      "caseSensitive": false,
+      "aliases": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "js-functions-t002",
+      "term": "parameter",
+      "level": "beginner",
+      "definitionEn": "A named input listed in a function declaration.",
+      "definitionAr": "مدخل باسمه بيتكتب في تعريف الـ function.",
+      "example": "function greet(name) { return name; }",
+      "caseSensitive": false,
+      "aliases": [
+        "input name"
+      ]
+    },
+    {
+      "id": "js-functions-t003",
+      "term": "argument",
+      "level": "beginner",
+      "definitionEn": "A value supplied when a function is called.",
+      "definitionAr": "قيمة بنبعتها وقت ما بننادي الـ function.",
+      "example": "greet('Mona');",
+      "caseSensitive": false,
+      "aliases": [
+        "input value"
+      ]
+    },
+    {
+      "id": "js-functions-t004",
+      "term": "return",
+      "display": "return",
+      "level": "beginner",
+      "definitionEn": "A statement that ends a function call and sends a result back.",
+      "definitionAr": "statement بتنهي نداء الـ function وبتبعت نتيجة للي ناداها.",
+      "example": "function double(n) { return n * 2; }",
+      "caseSensitive": true,
+      "aliases": [
+        "return statement"
+      ]
+    },
+    {
+      "id": "js-functions-t005",
+      "term": "scope",
+      "level": "intermediate",
+      "definitionEn": "The region of code where a binding can be accessed.",
+      "definitionAr": "الجزء من الكود اللي نقدر نستخدم فيه متغير.",
+      "example": "const message = 'visible here';",
+      "caseSensitive": false,
+      "aliases": [
+        "visibility"
+      ]
+    },
+    {
+      "id": "js-functions-t006",
+      "term": "global scope",
+      "level": "intermediate",
+      "definitionEn": "The outer region whose bindings are available to nested code.",
+      "definitionAr": "الجزء الخارجي اللي متغيراته متاحة للكود اللي جواه.",
+      "example": "const rate = 2;\nfunction total(n) { return n * rate; }",
+      "caseSensitive": false,
+      "aliases": [
+        "outer scope"
+      ]
+    },
+    {
+      "id": "js-functions-t007",
+      "term": "local scope",
+      "level": "intermediate",
+      "definitionEn": "A region created inside a function where its bindings are available.",
+      "definitionAr": "جزء بيتعمل جوه function ومتغيراته بتكون متاحة فيه.",
+      "example": "function f() { const note = 'inside'; }",
+      "caseSensitive": false,
+      "aliases": [
+        "function scope"
+      ]
+    },
+    {
+      "id": "js-functions-t008",
+      "term": "return value",
+      "level": "intermediate",
+      "definitionEn": "The result sent from a function call to the expression that called it.",
+      "definitionAr": "النتيجة اللي بترجع من نداء function للتعبير اللي استخدمه.",
+      "example": "const answer = Number('8');",
+      "caseSensitive": false,
+      "aliases": [
+        "result"
+      ]
+    },
+    {
+      "id": "js-functions-t009",
+      "term": "undefined",
+      "level": "intermediate",
+      "definitionEn": "A primitive value used when a binding has no assigned value or a function sends back no explicit result.",
+      "definitionAr": "قيمة primitive بتظهر لما متغير ملوش قيمة أو function مابترجعش نتيجة صريحة.",
+      "example": "function logOnly() { console.log('done'); }",
+      "caseSensitive": true,
+      "aliases": []
+    },
+    {
+      "id": "js-functions-t010",
+      "term": "early return",
+      "level": "advanced",
+      "definitionEn": "Ending a function before its final statements when a condition is met.",
+      "definitionAr": "إنهاء الـ function بدري لما شرط معين يتحقق.",
+      "example": "function check(n) { if (n < 0) return false; return true; }",
+      "caseSensitive": false,
+      "aliases": [
+        "guard clause"
+      ]
+    },
+    {
+      "id": "js-functions-t011",
+      "term": "boolean",
+      "level": "beginner",
+      "definitionEn": "A primitive value that is either true or false.",
+      "definitionAr": "قيمة primitive يا إما true يا إما false.",
+      "example": "function isReady(value) { return value === 'ready'; }",
+      "caseSensitive": false,
+      "aliases": [
+        "logical value"
+      ]
+    },
+    {
+      "id": "js-functions-t012",
+      "term": "side effect",
+      "level": "advanced",
+      "definitionEn": "An observable change or action caused beyond producing a result.",
+      "definitionAr": "تغيير أو فعل ملحوظ بيحصل غير إنتاج النتيجة.",
+      "example": "function save(list, item) { list.push(item); }",
+      "caseSensitive": false,
+      "aliases": [
+        "external effect"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-functions-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Reusable Functions",
+      "code": "function announce() {\n  console.log('ready');\n}\nannounce();",
+      "question": "What does calling announce() do?",
+      "options": [
+        "Runs the statements in its body",
+        "Creates a string named announce",
+        "Returns the word 'ready' automatically",
+        "Runs the body only when the file is loaded"
+      ],
+      "correctOption": 0,
+      "explanation": "A function call runs that function's body."
+    },
+    {
+      "id": "js-functions-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Arguments",
+      "code": "function greet(name) {\n  return 'Hi, ' + name;\n}\nconsole.log(greet('Lina'));",
+      "expectedOutput": "Hi, Lina",
+      "options": [
+        "Hi, Lina",
+        "Hi, name",
+        "Lina",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The argument 'Lina' is used as the value of parameter name."
+    },
+    {
+      "id": "js-functions-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Return a Value",
+      "code": "function add(a, b) {\n  return a + b;\n}\nconsole.log(add(4, 3));",
+      "expectedOutput": "7",
+      "explanation": "The call supplies 4 and 3, and the function returns their sum."
+    },
+    {
+      "id": "js-functions-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Return a Value",
+      "prompt": "Fill the keyword so the function sends its calculation back to console.log.",
+      "code": "function double(n) {\n  ____ n * 2;\n}\nconsole.log(double(5));",
+      "blanks": [
+        [
+          "return"
+        ]
+      ],
+      "caseSensitive": true,
+      "expectedOutput": "10",
+      "explanation": "return supplies the function call's result to console.log."
+    },
+    {
+      "id": "js-functions-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Arguments",
+      "code": "function label(value) {\n  return '[' + value + ']';\n}\nconsole.log(label('ok'));",
+      "expectedOutput": "[ok]",
+      "options": [
+        "[ok]",
+        "[value]",
+        "ok",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The supplied argument becomes value inside the function."
+    },
+    {
+      "id": "js-functions-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Undefined Return",
+      "code": "function showStatus() {\n  console.log('online');\n}\nconst result = showStatus();",
+      "question": "What value is assigned to result?",
+      "options": [
+        "undefined, because the function has no return statement",
+        "'online', because it was printed",
+        "true, because the call completed",
+        "An empty string"
+      ],
+      "correctOption": 0,
+      "explanation": "Logging a value does not return it; a function without an explicit return produces undefined."
+    },
+    {
+      "id": "js-functions-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Reusable Functions",
+      "prompt": "Write repeatWord(word, count), returning word repeated count times with no separator.",
+      "functionName": "repeatWord",
+      "starter": "function repeatWord(word, count) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "ha",
+            3
+          ],
+          "expect": "hahaha"
+        },
+        {
+          "args": [
+            "x",
+            0
+          ],
+          "expect": ""
+        },
+        {
+          "args": [
+            "go",
+            1
+          ],
+          "expect": "go"
+        }
+      ],
+      "solution": "function repeatWord(word, count) {\n  return word.repeat(count);\n}",
+      "explanation": "String repeat returns a new string containing the requested number of copies."
+    },
+    {
+      "id": "js-functions-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Return a Value",
+      "prompt": "Fill the operator to calculate the square.",
+      "code": "function square(n) {\n  return n ____ n;\n}\nconsole.log(square(4));",
+      "blanks": [
+        [
+          "*"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "16",
+      "explanation": "Multiplying n by itself returns its square."
+    },
+    {
+      "id": "js-functions-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Arguments",
+      "prompt": "Write sumAll(values), returning the sum of every number in the provided array.",
+      "functionName": "sumAll",
+      "starter": "function sumAll(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              5,
+              1
+            ]
+          ],
+          "expect": 8
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              -3,
+              3
+            ]
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function sumAll(values) {\n  let total = 0;\n  for (const value of values) total += value;\n  return total;\n}",
+      "explanation": "A local accumulator collects each item and is returned after the loop."
+    },
+    {
+      "id": "js-functions-q010",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Return Early Pattern",
+      "prompt": "Fill the statement so a negative input exits before the regular result.",
+      "code": "function status(n) {\n  if (n < 0) ____ 'invalid';\n  return 'valid';\n}\nconsole.log(status(-2));",
+      "blanks": [
+        [
+          "return"
+        ]
+      ],
+      "caseSensitive": true,
+      "expectedOutput": "invalid",
+      "explanation": "The early return ends this call before the later return runs."
+    },
+    {
+      "id": "js-functions-q011",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Global vs Local",
+      "code": "let points = 2;\nfunction readPoints() {\n  let points = 5;\n  return points;\n}\nconsole.log(readPoints(), points);",
+      "expectedOutput": "5 2",
+      "options": [
+        "5 2",
+        "5 5",
+        "2 2",
+        "undefined 2"
+      ],
+      "correctOption": 0,
+      "explanation": "The local declaration shadows the outer binding only inside readPoints."
+    },
+    {
+      "id": "js-functions-q012",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Undefined Return",
+      "code": "function stopHere() {\n  return;\n}\nconsole.log(stopHere() === undefined);",
+      "expectedOutput": "true",
+      "explanation": "A return statement without an expression sends back undefined."
+    },
+    {
+      "id": "js-functions-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Returning Booleans",
+      "prompt": "Write isLongEnough(text, minimum), returning whether text has at least minimum characters.",
+      "functionName": "isLongEnough",
+      "starter": "function isLongEnough(text, minimum) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "code",
+            4
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            "js",
+            4
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            "",
+            0
+          ],
+          "expect": true
+        }
+      ],
+      "solution": "function isLongEnough(text, minimum) {\n  return text.length >= minimum;\n}",
+      "explanation": "The comparison itself evaluates to a boolean."
+    },
+    {
+      "id": "js-functions-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Return a Value",
+      "prompt": "Fill the operator to return the product of the two arguments.",
+      "code": "function area(width, height) {\n  return width ____ height;\n}\nconsole.log(area(3, 4));",
+      "blanks": [
+        [
+          "*"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "12",
+      "explanation": "The multiplication operator combines both parameter values."
+    },
+    {
+      "id": "js-functions-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Return Early Pattern",
+      "code": "function fee(age) {\n  if (age < 18) return 0;\n  return 5;\n}",
+      "question": "What is the effect of the first return when age is 16?",
+      "options": [
+        "The call ends immediately with 0",
+        "It prints 0 and then returns 5",
+        "It skips only the if condition",
+        "It changes age to 0"
+      ],
+      "correctOption": 0,
+      "explanation": "A return exits the current function call immediately."
+    },
+    {
+      "id": "js-functions-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Stand in Line",
+      "prompt": "Write serveLine(line), removing and returning the first item, or null if no one is waiting.",
+      "functionName": "serveLine",
+      "starter": "function serveLine(line) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              "Ari",
+              "Bo"
+            ]
+          ],
+          "expect": "Ari"
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            [
+              "Kim"
+            ]
+          ],
+          "expect": "Kim"
+        }
+      ],
+      "solution": "function serveLine(line) {\n  return line.length ? line.shift() : null;\n}",
+      "explanation": "shift removes the first queued value and returns it."
+    },
+    {
+      "id": "js-functions-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Global vs Local",
+      "code": "const mode = 'outer';\nfunction getMode() {\n  const mode = 'inner';\n  return mode;\n}",
+      "question": "What does getMode() return, and what remains true outside the function?",
+      "options": [
+        "'inner'; the outer mode is still 'outer'",
+        "'outer'; the inner declaration replaces it everywhere",
+        "'inner'; both declarations are merged",
+        "undefined; local values cannot be returned"
+      ],
+      "correctOption": 0,
+      "explanation": "The inner binding shadows the outer one in the function and does not overwrite it."
+    },
+    {
+      "id": "js-functions-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Assignment with Returned Value",
+      "code": "let total = 4;\nfunction add(value) {\n  total += value;\n  return total;\n}\nconst result = add(3);\nconsole.log(total, result);",
+      "expectedOutput": "7 7",
+      "explanation": "The function changes the outer binding and returns its updated value."
+    },
+    {
+      "id": "js-functions-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Returning Booleans",
+      "prompt": "Fill the threshold so only scores of 60 or more pass.",
+      "code": "function passed(score) {\n  return score >= ____;\n}\nconsole.log(passed(60), passed(59));",
+      "blanks": [
+        [
+          "60"
+        ]
+      ],
+      "caseSensitive": false,
+      "expectedOutput": "true false",
+      "explanation": "A greater-than-or-equal comparison includes the threshold itself."
+    },
+    {
+      "id": "js-functions-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Return Early Pattern",
+      "prompt": "Write firstNegative(values), returning the first negative number or null when none exists.",
+      "functionName": "firstNegative",
+      "starter": "function firstNegative(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              4,
+              -2,
+              -8
+            ]
+          ],
+          "expect": -2
+        },
+        {
+          "args": [
+            [
+              0,
+              3
+            ]
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function firstNegative(values) {\n  for (const value of values) {\n    if (value < 0) return value;\n  }\n  return null;\n}",
+      "explanation": "Returning from inside the loop exits as soon as the first match is found."
+    },
+    {
+      "id": "js-functions-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Undefined Return",
+      "code": "function calculate() {\n  const amount = 8;\n}\nconsole.log(String(calculate()));",
+      "expectedOutput": "undefined",
+      "options": [
+        "undefined",
+        "8",
+        "null",
+        "NaN"
+      ],
+      "correctOption": 0,
+      "explanation": "The local amount is not returned, so the call evaluates to undefined."
+    },
+    {
+      "id": "js-functions-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Return a Value",
+      "question": "How is returning a value from a function different from logging it?",
+      "keyPoints": [
+        "return supplies a value to the caller",
+        "console.log writes output but returns undefined",
+        "A returned result can be composed or assigned",
+        "Logging is an observable side effect"
+      ],
+      "modelAnswer": "return makes a value available to the code that called the function and ends that call. console.log only writes text to the console, so it does not make the printed value the function's result."
+    },
+    {
+      "id": "js-functions-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Arguments",
+      "question": "What is the difference between a parameter and an argument?",
+      "keyPoints": [
+        "A parameter is named in the declaration",
+        "An argument is provided at a call site",
+        "Arguments supply values to parameters",
+        "Names and supplied values need not match"
+      ],
+      "modelAnswer": "A parameter is the named input slot in a function declaration, while an argument is the actual value supplied when calling it. The call's arguments are assigned to the function's parameters for that invocation."
+    },
+    {
+      "id": "js-functions-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Global vs Local",
+      "question": "Why can a local variable have the same name as a global variable without changing it?",
+      "keyPoints": [
+        "Bindings have scopes",
+        "An inner declaration shadows an outer binding",
+        "The local binding exists in its own region",
+        "Changing the local binding does not assign to the outer one"
+      ],
+      "modelAnswer": "A declaration inside a function creates a binding in that function's local scope. That binding shadows the outer name while the function runs, but it is separate, so assigning to it does not change the global binding."
+    }
+  ]
+}

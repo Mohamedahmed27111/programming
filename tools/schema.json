@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["meta", "terms", "questions"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["schemaVersion", "subject", "topic", "order", "sourceSections"],
+      "properties": {
+        "schemaVersion": { "type": "integer" },
+        "subject": { "type": "string" },
+        "topic": { "type": "string" },
+        "order": { "type": "integer" },
+        "sourceSections": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "term", "level", "definitionEn", "example", "caseSensitive", "aliases"],
+        "properties": {
+          "id": { "type": "string" },
+          "term": { "type": "string" },
+          "display": { "type": "string" },
+          "level": { "type": "string", "enum": ["beginner", "intermediate", "advanced", "interview"] },
+          "definitionEn": { "type": "string" },
+          "definitionAr": { "type": "string" },
+          "example": { "type": "string" },
+          "caseSensitive": { "type": "boolean" },
+          "aliases": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "level"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["whatDoes", "predictOutput", "completeCode", "writeCode", "interview"] },
+          "mode": { "type": "string", "enum": ["choose", "type"] },
+          "level": { "type": "string", "enum": ["beginner", "intermediate", "advanced", "interview"] },
+          "sourceSection": { "type": "string" },
+          "code": { "type": "string" },
+          "question": { "type": "string" },
+          "prompt": { "type": "string" },
+          "options": { "type": "array", "items": { "type": "string" } },
+          "correctOption": { "type": "integer" },
+          "expectedOutput": { "type": "string" },
+          "blanks": { "type": "array", "items": { "type": "array", "items": { "type": "string" } } },
+          "caseSensitive": { "type": "boolean" },
+          "functionName": { "type": "string" },
+          "starter": { "type": "string" },
+          "tests": { "type": "array" },
+          "solution": { "type": "string" },
+          "keyPoints": { "type": "array", "items": { "type": "string" } },
+          "modelAnswer": { "type": "string" },
+          "explanation": { "type": "string" },
+          "explanationAr": { "type": "string" }
+        }
+      }
+    }
+  }
+}
