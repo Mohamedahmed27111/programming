@@ -613,10 +613,10 @@
       "level": "advanced",
       "sourceSection": "Private State",
       "prompt": "Fill the operator that increments the retained value and returns the new value.",
-      "code": "function makeStep() {\n  let value = 0;\n  return () => ____value;\n}\nconst step = makeStep();\nconsole.log(step());",
+      "code": "function makeStep() {\n  let value = 0;\n  return () => ____;\n}\nconst step = makeStep();\nconsole.log(step());",
       "blanks": [
         [
-          "++"
+          "value += 1"
         ]
       ],
       "caseSensitive": true,

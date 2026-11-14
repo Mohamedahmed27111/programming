@@ -524,7 +524,7 @@
       "code": "function passed(score) {\n  return score >= ____;\n}\nconsole.log(passed(60), passed(59));",
       "blanks": [
         [
-          "60"
+          "Number('60')"
         ]
       ],
       "caseSensitive": false,

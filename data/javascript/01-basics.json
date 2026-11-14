@@ -505,11 +505,11 @@
       "type": "completeCode",
       "level": "advanced",
       "sourceSection": "Assignment Operator",
-      "prompt": "Fill the operator that adds 3 to the existing count and stores the result.",
-      "code": "let count = 4;\ncount ____ 3;\nconsole.log(count);",
+      "prompt": "Fill the expression that assigns a value three greater than the current count.",
+      "code": "let count = 4;\ncount = ____;\nconsole.log(count);",
       "blanks": [
         [
-          "+="
+          "count + 3"
         ]
       ],
       "caseSensitive": true,

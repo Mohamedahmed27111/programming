@@ -513,10 +513,10 @@
       "level": "advanced",
       "sourceSection": "Nth Character",
       "prompt": "Fill the index so the code prints the second character, counting from one in ordinary speech.",
-      "code": "console.log('stone'[____]);",
+      "code": "console.log('stone'.____(1));",
       "blanks": [
         [
-          "1"
+          "charAt"
         ]
       ],
       "caseSensitive": false,

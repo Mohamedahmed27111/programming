@@ -549,7 +549,7 @@
       "code": "const source = [1, 2];\nconst alias = source;\nalias[0] = ____;\nconsole.log(source[0]);",
       "blanks": [
         [
-          "9"
+          "alias[1] + 7"
         ]
       ],
       "caseSensitive": false,

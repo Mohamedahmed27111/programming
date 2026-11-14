@@ -507,10 +507,10 @@
       "level": "advanced",
       "sourceSection": "Equality",
       "prompt": "Fill the operator that checks equal value after permitted coercion.",
-      "code": "console.log('5' ____ 5);",
+      "code": "console.log(____);",
       "blanks": [
         [
-          "=="
+          "'5' == 5"
         ]
       ],
       "caseSensitive": true,

@@ -535,10 +535,10 @@
       "level": "advanced",
       "sourceSection": "For",
       "prompt": "Fill the comparison to process indexes 0 through length - 1 without reading beyond the array.",
-      "code": "const values = [4, 7];\nfor (let i = 0; i ____ values.length; i++) console.log(values[i]);",
+      "code": "const values = [4, 7];\nfor (let i = 0; ____; i++) console.log(values[i]);",
       "blanks": [
         [
-          "<"
+          "i < values.length"
         ]
       ],
       "caseSensitive": true,
