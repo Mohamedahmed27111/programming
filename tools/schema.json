@@ -19,7 +19,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "term", "level", "definitionEn", "example", "caseSensitive", "aliases"],
+        "required": ["id", "term", "level", "definitionEn", "definitionAr", "example", "caseSensitive", "aliases"],
         "properties": {
           "id": { "type": "string" },
           "term": { "type": "string" },
