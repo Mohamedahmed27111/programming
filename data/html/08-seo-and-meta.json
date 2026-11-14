@@ -196,12 +196,12 @@
       "code": "<meta name=\"description\" content=\"A short guide to harbor walks\">",
       "question": "What does this metadata value summarize?",
       "options": [
-        "The page's content for a possible search-result snippet",
+        "A possible search-result snippet",
         "The image file used as the browser favicon",
         "The language used by every page on the website",
         "The canonical destination of every hyperlink"
       ],
-      "correctOption": 1,
+      "correctOption": 0,
       "explanation": "A meta description summarizes a page and may be used as a search-result snippet; search engines choose what to display.",
       "explanationAr": "وصف meta بيلخص الصفحة وممكن يُستخدم كمقتطف، ومحرك البحث هو اللي بيختار العرض."
     },
@@ -288,7 +288,7 @@
         "An audio track for captions",
         "A site icon for browser interfaces"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "rel=\"icon\" links an icon resource that browsers may use in their interface.",
       "explanationAr": "rel=\"icon\" بيربط أيقونة ممكن المتصفح يستخدمها في واجهته."
     },

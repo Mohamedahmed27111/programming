@@ -177,12 +177,12 @@
       "code": "<audio controls src=\"forest.ogg\"></audio>",
       "question": "What does controls request for this audio element?",
       "options": [
-        "Browser-provided playback controls",
         "A caption track in the default language",
         "An automatic download before playback",
-        "A text alternative for the sound"
+        "A text alternative for the sound",
+        "Browser-provided playback controls"
       ],
-      "correctOption": 0,
+      "correctOption": 3,
       "explanation": "The Boolean controls attribute asks the browser to expose playback controls.",
       "explanationAr": "خاصية controls بتطلب من المتصفح إظهار أدوات تشغيل الصوت."
     },
@@ -199,7 +199,7 @@
         "The track element",
         "The source element"
       ],
-      "correctOption": 1,
+      "correctOption": 0,
       "explanation": "video embeds video media; audio is intended for sound-only media.",
       "explanationAr": "عنصر video بيضيف فيديو، أما audio فمخصص للصوت."
     },
@@ -245,12 +245,12 @@
       "code": "<video controls><source src=\"scene.webm\" type=\"video/webm\"></video>",
       "question": "What does source contribute inside video?",
       "options": [
-        "It names a media file the browser can try",
         "It creates a caption visible below the player",
+        "It names a media file the browser can try",
         "It replaces the video controls with a link",
         "It gives the embedded player an accessible title"
       ],
-      "correctOption": 0,
+      "correctOption": 1,
       "explanation": "source specifies a media candidate and can include its media type.",
       "explanationAr": "source بيحدد ملف وسائط ممكن المتصفح يشغله وممكن يوضح نوعه."
     },
@@ -322,12 +322,12 @@
       "code": "<video controls><track kind=\"captions\" src=\"en.vtt\" srclang=\"en\" label=\"English\"></video>",
       "question": "What information is a captions track intended to provide?",
       "options": [
-        "Spoken dialogue and relevant non-speech audio information",
-        "A second video stream for a different screen size",
-        "A transcript embedded as the player's poster image",
-        "A list of links to other media pages"
+        "Dialogue and relevant non-speech audio information",
+        "A second video stream for an alternate screen size",
+        "A complete transcript embedded in the preview image",
+        "A navigation list to other media pages on the site"
       ],
-      "correctOption": 1,
+      "correctOption": 0,
       "explanation": "Captions include dialogue and relevant sound information, often for viewers who cannot hear the audio.",
       "explanationAr": "captions بتشمل الحوار والأصوات المهمة وبتفيد اللي ما يقدروش يسمعوا."
     },
@@ -433,12 +433,12 @@
       "code": "<iframe src=\"schedule.html\" title=\"Class schedule\" sandbox></iframe>",
       "question": "What is the purpose of the title attribute on this embedded document?",
       "options": [
-        "It names the embedded content",
         "It sets the title element inside the embedded document",
         "It grants the frame permission to run every script",
+        "It names the embedded content",
         "It makes the embedded page the main document"
       ],
-      "correctOption": 0,
+      "correctOption": 2,
       "explanation": "A descriptive title helps users identify the iframe's embedded content.",
       "explanationAr": "عنوان وصفي بيساعد المستخدم يعرف محتوى iframe المضمن."
     },
@@ -466,12 +466,12 @@
       "code": "<canvas width=\"240\" height=\"120\">Sales chart: 12 in May, 18 in June.</canvas>",
       "question": "Why include fallback text as a canvas child?",
       "options": [
-        "It can provide a text alternative when the drawing surface is unavailable",
+        "It offers fallback text if canvas is unavailable",
         "It forces the browser to draw the chart without scripting",
         "It makes the canvas bitmap scale as a vector",
         "It replaces the width and height attributes"
       ],
-      "correctOption": 1,
+      "correctOption": 0,
       "explanation": "Fallback content can communicate useful information when canvas is not rendered or supported.",
       "explanationAr": "المحتوى الاحتياطي ممكن يوصل المعلومة لو canvas ما اتعرضش أو مش مدعوم."
     },
