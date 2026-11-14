@@ -421,7 +421,7 @@
           }
         }
       ],
-      "solution": "function firstAndRest(values) {\n  const [first, ...rest] = values;\n  const result = { rest };\n  if (values.length > 0) result.first = first;\n  return result;\n}",
+      "solution": "function firstAndRest(values) {\n  const [first, ...rest] = values;\n  return { first, rest };\n}",
       "explanation": "Array rest syntax gathers all elements after the first into a new array."
     },
     {

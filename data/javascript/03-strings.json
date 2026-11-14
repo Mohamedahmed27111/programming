@@ -479,7 +479,7 @@
         }
       ],
       "solution": "function charAtOrEmpty(text, index) {\n  return text[index] ?? '';\n}",
-      "explanation": "An out-of-range bracket access is undefined, so nullish coalescing supplies the fallback."
+      "explanation": "The fallback expression returns an empty string when the requested character is missing."
     },
     {
       "id": "js-strings-q017",

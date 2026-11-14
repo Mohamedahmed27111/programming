@@ -388,7 +388,7 @@
         }
       ],
       "solution": "function varInitialValue() {\n  return typeof value;\n  var value = 10;\n}",
-      "explanation": "The var binding exists at function entry and has not yet received its assigned value."
+      "explanation": "The local name is available when the function starts, and typeof reports its value as undefined before assignment."
     },
     {
       "id": "js-hoisting-tdz-q014",

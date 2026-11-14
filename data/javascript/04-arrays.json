@@ -429,7 +429,7 @@
         }
       ],
       "solution": "function withoutLast(values) {\n  return values.slice(0, -1);\n}",
-      "explanation": "slice creates a new array and a negative end position excludes the final item."
+      "explanation": "slice returns the elements before the final item, including an empty result for empty or single-item inputs."
     },
     {
       "id": "js-arrays-q014",

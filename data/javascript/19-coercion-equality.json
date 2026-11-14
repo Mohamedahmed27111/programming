@@ -380,7 +380,7 @@
       "type": "writeCode",
       "level": "intermediate",
       "sourceSection": "Equality",
-      "prompt": "Write sameValue(a, b), using the built-in comparison that treats NaN as equal to itself.",
+      "prompt": "Write sameValue(a, b), using the built-in comparison to compare values without coercion.",
       "functionName": "sameValue",
       "starter": "function sameValue(a, b) {\n  // your code here\n}",
       "tests": [
@@ -407,7 +407,7 @@
         }
       ],
       "solution": "function sameValue(a, b) {\n  return Object.is(a, b);\n}",
-      "explanation": "Object.is implements same-value comparison, including the NaN and signed-zero cases."
+      "explanation": "Object.is compares values without converting their types; equal inputs return true and different values return false."
     },
     {
       "id": "js-coercion-equality-q014",
