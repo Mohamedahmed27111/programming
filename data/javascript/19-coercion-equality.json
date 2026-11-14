@@ -1,0 +1,602 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Coercion and Equality",
+    "order": 19,
+    "sourceSections": [
+      "Type Coercion",
+      "Truthy and Falsy",
+      "Equality",
+      "Strict Equality",
+      "Plus Operator",
+      "Boolean Conversion",
+      "NaN"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-coercion-equality-t001",
+      "term": "type coercion",
+      "level": "intermediate",
+      "definitionEn": "An implicit or explicit conversion of a value from one type to another.",
+      "example": "'5' * 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "type conversion"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t002",
+      "term": "implicit coercion",
+      "level": "advanced",
+      "definitionEn": "A type conversion performed automatically as part of an operation.",
+      "example": "'5' * 2;",
+      "caseSensitive": false,
+      "aliases": [
+        "automatic conversion"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t003",
+      "term": "explicit conversion",
+      "level": "intermediate",
+      "definitionEn": "A type conversion requested directly by program code.",
+      "example": "Number('5');",
+      "caseSensitive": false,
+      "aliases": [
+        "manual conversion"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t004",
+      "term": "strict equality",
+      "level": "beginner",
+      "definitionEn": "A comparison that checks type and value without coercing operands.",
+      "example": "5 === '5';",
+      "caseSensitive": false,
+      "aliases": [
+        "triple equals"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t005",
+      "term": "loose equality",
+      "level": "intermediate",
+      "definitionEn": "A comparison that can convert operands before deciding whether they are equal.",
+      "example": "5 == '5';",
+      "caseSensitive": false,
+      "aliases": [
+        "double equals"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t006",
+      "term": "truthy",
+      "level": "beginner",
+      "definitionEn": "A value that behaves like true when used as a condition.",
+      "example": "if ('ok') {}",
+      "caseSensitive": false,
+      "aliases": [
+        "truth-like"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t007",
+      "term": "falsy",
+      "level": "beginner",
+      "definitionEn": "A value that behaves like false when used as a condition.",
+      "example": "if (0) {}",
+      "caseSensitive": false,
+      "aliases": [
+        "false-like"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t008",
+      "term": "NaN",
+      "level": "intermediate",
+      "definitionEn": "A numeric value representing an invalid or unrepresentable numeric result.",
+      "example": "Number('nope');",
+      "caseSensitive": true,
+      "aliases": [
+        "not a number"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t009",
+      "term": "Boolean conversion",
+      "level": "beginner",
+      "definitionEn": "The conversion of a value to the true or false primitive.",
+      "example": "Boolean('text');",
+      "caseSensitive": false,
+      "aliases": [
+        "truthiness conversion"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t010",
+      "term": "identity",
+      "level": "advanced",
+      "definitionEn": "A relationship in which two references point to the same object value.",
+      "example": "const b = a;",
+      "caseSensitive": false,
+      "aliases": [
+        "reference equality"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t011",
+      "term": "operand",
+      "level": "beginner",
+      "definitionEn": "A value or expression that an operator acts upon.",
+      "example": "In 3 + 4, both values are operands.",
+      "caseSensitive": false,
+      "aliases": [
+        "argument to operator"
+      ]
+    },
+    {
+      "id": "js-coercion-equality-t012",
+      "term": "Object.is",
+      "display": "Object.is()",
+      "level": "advanced",
+      "definitionEn": "A built-in comparison that distinguishes signed zero and treats NaN as equal to itself.",
+      "example": "Object.is(NaN, NaN);",
+      "caseSensitive": true,
+      "aliases": [
+        "same-value comparison"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-coercion-equality-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Strict Equality",
+      "code": "5 === '5';",
+      "question": "What does strict equality require here?",
+      "options": [
+        "Matching type and value",
+        "Matching value after converting types",
+        "Both operands to be strings",
+        "Both operands to be truthy"
+      ],
+      "correctOption": 0,
+      "explanation": "Strict equality does not convert the number and string to a common type."
+    },
+    {
+      "id": "js-coercion-equality-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Truthy and Falsy",
+      "code": "console.log(Boolean('0'));",
+      "options": [
+        "true",
+        "false",
+        "0",
+        "NaN"
+      ],
+      "correctOption": 0,
+      "explanation": "A non-empty string is truthy, even when its character is zero.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-coercion-equality-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Plus Operator",
+      "code": "console.log('7' + 2);",
+      "explanation": "A string operand makes plus concatenate after converting the number to text.",
+      "expectedOutput": "72"
+    },
+    {
+      "id": "js-coercion-equality-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Boolean Conversion",
+      "prompt": "Fill the built-in function that converts a value to a boolean.",
+      "code": "console.log(____(0));",
+      "blanks": [
+        [
+          "Boolean"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Boolean explicitly converts its argument according to truthiness.",
+      "expectedOutput": "false"
+    },
+    {
+      "id": "js-coercion-equality-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Truthy and Falsy",
+      "code": "console.log(Boolean([]), Boolean(''));",
+      "options": [
+        "true false",
+        "false true",
+        "false false",
+        "true true"
+      ],
+      "correctOption": 0,
+      "explanation": "Arrays are truthy objects, while the empty string is falsy.",
+      "expectedOutput": "true false"
+    },
+    {
+      "id": "js-coercion-equality-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Type Coercion",
+      "code": "Number('12');",
+      "question": "What is happening in this expression?",
+      "options": [
+        "A string is explicitly converted to a number",
+        "A number is converted to a string",
+        "Two values are compared",
+        "A value is converted to an array"
+      ],
+      "correctOption": 0,
+      "explanation": "Calling Number requests numeric conversion directly."
+    },
+    {
+      "id": "js-coercion-equality-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Boolean Conversion",
+      "prompt": "Write isNonEmpty(text), returning whether the string has at least one character.",
+      "functionName": "isNonEmpty",
+      "starter": "function isNonEmpty(text) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "hi"
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            ""
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            " "
+          ],
+          "expect": true
+        }
+      ],
+      "solution": "function isNonEmpty(text) {\n  return text.length > 0;\n}",
+      "explanation": "A string containing a space still has a nonzero length."
+    },
+    {
+      "id": "js-coercion-equality-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Strict Equality",
+      "prompt": "Fill the strict equality operator.",
+      "code": "console.log(3 ____ 3);",
+      "blanks": [
+        [
+          "==="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Three equal signs compare type and value without coercion.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-coercion-equality-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Type Coercion",
+      "prompt": "Write toNumberOrNull(value), converting a numeric string to a finite number and returning null otherwise.",
+      "functionName": "toNumberOrNull",
+      "starter": "function toNumberOrNull(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            "12"
+          ],
+          "expect": 12
+        },
+        {
+          "args": [
+            "nope"
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            "0"
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function toNumberOrNull(value) {\n  const number = Number(value);\n  return Number.isFinite(number) ? number : null;\n}",
+      "explanation": "Convert explicitly, then reject non-finite numeric results."
+    },
+    {
+      "id": "js-coercion-equality-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Equality",
+      "code": "console.log(0 == false, 0 === false);",
+      "options": [
+        "true false",
+        "false true",
+        "true true",
+        "false false"
+      ],
+      "correctOption": 0,
+      "explanation": "Loose equality coerces in this comparison; strict equality preserves the type difference.",
+      "expectedOutput": "true false"
+    },
+    {
+      "id": "js-coercion-equality-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "NaN",
+      "code": "const result = Number('abc');\nconsole.log(Number.isNaN(result));",
+      "explanation": "Converting non-numeric text yields NaN, which Number.isNaN recognizes.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-coercion-equality-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "NaN",
+      "prompt": "Fill the check that reports whether result is specifically NaN.",
+      "code": "const result = Number('x');\nconsole.log(Number.____(result));",
+      "blanks": [
+        [
+          "isNaN"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Number.isNaN checks the actual NaN value without coercing its input.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-coercion-equality-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Equality",
+      "prompt": "Write sameValue(a, b), using the built-in comparison that treats NaN as equal to itself.",
+      "functionName": "sameValue",
+      "starter": "function sameValue(a, b) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            1,
+            1
+          ],
+          "expect": true
+        },
+        {
+          "args": [
+            1,
+            2
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            null,
+            null
+          ],
+          "expect": true
+        }
+      ],
+      "solution": "function sameValue(a, b) {\n  return Object.is(a, b);\n}",
+      "explanation": "Object.is implements same-value comparison, including the NaN and signed-zero cases."
+    },
+    {
+      "id": "js-coercion-equality-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Plus Operator",
+      "prompt": "Fill the explicit conversion so numeric addition happens instead of concatenation.",
+      "code": "const text = '4';\nconsole.log(Number(text) ____ 2);",
+      "blanks": [
+        [
+          "+"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Number converts the text before the plus operator adds both numeric operands.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-coercion-equality-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Equality",
+      "code": "const a = {};\nconst b = {};",
+      "question": "What does a === b evaluate to?",
+      "options": [
+        "false, because these are distinct object identities",
+        "true, because both objects are empty",
+        "undefined, because objects have no values",
+        "A TypeError"
+      ],
+      "correctOption": 0,
+      "explanation": "Object equality compares identity, not matching property contents."
+    },
+    {
+      "id": "js-coercion-equality-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Truthy and Falsy",
+      "prompt": "Write chooseOr(value, fallback), returning fallback only when value is falsy.",
+      "functionName": "chooseOr",
+      "starter": "function chooseOr(value, fallback) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            0,
+            "backup"
+          ],
+          "expect": "backup"
+        },
+        {
+          "args": [
+            "ok",
+            "backup"
+          ],
+          "expect": "ok"
+        },
+        {
+          "args": [
+            "",
+            "backup"
+          ],
+          "expect": "backup"
+        }
+      ],
+      "solution": "function chooseOr(value, fallback) {\n  return value || fallback;\n}",
+      "explanation": "Logical OR returns the first truthy operand, or the fallback when the first is falsy."
+    },
+    {
+      "id": "js-coercion-equality-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Equality",
+      "code": "Object.is(NaN, NaN);",
+      "question": "How does Object.is compare these values?",
+      "options": [
+        "It returns true",
+        "It returns false like NaN === NaN",
+        "It throws a TypeError",
+        "It converts both to strings"
+      ],
+      "correctOption": 0,
+      "explanation": "Object.is treats NaN as the same value as NaN."
+    },
+    {
+      "id": "js-coercion-equality-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Plus Operator",
+      "code": "console.log(1 + 2 + '3', '1' + 2 + 3);",
+      "explanation": "Evaluation proceeds left to right, and concatenation applies once a string is involved.",
+      "expectedOutput": "33 123"
+    },
+    {
+      "id": "js-coercion-equality-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Equality",
+      "prompt": "Fill the operator that checks equal value after permitted coercion.",
+      "code": "console.log('5' ____ 5);",
+      "blanks": [
+        [
+          "=="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Loose equality may convert operand types before comparison.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-coercion-equality-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "NaN",
+      "prompt": "Write safeRatio(numerator, denominator), returning null when the denominator is zero and the quotient otherwise.",
+      "functionName": "safeRatio",
+      "starter": "function safeRatio(numerator, denominator) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            8,
+            2
+          ],
+          "expect": 4
+        },
+        {
+          "args": [
+            8,
+            0
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            -6,
+            3
+          ],
+          "expect": -2
+        }
+      ],
+      "solution": "function safeRatio(numerator, denominator) {\n  return denominator === 0 ? null : numerator / denominator;\n}",
+      "explanation": "Guard against zero before performing the division."
+    },
+    {
+      "id": "js-coercion-equality-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Equality",
+      "code": "const first = { n: 1 };\nconst second = first;\nconsole.log(first === second);",
+      "options": [
+        "true",
+        "false",
+        "1",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Both variables refer to the same object identity.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-coercion-equality-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Equality",
+      "question": "Why is strict equality often preferred over loose equality?",
+      "keyPoints": [
+        "Strict equality does not coerce types",
+        "It makes type differences visible",
+        "Loose equality has conversion rules",
+        "Use deliberate conversion when needed"
+      ],
+      "modelAnswer": "Strict equality compares without converting operand types, which makes the comparison's assumptions clearer. Loose equality can be useful only when its coercion behavior is intentional and well understood."
+    },
+    {
+      "id": "js-coercion-equality-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Truthy and Falsy",
+      "question": "What kinds of values are falsy, and why should code avoid confusing falsy with missing?",
+      "keyPoints": [
+        "Falsy values include false, zero, empty string, null, undefined, and NaN",
+        "Empty arrays and objects are truthy",
+        "Valid data can be falsy",
+        "Check presence separately when needed"
+      ],
+      "modelAnswer": "Falsy values include false, zero, the empty string, null, undefined, and NaN; empty arrays and objects are truthy. A valid value such as zero can be falsy, so presence checks should not rely on truthiness alone."
+    },
+    {
+      "id": "js-coercion-equality-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "NaN",
+      "question": "Why should Number.isNaN be used instead of comparing a value with NaN?",
+      "keyPoints": [
+        "NaN is unequal to itself under equality operators",
+        "Number.isNaN tests the actual numeric NaN value",
+        "Global isNaN coerces some inputs",
+        "Input conversion can be checked separately"
+      ],
+      "modelAnswer": "NaN is not equal to itself, so a comparison such as value === NaN is always false. Number.isNaN checks specifically for the numeric NaN value without coercing an unrelated input."
+    }
+  ]
+}

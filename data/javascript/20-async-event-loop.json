@@ -1,0 +1,610 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Async and Event Loop",
+    "order": 20,
+    "sourceSections": [
+      "Callbacks",
+      "Promises",
+      "async/await",
+      "Microtasks vs Macrotasks",
+      "Event Loop"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-async-event-loop-t001",
+      "term": "asynchronous",
+      "level": "beginner",
+      "definitionEn": "Describing work that can continue later without blocking the current call stack until completion.",
+      "example": "setTimeout(() => console.log('later'), 0);",
+      "caseSensitive": false,
+      "aliases": [
+        "async work"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t002",
+      "term": "callback",
+      "level": "beginner",
+      "definitionEn": "A function passed to another operation to be invoked when some work is ready or complete.",
+      "example": "setTimeout(() => {}, 0);",
+      "caseSensitive": false,
+      "aliases": [
+        "callback function"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t003",
+      "term": "Promise",
+      "level": "beginner",
+      "definitionEn": "An object representing the eventual fulfillment or rejection of an asynchronous operation.",
+      "example": "Promise.resolve(3);",
+      "caseSensitive": true,
+      "aliases": [
+        "promise object"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t004",
+      "term": "then",
+      "display": "then()",
+      "level": "beginner",
+      "definitionEn": "A method that registers a fulfillment handler and returns a chained promise.",
+      "example": "Promise.resolve(1).then(value => value + 1);",
+      "caseSensitive": true,
+      "aliases": [
+        "fulfillment handler"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t005",
+      "term": "microtask",
+      "level": "intermediate",
+      "definitionEn": "A queued job such as a promise reaction that runs after the current stack before the next task.",
+      "example": "Promise.resolve().then(() => {});",
+      "caseSensitive": false,
+      "aliases": [
+        "promise job"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t006",
+      "term": "macrotask",
+      "level": "intermediate",
+      "definitionEn": "An event-loop task such as a timer callback that runs in a later task turn.",
+      "example": "setTimeout(() => {}, 0);",
+      "caseSensitive": false,
+      "aliases": [
+        "task"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t007",
+      "term": "event loop",
+      "level": "intermediate",
+      "definitionEn": "The runtime mechanism that schedules queued tasks after the current JavaScript stack completes.",
+      "example": "queueMicrotask(() => console.log('later'));",
+      "caseSensitive": false,
+      "aliases": [
+        "event-loop mechanism"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t008",
+      "term": "async function",
+      "level": "beginner",
+      "definitionEn": "A function form that always returns a promise and can use await in its body.",
+      "example": "async function read() { return 2; }",
+      "caseSensitive": false,
+      "aliases": [
+        "async declaration"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t009",
+      "term": "await",
+      "display": "await",
+      "level": "intermediate",
+      "definitionEn": "An expression that pauses an async function until a promise settles and produces its fulfillment value.",
+      "example": "const value = await Promise.resolve(3);",
+      "caseSensitive": true,
+      "aliases": [
+        "await expression"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t010",
+      "term": "promise fulfillment",
+      "level": "intermediate",
+      "definitionEn": "The successful completion state of a promise, carrying a result value.",
+      "example": "Promise.resolve('done');",
+      "caseSensitive": false,
+      "aliases": [
+        "resolved state"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t011",
+      "term": "promise rejection",
+      "level": "intermediate",
+      "definitionEn": "The unsuccessful completion state of a promise, carrying a reason.",
+      "example": "Promise.reject(new Error('no'));",
+      "caseSensitive": false,
+      "aliases": [
+        "rejected state"
+      ]
+    },
+    {
+      "id": "js-async-event-loop-t012",
+      "term": "call stack",
+      "level": "advanced",
+      "definitionEn": "The runtime record of currently executing function calls.",
+      "example": "function f() { return g(); }",
+      "caseSensitive": false,
+      "aliases": [
+        "execution stack"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-async-event-loop-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Promises",
+      "code": "Promise.resolve('done');",
+      "question": "What does Promise.resolve('done') create?",
+      "options": [
+        "A fulfilled promise with value 'done'",
+        "A timer that prints done",
+        "A rejected promise",
+        "A synchronous callback"
+      ],
+      "correctOption": 0,
+      "explanation": "Promise.resolve creates a promise fulfilled with the supplied value."
+    },
+    {
+      "id": "js-async-event-loop-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Callbacks",
+      "code": "console.log('start');\nsetTimeout(() => console.log('later'), 0);\nconsole.log('end');",
+      "options": [
+        "start\nend\nlater",
+        "start\\nlater\\nend",
+        "later\\nstart\\nend",
+        "start\\nend"
+      ],
+      "correctOption": 0,
+      "explanation": "The timer callback runs after the current synchronous stack completes.",
+      "expectedOutput": "start\nend\nlater"
+    },
+    {
+      "id": "js-async-event-loop-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Promises",
+      "code": "Promise.resolve(3).then(value => console.log(value + 1));\nconsole.log('sync');",
+      "explanation": "Synchronous code runs before the promise reaction microtask.",
+      "expectedOutput": "sync\n4"
+    },
+    {
+      "id": "js-async-event-loop-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Promises",
+      "prompt": "Fill the method that registers a fulfillment handler.",
+      "code": "Promise.resolve(2).____(value => console.log(value));",
+      "blanks": [
+        [
+          "then"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "then registers a handler to run when the promise is fulfilled.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-async-event-loop-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "async/await",
+      "code": "async function value() { return 5; }\nconsole.log(value() instanceof Promise);",
+      "options": [
+        "true",
+        "false",
+        "5",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Every async function call returns a promise.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-async-event-loop-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Callbacks",
+      "code": "setTimeout(() => console.log('done'), 0);",
+      "question": "When does the callback run relative to the current synchronous statements?",
+      "options": [
+        "After the current call stack finishes",
+        "Before the next statement",
+        "During parsing before execution",
+        "Only after the program exits"
+      ],
+      "correctOption": 0,
+      "explanation": "A timer callback is scheduled for a later event-loop task."
+    },
+    {
+      "id": "js-async-event-loop-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Callbacks",
+      "prompt": "Write applyTwice(value), returning value after adding one twice.",
+      "functionName": "applyTwice",
+      "starter": "function applyTwice(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            3
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 2
+        },
+        {
+          "args": [
+            -1
+          ],
+          "expect": 1
+        }
+      ],
+      "solution": "function applyTwice(value) {\n  return value + 2;\n}",
+      "explanation": "Apply the same increment twice to the supplied value."
+    },
+    {
+      "id": "js-async-event-loop-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "async/await",
+      "prompt": "Fill the keyword that declares a function which returns a promise.",
+      "code": "____ function load() { return 1; }\nconsole.log(load() instanceof Promise);",
+      "blanks": [
+        [
+          "async"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "An async function always returns a promise.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-async-event-loop-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Promises",
+      "prompt": "Write addNumbers(a, b), returning their numeric sum.",
+      "functionName": "addNumbers",
+      "starter": "function addNumbers(a, b) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            3
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            0,
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -1,
+            1
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function addNumbers(a, b) {\n  return a + b;\n}",
+      "explanation": "Return the sum as a plain value; promise behavior is covered in the output questions."
+    },
+    {
+      "id": "js-async-event-loop-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Microtasks vs Macrotasks",
+      "code": "setTimeout(() => console.log('timer'), 0);\nPromise.resolve().then(() => console.log('promise'));\nconsole.log('sync');",
+      "options": [
+        "sync\npromise\ntimer",
+        "sync\\ntimer\\npromise",
+        "promise\\nsync\\ntimer",
+        "timer\\nsync\\npromise"
+      ],
+      "correctOption": 0,
+      "explanation": "The current stack finishes, then promise microtasks run before timer tasks.",
+      "expectedOutput": "sync\npromise\ntimer"
+    },
+    {
+      "id": "js-async-event-loop-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "async/await",
+      "code": "async function run() {\n  const value = await Promise.resolve(4);\n  console.log(value);\n}\nrun();\nconsole.log('sync');",
+      "explanation": "The async function resumes after the current stack and prints the fulfilled value.",
+      "expectedOutput": "sync\n4"
+    },
+    {
+      "id": "js-async-event-loop-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Promises",
+      "prompt": "Fill the method that handles a rejection.",
+      "code": "Promise.reject('problem').____(reason => console.log(reason));",
+      "blanks": [
+        [
+          "catch"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "catch registers a rejection handler on a promise.",
+      "expectedOutput": "problem"
+    },
+    {
+      "id": "js-async-event-loop-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Promises",
+      "prompt": "Write doubleValues(values), returning a new array with every number doubled.",
+      "functionName": "doubleValues",
+      "starter": "function doubleValues(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              3
+            ]
+          ],
+          "expect": [
+            6
+          ]
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            [
+              -2,
+              0
+            ]
+          ],
+          "expect": [
+            -4,
+            0
+          ]
+        }
+      ],
+      "solution": "function doubleValues(values) {\n  return values.map(value => value * 2);\n}",
+      "explanation": "Return a transformed array; promise behavior is covered in the event-loop examples."
+    },
+    {
+      "id": "js-async-event-loop-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "async/await",
+      "prompt": "Fill the keyword that waits for the promise's fulfillment inside an async function.",
+      "code": "async function run() {\n  const value = ____ Promise.resolve('ok');\n  console.log(value);\n}\nrun();",
+      "blanks": [
+        [
+          "await"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "await pauses this async function until the promise settles.",
+      "expectedOutput": "ok"
+    },
+    {
+      "id": "js-async-event-loop-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Microtasks vs Macrotasks",
+      "code": "Promise.resolve().then(onDone);",
+      "question": "When does the promise reaction normally run?",
+      "options": [
+        "As a microtask after the current stack",
+        "As a timer task before synchronous statements",
+        "Immediately in the middle of the current statement",
+        "Only when the promise is rejected"
+      ],
+      "correctOption": 0,
+      "explanation": "Promise reactions are queued as microtasks and run after the current stack."
+    },
+    {
+      "id": "js-async-event-loop-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "async/await",
+      "prompt": "Write isPromise(value), returning whether value is an instance of Promise.",
+      "functionName": "isPromise",
+      "starter": "function isPromise(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {}
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            null
+          ],
+          "expect": false
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": false
+        }
+      ],
+      "solution": "function isPromise(value) {\n  return value instanceof Promise;\n}",
+      "explanation": "instanceof Promise checks whether the value is a Promise instance."
+    },
+    {
+      "id": "js-async-event-loop-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Event Loop",
+      "code": "console.log('A');\nPromise.resolve().then(() => console.log('B'));\nconsole.log('C');",
+      "question": "Why is B logged after C?",
+      "options": [
+        "The promise handler waits until the current call stack completes",
+        "Promise handlers always run after timers",
+        "console.log sorts output alphabetically",
+        "The promise is still pending forever"
+      ],
+      "correctOption": 0,
+      "explanation": "Promise reactions run after the current synchronous stack unwinds."
+    },
+    {
+      "id": "js-async-event-loop-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Microtasks vs Macrotasks",
+      "code": "console.log('sync');\nsetTimeout(() => console.log('timer'), 0);\nPromise.resolve().then(() => console.log('micro'));\nPromise.resolve().then(() => console.log('micro2'));",
+      "explanation": "The synchronous line runs first, then both queued microtasks, then the timer callback.",
+      "expectedOutput": "sync\nmicro\nmicro2\ntimer"
+    },
+    {
+      "id": "js-async-event-loop-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Promises",
+      "prompt": "Fill the static method that creates an already fulfilled promise.",
+      "code": "____.resolve(7).then(value => console.log(value));",
+      "blanks": [
+        [
+          "Promise"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Promise.resolve creates a promise fulfilled with the supplied value.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-async-event-loop-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Event Loop",
+      "prompt": "Write joinWords(words), returning the words joined by one space.",
+      "functionName": "joinWords",
+      "starter": "function joinWords(words) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              "async",
+              "work"
+            ]
+          ],
+          "expect": "async work"
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": ""
+        },
+        {
+          "args": [
+            [
+              "one"
+            ]
+          ],
+          "expect": "one"
+        }
+      ],
+      "solution": "function joinWords(words) {\n  return words.join(' ');\n}",
+      "explanation": "Return the plain string result; asynchronous scheduling is covered by output predictions."
+    },
+    {
+      "id": "js-async-event-loop-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "async/await",
+      "code": "async function run() {\n  console.log('A');\n  await Promise.resolve();\n  console.log('B');\n}\nrun();\nconsole.log('C');",
+      "options": [
+        "A\nC\nB",
+        "A\\nB\\nC",
+        "C\\nA\\nB",
+        "B\\nA\\nC"
+      ],
+      "correctOption": 0,
+      "explanation": "The async function runs until await, yields, then resumes after the current stack.",
+      "expectedOutput": "A\nC\nB"
+    },
+    {
+      "id": "js-async-event-loop-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Promises",
+      "question": "What states can a promise represent, and how are handlers attached?",
+      "keyPoints": [
+        "A promise can be pending, fulfilled, or rejected",
+        "then handles fulfillment and optionally rejection",
+        "catch handles rejection",
+        "Handlers return promises that can be chained"
+      ],
+      "modelAnswer": "A promise begins pending and eventually becomes fulfilled with a value or rejected with a reason. then registers fulfillment behavior and can also accept a rejection handler, while catch is a convenient rejection handler; both support chaining."
+    },
+    {
+      "id": "js-async-event-loop-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Microtasks vs Macrotasks",
+      "question": "How do promise microtasks and timer callbacks generally relate to synchronous code?",
+      "keyPoints": [
+        "Synchronous code runs to completion first",
+        "Promise reactions are microtasks",
+        "Microtasks drain before the next timer task",
+        "A zero delay does not make a timer synchronous"
+      ],
+      "modelAnswer": "The current synchronous call stack completes before queued callbacks run. Promise reactions are microtasks and normally run before the event loop proceeds to a timer task, even when its delay is zero."
+    },
+    {
+      "id": "js-async-event-loop-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "async/await",
+      "question": "What does async/await change about using promises?",
+      "keyPoints": [
+        "An async function always returns a promise",
+        "await pauses that function until settlement",
+        "It does not block the entire JavaScript thread",
+        "try/catch can handle rejected awaits"
+      ],
+      "modelAnswer": "async/await provides syntax for writing promise-based control flow in a sequential style. An async function returns a promise, and await suspends only that function until settlement rather than blocking the JavaScript thread."
+    }
+  ]
+}

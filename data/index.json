@@ -376,6 +376,72 @@
               "interview": 3
             }
           }
+        },
+        {
+          "order": 18,
+          "topic": "Array Methods",
+          "file": "data/javascript/18-array-methods.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 19,
+          "topic": "Coercion and Equality",
+          "file": "data/javascript/19-coercion-equality.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 20,
+          "topic": "Async and Event Loop",
+          "file": "data/javascript/20-async-event-loop.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
         }
       ]
     }

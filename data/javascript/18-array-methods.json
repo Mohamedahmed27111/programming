@@ -1,0 +1,655 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Array Methods",
+    "order": 18,
+    "sourceSections": [
+      "map",
+      "filter",
+      "reduce",
+      "find",
+      "some",
+      "every",
+      "sort pitfalls"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-array-methods-t001",
+      "term": "map",
+      "display": "map()",
+      "level": "beginner",
+      "definitionEn": "A method that calls a callback for each item and returns a new array of results.",
+      "example": "[1, 2].map(n => n * 2);",
+      "caseSensitive": true,
+      "aliases": [
+        "transform"
+      ]
+    },
+    {
+      "id": "js-array-methods-t002",
+      "term": "filter",
+      "display": "filter()",
+      "level": "beginner",
+      "definitionEn": "A method that returns a new array containing items whose callback result is truthy.",
+      "example": "[1, 2, 3].filter(n => n > 1);",
+      "caseSensitive": true,
+      "aliases": [
+        "select"
+      ]
+    },
+    {
+      "id": "js-array-methods-t003",
+      "term": "reduce",
+      "display": "reduce()",
+      "level": "intermediate",
+      "definitionEn": "A method that combines array items into one accumulated result.",
+      "example": "[1, 2, 3].reduce((sum, n) => sum + n, 0);",
+      "caseSensitive": true,
+      "aliases": [
+        "fold"
+      ]
+    },
+    {
+      "id": "js-array-methods-t004",
+      "term": "find",
+      "display": "find()",
+      "level": "beginner",
+      "definitionEn": "A method that returns the first item satisfying a callback condition.",
+      "example": "[3, 8].find(n => n > 5);",
+      "caseSensitive": true,
+      "aliases": [
+        "first match"
+      ]
+    },
+    {
+      "id": "js-array-methods-t005",
+      "term": "some",
+      "display": "some()",
+      "level": "intermediate",
+      "definitionEn": "A method that checks whether at least one item satisfies a callback condition.",
+      "example": "[1, 4].some(n => n > 3);",
+      "caseSensitive": true,
+      "aliases": [
+        "any match"
+      ]
+    },
+    {
+      "id": "js-array-methods-t006",
+      "term": "every",
+      "display": "every()",
+      "level": "intermediate",
+      "definitionEn": "A method that checks whether each item satisfies a callback condition.",
+      "example": "[2, 4].every(n => n % 2 === 0);",
+      "caseSensitive": true,
+      "aliases": [
+        "all match"
+      ]
+    },
+    {
+      "id": "js-array-methods-t007",
+      "term": "callback",
+      "level": "beginner",
+      "definitionEn": "A function passed to an operation for it to invoke while processing values.",
+      "example": "values.map(value => value + 1);",
+      "caseSensitive": false,
+      "aliases": [
+        "callback function"
+      ]
+    },
+    {
+      "id": "js-array-methods-t008",
+      "term": "comparator",
+      "level": "advanced",
+      "definitionEn": "A function that tells a sorting operation the relative order of two values.",
+      "example": "values.sort((a, b) => a - b);",
+      "caseSensitive": false,
+      "aliases": [
+        "compare function"
+      ]
+    },
+    {
+      "id": "js-array-methods-t009",
+      "term": "lexicographic order",
+      "level": "intermediate",
+      "definitionEn": "An ordering based on comparing text-like representations from left to right.",
+      "example": "['20', '3'].sort();",
+      "caseSensitive": false,
+      "aliases": [
+        "dictionary order"
+      ]
+    },
+    {
+      "id": "js-array-methods-t010",
+      "term": "accumulator",
+      "level": "intermediate",
+      "definitionEn": "The running value passed from one reduction step to the next.",
+      "example": "values.reduce((total, n) => total + n, 0);",
+      "caseSensitive": false,
+      "aliases": [
+        "running result"
+      ]
+    },
+    {
+      "id": "js-array-methods-t011",
+      "term": "predicate",
+      "level": "intermediate",
+      "definitionEn": "A callback that determines whether a value meets a condition.",
+      "example": "n => n > 0",
+      "caseSensitive": false,
+      "aliases": [
+        "test function"
+      ]
+    },
+    {
+      "id": "js-array-methods-t012",
+      "term": "non-mutating method",
+      "level": "advanced",
+      "definitionEn": "An operation that returns a result without changing the original collection.",
+      "example": "const doubled = values.map(n => n * 2);",
+      "caseSensitive": false,
+      "aliases": [
+        "immutable operation"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-array-methods-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "map",
+      "code": "[2, 3].map(n => n * 2);",
+      "question": "What does map return?",
+      "options": [
+        "A new array containing each callback result",
+        "The first item that passes a test",
+        "A boolean about all items",
+        "The original array's new length"
+      ],
+      "correctOption": 0,
+      "explanation": "map transforms each item and collects the callback results into a new array."
+    },
+    {
+      "id": "js-array-methods-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "map",
+      "code": "console.log([1, 3].map(n => n + 1).join(','));",
+      "options": [
+        "2,4",
+        "1,3",
+        "4",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The callback adds one to each input element.",
+      "expectedOutput": "2,4"
+    },
+    {
+      "id": "js-array-methods-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "filter",
+      "code": "console.log([1, 2, 3, 4].filter(n => n % 2 === 0).join(','));",
+      "explanation": "filter keeps the values whose even-number predicate is true.",
+      "expectedOutput": "2,4"
+    },
+    {
+      "id": "js-array-methods-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "find",
+      "prompt": "Fill the method that returns the first value greater than five.",
+      "code": "const result = [2, 7, 9].____(n => n > 5);\nconsole.log(result);",
+      "blanks": [
+        [
+          "find"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "find returns the first element whose callback returns a truthy value.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-array-methods-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "find",
+      "code": "console.log([4, 8, 10].find(n => n > 5));",
+      "options": [
+        "8",
+        "10",
+        "true",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "find stops at and returns the first matching item, which is 8.",
+      "expectedOutput": "8"
+    },
+    {
+      "id": "js-array-methods-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "filter",
+      "code": "[1, 2, 3].filter(n => n > 1);",
+      "question": "Which items are kept by filter?",
+      "options": [
+        "Items whose callback result is truthy",
+        "Every item transformed by the callback",
+        "Only the first array item",
+        "Items whose callback result is a number"
+      ],
+      "correctOption": 0,
+      "explanation": "filter uses each callback result to decide whether to retain that item."
+    },
+    {
+      "id": "js-array-methods-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "map",
+      "prompt": "Write doubleValues(values), returning a new array with every number doubled.",
+      "functionName": "doubleValues",
+      "starter": "function doubleValues(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              4
+            ]
+          ],
+          "expect": [
+            4,
+            8
+          ]
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "expect": [
+            -2,
+            0
+          ]
+        }
+      ],
+      "solution": "function doubleValues(values) {\n  return values.map(value => value * 2);\n}",
+      "explanation": "map applies the transformation once to each value."
+    },
+    {
+      "id": "js-array-methods-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "filter",
+      "prompt": "Fill the method that keeps only positive values.",
+      "code": "console.log([-1, 0, 3].____(n => n > 0).length);",
+      "blanks": [
+        [
+          "filter"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "filter creates a collection of items meeting the predicate.",
+      "expectedOutput": "1"
+    },
+    {
+      "id": "js-array-methods-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "reduce",
+      "prompt": "Write product(values), returning the product of every number, or 1 for an empty array.",
+      "functionName": "product",
+      "starter": "function product(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              3,
+              4
+            ]
+          ],
+          "expect": 24
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": 1
+        },
+        {
+          "args": [
+            [
+              -2,
+              3
+            ]
+          ],
+          "expect": -6
+        }
+      ],
+      "solution": "function product(values) {\n  return values.reduce((result, value) => result * value, 1);\n}",
+      "explanation": "Use 1 as the initial accumulator so the empty case has the multiplicative identity."
+    },
+    {
+      "id": "js-array-methods-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "some",
+      "code": "console.log([2, 5, 8].some(n => n % 2 !== 0));",
+      "options": [
+        "true",
+        "false",
+        "5",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "some is true because at least one value is odd.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-array-methods-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "reduce",
+      "code": "console.log([3, 4].reduce((sum, n) => sum + n, 0));",
+      "explanation": "The accumulator starts at zero and receives each added value.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-array-methods-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "every",
+      "prompt": "Fill the method that returns true only when each value is positive.",
+      "code": "console.log([2, 5].____(n => n > 0));",
+      "blanks": [
+        [
+          "every"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "every checks that the predicate holds for all array entries.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-array-methods-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "filter",
+      "prompt": "Write keepLongWords(words, minimum), returning words whose length is at least minimum.",
+      "functionName": "keepLongWords",
+      "starter": "function keepLongWords(words, minimum) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              "a",
+              "bird",
+              "stone"
+            ],
+            4
+          ],
+          "expect": [
+            "bird",
+            "stone"
+          ]
+        },
+        {
+          "args": [
+            [],
+            2
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            [
+              "hi"
+            ],
+            2
+          ],
+          "expect": [
+            "hi"
+          ]
+        }
+      ],
+      "solution": "function keepLongWords(words, minimum) {\n  return words.filter(word => word.length >= minimum);\n}",
+      "explanation": "filter keeps words meeting or exceeding the boundary."
+    },
+    {
+      "id": "js-array-methods-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "reduce",
+      "prompt": "Fill the initial accumulator so summing an empty list returns zero.",
+      "code": "const total = [].reduce((sum, n) => sum + n, ____);\nconsole.log(total);",
+      "blanks": [
+        [
+          "0"
+        ]
+      ],
+      "caseSensitive": false,
+      "explanation": "An explicit initial value supports empty arrays and defines the accumulation start.",
+      "expectedOutput": "0"
+    },
+    {
+      "id": "js-array-methods-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "some",
+      "code": "[1, 3, 4].some(n => n % 2 === 0);",
+      "question": "What does some report for this array?",
+      "options": [
+        "Whether at least one item satisfies the predicate",
+        "Whether every item satisfies the predicate",
+        "The first item that satisfies the predicate",
+        "A new array of matching items"
+      ],
+      "correctOption": 0,
+      "explanation": "some answers a yes/no question about at least one matching value."
+    },
+    {
+      "id": "js-array-methods-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "find",
+      "prompt": "Write firstAtLeast(values, limit), returning the first matching value or null if absent.",
+      "functionName": "firstAtLeast",
+      "starter": "function firstAtLeast(values, limit) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              8,
+              10
+            ],
+            7
+          ],
+          "expect": 8
+        },
+        {
+          "args": [
+            [],
+            1
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            [
+              1,
+              2
+            ],
+            5
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function firstAtLeast(values, limit) {\n  const found = values.find(value => value >= limit);\n  return found === undefined ? null : found;\n}",
+      "explanation": "find returns the first match; convert its no-match result to the requested null."
+    },
+    {
+      "id": "js-array-methods-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "sort pitfalls",
+      "code": "[9, 80, 100].sort();",
+      "question": "Why can the default sort order be surprising for numbers?",
+      "options": [
+        "Values are compared as strings by default",
+        "Numbers are always sorted descending",
+        "sort returns a boolean",
+        "The array is copied before sorting"
+      ],
+      "correctOption": 0,
+      "explanation": "Without a comparator, sort orders string representations lexicographically."
+    },
+    {
+      "id": "js-array-methods-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "sort pitfalls",
+      "code": "const values = [20, 3, 100];\nvalues.sort((a, b) => a - b);\nconsole.log(values.join(','));",
+      "explanation": "The numeric comparator orders the values from smallest to largest in place.",
+      "expectedOutput": "3,20,100"
+    },
+    {
+      "id": "js-array-methods-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "sort pitfalls",
+      "prompt": "Fill the comparator result for ascending numeric order.",
+      "code": "const values = [4, 1, 3];\nvalues.sort((a, b) => a ____ b);\nconsole.log(values.join(','));",
+      "blanks": [
+        [
+          "-"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Returning a - b places smaller numbers before larger numbers.",
+      "expectedOutput": "1,3,4"
+    },
+    {
+      "id": "js-array-methods-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "sort pitfalls",
+      "prompt": "Write sortedCopy(values), returning numeric ascending order without changing values.",
+      "functionName": "sortedCopy",
+      "starter": "function sortedCopy(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              10,
+              2,
+              1
+            ]
+          ],
+          "expect": [
+            1,
+            2,
+            10
+          ]
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": []
+        },
+        {
+          "args": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "expect": [
+            -1,
+            0
+          ]
+        }
+      ],
+      "solution": "function sortedCopy(values) {\n  return [...values].sort((a, b) => a - b);\n}",
+      "explanation": "Copy before calling the mutating sort method and provide a numeric comparator."
+    },
+    {
+      "id": "js-array-methods-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "reduce",
+      "code": "console.log([1, 2, 3].reduce((total, value) => total + value));",
+      "options": [
+        "6",
+        "NaN",
+        "123",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Without an initial value, reduce uses the first element as the starting accumulator.",
+      "expectedOutput": "6"
+    },
+    {
+      "id": "js-array-methods-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "map",
+      "question": "How do map and forEach differ in their typical result?",
+      "keyPoints": [
+        "map returns a new array of callback results",
+        "forEach returns undefined",
+        "Use map when transforming values",
+        "Use forEach for side effects"
+      ],
+      "modelAnswer": "map applies a callback and returns a new array containing its results. forEach is generally used to perform side effects for each value and does not return a transformed array."
+    },
+    {
+      "id": "js-array-methods-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "reduce",
+      "question": "Why is an initial value often useful with reduce?",
+      "keyPoints": [
+        "It defines the accumulator's starting value",
+        "It gives the empty-array case a result",
+        "It avoids consuming the first element as the initial accumulator",
+        "Choose an identity appropriate to the operation"
+      ],
+      "modelAnswer": "An initial value defines what the accumulator starts with and what result an empty array should produce. For addition, zero is a natural identity; for multiplication, one is."
+    },
+    {
+      "id": "js-array-methods-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "sort pitfalls",
+      "question": "What should you consider when sorting numbers with Array.prototype.sort?",
+      "keyPoints": [
+        "The default comparison is lexicographic",
+        "Provide a numeric comparator",
+        "sort mutates the array",
+        "Copy first when the original order must remain"
+      ],
+      "modelAnswer": "The default sort compares string representations, so numbers may not appear in numeric order. Supply a comparator such as (a, b) => a - b, and copy the array first if you need to preserve the original."
+    }
+  ]
+}
