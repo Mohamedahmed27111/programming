@@ -1,0 +1,625 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Classes and Modules",
+    "order": 12,
+    "sourceSections": [
+      "class Syntax",
+      "Simple Fields",
+      "getters and setters",
+      "import and export"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-classes-modules-t001",
+      "term": "class",
+      "level": "beginner",
+      "definitionEn": "A syntax for defining a constructor and shared behavior for a kind of value.",
+      "example": "class Box {}",
+      "caseSensitive": true,
+      "aliases": [
+        "class declaration"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t002",
+      "term": "constructor",
+      "level": "beginner",
+      "definitionEn": "A special method that initializes an instance created from a class.",
+      "example": "constructor(name) { this.name = name; }",
+      "caseSensitive": false,
+      "aliases": [
+        "initializer"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t003",
+      "term": "instance",
+      "level": "beginner",
+      "definitionEn": "An individual value created by calling a class with new.",
+      "example": "const box = new Box();",
+      "caseSensitive": false,
+      "aliases": [
+        "object instance"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t004",
+      "term": "field",
+      "level": "beginner",
+      "definitionEn": "A property declared to hold data on a class instance.",
+      "example": "class User { name = 'Ari'; }",
+      "caseSensitive": false,
+      "aliases": [
+        "class field"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t005",
+      "term": "getter",
+      "level": "intermediate",
+      "definitionEn": "A special method accessed like a property that computes or returns a value.",
+      "example": "get area() { return this.width * this.height; }",
+      "caseSensitive": false,
+      "aliases": [
+        "accessor"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t006",
+      "term": "setter",
+      "level": "intermediate",
+      "definitionEn": "A special method invoked by assigning to a property-like name.",
+      "example": "set name(value) { this._name = value; }",
+      "caseSensitive": false,
+      "aliases": [
+        "mutator"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t007",
+      "term": "static method",
+      "level": "intermediate",
+      "definitionEn": "A method called on the class itself rather than on an instance.",
+      "example": "static create() { return new Box(); }",
+      "caseSensitive": false,
+      "aliases": [
+        "class method"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t008",
+      "term": "module",
+      "level": "beginner",
+      "definitionEn": "A JavaScript file with its own scope that can expose or consume bindings.",
+      "example": "export const version = 1;",
+      "caseSensitive": false,
+      "aliases": [
+        "ES module"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t009",
+      "term": "named export",
+      "level": "intermediate",
+      "definitionEn": "An exported binding that consumers import by its exported name.",
+      "example": "export const answer = 42;",
+      "caseSensitive": false,
+      "aliases": [
+        "named binding"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t010",
+      "term": "default export",
+      "level": "intermediate",
+      "definitionEn": "A module's single specially designated primary exported value.",
+      "example": "export default class Service {}",
+      "caseSensitive": false,
+      "aliases": [
+        "default binding"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t011",
+      "term": "encapsulation",
+      "level": "advanced",
+      "definitionEn": "The practice of grouping state with operations that manage or protect it.",
+      "example": "class Wallet { #balance = 0; }",
+      "caseSensitive": false,
+      "aliases": [
+        "data hiding"
+      ]
+    },
+    {
+      "id": "js-classes-modules-t012",
+      "term": "private field",
+      "level": "advanced",
+      "definitionEn": "A class field marked with a hash that is accessible only inside that class.",
+      "example": "class Vault { #code = 7; }",
+      "caseSensitive": false,
+      "aliases": [
+        "private class field"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-classes-modules-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "class Syntax",
+      "code": "class Lamp { turnOn() { return true; } }",
+      "question": "What does the class body define?",
+      "options": [
+        "A constructor and behavior for instances",
+        "A module import list",
+        "An array of lamps",
+        "A function that runs immediately"
+      ],
+      "correctOption": 0,
+      "explanation": "A class declaration defines a constructor and methods that instances can use."
+    },
+    {
+      "id": "js-classes-modules-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Simple Fields",
+      "code": "class Badge {\n  constructor(label) { this.label = label; }\n}\nconsole.log(new Badge('gold').label);",
+      "options": [
+        "gold",
+        "label",
+        "undefined",
+        "Badge"
+      ],
+      "correctOption": 0,
+      "explanation": "The constructor stores its argument on the newly created instance.",
+      "expectedOutput": "gold"
+    },
+    {
+      "id": "js-classes-modules-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "class Syntax",
+      "code": "class Counter {\n  value = 2;\n}\nconst counter = new Counter();\nconsole.log(counter.value);",
+      "explanation": "The instance field is initialized on each new Counter value.",
+      "expectedOutput": "2"
+    },
+    {
+      "id": "js-classes-modules-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "class Syntax",
+      "prompt": "Fill the keyword that creates an instance of Device.",
+      "code": "class Device {}\nconst device = ____ Device();\nconsole.log(device instanceof Device);",
+      "blanks": [
+        [
+          "new"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "new invokes a class constructor to create an instance.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-classes-modules-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Simple Fields",
+      "code": "class Point {\n  constructor(x, y) { this.x = x; this.y = y; }\n}\nconst p = new Point(2, 5);\nconsole.log(p.x + p.y);",
+      "options": [
+        "7",
+        "25",
+        "2",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The constructor assigns both coordinates, and their sum is seven.",
+      "expectedOutput": "7"
+    },
+    {
+      "id": "js-classes-modules-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "class Syntax",
+      "code": "new Player('Kai');",
+      "question": "What is an instance in this expression?",
+      "options": [
+        "The individual Player value created by new",
+        "The class declaration itself",
+        "The constructor parameter",
+        "The module file"
+      ],
+      "correctOption": 0,
+      "explanation": "An instance is an individual value created from a class."
+    },
+    {
+      "id": "js-classes-modules-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Simple Fields",
+      "prompt": "Write makePoint(x, y), returning an object with those two properties.",
+      "functionName": "makePoint",
+      "starter": "function makePoint(x, y) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2,
+            3
+          ],
+          "expect": {
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "args": [
+            0,
+            0
+          ],
+          "expect": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "args": [
+            -1,
+            4
+          ],
+          "expect": {
+            "x": -1,
+            "y": 4
+          }
+        }
+      ],
+      "solution": "function makePoint(x, y) {\n  return { x, y };\n}",
+      "explanation": "Return an object with one property for each supplied coordinate."
+    },
+    {
+      "id": "js-classes-modules-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "class Syntax",
+      "prompt": "Fill the special method name that initializes an instance.",
+      "code": "class Note {\n  ____ (text) { this.text = text; }\n}\nconsole.log(new Note('hi').text);",
+      "blanks": [
+        [
+          "constructor"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "The constructor method runs when a class instance is created.",
+      "expectedOutput": "hi"
+    },
+    {
+      "id": "js-classes-modules-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "getters and setters",
+      "prompt": "Write makeMeter(value), returning an object with a getter named doubled that returns value times two.",
+      "functionName": "makeMeter",
+      "starter": "function makeMeter(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4
+          ],
+          "expect": {
+            "doubled": 8
+          }
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": {
+            "doubled": 0
+          }
+        },
+        {
+          "args": [
+            -2
+          ],
+          "expect": {
+            "doubled": -4
+          }
+        }
+      ],
+      "solution": "function makeMeter(value) {\n  return { get doubled() { return value * 2; } };\n}",
+      "explanation": "A getter exposes a computed value through property access."
+    },
+    {
+      "id": "js-classes-modules-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "getters and setters",
+      "code": "class Box {\n  constructor(width) { this.width = width; }\n  get area() { return this.width * this.width; }\n}\nconsole.log(new Box(3).area);",
+      "options": [
+        "9",
+        "6",
+        "3",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The getter computes area from the instance width.",
+      "expectedOutput": "9"
+    },
+    {
+      "id": "js-classes-modules-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "class Syntax",
+      "code": "class Token {\n  static kind() { return 'access'; }\n}\nconsole.log(Token.kind());",
+      "explanation": "A static method is invoked on the class itself.",
+      "expectedOutput": "access"
+    },
+    {
+      "id": "js-classes-modules-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "getters and setters",
+      "prompt": "Fill the keyword that declares a getter for total.",
+      "code": "class Cart {\n  ____ total() { return 12; }\n}\nconsole.log(new Cart().total);",
+      "blanks": [
+        [
+          "get"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "get declares an accessor read through property syntax.",
+      "expectedOutput": "12"
+    },
+    {
+      "id": "js-classes-modules-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Simple Fields",
+      "prompt": "Write makeRectangle(width, height), returning an object with an area getter.",
+      "functionName": "makeRectangle",
+      "starter": "function makeRectangle(width, height) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            3,
+            4
+          ],
+          "expect": {
+            "area": 12
+          }
+        },
+        {
+          "args": [
+            0,
+            5
+          ],
+          "expect": {
+            "area": 0
+          }
+        },
+        {
+          "args": [
+            -2,
+            3
+          ],
+          "expect": {
+            "area": -6
+          }
+        }
+      ],
+      "solution": "function makeRectangle(width, height) {\n  return { get area() { return width * height; } };\n}",
+      "explanation": "The getter computes the product when the property is read."
+    },
+    {
+      "id": "js-classes-modules-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "class Syntax",
+      "prompt": "Fill the method name so an instance can call it.",
+      "code": "class Switch {\n  ____() { return 'on'; }\n}\nconsole.log(new Switch().toggle());",
+      "blanks": [
+        [
+          "toggle"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "An instance method is declared by its name followed by its parameter list and body.",
+      "expectedOutput": "on"
+    },
+    {
+      "id": "js-classes-modules-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "import and export",
+      "code": "export const version = '1.0';",
+      "question": "What does a named export allow another module to do?",
+      "options": [
+        "Import the binding by its exported name",
+        "Access every local variable in the file",
+        "Run the file as a function",
+        "Replace the module's path"
+      ],
+      "correctOption": 0,
+      "explanation": "Named exports expose selected bindings for import by name."
+    },
+    {
+      "id": "js-classes-modules-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "getters and setters",
+      "prompt": "Write makeTemperature(initial), returning an object with a writable value property and a getter fahrenheit computed as value * 9 / 5 + 32.",
+      "functionName": "makeTemperature",
+      "starter": "function makeTemperature(initial) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            0
+          ],
+          "expect": {
+            "value": 0,
+            "fahrenheit": 32
+          }
+        },
+        {
+          "args": [
+            100
+          ],
+          "expect": {
+            "value": 100,
+            "fahrenheit": 212
+          }
+        },
+        {
+          "args": [
+            -40
+          ],
+          "expect": {
+            "value": -40,
+            "fahrenheit": -40
+          }
+        }
+      ],
+      "solution": "function makeTemperature(initial) {\n  return { value: initial, get fahrenheit() { return this.value * 9 / 5 + 32; } };\n}",
+      "explanation": "The getter reads the current value each time fahrenheit is accessed."
+    },
+    {
+      "id": "js-classes-modules-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "private Fields",
+      "code": "class Vault {\n  #pin = 12;\n  matches(value) { return this.#pin === value; }\n}",
+      "question": "Where can the private field #pin be accessed?",
+      "options": [
+        "Inside the declaring class body",
+        "From every instance property expression",
+        "From any subclass directly",
+        "Only in the constructor"
+      ],
+      "correctOption": 0,
+      "explanation": "A hash-prefixed private field is accessible only within its declaring class body."
+    },
+    {
+      "id": "js-classes-modules-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "getters and setters",
+      "code": "class Meter {\n  constructor(value) { this.value = value; }\n  get doubled() { return this.value * 2; }\n}\nconst meter = new Meter(3);\nmeter.value = 5;\nconsole.log(meter.doubled);",
+      "explanation": "The getter reads current instance state when accessed, after the update.",
+      "expectedOutput": "10"
+    },
+    {
+      "id": "js-classes-modules-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "class Syntax",
+      "prompt": "Fill the keyword that makes read callable on the class itself.",
+      "code": "class Formatter {\n  ____ read() { return 'ok'; }\n}\nconsole.log(Formatter.read());",
+      "blanks": [
+        [
+          "static"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A static method belongs to the class rather than its instances.",
+      "expectedOutput": "ok"
+    },
+    {
+      "id": "js-classes-modules-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Simple Fields",
+      "prompt": "Write nextValue(start), returning the value after incrementing start once.",
+      "functionName": "nextValue",
+      "starter": "function nextValue(start) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2
+          ],
+          "expect": 3
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 1
+        },
+        {
+          "args": [
+            -2
+          ],
+          "expect": -1
+        }
+      ],
+      "solution": "function nextValue(start) {\n  return start + 1;\n}",
+      "explanation": "Return a value increased by one."
+    },
+    {
+      "id": "js-classes-modules-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "class Syntax",
+      "code": "class Base { value() { return 2; } }\nclass Child extends Base { value() { return super.value() + 3; } }\nconsole.log(new Child().value());",
+      "options": [
+        "5",
+        "2",
+        "3",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "The override calls the base implementation and adds three.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-classes-modules-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "getters and setters",
+      "question": "What are getters and setters useful for in a class?",
+      "keyPoints": [
+        "They provide property-like access",
+        "A getter can compute a value",
+        "A setter can validate or transform assignments",
+        "They can hide representation details"
+      ],
+      "modelAnswer": "Getters and setters expose property-like access while allowing code to compute values or control updates. A setter can validate input, and a getter can derive a value from internal state."
+    },
+    {
+      "id": "js-classes-modules-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "import and export",
+      "question": "How do named exports differ from a default export?",
+      "keyPoints": [
+        "A module can expose multiple named exports",
+        "A module has at most one default export",
+        "Named imports use the exported name unless aliased",
+        "Default imports choose a local name"
+      ],
+      "modelAnswer": "Named exports expose one or more bindings that consumers import by their exported names, though they can alias those names. A module can have one default export, and the importing module chooses its local identifier."
+    },
+    {
+      "id": "js-classes-modules-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "class Syntax",
+      "question": "What is the relationship between a class, its instance, and its constructor?",
+      "keyPoints": [
+        "The class describes how instances are created",
+        "new creates an instance",
+        "The constructor initializes instance state",
+        "Instance methods are shared through the prototype"
+      ],
+      "modelAnswer": "A class defines how instances are created and what behavior they provide. Calling it with new creates an instance, and the constructor initializes that instance's state."
+    }
+  ]
+}

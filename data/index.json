@@ -244,6 +244,72 @@
               "interview": 3
             }
           }
+        },
+        {
+          "order": 12,
+          "topic": "Classes and Modules",
+          "file": "data/javascript/12-classes-modules.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 13,
+          "topic": "Challenges",
+          "file": "data/javascript/13-challenges.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 3,
+              "predictOutput": 3,
+              "completeCode": 3,
+              "writeCode": 12,
+              "interview": 3
+            }
+          }
+        },
+        {
+          "order": 14,
+          "topic": "Hoisting and TDZ",
+          "file": "data/javascript/14-hoisting-tdz.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 5,
+              "interview": 3
+            },
+            "byType": {
+              "whatDoes": 4,
+              "predictOutput": 7,
+              "completeCode": 5,
+              "writeCode": 5,
+              "interview": 3
+            }
+          }
         }
       ]
     }

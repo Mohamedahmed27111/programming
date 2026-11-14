@@ -1,0 +1,824 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Challenges",
+    "order": 13,
+    "sourceSections": [
+      "Counting Cards",
+      "Record Collection",
+      "Profile Lookup",
+      "Stand in Line",
+      "Golf Code"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-challenges-t001",
+      "term": "challenge",
+      "level": "beginner",
+      "definitionEn": "A small programming task designed to practice applying one or more concepts.",
+      "example": "function add(a, b) { return a + b; }",
+      "caseSensitive": false,
+      "aliases": [
+        "coding exercise"
+      ]
+    },
+    {
+      "id": "js-challenges-t002",
+      "term": "test case",
+      "level": "beginner",
+      "definitionEn": "A specific input and expected result used to check program behavior.",
+      "example": "add(2, 3) should return 5.",
+      "caseSensitive": false,
+      "aliases": [
+        "test"
+      ]
+    },
+    {
+      "id": "js-challenges-t003",
+      "term": "edge case",
+      "level": "intermediate",
+      "definitionEn": "An input at an unusual boundary that may reveal a hidden defect.",
+      "example": "sum([]) should return 0.",
+      "caseSensitive": false,
+      "aliases": [
+        "boundary case"
+      ]
+    },
+    {
+      "id": "js-challenges-t004",
+      "term": "accumulator",
+      "level": "intermediate",
+      "definitionEn": "A variable that combines results as a sequence is processed.",
+      "example": "let total = 0;\ntotal += next;",
+      "caseSensitive": false,
+      "aliases": [
+        "running value"
+      ]
+    },
+    {
+      "id": "js-challenges-t005",
+      "term": "lookup",
+      "level": "intermediate",
+      "definitionEn": "An operation that retrieves a value associated with a key.",
+      "example": "const result = table[key];",
+      "caseSensitive": false,
+      "aliases": [
+        "search"
+      ]
+    },
+    {
+      "id": "js-challenges-t006",
+      "term": "queue",
+      "level": "beginner",
+      "definitionEn": "An ordered collection where the earliest added item is usually handled first.",
+      "example": "const waiting = ['A', 'B'];",
+      "caseSensitive": false,
+      "aliases": [
+        "line"
+      ]
+    },
+    {
+      "id": "js-challenges-t007",
+      "term": "mutation",
+      "level": "intermediate",
+      "definitionEn": "A direct change to an existing collection or record.",
+      "example": "items.push('new');",
+      "caseSensitive": false,
+      "aliases": [
+        "in-place change"
+      ]
+    },
+    {
+      "id": "js-challenges-t008",
+      "term": "condition",
+      "level": "beginner",
+      "definitionEn": "A test that selects behavior based on whether an expression is true.",
+      "example": "if (score > 0) return 'up';",
+      "caseSensitive": false,
+      "aliases": [
+        "test"
+      ]
+    },
+    {
+      "id": "js-challenges-t009",
+      "term": "return value",
+      "level": "beginner",
+      "definitionEn": "The result a function sends back to the code that called it.",
+      "example": "function get() { return 4; }",
+      "caseSensitive": false,
+      "aliases": [
+        "result"
+      ]
+    },
+    {
+      "id": "js-challenges-t010",
+      "term": "test-driven development",
+      "level": "advanced",
+      "definitionEn": "A workflow that uses failing tests to guide implementation before verifying the fix.",
+      "example": "Add a test, implement behavior, then rerun the test.",
+      "caseSensitive": false,
+      "aliases": [
+        "TDD"
+      ]
+    },
+    {
+      "id": "js-challenges-t011",
+      "term": "boundary",
+      "level": "intermediate",
+      "definitionEn": "An input at the limit of a rule, such as an empty sequence or exact threshold.",
+      "example": "count = 0;",
+      "caseSensitive": false,
+      "aliases": [
+        "limit"
+      ]
+    },
+    {
+      "id": "js-challenges-t012",
+      "term": "invariant",
+      "level": "advanced",
+      "definitionEn": "A property that should remain true throughout an algorithm's execution.",
+      "example": "A queue's length never becomes negative.",
+      "caseSensitive": false,
+      "aliases": [
+        "always-true rule"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-challenges-q001",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Counting Cards",
+      "prompt": "Write updateCount(count, card), adding one for card values 2 through 6 inclusive and leaving the count unchanged otherwise.",
+      "functionName": "updateCount",
+      "starter": "function updateCount(count, card) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            0,
+            2
+          ],
+          "expect": 1
+        },
+        {
+          "args": [
+            4,
+            6
+          ],
+          "expect": 5
+        },
+        {
+          "args": [
+            3,
+            7
+          ],
+          "expect": 3
+        }
+      ],
+      "solution": "function updateCount(count, card) {\n  return card >= 2 && card <= 6 ? count + 1 : count;\n}",
+      "explanation": "Check the inclusive card range and return the updated or unchanged count."
+    },
+    {
+      "id": "js-challenges-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "Stand in Line",
+      "code": "const line = ['Moe', 'Ray'];\nconst served = line.shift();\nconsole.log(served, line.length);",
+      "options": [
+        "Moe 1",
+        "Ray 1",
+        "Moe 2",
+        "Ray 2"
+      ],
+      "correctOption": 0,
+      "explanation": "shift serves the first person and leaves one item in the line.",
+      "expectedOutput": "Moe 1"
+    },
+    {
+      "id": "js-challenges-q003",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Golf Code",
+      "prompt": "Write holeInOne(strokes), returning 'Ace' for one stroke and 'Continue' otherwise.",
+      "functionName": "holeInOne",
+      "starter": "function holeInOne(strokes) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            1
+          ],
+          "expect": "Ace"
+        },
+        {
+          "args": [
+            2
+          ],
+          "expect": "Continue"
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": "Continue"
+        }
+      ],
+      "solution": "function holeInOne(strokes) {\n  return strokes === 1 ? 'Ace' : 'Continue';\n}",
+      "explanation": "Use strict equality to recognize exactly one stroke."
+    },
+    {
+      "id": "js-challenges-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Record Collection",
+      "prompt": "Fill the property assignment that updates a record's title.",
+      "code": "const record = {};\nrecord.____ = 'New';\nconsole.log(record.title);",
+      "blanks": [
+        [
+          "title"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Assigning to a property name adds it to the record.",
+      "expectedOutput": "New"
+    },
+    {
+      "id": "js-challenges-q005",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Stand in Line",
+      "code": "const line = ['A'];\nconst length = line.push('B');",
+      "question": "What value does length contain after this call?",
+      "options": [
+        "2, the new number of entries",
+        "1, the previous number of entries",
+        "'B', the appended value",
+        "['A', 'B'], a new line"
+      ],
+      "correctOption": 0,
+      "explanation": "push appends the value to the same array and returns its updated length."
+    },
+    {
+      "id": "js-challenges-q006",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Profile Lookup",
+      "prompt": "Write readProfileName(profile), returning the name property or null if it is missing.",
+      "functionName": "readProfileName",
+      "starter": "function readProfileName(profile) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "name": "Dee"
+            }
+          ],
+          "expect": "Dee"
+        },
+        {
+          "args": [
+            {}
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            {
+              "name": ""
+            }
+          ],
+          "expect": ""
+        }
+      ],
+      "solution": "function readProfileName(profile) {\n  return Object.hasOwn(profile, 'name') ? profile.name : null;\n}",
+      "explanation": "Check property presence so an empty name remains a valid result."
+    },
+    {
+      "id": "js-challenges-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Golf Code",
+      "prompt": "Write golfResult(par, strokes), returning 'under' when strokes are fewer than par and 'over' otherwise.",
+      "functionName": "golfResult",
+      "starter": "function golfResult(par, strokes) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4,
+            3
+          ],
+          "expect": "under"
+        },
+        {
+          "args": [
+            4,
+            4
+          ],
+          "expect": "over"
+        },
+        {
+          "args": [
+            3,
+            5
+          ],
+          "expect": "over"
+        }
+      ],
+      "solution": "function golfResult(par, strokes) {\n  return strokes < par ? 'under' : 'over';\n}",
+      "explanation": "Compare the number of strokes to par and return the selected label."
+    },
+    {
+      "id": "js-challenges-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Counting Cards",
+      "prompt": "Fill the operator that increases the count by one.",
+      "code": "let count = 2;\ncount ____ 1;\nconsole.log(count);",
+      "blanks": [
+        [
+          "+="
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "Addition-assignment adds the right-hand value to the current count.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-challenges-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Profile Lookup",
+      "prompt": "Write findById(profiles, id), returning the first matching profile or null.",
+      "functionName": "findById",
+      "starter": "function findById(profiles, id) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              {
+                "id": 2
+              },
+              {
+                "id": 4
+              }
+            ],
+            4
+          ],
+          "expect": {
+            "id": 4
+          }
+        },
+        {
+          "args": [
+            [],
+            1
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            [
+              {
+                "id": 1
+              }
+            ],
+            9
+          ],
+          "expect": null
+        }
+      ],
+      "solution": "function findById(profiles, id) {\n  for (const profile of profiles) if (profile.id === id) return profile;\n  return null;\n}",
+      "explanation": "Search in order and return as soon as the identifier matches."
+    },
+    {
+      "id": "js-challenges-q010",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Record Collection",
+      "prompt": "Write setRecordValue(record, key, value), assigning the computed property and returning the record.",
+      "functionName": "setRecordValue",
+      "starter": "function setRecordValue(record, key, value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "title": "Old"
+            },
+            "title",
+            "New"
+          ],
+          "expect": {
+            "title": "New"
+          }
+        },
+        {
+          "args": [
+            {},
+            "active",
+            false
+          ],
+          "expect": {
+            "active": false
+          }
+        },
+        {
+          "args": [
+            {
+              "n": 1
+            },
+            "n",
+            0
+          ],
+          "expect": {
+            "n": 0
+          }
+        }
+      ],
+      "solution": "function setRecordValue(record, key, value) {\n  record[key] = value;\n  return record;\n}",
+      "explanation": "Bracket assignment supports a dynamic key and preserves falsy values."
+    },
+    {
+      "id": "js-challenges-q011",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Counting Cards",
+      "prompt": "Write countAbove(values, limit), counting values strictly greater than limit.",
+      "functionName": "countAbove",
+      "starter": "function countAbove(values, limit) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              2,
+              5,
+              8
+            ],
+            4
+          ],
+          "expect": 2
+        },
+        {
+          "args": [
+            [],
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              5,
+              5
+            ],
+            5
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function countAbove(values, limit) {\n  let count = 0;\n  for (const value of values) if (value > limit) count++;\n  return count;\n}",
+      "explanation": "Iterate once and increase the total only for values above the boundary."
+    },
+    {
+      "id": "js-challenges-q012",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Profile Lookup",
+      "prompt": "Write displayProfile(profile), returning 'name: id' when both properties exist and null otherwise.",
+      "functionName": "displayProfile",
+      "starter": "function displayProfile(profile) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            {
+              "name": "Ada",
+              "id": 8
+            }
+          ],
+          "expect": "Ada: 8"
+        },
+        {
+          "args": [
+            {
+              "name": "Bo"
+            }
+          ],
+          "expect": null
+        },
+        {
+          "args": [
+            {
+              "name": "",
+              "id": 0
+            }
+          ],
+          "expect": ": 0"
+        }
+      ],
+      "solution": "function displayProfile(profile) {\n  if (!Object.hasOwn(profile, 'name') || !Object.hasOwn(profile, 'id')) return null;\n  return `${profile.name}: ${profile.id}`;\n}",
+      "explanation": "Check own-property presence so empty strings and zero ids remain valid."
+    },
+    {
+      "id": "js-challenges-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Record Collection",
+      "prompt": "Write updateRecord(records, id, key, value), updating the matching record and returning records.",
+      "functionName": "updateRecord",
+      "starter": "function updateRecord(records, id, key, value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              {
+                "id": 1,
+                "name": "A"
+              }
+            ],
+            1,
+            "name",
+            "B"
+          ],
+          "expect": [
+            {
+              "id": 1,
+              "name": "B"
+            }
+          ]
+        },
+        {
+          "args": [
+            [
+              {
+                "id": 2
+              }
+            ],
+            9,
+            "name",
+            "C"
+          ],
+          "expect": [
+            {
+              "id": 2
+            }
+          ]
+        },
+        {
+          "args": [
+            [],
+            1,
+            "x",
+            3
+          ],
+          "expect": []
+        }
+      ],
+      "solution": "function updateRecord(records, id, key, value) {\n  const record = records.find(item => item.id === id);\n  if (record) record[key] = value;\n  return records;\n}",
+      "explanation": "Find the matching record, update its computed property if present, then return the collection."
+    },
+    {
+      "id": "js-challenges-q014",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Counting Cards",
+      "prompt": "Write countHigh(values), counting numbers greater than five.",
+      "functionName": "countHigh",
+      "starter": "function countHigh(values) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              4,
+              6,
+              8
+            ]
+          ],
+          "expect": 2
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            [
+              5,
+              5
+            ]
+          ],
+          "expect": 0
+        }
+      ],
+      "solution": "function countHigh(values) {\n  let count = 0;\n  for (const value of values) if (value > 5) count++;\n  return count;\n}",
+      "explanation": "Test each value and increment an accumulator only above the threshold."
+    },
+    {
+      "id": "js-challenges-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "Record Collection",
+      "code": "delete record.alias;",
+      "question": "What does this statement do?",
+      "options": [
+        "Removes alias from record if it is configurable",
+        "Sets alias to the string 'undefined'",
+        "Removes the entire record",
+        "Adds alias with a null value"
+      ],
+      "correctOption": 0,
+      "explanation": "delete removes the named property rather than assigning a replacement value."
+    },
+    {
+      "id": "js-challenges-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Golf Code",
+      "prompt": "Write golfLabel(par, strokes), returning 'ace' for one stroke, 'under' when strokes are below par, and 'over' otherwise.",
+      "functionName": "golfLabel",
+      "starter": "function golfLabel(par, strokes) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            4,
+            1
+          ],
+          "expect": "ace"
+        },
+        {
+          "args": [
+            4,
+            3
+          ],
+          "expect": "under"
+        },
+        {
+          "args": [
+            4,
+            4
+          ],
+          "expect": "over"
+        }
+      ],
+      "solution": "function golfLabel(par, strokes) {\n  if (strokes === 1) return 'ace';\n  return strokes < par ? 'under' : 'over';\n}",
+      "explanation": "Check the special one-stroke case first, then compare the score to par."
+    },
+    {
+      "id": "js-challenges-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "Counting Cards",
+      "code": "let count = 0;\nfunction step(card) {\n  if (card >= 2 && card <= 6) count++;\n  return count > 0 ? 'Bet' : 'Hold';\n}",
+      "question": "Which inputs increase count?",
+      "options": [
+        "Values from 2 through 6, inclusive",
+        "Only values greater than 6",
+        "All values except zero",
+        "Only the value 2"
+      ],
+      "correctOption": 0,
+      "explanation": "The combined inclusive comparisons select values in the stated interval."
+    },
+    {
+      "id": "js-challenges-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "Stand in Line",
+      "code": "const line = ['a', 'b'];\nconst first = line.shift();\nline.push('c');\nconsole.log(first, line.join(','));",
+      "explanation": "shift removes a, leaving b; pushing c appends it after b.",
+      "expectedOutput": "a b,c"
+    },
+    {
+      "id": "js-challenges-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Record Collection",
+      "prompt": "Fill the own-property check so an existing property holding an empty string is not treated as missing.",
+      "code": "const record = { name: '' };\nconsole.log(Object.____(record, 'name'));",
+      "blanks": [
+        [
+          "hasOwn"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "An own-property check tests presence independently of the property's truthiness.",
+      "expectedOutput": "true"
+    },
+    {
+      "id": "js-challenges-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Profile Lookup",
+      "prompt": "Write indexById(profiles), returning an object mapping each profile id to its profile; later duplicate ids replace earlier ones.",
+      "functionName": "indexById",
+      "starter": "function indexById(profiles) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            [
+              {
+                "id": "a",
+                "name": "old"
+              },
+              {
+                "id": "a",
+                "name": "new"
+              }
+            ]
+          ],
+          "expect": {
+            "a": {
+              "id": "a",
+              "name": "new"
+            }
+          }
+        },
+        {
+          "args": [
+            []
+          ],
+          "expect": {}
+        },
+        {
+          "args": [
+            [
+              {
+                "id": "b"
+              }
+            ]
+          ],
+          "expect": {
+            "b": {
+              "id": "b"
+            }
+          }
+        }
+      ],
+      "solution": "function indexById(profiles) {\n  const result = {};\n  for (const profile of profiles) result[profile.id] = profile;\n  return result;\n}",
+      "explanation": "Assign each record under its id; a later assignment replaces an earlier key."
+    },
+    {
+      "id": "js-challenges-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Golf Code",
+      "code": "function result(par, strokes) {\n  if (strokes === 1) return 'Ace';\n  if (strokes <= par - 2) return 'Eagle';\n  return 'Other';\n}\nconsole.log(result(5, 3));",
+      "options": [
+        "Eagle",
+        "Ace",
+        "Other",
+        "undefined"
+      ],
+      "correctOption": 0,
+      "explanation": "Three strokes is two fewer than par five, matching Eagle after the Ace check.",
+      "expectedOutput": "Eagle"
+    },
+    {
+      "id": "js-challenges-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Counting Cards",
+      "question": "How would you design a counting-card function so it can process cards incrementally?",
+      "keyPoints": [
+        "Keep count in a persistent binding or closure",
+        "Define how each card affects the count",
+        "Return the current recommendation from the count",
+        "Test values at each rule boundary"
+      ],
+      "modelAnswer": "Keep the running count in state that survives between card inputs, such as a closure or an object. For each card, update the count according to the rules, then derive the recommendation and test both ordinary and boundary values."
+    },
+    {
+      "id": "js-challenges-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Record Collection",
+      "question": "What should a record-update challenge clarify about missing identifiers and empty values?",
+      "keyPoints": [
+        "Whether missing records are ignored or reported",
+        "Whether empty values mean deletion",
+        "Whether updates mutate or copy records",
+        "Tests should cover missing ids and falsy values"
+      ],
+      "modelAnswer": "The contract should state what happens when an identifier is not found and whether a special value means remove a property or store that value. Tests should distinguish missing properties from valid falsy values and confirm whether the function mutates the input."
+    },
+    {
+      "id": "js-challenges-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Profile Lookup",
+      "question": "How would you test a profile lookup function beyond a successful match?",
+      "keyPoints": [
+        "Test a missing identifier",
+        "Test an empty collection",
+        "Test duplicate identifiers if allowed",
+        "Test strict type matching where relevant"
+      ],
+      "modelAnswer": "Along with a successful lookup, test an empty collection and an identifier that is not present. If duplicates or mixed identifier types are possible, specify which match should win and whether matching is strict."
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "subject": "javascript",
+    "topic": "Hoisting and TDZ",
+    "order": 14,
+    "sourceSections": [
+      "Function Declaration Hoisting",
+      "var Hoisting",
+      "let and const Temporal Dead Zone",
+      "Block Scope"
+    ]
+  },
+  "terms": [
+    {
+      "id": "js-hoisting-tdz-t001",
+      "term": "hoisting",
+      "level": "intermediate",
+      "definitionEn": "The processing of declarations before statements in their containing scope run.",
+      "example": "function read() { return value; }",
+      "caseSensitive": false,
+      "aliases": [
+        "declaration instantiation"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t002",
+      "term": "temporal dead zone",
+      "level": "advanced",
+      "definitionEn": "The period before a lexical binding is initialized when access to it is forbidden.",
+      "example": "{ use(); let item = 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "TDZ"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t003",
+      "term": "function declaration",
+      "level": "beginner",
+      "definitionEn": "A named function definition that can be called by its identifier.",
+      "example": "function greet() { return 'hi'; }",
+      "caseSensitive": false,
+      "aliases": [
+        "function statement"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t004",
+      "term": "function expression",
+      "level": "intermediate",
+      "definitionEn": "A function value created as part of an expression and assigned or passed elsewhere.",
+      "example": "const greet = function () { return 'hi'; };",
+      "caseSensitive": false,
+      "aliases": [
+        "function value"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t005",
+      "term": "initialization",
+      "level": "beginner",
+      "definitionEn": "The step that gives a declared binding its first value.",
+      "example": "let count = 0;",
+      "caseSensitive": false,
+      "aliases": [
+        "initial assignment"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t006",
+      "term": "var binding",
+      "level": "intermediate",
+      "definitionEn": "A function-scoped binding initialized to undefined before its assignment statement executes.",
+      "example": "console.log(value);\nvar value = 3;",
+      "caseSensitive": false,
+      "aliases": [
+        "var declaration"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t007",
+      "term": "lexical declaration",
+      "level": "intermediate",
+      "definitionEn": "A let or const declaration whose binding is limited to a lexical block.",
+      "example": "let total = 1;",
+      "caseSensitive": false,
+      "aliases": [
+        "let or const"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t008",
+      "term": "block scope",
+      "level": "beginner",
+      "definitionEn": "A region enclosed by braces where a lexical binding can be accessed.",
+      "example": "{ const hidden = 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "lexical scope"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t009",
+      "term": "scope",
+      "level": "beginner",
+      "definitionEn": "The region of source code where a binding can be referenced.",
+      "example": "function f() { const local = 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "visibility region"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t010",
+      "term": "ReferenceError",
+      "level": "intermediate",
+      "definitionEn": "An error raised when code tries to access a binding that is not available at that point.",
+      "example": "missingName;",
+      "caseSensitive": true,
+      "aliases": [
+        "reference error"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t011",
+      "term": "declaration",
+      "level": "beginner",
+      "definitionEn": "A statement that introduces a name into a scope.",
+      "example": "let message;",
+      "caseSensitive": false,
+      "aliases": [
+        "binding declaration"
+      ]
+    },
+    {
+      "id": "js-hoisting-tdz-t012",
+      "term": "execution context",
+      "level": "advanced",
+      "definitionEn": "The runtime structure that tracks a function's execution, scope, and bindings.",
+      "example": "function run() { return 1; }",
+      "caseSensitive": false,
+      "aliases": [
+        "runtime context"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "js-hoisting-tdz-q001",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "Function Declaration Hoisting",
+      "code": "function greet() { return 'hello'; }",
+      "question": "What kind of declaration is greet?",
+      "options": [
+        "A function declaration",
+        "A function expression assigned to const",
+        "A class field",
+        "A method call"
+      ],
+      "correctOption": 0,
+      "explanation": "The function keyword followed by a name and body is a function declaration."
+    },
+    {
+      "id": "js-hoisting-tdz-q002",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "var Hoisting",
+      "code": "console.log(typeof count);\nvar count = 4;",
+      "options": [
+        "undefined",
+        "number",
+        "ReferenceError",
+        "4"
+      ],
+      "correctOption": 0,
+      "explanation": "The var binding exists before its assignment and initially contains undefined.",
+      "expectedOutput": "undefined"
+    },
+    {
+      "id": "js-hoisting-tdz-q003",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "beginner",
+      "sourceSection": "Function Declaration Hoisting",
+      "code": "console.log(add(2, 3));\nfunction add(a, b) { return a + b; }",
+      "explanation": "A function declaration is available before its textual position in its scope.",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "js-hoisting-tdz-q004",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "Function Declaration Hoisting",
+      "prompt": "Fill the keyword that declares a named function.",
+      "code": "____ greet() { return 'hi'; }\nconsole.log(greet());",
+      "blanks": [
+        [
+          "function"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "function begins a function declaration.",
+      "expectedOutput": "hi"
+    },
+    {
+      "id": "js-hoisting-tdz-q005",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "beginner",
+      "sourceSection": "var Hoisting",
+      "code": "console.log(value);\nvar value = 9;\nconsole.log(value);",
+      "options": [
+        "undefined\n9",
+        "9\\n9",
+        "ReferenceError",
+        "null\\n9"
+      ],
+      "correctOption": 0,
+      "explanation": "The binding starts as undefined, then receives 9 when the assignment executes.",
+      "expectedOutput": "undefined\n9"
+    },
+    {
+      "id": "js-hoisting-tdz-q006",
+      "type": "whatDoes",
+      "level": "beginner",
+      "sourceSection": "let and const Temporal Dead Zone",
+      "code": "let ready = true;",
+      "question": "Where can a let binding be referenced after initialization?",
+      "options": [
+        "Within its enclosing block and nested scopes",
+        "Anywhere before its declaration",
+        "Only in the same statement",
+        "Only through globalThis"
+      ],
+      "correctOption": 0,
+      "explanation": "A let binding is block-scoped and usable after initialization in that scope."
+    },
+    {
+      "id": "js-hoisting-tdz-q007",
+      "type": "writeCode",
+      "level": "beginner",
+      "sourceSection": "Function Declaration Hoisting",
+      "prompt": "Write a function declaration named square that returns its numeric argument squared.",
+      "functionName": "square",
+      "starter": "function square(n) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            3
+          ],
+          "expect": 9
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 0
+        },
+        {
+          "args": [
+            -2
+          ],
+          "expect": 4
+        }
+      ],
+      "solution": "function square(n) {\n  return n * n;\n}",
+      "explanation": "A named function declaration can be invoked after its definition is processed."
+    },
+    {
+      "id": "js-hoisting-tdz-q008",
+      "type": "completeCode",
+      "level": "beginner",
+      "sourceSection": "var Hoisting",
+      "prompt": "Fill the declaration keyword whose binding is initialized to undefined before assignment.",
+      "code": "console.log(typeof item);\n____ item = 1;",
+      "blanks": [
+        [
+          "var"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "var declarations are initialized to undefined when their scope is prepared.",
+      "expectedOutput": "undefined"
+    },
+    {
+      "id": "js-hoisting-tdz-q009",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Block Scope",
+      "prompt": "Write getInnerValue(), returning the value of a let binding declared inside a nested block.",
+      "functionName": "getInnerValue",
+      "starter": "function getInnerValue() {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [],
+          "expect": 5
+        },
+        {
+          "args": [],
+          "expect": 5
+        },
+        {
+          "args": [],
+          "expect": 5
+        }
+      ],
+      "solution": "function getInnerValue() {\n  {\n    let value = 5;\n    return value;\n  }\n}",
+      "explanation": "The binding can be used inside the block where it is declared."
+    },
+    {
+      "id": "js-hoisting-tdz-q010",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "intermediate",
+      "sourceSection": "Function Declaration Hoisting",
+      "code": "console.log(typeof greet);\nfunction greet() { return 'hi'; }",
+      "options": [
+        "function",
+        "undefined",
+        "ReferenceError",
+        "object"
+      ],
+      "correctOption": 0,
+      "explanation": "The function declaration is available before its source position.",
+      "expectedOutput": "function"
+    },
+    {
+      "id": "js-hoisting-tdz-q011",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "intermediate",
+      "sourceSection": "Block Scope",
+      "code": "var outer = 1;\n{\n  let inner = 2;\n  console.log(outer + inner);\n}",
+      "explanation": "The inner block can access the outer var and its own let binding.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-hoisting-tdz-q012",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "Block Scope",
+      "prompt": "Fill the keyword that gives local block scope to the variable.",
+      "code": "{\n  ____ message = 'inside';\n  console.log(message);\n}",
+      "blanks": [
+        [
+          "let"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "let creates a binding limited to the enclosing block.",
+      "expectedOutput": "inside"
+    },
+    {
+      "id": "js-hoisting-tdz-q013",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "var Hoisting",
+      "prompt": "Write varInitialValue(), returning typeof a var binding before its assignment statement.",
+      "functionName": "varInitialValue",
+      "starter": "function varInitialValue() {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [],
+          "expect": "undefined"
+        },
+        {
+          "args": [],
+          "expect": "undefined"
+        },
+        {
+          "args": [],
+          "expect": "undefined"
+        }
+      ],
+      "solution": "function varInitialValue() {\n  return typeof value;\n  var value = 10;\n}",
+      "explanation": "The var binding exists at function entry and has not yet received its assigned value."
+    },
+    {
+      "id": "js-hoisting-tdz-q014",
+      "type": "completeCode",
+      "level": "intermediate",
+      "sourceSection": "let and const Temporal Dead Zone",
+      "prompt": "Fill the declaration keyword whose binding is block-scoped and cannot be reassigned.",
+      "code": "____ fixed = 3;\nconsole.log(fixed);",
+      "blanks": [
+        [
+          "const"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "const creates a block-scoped non-reassignable binding.",
+      "expectedOutput": "3"
+    },
+    {
+      "id": "js-hoisting-tdz-q015",
+      "type": "whatDoes",
+      "level": "intermediate",
+      "sourceSection": "let and const Temporal Dead Zone",
+      "code": "let value = 3;\nconsole.log(value);",
+      "question": "What ends the temporal dead zone for value?",
+      "options": [
+        "Its initialization is evaluated",
+        "The file finishes parsing",
+        "A different function reads it",
+        "Its block is entered"
+      ],
+      "correctOption": 0,
+      "explanation": "A lexical binding becomes available when its declaration initializes it."
+    },
+    {
+      "id": "js-hoisting-tdz-q016",
+      "type": "writeCode",
+      "level": "intermediate",
+      "sourceSection": "Function Declaration Hoisting",
+      "prompt": "Write incrementTwice(value), returning value after adding one twice.",
+      "functionName": "incrementTwice",
+      "starter": "function incrementTwice(value) {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [
+            2
+          ],
+          "expect": 4
+        },
+        {
+          "args": [
+            0
+          ],
+          "expect": 2
+        },
+        {
+          "args": [
+            -1
+          ],
+          "expect": 1
+        }
+      ],
+      "solution": "function incrementTwice(value) {\n  value++;\n  value++;\n  return value;\n}",
+      "explanation": "Two sequential increments add two to the input."
+    },
+    {
+      "id": "js-hoisting-tdz-q017",
+      "type": "whatDoes",
+      "level": "advanced",
+      "sourceSection": "let and const Temporal Dead Zone",
+      "code": "{\n  console.log(item);\n  let item = 3;\n}",
+      "question": "What happens at the first access to item?",
+      "options": [
+        "A ReferenceError occurs because item is in its temporal dead zone",
+        "It logs undefined like a var binding",
+        "It logs 3 due to hoisting",
+        "The declaration is skipped"
+      ],
+      "correctOption": 0,
+      "explanation": "The lexical binding exists but cannot be accessed before initialization."
+    },
+    {
+      "id": "js-hoisting-tdz-q018",
+      "type": "predictOutput",
+      "mode": "type",
+      "level": "advanced",
+      "sourceSection": "var Hoisting",
+      "code": "function check() {\n  console.log(typeof item);\n  var item = 4;\n}\ncheck();",
+      "explanation": "Within the function, item is declared but not assigned at the time typeof runs.",
+      "expectedOutput": "undefined"
+    },
+    {
+      "id": "js-hoisting-tdz-q019",
+      "type": "completeCode",
+      "level": "advanced",
+      "sourceSection": "Block Scope",
+      "prompt": "Fill the declaration so this block has its own binding separate from the outer one.",
+      "code": "let value = 'outer';\n{\n  ____ value = 'inner';\n  console.log(value);\n}\nconsole.log(value);",
+      "blanks": [
+        [
+          "let"
+        ]
+      ],
+      "caseSensitive": true,
+      "explanation": "A block-scoped declaration can shadow an outer binding in the nested block.",
+      "expectedOutput": "inner\nouter"
+    },
+    {
+      "id": "js-hoisting-tdz-q020",
+      "type": "writeCode",
+      "level": "advanced",
+      "sourceSection": "Block Scope",
+      "prompt": "Write readScopedValues(), returning [1, 2] after reading an outer binding and a block-local binding.",
+      "functionName": "readScopedValues",
+      "starter": "function readScopedValues() {\n  // your code here\n}",
+      "tests": [
+        {
+          "args": [],
+          "expect": [
+            1,
+            2
+          ]
+        },
+        {
+          "args": [],
+          "expect": [
+            1,
+            2
+          ]
+        },
+        {
+          "args": [],
+          "expect": [
+            1,
+            2
+          ]
+        }
+      ],
+      "solution": "function readScopedValues() {\n  const outer = 1;\n  let inner;\n  {\n    const local = 2;\n    inner = local;\n  }\n  return [outer, inner];\n}",
+      "explanation": "The block-local binding is read inside its scope before returning its value."
+    },
+    {
+      "id": "js-hoisting-tdz-q021",
+      "type": "predictOutput",
+      "mode": "choose",
+      "level": "advanced",
+      "sourceSection": "Function Declaration Hoisting",
+      "code": "console.log(run());\nfunction run() { return 'ready'; }",
+      "options": [
+        "ready",
+        "undefined",
+        "ReferenceError",
+        "run"
+      ],
+      "correctOption": 0,
+      "explanation": "The declaration can be called before its textual location.",
+      "expectedOutput": "ready"
+    },
+    {
+      "id": "js-hoisting-tdz-q022",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "Function Declaration Hoisting",
+      "question": "What is commonly meant by saying function declarations are hoisted?",
+      "keyPoints": [
+        "The declaration is processed for its scope before execution",
+        "A function can be called before its textual declaration",
+        "This differs from an uninitialized function expression binding",
+        "Hoisting does not move source text literally"
+      ],
+      "modelAnswer": "A function declaration is available throughout its containing scope, so code can call it before its textual position. Hoisting describes declaration processing; the source code is not literally moved."
+    },
+    {
+      "id": "js-hoisting-tdz-q023",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "var Hoisting",
+      "question": "What value does a hoisted var binding have before its assignment runs?",
+      "keyPoints": [
+        "The binding is initialized to undefined",
+        "The later assignment has not executed yet",
+        "Reading it does not produce the temporal dead zone error",
+        "Use let or const for block-scoped bindings"
+      ],
+      "modelAnswer": "A var binding is created and initialized to undefined before the assignment statement executes. This differs from let and const, which cannot be accessed before initialization."
+    },
+    {
+      "id": "js-hoisting-tdz-q024",
+      "type": "interview",
+      "level": "interview",
+      "sourceSection": "let and const Temporal Dead Zone",
+      "question": "What is the temporal dead zone for let and const?",
+      "keyPoints": [
+        "It starts when the lexical scope is entered",
+        "It ends when the declaration initializes the binding",
+        "Access during the interval throws ReferenceError",
+        "The binding is not usable merely because it was declared"
+      ],
+      "modelAnswer": "The temporal dead zone is the interval from entering a lexical scope until a let or const binding is initialized. Accessing that binding during the interval throws a ReferenceError rather than producing undefined."
+    }
+  ]
+}
