@@ -1075,6 +1075,231 @@
           }
         }
       ]
+    },
+    {
+      "id": "react",
+      "topics": [
+        {
+          "order": 1,
+          "topic": "JSX Basics",
+          "file": "data/react/01-jsx-basics.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 2,
+          "topic": "Components and Props",
+          "file": "data/react/02-components-and-props.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 3,
+          "topic": "State with useState",
+          "file": "data/react/03-state-with-usestate.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 4,
+          "topic": "Events and Forms",
+          "file": "data/react/04-events-and-forms.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 5,
+          "topic": "Lists, Keys, and Conditional Rendering",
+          "file": "data/react/05-lists-keys-and-conditional-rendering.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 6,
+          "topic": "useEffect",
+          "file": "data/react/06-useeffect.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 7,
+          "topic": "useRef and useContext",
+          "file": "data/react/07-useref-and-usecontext.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 8,
+          "topic": "Custom Hooks",
+          "file": "data/react/08-custom-hooks.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 9,
+          "topic": "Data Fetching Patterns",
+          "file": "data/react/09-data-fetching-patterns.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        },
+        {
+          "order": 10,
+          "topic": "Performance and Memoization",
+          "file": "data/react/10-performance-and-memoization.json",
+          "counts": {
+            "terms": 12,
+            "questions": 24,
+            "byLevel": {
+              "beginner": 8,
+              "intermediate": 8,
+              "advanced": 4,
+              "interview": 4
+            },
+            "byType": {
+              "whatDoes": 9,
+              "predictOutput": 3,
+              "completeCode": 8,
+              "writeCode": 0,
+              "interview": 4
+            }
+          }
+        }
+      ]
     }
   ]
 }
