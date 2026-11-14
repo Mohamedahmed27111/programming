@@ -1,5 +1,6 @@
 import { normalizeText, TOPIC_COLORS } from './data.js';
 import { escapeHtml, highlightCode, shuffle } from './ui.js';
+import { recordTermSession, saveProgress } from './progress.js';
 
 const SESSION_SIZE = 10;
 
@@ -8,6 +9,8 @@ export function renderTerms(state, terms) {
   const poolKey = terms.map(term => term.id).join('|');
   if (!ts || ts.poolKey !== poolKey) resetTermMode(state, terms, ts?.mode || 'flashcards');
   const termState = state.termState;
+  termState.known = new Set(Object.keys(state.progress?.terms || {}).filter(id => state.progress.terms[id] === 'known'));
+  termState.learning = new Set(Object.keys(state.progress?.terms || {}).filter(id => state.progress.terms[id] === 'learning'));
   return `<section class="terms-screen">
     <div class="screen-heading"><div><p class="eyebrow">TERMS / ${terms.length} AVAILABLE</p><h1>Words make worlds.</h1></div><p>Learn a little, remember a lot.</p></div>
     <div class="segmented-control" role="group" aria-label="Term study mode">
@@ -20,7 +23,7 @@ export function renderTerms(state, terms) {
   </section>`;
 }
 
-export function bindTerms(app, state, terms, rerender) {
+export function bindTerms(app, state, terms, rerender, onTermStatus) {
   const ts = state.termState;
   if (state.termKeyHandler) window.removeEventListener('keydown', state.termKeyHandler);
   app.querySelectorAll('[data-term-mode]').forEach(button => button.addEventListener('click', () => {
@@ -42,7 +45,10 @@ export function bindTerms(app, state, terms, rerender) {
       ts.flipped = false;
     }
     if (action === 'mark-known' || action === 'mark-learning') {
-      (action === 'mark-known' ? ts.known : ts.learning).add(ts.currentTerm.id);
+      const status = action === 'mark-known' ? 'known' : 'learning';
+      (status === 'known' ? ts.learning : ts.known).delete(ts.currentTerm.id);
+      (status === 'known' ? ts.known : ts.learning).add(ts.currentTerm.id);
+      onTermStatus?.(ts.currentTerm.id, status);
       ts.index = (ts.index + 1) % terms.length;
       ts.flipped = false;
     }
@@ -76,7 +82,10 @@ export function bindTerms(app, state, terms, rerender) {
         ts.flipped = !ts.flipped;
         rerender();
       } else if (!editing && ['k', 'l'].includes(event.key.toLowerCase())) {
-        (event.key.toLowerCase() === 'k' ? ts.known : ts.learning).add(ts.currentTerm.id);
+        const status = event.key.toLowerCase() === 'k' ? 'known' : 'learning';
+        (status === 'known' ? ts.learning : ts.known).delete(ts.currentTerm.id);
+        (status === 'known' ? ts.known : ts.learning).add(ts.currentTerm.id);
+        onTermStatus?.(ts.currentTerm.id, status);
         ts.index = (ts.index + 1) % terms.length;
         ts.flipped = false;
         rerender();
@@ -187,7 +196,8 @@ function resetTermMode(state, terms, mode) {
   const required = mode === 'choose' ? 4 : 1;
   const ts = state.termState = {
     mode, poolKey, index: 0, flipped: false,
-    known: previous?.known || new Set(), learning: previous?.learning || new Set(),
+    known: previous?.known || new Set(Object.keys(state.progress?.terms || {}).filter(id => state.progress.terms[id] === 'known')),
+    learning: previous?.learning || new Set(Object.keys(state.progress?.terms || {}).filter(id => state.progress.terms[id] === 'learning')),
     session: [], selected: null, feedback: null, answer: '', hints: 0,
     result: null, results: [], totalHints: 0, currentTerm: terms[0] || null
   };
@@ -231,8 +241,8 @@ function checkSpelling(ts) {
 function advanceQuiz(state) {
   const ts = state.termState;
   const item = ts.session[ts.index];
-  const result = { correct: Boolean(ts.feedback?.correct) };
-  if (ts.mode.startsWith('spell-')) Object.assign(result, { term: item.term, answer: ts.answer, hints: ts.hints });
+  const result = { correct: Boolean(ts.feedback?.correct), term: item.term };
+  if (ts.mode.startsWith('spell-')) Object.assign(result, { answer: ts.answer, hints: ts.hints });
   ts.results.push(result);
   if (ts.mode.startsWith('spell-')) ts.totalHints += ts.hints;
   if (ts.index + 1 >= ts.session.length) {
@@ -245,6 +255,10 @@ function advanceQuiz(state) {
       hints: ts.totalHints,
       missed
     };
+    if (state.progress) {
+      recordTermSession(state.progress, ts.mode, ts.results);
+      state.progressMessage = saveProgress(state.progress);
+    }
     return;
   }
   ts.index += 1;

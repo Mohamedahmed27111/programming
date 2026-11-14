@@ -1,6 +1,7 @@
 import { runWriteCode } from './worker-runner.js';
 import { escapeHtml, formatValue, highlightCode, shuffle } from './ui.js';
 import { TOPIC_COLORS } from './data.js';
+import { getWeakQuestions, recordPracticeSession, saveProgress } from './progress.js';
 
 const QUESTION_TYPES = ['whatDoes', 'predictOutput', 'completeCode', 'writeCode', 'interview'];
 
@@ -52,7 +53,7 @@ export function bindPractice(app, state, questions, rerender) {
       practice.covered.has(point) ? practice.covered.delete(point) : practice.covered.add(point);
       practice.answerResult = { correct: practice.covered.size === currentQuestion(practice).keyPoints.length };
     } else if (action === 'next-question') {
-      finishQuestion(practice, app);
+      finishQuestion(practice, app, state);
     } else if (action === 'retry-missed') {
       retryMissed(practice);
     } else if (action === 'new-session') {
@@ -216,6 +217,7 @@ function startSession(practice, questions) {
   practice.answer = undefined;
   practice.runResults = null;
   practice.solutionShown = false;
+  practice.recorded = false;
 }
 
 function makeSession(pool, count, previousOrders = new Map()) {
@@ -282,7 +284,7 @@ function currentUserAnswer(app, practice) {
   return app.querySelector('[data-code-editor]')?.value ?? practice.answer;
 }
 
-function finishQuestion(practice) {
+function finishQuestion(practice, app, state) {
   const question = currentQuestion(practice);
   if (!practice.answerResult) return;
   practice.answers.push({
@@ -294,6 +296,11 @@ function finishQuestion(practice) {
   });
   if (practice.index + 1 >= practice.session.length) {
     practice.phase = 'results';
+    if (!practice.recorded && state.progress) {
+      recordPracticeSession(state.progress, practice.answers);
+      state.progressMessage = saveProgress(state.progress);
+      practice.recorded = true;
+    }
     return;
   }
   practice.index += 1;
@@ -321,6 +328,29 @@ function retryMissed(practice) {
   practice.answer = undefined;
   practice.runResults = null;
   practice.solutionShown = false;
+  practice.recorded = false;
+}
+
+export function startWeakPractice(state, questions) {
+  const weak = getWeakQuestions(state.progress, questions);
+  if (!weak.length) return false;
+  const previousOptionOrders = state.practice?.previousOptionOrders || new Map();
+  const signature = questions.map(question => question.id).join('|');
+  const practice = state.practice = {
+    poolKey: signature, phase: 'question', count: 'all',
+    selectedTypes: new Set(QUESTION_TYPES),
+    session: makeSession(weak, weak.length, previousOptionOrders),
+    index: 0, answerResult: null, answers: [], blankValues: [],
+    selected: null, revealed: false, covered: new Set(),
+    workerRunning: false, solutionShown: false, previousOptionOrders
+  };
+  practice.answer = undefined;
+  practice.runResults = null;
+  practice.previousOptionOrders = new Map(practice.session
+    .filter(question => question.options)
+    .map(question => [question.id, question.options.join('\u0000')]));
+  practice.recorded = false;
+  return true;
 }
 
 function normalizeOutput(value) {

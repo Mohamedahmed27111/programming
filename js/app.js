@@ -1,6 +1,7 @@
 import { getFilteredItems, loadDataset, TOPIC_COLORS } from './data.js';
 import { bindTerms, renderTerms } from './terms.js';
-import { bindPractice, renderPractice } from './practice.js';
+import { bindPractice, renderPractice, startWeakPractice } from './practice.js';
+import { bindProgress, loadProgress, renderProgress, saveProgress } from './progress.js';
 
 const LEVELS = ['beginner', 'intermediate', 'advanced', 'interview'];
 const state = {
@@ -17,6 +18,9 @@ async function start() {
   try {
     state.dataset = await loadDataset();
     state.filters.subjectId = state.dataset.subjects[0].id;
+    const storedProgress = loadProgress();
+    state.progress = storedProgress.progress;
+    state.progressMessage = storedProgress.warning;
     render();
   } catch (error) {
     renderError(error);
@@ -90,7 +94,7 @@ function render() {
           ? renderTerms(state, terms)
           : state.screen === 'practice'
             ? renderPractice(state, questions)
-            : renderPlaceholder(terms.length, questions.length)}</div>
+            : renderProgress(state, subject, terms, questions)}</div>
       </main>
       <nav class="mobile-nav" aria-label="Main navigation">
         ${navButton('terms', 'Terms', '✳')}
@@ -149,8 +153,16 @@ function bindShellEvents(terms, questions) {
     search.focus();
     search.setSelectionRange(selectionStart, selectionStart);
   });
-  if (state.screen === 'terms') bindTerms(app, state, terms, render);
+  if (state.screen === 'terms') bindTerms(app, state, terms, render, (termId, status) => {
+    state.progress.terms[termId] = status;
+    state.progressMessage = saveProgress(state.progress);
+  });
   if (state.screen === 'practice') bindPractice(app, state, questions, render);
+  if (state.screen === 'progress') bindProgress(app, state, questions, render, () => {
+    if (!startWeakPractice(state, questions)) return;
+    state.screen = 'practice';
+    render();
+  });
 }
 
 function titleCase(value) {
