@@ -373,7 +373,7 @@
         "NoticeMap available",
         "Notice\nMap available\nRoom 4 is open today"
       ],
-      "correctOption": 2,
+      "correctOption": 0,
       "explanation": "Both the article and complementary aside contain visible text, in document order.",
       "explanationAr": "المقال والمحتوى الجانبي فيهم نص ظاهر وبيظهروا بترتيب المستند.",
       "expectedOutput": "Notice\nRoom 4 is open.\nMap available"
