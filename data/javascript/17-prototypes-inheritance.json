@@ -258,21 +258,30 @@
             2,
             4
           ],
-          "expect": [2, 4]
+          "expect": [
+            2,
+            4
+          ]
         },
         {
           "args": [
             0,
             0
           ],
-          "expect": [0, 0]
+          "expect": [
+            0,
+            0
+          ]
         },
         {
           "args": [
             -1,
             3
           ],
-          "expect": [-1, 3]
+          "expect": [
+            -1,
+            3
+          ]
         }
       ],
       "solution": "function makePoint(x, y) {\n  function Point(horizontal, vertical) {\n    this.x = horizontal;\n    this.y = vertical;\n  }\n  Point.prototype.coordinates = function() { return [this.x, this.y]; };\n  return new Point(x, y).coordinates();\n}",
@@ -347,10 +356,10 @@
       "type": "predictOutput",
       "mode": "type",
       "level": "intermediate",
-      "sourceSection": "method overriding",
-      "code": "class Parent { speak() { return 'base'; } }\nclass Child extends Parent { speak() { return 'child'; } }\nconsole.log(new Child().speak());",
-      "explanation": "The subclass method overrides the inherited method with the same name.",
-      "expectedOutput": "child"
+      "sourceSection": "Prototype Chain",
+      "code": "class Vehicle {}\nclass Bike extends Vehicle {}\nconst bike = new Bike();\nconsole.log(Object.getPrototypeOf(Bike.prototype) === Vehicle.prototype);\nconsole.log(bike instanceof Vehicle);",
+      "explanation": "extends links the child prototype to the parent prototype, making inherited instanceof checks succeed.",
+      "expectedOutput": "true\ntrue"
     },
     {
       "id": "js-prototypes-inheritance-q012",
@@ -490,10 +499,10 @@
       "type": "predictOutput",
       "mode": "type",
       "level": "advanced",
-      "sourceSection": "method overriding",
-      "code": "class Base { value() { return 'base'; } }\nclass Child extends Base { value() { return super.value() + '-child'; } }\nconsole.log(new Child().value());",
-      "explanation": "The override calls the base implementation and appends its own suffix.",
-      "expectedOutput": "base-child"
+      "sourceSection": "Property Lookup",
+      "code": "const defaults = { mode: 'quiet' };\nconst user = Object.create(defaults);\nconsole.log(user.mode);\nuser.mode = 'loud';\nconsole.log(user.mode);",
+      "explanation": "Lookup first finds mode on the prototype; assigning mode creates an own property that shadows it.",
+      "expectedOutput": "quiet\nloud"
     },
     {
       "id": "js-prototypes-inheritance-q019",

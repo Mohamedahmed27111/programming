@@ -567,17 +567,17 @@
       "type": "predictOutput",
       "mode": "choose",
       "level": "advanced",
-      "sourceSection": "class Syntax",
-      "code": "class Base { value() { return 2; } }\nclass Child extends Base { value() { return super.value() + 3; } }\nconsole.log(new Child().value());",
+      "sourceSection": "getters and setters",
+      "code": "class Rectangle {\n  constructor(width, height) { this.width = width; this.height = height; }\n  get area() { return this.width * this.height; }\n}\nconst box = new Rectangle(3, 4);\nconsole.log(box.area);",
       "options": [
-        "3",
-        "2",
-        "undefined",
-        "5"
+        "7",
+        "24",
+        "12",
+        "A TypeError"
       ],
-      "correctOption": 3,
-      "explanation": "The override calls the base implementation and adds three.",
-      "expectedOutput": "5"
+      "correctOption": 2,
+      "explanation": "Reading area invokes the getter, which multiplies the instance's width and height.",
+      "expectedOutput": "12"
     },
     {
       "id": "js-classes-modules-q022",

@@ -184,10 +184,10 @@
       "type": "predictOutput",
       "mode": "type",
       "level": "beginner",
-      "sourceSection": "Default Parameters",
-      "code": "function greet(name = 'guest') { return name; }\nconsole.log(greet());",
-      "explanation": "The omitted argument causes the default parameter value to be used.",
-      "expectedOutput": "guest"
+      "sourceSection": "Rest Operator",
+      "code": "const collect = (...items) => items.length;\nconsole.log(collect('red', 'green', 'blue'));",
+      "explanation": "The rest parameter collects all supplied arguments into an array.",
+      "expectedOutput": "3"
     },
     {
       "id": "js-modern-functions-q004",

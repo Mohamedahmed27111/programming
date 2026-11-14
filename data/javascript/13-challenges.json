@@ -350,48 +350,26 @@
       "id": "js-challenges-q009",
       "type": "writeCode",
       "level": "intermediate",
-      "sourceSection": "Profile Lookup",
-      "prompt": "Write findById(profiles, id), returning the first matching profile or null.",
-      "functionName": "findById",
-      "starter": "function findById(profiles, id) {\n  // your code here\n}",
+      "sourceSection": "Stand in Line",
+      "prompt": "Write serveAfterJoining(queue, person), adding the person to the end of the queue, serving the first person, and returning the served person plus the remaining queue.",
+      "functionName": "serveAfterJoining",
+      "starter": "function serveAfterJoining(queue, person) {\n  // add to the line, serve its front, and return both results\n}",
       "tests": [
         {
-          "args": [
-            [
-              {
-                "id": 2
-              },
-              {
-                "id": 4
-              }
-            ],
-            4
-          ],
-          "expect": {
-            "id": 4
-          }
+          "args": [["Ana", "Bo"], "Cy"],
+          "expect": { "served": "Ana", "waiting": ["Bo", "Cy"] }
         },
         {
-          "args": [
-            [],
-            1
-          ],
-          "expect": null
+          "args": [[], "Z"],
+          "expect": { "served": "Z", "waiting": [] }
         },
         {
-          "args": [
-            [
-              {
-                "id": 1
-              }
-            ],
-            9
-          ],
-          "expect": null
+          "args": [["Q"], "R"],
+          "expect": { "served": "Q", "waiting": ["R"] }
         }
       ],
-      "solution": "function findById(profiles, id) {\n  for (const profile of profiles) if (profile.id === id) return profile;\n  return null;\n}",
-      "explanation": "Search in order and return as soon as the identifier matches."
+      "solution": "function serveAfterJoining(queue, person) {\n  queue.push(person);\n  const served = queue.shift();\n  return { served, waiting: queue };\n}",
+      "explanation": "push places the new person at the back, and shift serves the person at the front."
     },
     {
       "id": "js-challenges-q010",
@@ -582,39 +560,26 @@
       "id": "js-challenges-q014",
       "type": "writeCode",
       "level": "intermediate",
-      "sourceSection": "Counting Cards",
-      "prompt": "Write countHigh(values), counting numbers greater than five.",
-      "functionName": "countHigh",
-      "starter": "function countHigh(values) {\n  // your code here\n}",
+      "sourceSection": "Record Collection",
+      "prompt": "Write updateTrack(record, track, value), assigning a non-empty value to the track or deleting that property when value is an empty string, then returning the record.",
+      "functionName": "updateTrack",
+      "starter": "function updateTrack(record, track, value) {\n  // update or remove the track property\n}",
       "tests": [
         {
-          "args": [
-            [
-              4,
-              6,
-              8
-            ]
-          ],
-          "expect": 2
+          "args": [{"title": "Sky"}, "artist", "Nia"],
+          "expect": {"title": "Sky", "artist": "Nia"}
         },
         {
-          "args": [
-            []
-          ],
-          "expect": 0
+          "args": [{"title": "Sky", "artist": "Nia"}, "artist", ""],
+          "expect": {"title": "Sky"}
         },
         {
-          "args": [
-            [
-              5,
-              5
-            ]
-          ],
-          "expect": 0
+          "args": [{"title": "Sky"}, "artist", ""],
+          "expect": {"title": "Sky"}
         }
       ],
-      "solution": "function countHigh(values) {\n  let count = 0;\n  for (const value of values) if (value > 5) count++;\n  return count;\n}",
-      "explanation": "Test each value and increment an accumulator only above the threshold."
+      "solution": "function updateTrack(record, track, value) {\n  if (value === '') delete record[track];\n  else record[track] = value;\n  return record;\n}",
+      "explanation": "A computed property name updates the selected track, while delete removes it for an empty value."
     },
     {
       "id": "js-challenges-q015",

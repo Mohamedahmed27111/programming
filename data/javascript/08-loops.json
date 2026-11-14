@@ -512,10 +512,10 @@
       "type": "predictOutput",
       "mode": "type",
       "level": "advanced",
-      "sourceSection": "Count Backwards",
-      "code": "let n = 4;\nwhile (n >= 1) n -= 2;\nconsole.log(n);",
-      "explanation": "The counter takes values 4, 2, and then 0, where the condition fails.",
-      "expectedOutput": "0"
+      "sourceSection": "For",
+      "code": "for (let i = 3; i >= 0; i--) {\n  if (i === 1) continue;\n  console.log(i);\n}",
+      "explanation": "continue skips the current iteration when i is 1, but the loop continues with lower values.",
+      "expectedOutput": "3\n2\n0"
     },
     {
       "id": "js-loops-q019",

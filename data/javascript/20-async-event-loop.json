@@ -367,44 +367,13 @@
     },
     {
       "id": "js-async-event-loop-q013",
-      "type": "writeCode",
+      "type": "predictOutput",
+      "mode": "type",
       "level": "intermediate",
       "sourceSection": "Promises",
-      "prompt": "Write doubleValues(values), using map's callback to return a new array with every number doubled.",
-      "functionName": "doubleValues",
-      "starter": "function doubleValues(values) {\n  // your code here\n}",
-      "tests": [
-        {
-          "args": [
-            [
-              3
-            ]
-          ],
-          "expect": [
-            6
-          ]
-        },
-        {
-          "args": [
-            []
-          ],
-          "expect": []
-        },
-        {
-          "args": [
-            [
-              -2,
-              0
-            ]
-          ],
-          "expect": [
-            -4,
-            0
-          ]
-        }
-      ],
-      "solution": "function doubleValues(values) {\n  return values.map(value => value * 2);\n}",
-      "explanation": "map invokes its callback for each input value and collects the returned results."
+      "code": "Promise.all([Promise.resolve('left'), Promise.resolve('right')])\n  .then(values => console.log(values.join(',')));",
+      "explanation": "Promise.all resolves with results in input order after every input promise fulfills.",
+      "expectedOutput": "left,right"
     },
     {
       "id": "js-async-event-loop-q014",
@@ -534,17 +503,17 @@
       "type": "predictOutput",
       "mode": "choose",
       "level": "advanced",
-      "sourceSection": "async/await",
-      "code": "async function run() {\n  console.log('A');\n  await Promise.resolve();\n  console.log('B');\n}\nrun();\nconsole.log('C');",
+      "sourceSection": "Promise Rejections",
+      "code": "async function load() {\n  throw new Error('offline');\n}\nload().catch(error => console.log(error.message));\nconsole.log('started');",
       "options": [
-        "B\\nA\\nC",
-        "A\\nB\\nC",
-        "C\\nA\\nB",
-        "A\nC\nB"
+        "offline\nstarted",
+        "started\noffline",
+        "Error",
+        "A TypeError"
       ],
-      "correctOption": 3,
-      "explanation": "The async function runs until await, yields, then resumes after the current stack.",
-      "expectedOutput": "A\nC\nB"
+      "correctOption": 1,
+      "explanation": "The synchronous log runs first, then the rejected promise's catch handler runs as a microtask.",
+      "expectedOutput": "started\noffline"
     },
     {
       "id": "js-async-event-loop-q022",

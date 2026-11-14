@@ -248,19 +248,55 @@
       "starter": "function makeAdder(base) {\n  // return an adder function\n}",
       "tests": [
         {
-          "args": [3],
-          "invoke": [[2], [0], [-3]],
-          "expect": [5, 3, 0]
+          "args": [
+            3
+          ],
+          "invoke": [
+            [
+              2
+            ],
+            [
+              0
+            ],
+            [
+              -3
+            ]
+          ],
+          "expect": [
+            5,
+            3,
+            0
+          ]
         },
         {
-          "args": [-4],
-          "invoke": [[4], [1]],
-          "expect": [0, -3]
+          "args": [
+            -4
+          ],
+          "invoke": [
+            [
+              4
+            ],
+            [
+              1
+            ]
+          ],
+          "expect": [
+            0,
+            -3
+          ]
         },
         {
-          "args": [0],
-          "invoke": [[-2]],
-          "expect": [-2]
+          "args": [
+            0
+          ],
+          "invoke": [
+            [
+              -2
+            ]
+          ],
+          "expect": [
+            -2
+          ]
         }
       ],
       "solution": "function makeAdder(base) {\n  return function(value) {\n    return base + value;\n  };\n}",
@@ -292,19 +328,43 @@
       "starter": "function makeCounter(start) {\n  // return a counter function\n}",
       "tests": [
         {
-          "args": [10],
-          "invoke": [[], [], []],
-          "expect": [11, 12, 13]
+          "args": [
+            10
+          ],
+          "invoke": [
+            [],
+            [],
+            []
+          ],
+          "expect": [
+            11,
+            12,
+            13
+          ]
         },
         {
-          "args": [-1],
-          "invoke": [[], []],
-          "expect": [0, 1]
+          "args": [
+            -1
+          ],
+          "invoke": [
+            [],
+            []
+          ],
+          "expect": [
+            0,
+            1
+          ]
         },
         {
-          "args": [0],
-          "invoke": [[]],
-          "expect": [1]
+          "args": [
+            0
+          ],
+          "invoke": [
+            []
+          ],
+          "expect": [
+            1
+          ]
         }
       ],
       "solution": "function makeCounter(start) {\n  let count = start;\n  return function() {\n    count += 1;\n    return count;\n  };\n}",
@@ -316,16 +376,16 @@
       "mode": "choose",
       "level": "intermediate",
       "sourceSection": "Closures",
-      "code": "function makeReader() {\n  let value = 1;\n  return () => value;\n}\nconst read = makeReader();\nconsole.log(read());",
+      "code": "function makeCounter(start) {\n  let count = start;\n  return () => ++count;\n}\nconst first = makeCounter(0);\nconst second = makeCounter(10);\nconsole.log(first(), first(), second());",
       "options": [
-        "A ReferenceError",
-        "1",
-        "null",
-        "undefined"
+        "1 11 2",
+        "1 2 11",
+        "2 1 11",
+        "1 2 10"
       ],
       "correctOption": 1,
-      "explanation": "The closure retains access to the initialized binding.",
-      "expectedOutput": "1"
+      "explanation": "Each factory call creates a separate count binding, so the two counters do not interfere.",
+      "expectedOutput": "1 2 11"
     },
     {
       "id": "js-closures-q011",
@@ -363,19 +423,51 @@
       "starter": "function makeMultiplier(factor) {\n  // return a multiplier function\n}",
       "tests": [
         {
-          "args": [3],
-          "invoke": [[4], [0], [-2]],
-          "expect": [12, 0, -6]
+          "args": [
+            3
+          ],
+          "invoke": [
+            [
+              4
+            ],
+            [
+              0
+            ],
+            [
+              -2
+            ]
+          ],
+          "expect": [
+            12,
+            0,
+            -6
+          ]
         },
         {
-          "args": [0],
-          "invoke": [[5]],
-          "expect": [0]
+          "args": [
+            0
+          ],
+          "invoke": [
+            [
+              5
+            ]
+          ],
+          "expect": [
+            0
+          ]
         },
         {
-          "args": [-2],
-          "invoke": [[2]],
-          "expect": [-4]
+          "args": [
+            -2
+          ],
+          "invoke": [
+            [
+              2
+            ]
+          ],
+          "expect": [
+            -4
+          ]
         }
       ],
       "solution": "function makeMultiplier(factor) {\n  return function(value) {\n    return value * factor;\n  };\n}",
@@ -423,19 +515,55 @@
       "starter": "function makeRunningTotal(start) {\n  // return an accumulator function\n}",
       "tests": [
         {
-          "args": [2],
-          "invoke": [[3], [-2], [7]],
-          "expect": [5, 3, 10]
+          "args": [
+            2
+          ],
+          "invoke": [
+            [
+              3
+            ],
+            [
+              -2
+            ],
+            [
+              7
+            ]
+          ],
+          "expect": [
+            5,
+            3,
+            10
+          ]
         },
         {
-          "args": [0],
-          "invoke": [[0], [0]],
-          "expect": [0, 0]
+          "args": [
+            0
+          ],
+          "invoke": [
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ],
+          "expect": [
+            0,
+            0
+          ]
         },
         {
-          "args": [-2],
-          "invoke": [[1]],
-          "expect": [-1]
+          "args": [
+            -2
+          ],
+          "invoke": [
+            [
+              1
+            ]
+          ],
+          "expect": [
+            -1
+          ]
         }
       ],
       "solution": "function makeRunningTotal(start) {\n  let total = start;\n  return function(value) {\n    total += value;\n    return total;\n  };\n}",
@@ -462,10 +590,10 @@
       "type": "predictOutput",
       "mode": "type",
       "level": "advanced",
-      "sourceSection": "Lexical Scope",
-      "code": "let value = 1;\nfunction make() {\n  let value = 4;\n  return () => value;\n}\nconst read = make();\nvalue = 9;\nconsole.log(read());",
-      "explanation": "The closure captures the inner binding, not the outer binding with the same name.",
-      "expectedOutput": "4"
+      "sourceSection": "Private State",
+      "code": "function makeStatus() {\n  let status = 'open';\n  return {\n    read() { return status; },\n    close() { status = 'closed'; }\n  };\n}\nconst tracker = makeStatus();\ntracker.close();\nconsole.log(tracker.read());",
+      "explanation": "The returned methods share and update one private binding retained by their closure.",
+      "expectedOutput": "closed"
     },
     {
       "id": "js-closures-q019",
@@ -493,19 +621,46 @@
       "starter": "function makeStepCounter(start, step) {\n  // return a step-counter function\n}",
       "tests": [
         {
-          "args": [1, 2],
-          "invoke": [[], [], []],
-          "expect": [3, 5, 7]
+          "args": [
+            1,
+            2
+          ],
+          "invoke": [
+            [],
+            [],
+            []
+          ],
+          "expect": [
+            3,
+            5,
+            7
+          ]
         },
         {
-          "args": [-3, 1],
-          "invoke": [[], []],
-          "expect": [-2, -1]
+          "args": [
+            -3,
+            1
+          ],
+          "invoke": [
+            [],
+            []
+          ],
+          "expect": [
+            -2,
+            -1
+          ]
         },
         {
-          "args": [0, 0],
-          "invoke": [[]],
-          "expect": [0]
+          "args": [
+            0,
+            0
+          ],
+          "invoke": [
+            []
+          ],
+          "expect": [
+            0
+          ]
         }
       ],
       "solution": "function makeStepCounter(start, step) {\n  let count = start;\n  return function() {\n    count += step;\n    return count;\n  };\n}",

@@ -550,17 +550,17 @@
       "type": "predictOutput",
       "mode": "choose",
       "level": "advanced",
-      "sourceSection": "Length",
-      "code": "console.log('A😀'.length);",
+      "sourceSection": "Bracket Notation",
+      "code": "const text = 'blueberry';\nconsole.log(text.slice(-3));",
       "options": [
-        "3",
-        "4",
-        "2",
-        "1"
+        "ber",
+        "rry",
+        "y",
+        "undefined"
       ],
-      "correctOption": 0,
-      "explanation": "The emoji is represented by a surrogate pair, so it contributes two UTF-16 code units.",
-      "expectedOutput": "3"
+      "correctOption": 1,
+      "explanation": "A negative slice index counts backward from the end and returns the final three characters.",
+      "expectedOutput": "rry"
     },
     {
       "id": "js-strings-q022",
